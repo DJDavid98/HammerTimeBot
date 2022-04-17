@@ -1,7 +1,7 @@
 import { LocalizationMap } from 'discord-api-types/v10.js';
-import { huLocale } from './hu.js';
-import { enLocale } from './en.js';
 import { Localization } from '../types/localization.js';
+import { locale as huLocale } from '../locales/hu.js';
+import { locale as enLocale } from '../locales/en.js';
 
 type SupportedLanguages = keyof Pick<LocalizationMap, 'hu' | 'en-US'>;
 

@@ -6,7 +6,7 @@ import {
   findTimezone, formattedResponse, MessageTimestamp, MessageTimestampFormat,
 } from '../utils/time.js';
 import { TimestampCommandOptionName } from '../types/localization.js';
-import { locales } from '../locales/index.js';
+import { locales } from '../constants/locales.js';
 
 const timestampEnCommon = locales['en-US'].commands.timestamp;
 const timestampHuCommon = locales.hu.commands.timestamp;

@@ -1,4 +1,4 @@
-# HammerTimeBot ![Workflow status](https://github.com/DJDavid98/HammerTimeBot/workflows/Build/badge.svg)
+# HammerTimeBot ![Workflow status](https://github.com/DJDavid98/HammerTimeBot/workflows/Build/badge.svg) <a title="Crowdin" target="_blank" href="https://crowdin.com/project/hammertimebot"><img src="https://badges.crowdin.net/hammertimebot/localized.svg" alt=""></a></h1>
 
 Chat bot written in Node.js (using [discord.js](https://www.npmjs.com/package/discord.js)) for [HammerTime]
 

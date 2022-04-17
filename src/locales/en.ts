@@ -1,7 +1,7 @@
 import { Localization } from '../types/localization.js';
 import { MessageTimestampFormat } from '../utils/time.js';
 
-export const enLocale: Localization = {
+export const locale: Localization = {
   commands: {
     timestamp: {
       name: 'timestamp',
