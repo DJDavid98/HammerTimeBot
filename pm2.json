@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name": "HammerTimeBot",
+      "script": "build/index.js",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z"
+    }
+  ]
+}
