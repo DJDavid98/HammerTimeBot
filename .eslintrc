@@ -55,5 +55,15 @@
         "avoidEscape": true
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": "src/locales/*.ts",
+      "rules": {
+        "quotes": [
+          "off"
+        ]
+      }
+    }
+  ]
 }
