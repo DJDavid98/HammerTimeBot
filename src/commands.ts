@@ -12,14 +12,11 @@ export const commandMap: Record<BotCommandName, BotCommand> = {
 
 export const commandNames = (Object.keys(commandMap) as BotCommandName[]);
 
-export const commands: ApplicationGuildCommand[] = commandNames.map((commandName) => {
-  const { options, ...restProps } = commandMap[commandName].definition;
-  return ({
-    ...restProps,
-    name: commandName,
-    type: ApplicationCommandType.ChatInput,
-  });
-});
+export const commands: ApplicationGuildCommand[] = commandNames.map((commandName) => ({
+  ...commandMap[commandName].definition,
+  name: commandName,
+  type: ApplicationCommandType.ChatInput,
+}));
 
 export const isKnownCommand = (commandName: string): commandName is BotCommandName => commandName in commandMap;
 
