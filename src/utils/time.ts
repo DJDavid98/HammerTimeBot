@@ -1,38 +1,8 @@
-import moment from 'moment-timezone';
+import moment, { Moment } from 'moment-timezone';
 import levenshtein from 'js-levenshtein';
-
-export enum MessageTimestampFormat {
-  /** @example `18/08/2021` */
-  SHORT_DATE = 'd',
-  /** @example `18 August 2021 09:52` */
-  SHORT_FULL = 'f',
-  /** @example `09:52` */
-  SHORT_TIME = 't',
-  /** @example `18 August 2021` */
-  LONG_DATE = 'D',
-  /** @example `Wednesday, 18 August 2021 09:52` */
-  LONG_FULL = 'F',
-  /** @example `8 minutes ago` */
-  RELATIVE = 'R',
-  /** @example `09:52:00` */
-  LONG_TIME = 'T',
-}
-
-export class MessageTimestamp {
-  constructor(private date: Date) {
-  }
-
-  toString<F extends MessageTimestampFormat>(tsFormat: F): `<t:${string}:${F}>`;
-  toString(tsFormat?: undefined): `<t:${string}:${MessageTimestampFormat.LONG_FULL}>`;
-
-  toString<F extends MessageTimestampFormat>(tsFormat?: F): `<t:${string}:${F | MessageTimestampFormat.LONG_FULL}>` {
-    return MessageTimestamp.fromTimestamp(Math.round(this.date.getTime() / 1000), tsFormat);
-  }
-
-  static fromTimestamp<F extends MessageTimestampFormat>(unixTimestamp: string | number, tsFormat?: F): `<t:${string}:${F | MessageTimestampFormat.LONG_FULL}>` {
-    return `<t:${unixTimestamp}:${tsFormat || MessageTimestampFormat.LONG_FULL}>`;
-  }
-}
+import { unitOfTime } from 'moment';
+import { TimezoneError } from './timezone-error.js';
+import { MessageTimestamp, MessageTimestampFormat } from './message-timestamp.js';
 
 export const pad = (n: number, length: number): string => {
   const nString = `${n}`;
@@ -93,8 +63,18 @@ export const findTimezone = (value: string): string | undefined => {
     return timezoneIndex[bestMatchKey];
   }
 
-  return undefined;
+  throw new TimezoneError(value);
 };
+
+export const supportedFormats = [
+  MessageTimestampFormat.SHORT_DATE,
+  MessageTimestampFormat.LONG_DATE,
+  MessageTimestampFormat.SHORT_TIME,
+  MessageTimestampFormat.LONG_TIME,
+  MessageTimestampFormat.SHORT_FULL,
+  MessageTimestampFormat.LONG_FULL,
+  MessageTimestampFormat.RELATIVE,
+];
 
 export const formattedResponse = (ts: MessageTimestamp, formats: MessageTimestampFormat[]): string => {
   const strings = formats.map((format) => {
@@ -103,3 +83,14 @@ export const formattedResponse = (ts: MessageTimestamp, formats: MessageTimestam
   });
   return strings.join('\n');
 };
+
+export const adjustMoment = <TimeMap extends Partial<Record<unitOfTime.DurationConstructor, number | null>>>(timeMap: TimeMap, method: 'add' | 'subtract'): Moment => {
+  const timestamp = moment();
+  (Object.keys(timeMap) as unitOfTime.DurationConstructor[]).forEach((key) => {
+    const value = timeMap[key];
+    if (typeof value === 'number' && value > 0) timestamp[method](value, key);
+  });
+  return timestamp;
+};
+
+export const constrain = (n: number, min: number, max?: number): number => (max ? Math.min(Math.max(n, min), max) : Math.max(n, min));

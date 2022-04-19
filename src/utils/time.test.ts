@@ -1,6 +1,7 @@
 import {
-  findTimezone, MessageTimestamp, MessageTimestampFormat, pad,
+  findTimezone, pad,
 } from './time.js';
+import { MessageTimestamp, MessageTimestampFormat } from './message-timestamp.js';
 
 describe('time utils', () => {
   describe('MessageTimestamp', () => {

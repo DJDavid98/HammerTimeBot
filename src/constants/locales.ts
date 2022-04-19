@@ -1,4 +1,4 @@
-import { LocalizationMap } from 'discord-api-types/v10.js';
+import { LocalizationMap } from 'discord-api-types/v10';
 import { Localization } from '../types/localization.js';
 import { locale as huLocale } from '../locales/hu.js';
 import { locale as enLocale } from '../locales/en.js';

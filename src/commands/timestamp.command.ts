@@ -1,15 +1,54 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { ApplicationCommandOptionType } from 'discord-api-types/v10';
-import moment from 'moment-timezone';
-import { BotCommand } from '../bot-interaction-types.js';
+import moment, { Moment } from 'moment-timezone';
+import { BotCommand, BotCommandName } from '../bot-interaction-types.js';
 import {
-  findTimezone, formattedResponse, MessageTimestamp, MessageTimestampFormat,
+  adjustMoment, constrain,
+  findTimezone,
+  formattedResponse,
+  supportedFormats,
 } from '../utils/time.js';
-import { TimestampCommandOptionName } from '../types/localization.js';
+import {
+  TimestampAgoSubcommandOptionName,
+  TimestampAtSubcommandOptionName,
+  TimestampCommandResponse,
+  TimestampInSubcommandOptionName,
+  TimestampCommandOptionName,
+} from '../types/localization.js';
 import { locales } from '../constants/locales.js';
+import { localizedReply } from '../utils/messaging.js';
+import { timestampCommandOptions } from '../options/timestamp.options.js';
+import { EmojiCharacters } from '../constants/emoji-characters.js';
+import { MessageTimestamp, MessageTimestampFormat } from '../utils/message-timestamp.js';
 
 const timestampEnCommon = locales['en-US'].commands.timestamp;
 const timestampHuCommon = locales.hu.commands.timestamp;
+
+const clockEmojiMap: Record<number, EmojiCharacters> = {
+  0: EmojiCharacters.TWELVE_OCLOCK,
+  30: EmojiCharacters.TWELVE_THIRTY,
+  100: EmojiCharacters.ONE_OCLOCK,
+  130: EmojiCharacters.ONE_THIRTY,
+  200: EmojiCharacters.TWO_OCLOCK,
+  230: EmojiCharacters.TWO_THIRTY,
+  300: EmojiCharacters.THREE_OCLOCK,
+  330: EmojiCharacters.THREE_THIRTY,
+  400: EmojiCharacters.FOUR_OCLOCK,
+  430: EmojiCharacters.FOUR_THIRTY,
+  500: EmojiCharacters.FIVE_OCLOCK,
+  530: EmojiCharacters.FIVE_THIRTY,
+  600: EmojiCharacters.SIX_OCLOCK,
+  630: EmojiCharacters.SIX_THIRTY,
+  700: EmojiCharacters.SEVEN_OCLOCK,
+  730: EmojiCharacters.SEVEN_THIRTY,
+  800: EmojiCharacters.EIGHT_OCLOCK,
+  830: EmojiCharacters.EIGHT_THIRTY,
+  900: EmojiCharacters.NINE_OCLOCK,
+  930: EmojiCharacters.NINE_THIRTY,
+  1000: EmojiCharacters.TEN_OCLOCK,
+  1030: EmojiCharacters.TEN_THIRTY,
+  1100: EmojiCharacters.ELEVEN_OCLOCK,
+  1130: EmojiCharacters.ELEVEN_THIRTY,
+};
 
 export const timestampCommand: BotCommand = {
   definition: {
@@ -22,162 +61,85 @@ export const timestampCommand: BotCommand = {
       'en-US': timestampEnCommon.name,
       hu: timestampHuCommon.name,
     },
-    options: [
-      {
-        name: TimestampCommandOptionName.YEAR,
-        description: timestampEnCommon.options[TimestampCommandOptionName.YEAR].description,
-        description_localizations: {
-          'en-US': timestampEnCommon.options[TimestampCommandOptionName.YEAR].description,
-          hu: timestampHuCommon.options[TimestampCommandOptionName.YEAR].description,
-        },
-        type: ApplicationCommandOptionType.Number,
-      },
-      {
-        name: TimestampCommandOptionName.MONTH,
-        description: timestampEnCommon.options[TimestampCommandOptionName.MONTH].description,
-        description_localizations: {
-          'en-US': timestampEnCommon.options[TimestampCommandOptionName.MONTH].description,
-          hu: timestampHuCommon.options[TimestampCommandOptionName.MONTH].description,
-        },
-        type: ApplicationCommandOptionType.Number,
-      },
-      {
-        name: TimestampCommandOptionName.DAY,
-        description: timestampEnCommon.options[TimestampCommandOptionName.DAY].description,
-        description_localizations: {
-          'en-US': timestampEnCommon.options[TimestampCommandOptionName.DAY].description,
-          hu: timestampHuCommon.options[TimestampCommandOptionName.DAY].description,
-        },
-        type: ApplicationCommandOptionType.Number,
-      },
-      {
-        name: TimestampCommandOptionName.HOUR,
-        description: timestampEnCommon.options[TimestampCommandOptionName.HOUR].description,
-        description_localizations: {
-          'en-US': timestampEnCommon.options[TimestampCommandOptionName.HOUR].description,
-          hu: timestampHuCommon.options[TimestampCommandOptionName.HOUR].description,
-        },
-        type: ApplicationCommandOptionType.Number,
-      },
-      {
-        name: TimestampCommandOptionName.MINUTE,
-        description: timestampEnCommon.options[TimestampCommandOptionName.MINUTE].description,
-        description_localizations: {
-          'en-US': timestampEnCommon.options[TimestampCommandOptionName.MINUTE].description,
-          hu: timestampHuCommon.options[TimestampCommandOptionName.MINUTE].description,
-        },
-        type: ApplicationCommandOptionType.Number,
-      },
-      {
-        name: TimestampCommandOptionName.SECOND,
-        description: timestampEnCommon.options[TimestampCommandOptionName.SECOND].description,
-        description_localizations: {
-          'en-US': timestampEnCommon.options[TimestampCommandOptionName.SECOND].description,
-          hu: timestampHuCommon.options[TimestampCommandOptionName.SECOND].description,
-        },
-        type: ApplicationCommandOptionType.Number,
-      },
-      {
-        name: TimestampCommandOptionName.TIMEZONE,
-        description: timestampEnCommon.options[TimestampCommandOptionName.TIMEZONE].description,
-        description_localizations: {
-          'en-US': timestampEnCommon.options[TimestampCommandOptionName.TIMEZONE].description,
-          hu: timestampHuCommon.options[TimestampCommandOptionName.TIMEZONE].description,
-        },
-        type: ApplicationCommandOptionType.String,
-      },
-      {
-        name: TimestampCommandOptionName.FORMAT,
-        description: timestampEnCommon.options[TimestampCommandOptionName.FORMAT].description,
-        description_localizations: {
-          'en-US': timestampEnCommon.options[TimestampCommandOptionName.FORMAT].description,
-          hu: timestampHuCommon.options[TimestampCommandOptionName.FORMAT].description,
-        },
-        type: ApplicationCommandOptionType.String,
-        choices: [
-          {
-            value: MessageTimestampFormat.SHORT_DATE,
-            name: timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.SHORT_DATE],
-            name_localizations: {
-              'en-US': timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.SHORT_DATE],
-              hu: timestampHuCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.SHORT_DATE],
-            },
-          },
-          {
-            value: MessageTimestampFormat.LONG_DATE,
-            name: timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.LONG_DATE],
-            name_localizations: {
-              'en-US': timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.LONG_DATE],
-              hu: timestampHuCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.LONG_DATE],
-            },
-          },
-          {
-            value: MessageTimestampFormat.SHORT_TIME,
-            name: timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.SHORT_TIME],
-            name_localizations: {
-              'en-US': timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.SHORT_TIME],
-              hu: timestampHuCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.SHORT_TIME],
-            },
-          },
-          {
-            value: MessageTimestampFormat.LONG_TIME,
-            name: timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.LONG_TIME],
-            name_localizations: {
-              'en-US': timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.LONG_TIME],
-              hu: timestampHuCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.LONG_TIME],
-            },
-          },
-          {
-            value: MessageTimestampFormat.SHORT_FULL,
-            name: timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.SHORT_FULL],
-            name_localizations: {
-              'en-US': timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.SHORT_FULL],
-              hu: timestampHuCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.SHORT_FULL],
-            },
-          },
-          {
-            value: MessageTimestampFormat.LONG_FULL,
-            name: timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.LONG_FULL],
-            name_localizations: {
-              'en-US': timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.LONG_FULL],
-              hu: timestampHuCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.LONG_FULL],
-            },
-          },
-          {
-            value: MessageTimestampFormat.RELATIVE,
-            name: timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.RELATIVE],
-            name_localizations: {
-              'en-US': timestampEnCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.RELATIVE],
-              hu: timestampHuCommon.options[TimestampCommandOptionName.FORMAT].choices![MessageTimestampFormat.RELATIVE],
-            },
-          },
-        ],
-      },
-    ],
+    options: timestampCommandOptions,
   },
   async handle(interaction) {
-    const now = new Date();
-    const year = interaction.options.getNumber(TimestampCommandOptionName.YEAR) || now.getFullYear();
-    const month = interaction.options.getNumber(TimestampCommandOptionName.MONTH) || (now.getMonth() + 1);
-    const day = interaction.options.getNumber(TimestampCommandOptionName.DAY) || now.getDate();
-    const hour = interaction.options.getNumber(TimestampCommandOptionName.HOUR) || now.getHours();
-    const minute = interaction.options.getNumber(TimestampCommandOptionName.MINUTE) || now.getMinutes();
-    const second = interaction.options.getNumber(TimestampCommandOptionName.SECOND) || 0;
-    const timezoneInput = interaction.options.getString(TimestampCommandOptionName.TIMEZONE);
-    const formatInput = interaction.options.getString(TimestampCommandOptionName.FORMAT);
+    const subcommand = interaction.options.getSubcommand(true);
+    const formatInput = interaction.options.getString(TimestampAtSubcommandOptionName.FORMAT);
+    let ts: MessageTimestamp;
+    let prefix: string | undefined;
+    switch (subcommand) {
+      case TimestampCommandOptionName.AT: {
+        const year = interaction.options.getNumber(TimestampAtSubcommandOptionName.YEAR);
+        const month = interaction.options.getNumber(TimestampAtSubcommandOptionName.MONTH);
+        const day = interaction.options.getNumber(TimestampAtSubcommandOptionName.DAY);
+        const hour = interaction.options.getNumber(TimestampAtSubcommandOptionName.HOUR);
+        const minute = interaction.options.getNumber(TimestampAtSubcommandOptionName.MINUTE);
+        const second = interaction.options.getNumber(TimestampAtSubcommandOptionName.SECOND);
+        const timezoneInput = interaction.options.getString(TimestampAtSubcommandOptionName.TIMEZONE);
+        const timezone = (timezoneInput && findTimezone(timezoneInput)) || 'GMT';
+        let localMoment: Moment;
+        try {
+          localMoment = moment.tz(timezone).millisecond(0);
+          if (year !== null) localMoment.year(constrain(year, 0));
+          if (month !== null) localMoment.month(constrain(month - 1, 0, 11));
+          if (day !== null) localMoment.day(constrain(day, 1, 31));
+          if (hour !== null) localMoment.hour(constrain(hour, 0, 23));
+          if (minute !== null) localMoment.minute(constrain(minute, 0, 59));
+          if (second !== null) localMoment.second(constrain(second, 0, 59));
+        } catch (e) {
+          if (e instanceof RangeError && e.message === 'Invalid date') {
+            await interaction.reply({
+              content: localizedReply(interaction, BotCommandName.TIMESTAMP, TimestampCommandResponse.INVALID_DATE),
+              ephemeral: true,
+            });
+            return;
+          }
 
-    const timezone = (timezoneInput && findTimezone(timezoneInput)) || 'GMT';
+          throw e;
+        }
+        ts = new MessageTimestamp(localMoment.toDate());
+        const clockNumber = ((localMoment.hours() % 12) * 100) + (localMoment.minutes() > 30 ? 30 : 0);
+        prefix = [
+          `${EmojiCharacters.CALENDAR} ${localMoment.format('YYYY-MM-DD')}`,
+          `${clockEmojiMap[clockNumber]} ${localMoment.format('HH:mm:ss')}`,
+          `${EmojiCharacters.GLOBE} ${timezone}`,
+        ].join(' • ');
+      }
+        break;
+      case TimestampCommandOptionName.AGO: {
+        const subtractOptions = {
+          years: interaction.options.getNumber(TimestampAgoSubcommandOptionName.YEARS_AGO),
+          months: interaction.options.getNumber(TimestampAgoSubcommandOptionName.MONTHS_AGO),
+          days: interaction.options.getNumber(TimestampAgoSubcommandOptionName.DAYS_AGO),
+          hours: interaction.options.getNumber(TimestampAgoSubcommandOptionName.HOURS_AGO),
+          minutes: interaction.options.getNumber(TimestampAgoSubcommandOptionName.MINUTES_AGO),
+          seconds: interaction.options.getNumber(TimestampAgoSubcommandOptionName.SECONDS_AGO),
+        };
 
-    const ts = new MessageTimestamp(moment.tz(new Date(year, month - 1, day, hour, minute, second), timezone).toDate());
-    const formats = (formatInput ? [formatInput as MessageTimestampFormat] : [
-      MessageTimestampFormat.SHORT_DATE,
-      MessageTimestampFormat.LONG_DATE,
-      MessageTimestampFormat.SHORT_TIME,
-      MessageTimestampFormat.LONG_TIME,
-      MessageTimestampFormat.SHORT_FULL,
-      MessageTimestampFormat.LONG_FULL,
-      MessageTimestampFormat.RELATIVE,
-    ]);
-    await interaction.reply(formattedResponse(ts, formats));
+        const localMoment = adjustMoment(subtractOptions, 'subtract');
+        ts = new MessageTimestamp(localMoment.toDate());
+      }
+        break;
+      case TimestampCommandOptionName.IN: {
+        const addOptions = {
+          years: interaction.options.getNumber(TimestampInSubcommandOptionName.IN_YEARS),
+          months: interaction.options.getNumber(TimestampInSubcommandOptionName.IN_MONTHS),
+          days: interaction.options.getNumber(TimestampInSubcommandOptionName.IN_DAYS),
+          hours: interaction.options.getNumber(TimestampInSubcommandOptionName.IN_HOURS),
+          minutes: interaction.options.getNumber(TimestampInSubcommandOptionName.IN_MINUTES),
+          seconds: interaction.options.getNumber(TimestampInSubcommandOptionName.IN_SECONDS),
+        };
+
+        const localMoment = adjustMoment(addOptions, 'add');
+        ts = new MessageTimestamp(localMoment.toDate());
+      }
+        break;
+      default:
+        throw new Error(`Unhandled subcommand "${subcommand}"`);
+    }
+
+    const formats = (formatInput ? [formatInput as MessageTimestampFormat] : supportedFormats);
+    await interaction.reply(`${prefix ? `${prefix}\n` : ''}${formattedResponse(ts, formats)}`);
   },
 };

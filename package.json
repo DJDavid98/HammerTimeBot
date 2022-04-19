@@ -16,7 +16,8 @@
     "watch:dev:commands": "concurrently --names TSC,Nodemon -c \"blue,green\" \"npm run watch:dev:tsc\" \"npm run watch:dev:nodemon\"",
     "watch:dev": "npm run build:clean && npm run build && npm run watch:dev:commands",
     "test": "jest --ci",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@discordjs/rest": "^0.4.1",
@@ -49,6 +50,7 @@
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-import": "^2.24.0",
+    "husky": "^7.0.4",
     "jest": "^27.0.6",
     "jest-ts-webcompat-resolver": "^1.0.0",
     "nodemon": "^2.0.12",
