@@ -23,21 +23,21 @@ export enum TimestampAtSubcommandOptionName {
 }
 
 export enum TimestampInSubcommandOptionName {
-  IN_YEARS = 'in-years',
-  IN_MONTHS = 'in-months',
-  IN_DAYS = 'in-days',
-  IN_HOURS = 'in-hours',
-  IN_MINUTES = 'in-minutes',
-  IN_SECONDS = 'in-seconds',
+  IN_YEARS = 'years',
+  IN_MONTHS = 'months',
+  IN_DAYS = 'days',
+  IN_HOURS = 'hours',
+  IN_MINUTES = 'minutes',
+  IN_SECONDS = 'seconds',
 }
 
 export enum TimestampAgoSubcommandOptionName {
-  YEARS_AGO = 'years-ago',
-  MONTHS_AGO = 'months-ago',
-  DAYS_AGO = 'days-ago',
-  HOURS_AGO = 'hours-ago',
-  MINUTES_AGO = 'minutes-ago',
-  SECONDS_AGO = 'seconds-ago',
+  YEARS_AGO = 'years',
+  MONTHS_AGO = 'months',
+  DAYS_AGO = 'days',
+  HOURS_AGO = 'hours',
+  MINUTES_AGO = 'minutes',
+  SECONDS_AGO = 'seconds',
 }
 
 export enum TimestampCommandResponse {
