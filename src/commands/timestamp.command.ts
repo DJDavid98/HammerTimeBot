@@ -139,6 +139,15 @@ export const timestampCommand: BotCommand = {
         throw new Error(`Unhandled subcommand "${subcommand}"`);
     }
 
+    const timestamp = ts.getDate().getTime();
+    if (Number.isNaN(timestamp)) {
+      await interaction.reply({
+        content: localizedReply(interaction, BotCommandName.TIMESTAMP, TimestampCommandResponse.INVALID_DATE),
+        ephemeral: true,
+      });
+      return;
+    }
+
     const formats = (formatInput ? [formatInput as MessageTimestampFormat] : supportedFormats);
     await interaction.reply(`${prefix ? `${prefix}\n` : ''}${formattedResponse(ts, formats)}`);
   },
