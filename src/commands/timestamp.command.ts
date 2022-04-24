@@ -1,7 +1,14 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import moment, { Moment } from 'moment-timezone';
 import { BotCommand } from '../types/bot-interaction.js';
-import { adjustMoment, constrain, findTimezone, formattedResponse, supportedFormats } from '../utils/time.js';
+import {
+  adjustMoment,
+  constrain,
+  findTimezone,
+  formattedResponse,
+  getTimezoneLabel,
+  supportedFormats,
+} from '../utils/time.js';
 import {
   TimestampAgoSubcommandOptionName,
   TimestampAtSubcommandOptionName,
@@ -58,7 +65,7 @@ export const timestampCommand: BotCommand = {
         }
 
         await interaction.respond(findTimezone(value).slice(0, 25).map(name => ({
-          name,
+          name: getTimezoneLabel(name),
           value: name,
         })));
       }

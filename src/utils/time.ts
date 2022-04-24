@@ -15,6 +15,14 @@ export const gmtZoneRegex = /^Etc\/(GMT([+-]\d+)?)$/;
 
 const compareGmtStrings = (a: string, b: string) => parseInt(a.replace(gmtZoneRegex, '$2'), 10) - parseInt(b.replace(gmtZoneRegex, '$2'), 10);
 
+const switchGmtZoneName = (value: string): string =>
+  value.replace(gmtZoneRegex, (_, extractedIdentifier: string) => extractedIdentifier.replace(/([+-])/, (m) => (m === '+' ? '-' : '+')));
+
+export const getTimezoneLabel = (timezone: string): string => {
+  if (!gmtZoneRegex.test(timezone)) return timezone;
+  return switchGmtZoneName(timezone);
+};
+
 export const getSortedNormalizedTimezoneNames = (): string[] => moment.tz
   .names()
   .filter((name) => !/^(?:Etc\/)?GMT[+-]0$/.test(name))

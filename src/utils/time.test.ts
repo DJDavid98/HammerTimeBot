@@ -1,5 +1,13 @@
 import moment from 'moment-timezone';
-import { adjustMoment, constrain, findTimezone, formattedResponse, pad, supportedFormats } from './time.js';
+import {
+  adjustMoment,
+  constrain,
+  findTimezone,
+  formattedResponse,
+  getTimezoneLabel,
+  pad,
+  supportedFormats,
+} from './time.js';
 import { MessageTimestamp, MessageTimestampFormat } from './message-timestamp.js';
 import { TimezoneError } from './timezone-error.js';
 
@@ -100,6 +108,15 @@ describe('time utils', () => {
       expect(constrain(3, 0, 5)).toEqual(3);
       expect(constrain(5, 0, 5)).toEqual(5);
       expect(constrain(10, 0, 5)).toEqual(5);
+    });
+  });
+
+  describe('getTimezoneLabel', () => {
+    it('should switch signs and remove Etc prefix in GMT options', () => {
+      expect(getTimezoneLabel('GMT')).toEqual('GMT');
+      expect(getTimezoneLabel('Europe/Budapest')).toEqual('Europe/Budapest');
+      expect(getTimezoneLabel('Etc/GMT+2')).toEqual('GMT-2');
+      expect(getTimezoneLabel('Etc/GMT-12')).toEqual('GMT+12');
     });
   });
 });
