@@ -45,9 +45,7 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
     return;
   }
 
-  const {
-    commandName, user, options, channel, guild,
-  } = interaction;
+  const { commandName, user, options, channel, guild } = interaction;
   const command = commandMap[commandName];
   const level = interaction.inGuild() ? 'GUILD' : 'APP';
 

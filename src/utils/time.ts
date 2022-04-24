@@ -25,7 +25,7 @@ export const getTimezoneLabel = (timezone: string): string => {
 
 export const getSortedNormalizedTimezoneNames = (): string[] => moment.tz
   .names()
-  .filter((name) => !/^(?:Etc\/)?GMT[+-]0$/.test(name))
+  .filter((name) => !/^(?:Etc\/)?GMT[+-]?0$/.test(name))
   .sort((a, b) => {
     const isAGmt = gmtZoneRegex.test(a);
     const isBGmt = gmtZoneRegex.test(b);
@@ -69,7 +69,7 @@ export const findTimezone = (value: string): string[] => {
       return distanceCache[key];
     };
     const sortedKeys = matchingKeys.sort((a, b) => getCachedDistance(a) - getCachedDistance(b));
-    candidates = [...candidates, ...sortedKeys.map(key => timezoneIndex[key])];
+    candidates = Array.from(new Set([...candidates, ...sortedKeys.map(key => timezoneIndex[key])]));
   }
 
   if (candidates.length === 0) {
