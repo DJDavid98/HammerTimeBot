@@ -1,7 +1,8 @@
 import { Client, Intents } from 'discord.js';
-import { env } from './env.js';
-import { getGitData } from './utils/get-git-data.js';
-import { handleCommandInteraction } from './interaction-handlers.js';
+import { TFunction } from 'i18next';
+import { env } from '../env.js';
+import { getGitData } from './get-git-data.js';
+import { handleCommandInteraction, handleCommandAutocomplete } from './interaction-handlers.js';
 
 const handleReady = async (client: Client<true>) => {
   const clientUser = client.user;
@@ -14,14 +15,19 @@ const handleReady = async (client: Client<true>) => {
   clientUser.setActivity(versionString);
 };
 
-export const createClient = async (): Promise<void> => {
+export const createClient = async (t: TFunction): Promise<void> => {
   const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
   client.on('ready', handleReady);
 
   client.on('interactionCreate', async (interaction) => {
     if (interaction.isCommand()) {
-      await handleCommandInteraction(interaction);
+      await handleCommandInteraction(interaction, t);
+      return;
+    }
+
+    if (interaction.isAutocomplete()) {
+      await handleCommandAutocomplete(interaction, t);
       return;
     }
 

@@ -12,8 +12,7 @@ export function getGitData(): Promise<{ hash: string; timeAgo: string }> {
         return;
       }
 
-      const [hash, timeAgo] = data.trim()
-        .split(separator);
+      const [hash, timeAgo] = data.trim().split(separator);
       res({
         hash,
         timeAgo,

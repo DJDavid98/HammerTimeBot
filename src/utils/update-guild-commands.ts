@@ -1,7 +1,8 @@
 import { RESTGetAPICurrentUserGuildsResult, Routes } from 'discord-api-types/rest/v10';
 import { REST } from '@discordjs/rest';
 import { Snowflake } from 'discord-api-types/globals';
-import { commands } from '../commands.js';
+import { TFunction } from 'i18next';
+import { getCommands } from './commands.js';
 import { env } from '../env.js';
 
 const rest = new REST({
@@ -16,18 +17,54 @@ export const getAuthorizedServers = async (): Promise<string[]> => {
   return guilds.map((guild) => guild.id);
 };
 
-export const updateGuildCommands = async (serverId: Snowflake, clientId: Snowflake = env.DISCORD_CLIENT_ID): Promise<void> => {
+export const updateGuildCommands = async (guildId: Snowflake, t: TFunction): Promise<void> => {
+  const guildIdString = `guildId:${guildId}`;
   try {
-    console.log(`Started refreshing application (/) commands (SERVER_ID=${serverId})`);
+    console.log(`Started refreshing guild (/) commands (${guildIdString})`);
 
     await rest.put(
-      Routes.applicationGuildCommands(clientId, serverId),
-      { body: commands },
+      Routes.applicationGuildCommands(env.DISCORD_CLIENT_ID, guildId),
+      { body: getCommands(t) },
     );
 
-    console.log(`Successfully reloaded application (/) commands (SERVER_ID=${serverId})`);
+    console.log(`Successfully reloaded guild (/) commands (${guildIdString})`);
   } catch (error) {
-    console.log(`Failed to reloaded application (/) commands (SERVER_ID=${serverId})`);
+    console.log(`Failed to reloaded guild (/) commands (${guildIdString})`);
+    console.error(error);
+    process.exit(1);
+  }
+};
+
+export const cleanGuildCommands = async (guildId: Snowflake): Promise<void> => {
+  const guildIdString = `guildId:${guildId}`;
+  try {
+    console.log(`Started cleaning guild (/) commands (${guildIdString})`);
+
+    await rest.put(
+      Routes.applicationGuildCommands(env.DISCORD_CLIENT_ID, guildId),
+      { body: [] },
+    );
+
+    console.log(`Successfully cleaned guild (/) commands (${guildIdString})`);
+  } catch (error) {
+    console.log(`Failed to clean guild (/) commands (${guildIdString})`);
+    console.error(error);
+    process.exit(1);
+  }
+};
+
+export const updateGlobalCommands = async (t: TFunction): Promise<void> => {
+  try {
+    console.log('Started refreshing application (/) commands');
+
+    await rest.put(
+      Routes.applicationCommands(env.DISCORD_CLIENT_ID),
+      { body: getCommands(t) },
+    );
+
+    console.log('Successfully reloaded application (/) commands');
+  } catch (error) {
+    console.log('Failed to reloaded application (/) commands');
     console.error(error);
     process.exit(1);
   }

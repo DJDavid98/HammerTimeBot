@@ -1,0 +1,122 @@
+{
+  "commands": {
+    "timestamp": {
+      "name": "időbélyeg",
+      "description": "Kiírja egy adott időponthoz a beírandó kódot minden formátumban",
+      "responses": {
+        "invalidDate": "A megadott dátum érvénytelen (például: az adott nap nem létezik)"
+      },
+      "options": {}
+    },
+    "ago": {
+      "name": "ezelőtt",
+      "description": "Viszonylagos múltbeli időpont meghatározása az aktuális időhöz képest",
+      "responses": {},
+      "options": {
+        "years": {
+          "name": "évvel",
+          "description": "Hány évet kell kivonni az aktuális időből"
+        },
+        "months": {
+          "name": "hónappal",
+          "description": "Hány hónapot kell kivonni az aktuális időből"
+        },
+        "days": {
+          "name": "nappal",
+          "description": "Hány napot kell kivonni az aktuális időből"
+        },
+        "hours": {
+          "name": "órával",
+          "description": "Hány órát kell kivonni az aktuális időből"
+        },
+        "minutes": {
+          "name": "perccel",
+          "description": "Hány percet kell kivonni az aktuális időből"
+        },
+        "seconds": {
+          "name": "másodperccel",
+          "description": "Hány másodpercet kell kivonni az aktuális időből"
+        }
+      }
+    },
+    "in": {
+      "name": "múlva",
+      "description": "Viszonylagos jövőbeli időpont meghatározása az aktuális időhöz képest",
+      "responses": {},
+      "options": {
+        "years": {
+          "name": "év",
+          "description": "How many years to add to the current time"
+        },
+        "months": {
+          "name": "hónap",
+          "description": "How many months to add to the current time"
+        },
+        "days": {
+          "name": "nap",
+          "description": "How many days to add to the current time"
+        },
+        "hours": {
+          "name": "óra",
+          "description": "How many hours to add to the current time"
+        },
+        "minutes": {
+          "name": "perc",
+          "description": "How many minutes to add to the current time"
+        },
+        "seconds": {
+          "name": "másodperc",
+          "description": "How many seconds to add to the current time"
+        }
+      }
+    },
+    "at": {
+      "name": "ekkor",
+      "description": "Add meg az időbélyeg pontos részeit (az időzónát beleértve)",
+      "responses": {},
+      "options": {
+        "year": {
+          "name": "év",
+          "description": "Add meg az évet (alapértelmezett: aktuális év)"
+        },
+        "month": {
+          "name": "hónap",
+          "description": "Add meg a hónapot (alapértelmezett: aktuális hónap)"
+        },
+        "day": {
+          "name": "nap",
+          "description": "Add meg az napot (alapértelmezett: aktuális nap)"
+        },
+        "hour": {
+          "name": "óra",
+          "description": "Add meg az órát (alapértelmezett: aktuális óra)"
+        },
+        "minute": {
+          "name": "perc",
+          "description": "Add meg az percet (alapértelmezett: aktuális perc)"
+        },
+        "second": {
+          "name": "másodperc",
+          "description": "Add meg az másodpercet (alapértelmezett: 0)"
+        },
+        "timezone": {
+          "name": "időzóna",
+          "description": "Add meg az időzónát (alapértelmezett: GMT)"
+        },
+        "format": {
+          "name": "formátum",
+          "description": "A formátumok közül csak a kértet adja vissza",
+          "choices": {
+            "d": "rövid dátum",
+            "D": "hosszú dátum",
+            "t": "rövid idő",
+            "T": "hosszú idő",
+            "f": "dátum és idő",
+            "F": "hét napja, dátum és idő",
+            "R": "viszonylagos"
+          }
+        }
+      }
+    }
+  }
+}

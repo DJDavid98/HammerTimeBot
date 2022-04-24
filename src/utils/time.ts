@@ -44,10 +44,10 @@ export const timezoneIndex: Record<string, string> = timezoneNames.reduce((recor
   };
 }, {});
 
-export const findTimezone = (value: string): string | undefined => {
+export const findTimezone = (value: string): string[] => {
   const lowerValue = value.toLowerCase().replace(/\s+/g, '_');
   if (lowerValue in timezoneIndex) {
-    return timezoneIndex[lowerValue];
+    return [timezoneIndex[lowerValue]];
   }
 
   const matchingKeys = Object.keys(timezoneIndex).filter((key) => key.includes(lowerValue));
@@ -59,22 +59,14 @@ export const findTimezone = (value: string): string | undefined => {
       }
       return distanceCache[key];
     };
-    const bestMatchKey = matchingKeys.sort((a, b) => getCachedDistance(b) - getCachedDistance(a)).pop() as string;
-    return timezoneIndex[bestMatchKey];
+    const sortedKeys = matchingKeys.sort((a, b) => getCachedDistance(a) - getCachedDistance(b));
+    return sortedKeys.map(key => timezoneIndex[key]);
   }
 
   throw new TimezoneError(value);
 };
 
-export const supportedFormats = [
-  MessageTimestampFormat.SHORT_DATE,
-  MessageTimestampFormat.LONG_DATE,
-  MessageTimestampFormat.SHORT_TIME,
-  MessageTimestampFormat.LONG_TIME,
-  MessageTimestampFormat.SHORT_FULL,
-  MessageTimestampFormat.LONG_FULL,
-  MessageTimestampFormat.RELATIVE,
-];
+export const supportedFormats = Object.values(MessageTimestampFormat);
 
 export const formattedResponse = (ts: MessageTimestamp, formats: MessageTimestampFormat[]): string => {
   const strings = formats.map((format) => {
@@ -84,8 +76,8 @@ export const formattedResponse = (ts: MessageTimestamp, formats: MessageTimestam
   return strings.join('\n');
 };
 
-export const adjustMoment = <TimeMap extends Partial<Record<unitOfTime.DurationConstructor, number | null>>>(timeMap: TimeMap, method: 'add' | 'subtract'): Moment => {
-  const timestamp = moment();
+export const adjustMoment = <TimeMap extends Partial<Record<unitOfTime.DurationConstructor, number | null>>>(timeMap: TimeMap, method: 'add' | 'subtract', now?: Date): Moment => {
+  const timestamp = moment(now);
   (Object.keys(timeMap) as unitOfTime.DurationConstructor[]).forEach((key) => {
     const value = timeMap[key];
     if (typeof value === 'number' && value > 0) timestamp[method](value, key);

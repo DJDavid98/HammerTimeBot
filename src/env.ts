@@ -9,6 +9,9 @@ const {
   UA_STRING,
 } = process.env;
 
+/**
+ * Type-safe process.env
+ */
 export const env = (() => {
   const values = {
     DISCORD_BOT_TOKEN,

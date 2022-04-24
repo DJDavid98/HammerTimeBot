@@ -1,27 +1,17 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import moment, { Moment } from 'moment-timezone';
-import { BotCommand, BotCommandName } from '../bot-interaction-types.js';
-import {
-  adjustMoment, constrain,
-  findTimezone,
-  formattedResponse,
-  supportedFormats,
-} from '../utils/time.js';
+import { BotCommand } from '../types/bot-interaction.js';
+import { adjustMoment, constrain, findTimezone, formattedResponse, supportedFormats } from '../utils/time.js';
 import {
   TimestampAgoSubcommandOptionName,
   TimestampAtSubcommandOptionName,
-  TimestampCommandResponse,
-  TimestampInSubcommandOptionName,
   TimestampCommandOptionName,
+  TimestampInSubcommandOptionName,
 } from '../types/localization.js';
-import { locales } from '../constants/locales.js';
-import { localizedReply } from '../utils/messaging.js';
-import { timestampCommandOptions } from '../options/timestamp.options.js';
+import { getTimestampCommandOptions } from '../options/timestamp.options.js';
 import { EmojiCharacters } from '../constants/emoji-characters.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../utils/message-timestamp.js';
-
-const timestampEnCommon = locales['en-US'].commands.timestamp;
-const timestampHuCommon = locales.hu.commands.timestamp;
+import { getLocalizedObject } from '../utils/get-localized-object.js';
 
 const clockEmojiMap: Record<number, EmojiCharacters> = {
   0: EmojiCharacters.TWELVE_OCLOCK,
@@ -51,19 +41,33 @@ const clockEmojiMap: Record<number, EmojiCharacters> = {
 };
 
 export const timestampCommand: BotCommand = {
-  definition: {
-    description: timestampEnCommon.description,
-    description_localizations: {
-      'en-US': timestampEnCommon.description,
-      hu: timestampHuCommon.description,
-    },
-    name_localizations: {
-      'en-US': timestampEnCommon.name,
-      hu: timestampHuCommon.name,
-    },
-    options: timestampCommandOptions,
+  getDefinition: (t) => ({
+    ...getLocalizedObject('description', (lng) => t('commands.timestamp.description', { lng })),
+    ...getLocalizedObject('name', (lng) => t('commands.timestamp.name', { lng })),
+    options: getTimestampCommandOptions(t),
+  }),
+  async autocomplete(interaction) {
+    const focusedOption = interaction.options.getFocused(true);
+
+    switch (focusedOption.name) {
+      case TimestampAtSubcommandOptionName.TIMEZONE: {
+        const value = interaction.options.getString(TimestampAtSubcommandOptionName.TIMEZONE)?.trim();
+        if (typeof value !== 'string' || value.length === 0) {
+          await interaction.respond([]);
+          return;
+        }
+
+        await interaction.respond(findTimezone(value).slice(0, 25).map(name => ({
+          name,
+          value: name,
+        })));
+      }
+        break;
+      default:
+        throw new Error(`Unknown autocomplete option ${focusedOption.name}`);
+    }
   },
-  async handle(interaction) {
+  async handle(interaction, t) {
     const subcommand = interaction.options.getSubcommand(true);
     const formatInput = interaction.options.getString(TimestampAtSubcommandOptionName.FORMAT);
     let ts: MessageTimestamp;
@@ -77,7 +81,7 @@ export const timestampCommand: BotCommand = {
         const minute = interaction.options.getNumber(TimestampAtSubcommandOptionName.MINUTE);
         const second = interaction.options.getNumber(TimestampAtSubcommandOptionName.SECOND);
         const timezoneInput = interaction.options.getString(TimestampAtSubcommandOptionName.TIMEZONE);
-        const timezone = (timezoneInput && findTimezone(timezoneInput)) || 'GMT';
+        const timezone = (timezoneInput && findTimezone(timezoneInput)[0]) || 'GMT';
         let localMoment: Moment;
         try {
           localMoment = moment.tz(timezone).millisecond(0);
@@ -90,7 +94,7 @@ export const timestampCommand: BotCommand = {
         } catch (e) {
           if (e instanceof RangeError && e.message === 'Invalid date') {
             await interaction.reply({
-              content: localizedReply(interaction, BotCommandName.TIMESTAMP, TimestampCommandResponse.INVALID_DATE),
+              content: t('commands.timestamp.responses.invalidDate'),
               ephemeral: true,
             });
             return;
@@ -142,7 +146,7 @@ export const timestampCommand: BotCommand = {
     const timestamp = ts.getDate().getTime();
     if (Number.isNaN(timestamp)) {
       await interaction.reply({
-        content: localizedReply(interaction, BotCommandName.TIMESTAMP, TimestampCommandResponse.INVALID_DATE),
+        content: t('commands.timestamp.responses.invalidDate'),
         ephemeral: true,
       });
       return;

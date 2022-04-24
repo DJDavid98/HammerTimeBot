@@ -1,22 +1,28 @@
-import {
-  BaseCommandInteraction, CommandInteraction, CommandInteractionOption, User,
-} from 'discord.js';
-import { BotCommandName } from '../bot-interaction-types.js';
-import { Localization } from '../types/localization.js';
-import { locales } from '../constants/locales.js';
+import { BaseCommandInteraction, CommandInteractionOption, User } from 'discord.js';
 
 export const getUserIdentifier = (user: User): `${string}#${string} (${string})` => `${user.username}#${user.discriminator} (${user.id})`;
 
 export const stringifyChannelName = (channel: BaseCommandInteraction['channel']): string => {
   if (channel) {
+    let stringName: string;
     if (channel.isText() && 'name' in channel) {
-      return `#${channel.name}`;
+      stringName = `#${channel.name}`;
+    } else {
+      stringName = channel.toString();
     }
 
-    return channel.toString();
+    return `${stringName} (${channel.id})`;
   }
 
   return '(unknown channel)';
+};
+
+export const stringifyGuildName = (guild: BaseCommandInteraction['guild']): string => {
+  if (guild) {
+    return `${guild.name} (${guild.id})`;
+  }
+
+  return '(unknown guild)';
 };
 
 export const stringifyOptionsData = (data: readonly CommandInteractionOption[]): string => data.map((option): string => {
@@ -39,8 +45,3 @@ export const stringifyOptionsData = (data: readonly CommandInteractionOption[]):
   }
   return `(${optionName}${optionValue !== null ? `:${optionValue}` : ''})`;
 }).join(' ');
-
-export const localizedReply = <Command extends BotCommandName, ReplyKey extends keyof Localization['commands'][Command]['responses']>(interaction: CommandInteraction, command: BotCommandName, reply: ReplyKey): string => {
-  const localization = interaction.locale in locales ? locales[interaction.locale as keyof typeof locales] : locales['en-US'];
-  return (localization.commands[command].responses as Record<ReplyKey, string>)[reply];
-};
