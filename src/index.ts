@@ -7,6 +7,7 @@ import {
   updateGlobalCommands,
   updateGuildCommands,
   cleanGuildCommands,
+  cleanGlobalCommands,
 } from './utils/update-guild-commands.js';
 import { initI18next } from './constants/locales.js';
 import { env } from './env.js';
@@ -26,6 +27,7 @@ import { env } from './env.js';
   console.log(`Application ${env.LOCAL ? 'is' : 'is NOT'} in local mode`);
   const serverIds = await getAuthorizedServers();
   if (env.LOCAL) {
+    await cleanGlobalCommands();
     await Promise.all(serverIds.map((serverId) => updateGuildCommands(serverId, t)));
   } else {
     await Promise.all(serverIds.map((serverId) => cleanGuildCommands(serverId)));

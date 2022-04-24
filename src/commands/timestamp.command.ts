@@ -19,6 +19,7 @@ import { getTimestampCommandOptions } from '../options/timestamp.options.js';
 import { EmojiCharacters } from '../constants/emoji-characters.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../utils/message-timestamp.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
+import { TimezoneError } from '../utils/timezone-error.js';
 
 const clockEmojiMap: Record<number, EmojiCharacters> = {
   0: EmojiCharacters.TWELVE_OCLOCK,
@@ -64,7 +65,18 @@ export const timestampCommand: BotCommand = {
           return;
         }
 
-        await interaction.respond(findTimezone(value).slice(0, 25).map(name => ({
+        let tzNames: string[];
+        try {
+          tzNames = findTimezone(value);
+        } catch (e) {
+          if (!(e instanceof TimezoneError)) {
+            throw e;
+          }
+          await interaction.respond([]);
+          return;
+        }
+
+        await interaction.respond(tzNames.slice(0, 25).map(name => ({
           name: getTimezoneLabel(name),
           value: name,
         })));
@@ -88,7 +100,19 @@ export const timestampCommand: BotCommand = {
         const minute = interaction.options.getNumber(TimestampAtSubcommandOptionName.MINUTE);
         const second = interaction.options.getNumber(TimestampAtSubcommandOptionName.SECOND);
         const timezoneInput = interaction.options.getString(TimestampAtSubcommandOptionName.TIMEZONE);
-        const timezone = (timezoneInput && findTimezone(timezoneInput)[0]) || 'GMT';
+        let timezone: string;
+        try {
+          timezone = (timezoneInput && findTimezone(timezoneInput)[0]) || 'GMT';
+        } catch (e) {
+          if (!(e instanceof TimezoneError)) {
+            throw e;
+          }
+          await interaction.reply({
+            content: t('commands.timestamp.responses.timezoneNotFound'),
+            ephemeral: true,
+          });
+          return;
+        }
         let localMoment: Moment;
         try {
           localMoment = moment.tz(timezone).millisecond(0);

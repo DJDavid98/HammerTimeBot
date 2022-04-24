@@ -5,7 +5,8 @@
       "description": "Can be used to generate the code for timestamps in all formats",
       "options": {},
       "responses": {
-        "invalidDate": "The specified date is invalid (for example: the given day does not exist)"
+        "invalidDate": "The specified date is invalid (for example: the given day does not exist)",
+        "timezoneNotFound": "The specified timezone cannot be found"
       }
     },
     "ago": {

@@ -54,8 +54,9 @@ export const timezoneIndex: Record<string, string> = timezoneNames.reduce((recor
 
 export const findTimezone = (value: string): string[] => {
   const lowerValue = value.toLowerCase().replace(/\s+/g, '_');
+  let candidates: string[] = [];
   if (lowerValue in timezoneIndex) {
-    return [timezoneIndex[lowerValue]];
+    candidates.push(timezoneIndex[lowerValue]);
   }
 
   const matchingKeys = Object.keys(timezoneIndex).filter((key) => key.includes(lowerValue));
@@ -68,10 +69,14 @@ export const findTimezone = (value: string): string[] => {
       return distanceCache[key];
     };
     const sortedKeys = matchingKeys.sort((a, b) => getCachedDistance(a) - getCachedDistance(b));
-    return sortedKeys.map(key => timezoneIndex[key]);
+    candidates = [...candidates, ...sortedKeys.map(key => timezoneIndex[key])];
   }
 
-  throw new TimezoneError(value);
+  if (candidates.length === 0) {
+    throw new TimezoneError(value);
+  }
+
+  return candidates;
 };
 
 export const supportedFormats = Object.values(MessageTimestampFormat);

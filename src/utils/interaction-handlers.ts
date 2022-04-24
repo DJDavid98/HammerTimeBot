@@ -49,7 +49,7 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
     commandName, user, options, channel, guild,
   } = interaction;
   const command = commandMap[commandName];
-  const level = interaction.isApplicationCommand() ? 'APP' : 'GUILD';
+  const level = interaction.inGuild() ? 'GUILD' : 'APP';
 
   const optionsString = options.data.length > 0
     ? ` ${stringifyOptionsData(interaction.options.data)}`

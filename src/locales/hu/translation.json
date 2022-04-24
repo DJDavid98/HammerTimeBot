@@ -4,7 +4,8 @@
       "name": "időbélyeg",
       "description": "Kiírja egy adott időponthoz a beírandó kódot minden formátumban",
       "responses": {
-        "invalidDate": "A megadott dátum érvénytelen (például: az adott nap nem létezik)"
+        "invalidDate": "A megadott dátum érvénytelen (például: az adott nap nem létezik)",
+        "timezoneNotFound": "A megadott időzóna nem található"
       },
       "options": {}
     },

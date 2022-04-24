@@ -29,7 +29,7 @@ export const updateGuildCommands = async (guildId: Snowflake, t: TFunction): Pro
 
     console.log(`Successfully reloaded guild (/) commands (${guildIdString})`);
   } catch (error) {
-    console.log(`Failed to reloaded guild (/) commands (${guildIdString})`);
+    console.log(`Failed to reload guild (/) commands (${guildIdString})`);
     console.error(error);
     process.exit(1);
   }
@@ -64,7 +64,24 @@ export const updateGlobalCommands = async (t: TFunction): Promise<void> => {
 
     console.log('Successfully reloaded application (/) commands');
   } catch (error) {
-    console.log('Failed to reloaded application (/) commands');
+    console.log('Failed to reload application (/) commands');
+    console.error(error);
+    process.exit(1);
+  }
+};
+
+export const cleanGlobalCommands = async (): Promise<void> => {
+  try {
+    console.log('Started cleaning application (/) commands');
+
+    await rest.put(
+      Routes.applicationCommands(env.DISCORD_CLIENT_ID),
+      { body: [] },
+    );
+
+    console.log('Successfully cleaned application (/) commands');
+  } catch (error) {
+    console.log('Failed to clean application (/) commands');
     console.error(error);
     process.exit(1);
   }
