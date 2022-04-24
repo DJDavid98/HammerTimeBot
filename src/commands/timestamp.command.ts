@@ -20,6 +20,7 @@ import { EmojiCharacters } from '../constants/emoji-characters.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../utils/message-timestamp.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { TimezoneError } from '../utils/timezone-error.js';
+import { ApplicationCommandOptionChoice } from 'discord.js';
 
 const clockEmojiMap: Record<number, EmojiCharacters> = {
   0: EmojiCharacters.TWELVE_OCLOCK,
@@ -48,6 +49,109 @@ const clockEmojiMap: Record<number, EmojiCharacters> = {
   1130: EmojiCharacters.ELEVEN_THIRTY,
 };
 
+const DEFAULT_TIMEZONE_OPTIONS: ApplicationCommandOptionChoice[] = [
+  {
+    name: 'GMT',
+    value: 'GMT',
+  },
+  {
+    name: 'GMT+12',
+    value: 'Etc/GMT-12',
+  },
+  {
+    name: 'GMT+11',
+    value: 'Etc/GMT-11',
+  },
+  {
+    name: 'GMT+10',
+    value: 'Etc/GMT-10',
+  },
+  {
+    name: 'GMT+9',
+    value: 'Etc/GMT-9',
+  },
+  {
+    name: 'GMT+8',
+    value: 'Etc/GMT-8',
+  },
+  {
+    name: 'GMT+7',
+    value: 'Etc/GMT-7',
+  },
+  {
+    name: 'GMT+6',
+    value: 'Etc/GMT-6',
+  },
+  {
+    name: 'GMT+5',
+    value: 'Etc/GMT-5',
+  },
+  {
+    name: 'GMT+4',
+    value: 'Etc/GMT-4',
+  },
+  {
+    name: 'GMT+3',
+    value: 'Etc/GMT-3',
+  },
+  {
+    name: 'GMT+2',
+    value: 'Etc/GMT-2',
+  },
+  {
+    name: 'GMT+1',
+    value: 'Etc/GMT-1',
+  },
+  {
+    name: 'GMT-1',
+    value: 'Etc/GMT+1',
+  },
+  {
+    name: 'GMT-2',
+    value: 'Etc/GMT+2',
+  },
+  {
+    name: 'GMT-3',
+    value: 'Etc/GMT+3',
+  },
+  {
+    name: 'GMT-4',
+    value: 'Etc/GMT+4',
+  },
+  {
+    name: 'GMT-5',
+    value: 'Etc/GMT+5',
+  },
+  {
+    name: 'GMT-6',
+    value: 'Etc/GMT+6',
+  },
+  {
+    name: 'GMT-7',
+    value: 'Etc/GMT+7',
+  },
+  {
+    name: 'GMT-8',
+    value: 'Etc/GMT+8',
+  },
+  {
+    name: 'GMT-9',
+    value: 'Etc/GMT+9',
+  },
+  {
+    name: 'GMT-10',
+    value: 'Etc/GMT+10',
+  },
+  {
+    name: 'GMT-11',
+    value: 'Etc/GMT+11',
+  },
+  {
+    name: 'GMT-12',
+    value: 'Etc/GMT+12',
+  },
+];
+
 export const timestampCommand: BotCommand = {
   getDefinition: (t) => ({
     ...getLocalizedObject('description', (lng) => t('commands.timestamp.description', { lng })),
@@ -61,7 +165,7 @@ export const timestampCommand: BotCommand = {
       case TimestampAtSubcommandOptionName.TIMEZONE: {
         const value = interaction.options.getString(TimestampAtSubcommandOptionName.TIMEZONE)?.trim();
         if (typeof value !== 'string' || value.length === 0) {
-          await interaction.respond([]);
+          await interaction.respond(DEFAULT_TIMEZONE_OPTIONS);
           return;
         }
 
