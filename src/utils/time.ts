@@ -84,7 +84,7 @@ export const supportedFormats = Object.values(MessageTimestampFormat);
 export const formattedResponse = (ts: MessageTimestamp, formats: MessageTimestampFormat[]): string => {
   const strings = formats.map((format) => {
     const formatted = ts.toString(format);
-    return `\`${formatted}\` → ${formatted}`;
+    return `\`${formatted}\` → **${formatted}**`;
   });
   return strings.join('\n');
 };
