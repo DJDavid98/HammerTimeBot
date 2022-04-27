@@ -199,7 +199,7 @@ export const timestampCommand: BotCommand = {
       case TimestampCommandOptionName.AT: {
         const year = interaction.options.getNumber(TimestampAtSubcommandOptionName.YEAR);
         const month = interaction.options.getNumber(TimestampAtSubcommandOptionName.MONTH);
-        const day = interaction.options.getNumber(TimestampAtSubcommandOptionName.DAY);
+        const date = interaction.options.getNumber(TimestampAtSubcommandOptionName.DATE);
         const hour = interaction.options.getNumber(TimestampAtSubcommandOptionName.HOUR);
         const minute = interaction.options.getNumber(TimestampAtSubcommandOptionName.MINUTE);
         const second = interaction.options.getNumber(TimestampAtSubcommandOptionName.SECOND);
@@ -222,7 +222,7 @@ export const timestampCommand: BotCommand = {
           localMoment = moment.tz(timezone).millisecond(0);
           if (year !== null) localMoment.year(constrain(year, 0));
           if (month !== null) localMoment.month(constrain(month - 1, 0, 11));
-          if (day !== null) localMoment.day(constrain(day, 1, 31));
+          if (date !== null) localMoment.date(constrain(date, 1, 31));
           if (hour !== null) localMoment.hour(constrain(hour, 0, 23));
           if (minute !== null) localMoment.minute(constrain(minute, 0, 59));
           if (second !== null) localMoment.second(constrain(second, 0, 59));

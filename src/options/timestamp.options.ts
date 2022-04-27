@@ -145,7 +145,7 @@ const getAtOptions = (t: TFunction): APIApplicationCommandBasicOption[] => [
     type: ApplicationCommandOptionType.Number,
   },
   {
-    name: TimestampAtSubcommandOptionName.DAY,
+    name: TimestampAtSubcommandOptionName.DATE,
     ...getLocalizedObject('name', (lng) => t('commands.at.options.day.name', { lng }), false),
     ...getLocalizedObject('description', (lng) => t('commands.at.options.day.description', { lng })),
     type: ApplicationCommandOptionType.Number,

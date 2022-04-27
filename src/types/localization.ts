@@ -14,7 +14,7 @@ export enum TimestampCommandOptionName {
 export enum TimestampAtSubcommandOptionName {
   YEAR = 'year',
   MONTH = 'month',
-  DAY = 'day',
+  DATE = 'day',
   HOUR = 'hour',
   MINUTE = 'minute',
   SECOND = 'second',
