@@ -118,6 +118,16 @@
           }
         }
       }
+    },
+    "unix": {
+      "name": "unix",
+      "description": "Display the syntaxes for a specific UNIX timestamp",
+      "options": {
+        "value": {
+          "name": "value",
+          "description": "The UNIX timestamp in seconds"
+        }
+      }
     }
   }
 }

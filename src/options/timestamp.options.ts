@@ -7,7 +7,7 @@ import {
   TimestampAgoSubcommandOptionName,
   TimestampAtSubcommandOptionName,
   TimestampCommandOptionName,
-  TimestampInSubcommandOptionName,
+  TimestampInSubcommandOptionName, TimestampUnixSubcommandOptionName,
 } from '../types/localization.js';
 import { MessageTimestampFormat } from '../utils/message-timestamp.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
@@ -178,6 +178,16 @@ const getAtOptions = (t: TFunction): APIApplicationCommandBasicOption[] => [
   },
 ];
 
+const getUnixOptions = (t: TFunction): APIApplicationCommandBasicOption[] => [
+  {
+    name: TimestampUnixSubcommandOptionName.VALUE,
+    ...getLocalizedObject('name', (lng) => t('commands.unix.options.value.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.unix.options.value.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+    required: true,
+  },
+];
+
 export const getTimestampCommandOptions = (t: TFunction): APIApplicationCommandOption[] => [
   {
     name: TimestampCommandOptionName.IN,
@@ -199,5 +209,12 @@ export const getTimestampCommandOptions = (t: TFunction): APIApplicationCommandO
     ...getLocalizedObject('description', (lng) => t('commands.at.description', { lng })),
     type: ApplicationCommandOptionType.Subcommand,
     options: getAtOptions(t),
+  },
+  {
+    name: TimestampCommandOptionName.UNIX,
+    ...getLocalizedObject('name', (lng) => t('commands.unix.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.unix.description', { lng })),
+    type: ApplicationCommandOptionType.Subcommand,
+    options: getUnixOptions(t),
   },
 ];

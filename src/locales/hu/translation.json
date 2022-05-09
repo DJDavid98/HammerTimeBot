@@ -118,6 +118,16 @@
           }
         }
       }
+    },
+    "unix": {
+      "name": "unix",
+      "description": "Kódok megjelenítése egy adott UNIX időbélyeghez",
+      "options": {
+        "value": {
+          "name": "érték",
+          "description": "A UNIX időbélyeg másodpercekben"
+        }
+      }
     }
   }
 }

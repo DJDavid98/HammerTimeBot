@@ -9,6 +9,7 @@ export enum TimestampCommandOptionName {
   IN = 'in',
   AGO = 'ago',
   AT = 'at',
+  UNIX = 'unix',
 }
 
 export enum TimestampAtSubcommandOptionName {
@@ -38,6 +39,10 @@ export enum TimestampAgoSubcommandOptionName {
   HOURS_AGO = 'hours',
   MINUTES_AGO = 'minutes',
   SECONDS_AGO = 'seconds',
+}
+
+export enum TimestampUnixSubcommandOptionName {
+  VALUE = 'value',
 }
 
 export enum TimestampCommandResponse {
