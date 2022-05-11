@@ -104,7 +104,7 @@ export const timestampCommand: BotCommand = {
           if (date !== null) localMoment.date(constrain(date, 1, 31));
           if (hour !== null) localMoment.hour(constrain(hour, 0, 23));
           if (minute !== null) localMoment.minute(constrain(minute, 0, 59));
-          if (second !== null) localMoment.second(constrain(second, 0, 59));
+          localMoment.second(second !== null ? constrain(second, 0, 59) : 0);
         } catch (e) {
           if (e instanceof RangeError && e.message === 'Invalid date') {
             await interaction.reply({
