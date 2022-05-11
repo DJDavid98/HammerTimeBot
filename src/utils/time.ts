@@ -4,6 +4,41 @@ import { unitOfTime } from 'moment';
 import { TimezoneError } from './timezone-error.js';
 import { MessageTimestamp, MessageTimestampFormat } from './message-timestamp.js';
 
+export const gmtTimezoneOptions = [
+  'GMT',
+  'GMT-1',
+  'GMT+1',
+  'GMT-2',
+  'GMT+2',
+  'GMT-3',
+  'GMT+3',
+  'GMT-4',
+  'GMT+4',
+  'GMT-5',
+  'GMT+5',
+  'GMT-6',
+  'GMT+6',
+  'GMT+7',
+  'GMT-8',
+  'GMT+8',
+  'GMT-9',
+  'GMT+9',
+  'GMT-10',
+  'GMT+10',
+  'GMT-11',
+  'GMT+11',
+  'GMT-12',
+  'GMT+12',
+  'GMT-13',
+  'GMT+13',
+  'GMT-14',
+  'GMT+14',
+  'GMT-15',
+  'GMT+15',
+  'GMT-16',
+  'GMT+16',
+];
+
 export const pad = (n: number, length: number): string => {
   const nString = `${n}`;
   if (nString.length >= length) return nString;
@@ -11,36 +46,37 @@ export const pad = (n: number, length: number): string => {
   return new Array(length).join('0') + nString;
 };
 
-export const gmtZoneRegex = /^Etc\/(GMT([+-]\d+)?)$/;
+export const gmtZoneRegex = /^GMT([+-]\d+)?$/i;
 
-const compareGmtStrings = (a: string, b: string) => parseInt(a.replace(gmtZoneRegex, '$2'), 10) - parseInt(b.replace(gmtZoneRegex, '$2'), 10);
-
-const switchGmtZoneName = (value: string): string =>
-  value.replace(gmtZoneRegex, (_, extractedIdentifier: string) => extractedIdentifier.replace(/([+-])/, (m) => (m === '+' ? '-' : '+')));
-
-export const getTimezoneLabel = (timezone: string): string => {
-  if (!gmtZoneRegex.test(timezone)) return timezone;
-  return switchGmtZoneName(timezone);
+export const getGmtTimezoneValue = (gmtTimezone: string, fallback = NaN): number => {
+  const offsetString = gmtTimezone.replace(gmtZoneRegex, '$1');
+  return offsetString.length === 0 ? fallback : parseInt(offsetString, 10);
 };
 
-export const getSortedNormalizedTimezoneNames = (): string[] => moment.tz
-  .names()
-  .filter((name) => !/^(?:Etc\/)?GMT[+-]?0$/.test(name))
-  .sort((a, b) => {
-    const isAGmt = gmtZoneRegex.test(a);
-    const isBGmt = gmtZoneRegex.test(b);
-    if (isAGmt) return isBGmt ? compareGmtStrings(a, b) : -1;
-    if (isBGmt) return isAGmt ? compareGmtStrings(a, b) : 1;
-    return a.localeCompare(b);
-  });
+const compareGmtStrings = (a: string, b: string) => {
+  const aValue = getGmtTimezoneValue(a);
+  const bValue = getGmtTimezoneValue(b);
+  if (isNaN(aValue)) return -1;
+  if (isNaN(bValue)) return 1;
+  return Math.abs(aValue) - Math.abs(bValue);
+};
+
+export const getSortedNormalizedTimezoneNames = (): string[] => [
+  ...moment.tz.names().filter((name) => !/GMT/g.test(name)),
+  ...gmtTimezoneOptions,
+].sort((a, b) => {
+  const isAGmt = gmtZoneRegex.test(a);
+  const isBGmt = gmtZoneRegex.test(b);
+  if (isAGmt) return isBGmt ? compareGmtStrings(a, b) : -1;
+  if (isBGmt) return isAGmt ? compareGmtStrings(a, b) : 1;
+  return a.localeCompare(b);
+});
 
 export const timezoneNames = getSortedNormalizedTimezoneNames();
 
 const slashPartRegex = /\/(\w+)$/g;
 export const timezoneIndex: Record<string, string> = timezoneNames.reduce((record, name) => {
-  const lowerName = name.toLowerCase()
-    // Normalize GMT flipped signs
-    .replace(/gmt([+-])/, (_, sign) => `gmt${sign === '+' ? '-' : '+'}`);
+  const lowerName = name.toLowerCase();
   const lowerKeys = [lowerName];
   const slashPart = lowerName.match(slashPartRegex);
   if (slashPart) {
@@ -53,6 +89,11 @@ export const timezoneIndex: Record<string, string> = timezoneNames.reduce((recor
 }, {});
 
 export const findTimezone = (value: string): string[] => {
+  if (gmtZoneRegex.test(value)) {
+    const inputUppercase = value.toUpperCase();
+    return gmtTimezoneOptions.filter(option => option.startsWith(inputUppercase)).sort(compareGmtStrings);
+  }
+
   const lowerValue = value.toLowerCase().replace(/\s+/g, '_');
   let candidates: string[] = [];
   if (lowerValue in timezoneIndex) {

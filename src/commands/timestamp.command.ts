@@ -5,8 +5,8 @@ import {
   adjustMoment,
   constrain,
   findTimezone,
-  formattedResponse,
-  getTimezoneLabel,
+  formattedResponse, getGmtTimezoneValue,
+  gmtTimezoneOptions, gmtZoneRegex,
   supportedFormats,
 } from '../utils/time.js';
 import {
@@ -20,112 +20,7 @@ import { getTimestampCommandOptions } from '../options/timestamp.options.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../utils/message-timestamp.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { TimezoneError } from '../utils/timezone-error.js';
-import { ApplicationCommandOptionChoice } from 'discord.js';
 import { getExactTimePrefix } from '../utils/get-exact-time-prefix.js';
-
-
-const DEFAULT_TIMEZONE_OPTIONS: ApplicationCommandOptionChoice[] = [
-  {
-    name: 'GMT',
-    value: 'GMT',
-  },
-  {
-    name: 'GMT+12',
-    value: 'Etc/GMT-12',
-  },
-  {
-    name: 'GMT+11',
-    value: 'Etc/GMT-11',
-  },
-  {
-    name: 'GMT+10',
-    value: 'Etc/GMT-10',
-  },
-  {
-    name: 'GMT+9',
-    value: 'Etc/GMT-9',
-  },
-  {
-    name: 'GMT+8',
-    value: 'Etc/GMT-8',
-  },
-  {
-    name: 'GMT+7',
-    value: 'Etc/GMT-7',
-  },
-  {
-    name: 'GMT+6',
-    value: 'Etc/GMT-6',
-  },
-  {
-    name: 'GMT+5',
-    value: 'Etc/GMT-5',
-  },
-  {
-    name: 'GMT+4',
-    value: 'Etc/GMT-4',
-  },
-  {
-    name: 'GMT+3',
-    value: 'Etc/GMT-3',
-  },
-  {
-    name: 'GMT+2',
-    value: 'Etc/GMT-2',
-  },
-  {
-    name: 'GMT+1',
-    value: 'Etc/GMT-1',
-  },
-  {
-    name: 'GMT-1',
-    value: 'Etc/GMT+1',
-  },
-  {
-    name: 'GMT-2',
-    value: 'Etc/GMT+2',
-  },
-  {
-    name: 'GMT-3',
-    value: 'Etc/GMT+3',
-  },
-  {
-    name: 'GMT-4',
-    value: 'Etc/GMT+4',
-  },
-  {
-    name: 'GMT-5',
-    value: 'Etc/GMT+5',
-  },
-  {
-    name: 'GMT-6',
-    value: 'Etc/GMT+6',
-  },
-  {
-    name: 'GMT-7',
-    value: 'Etc/GMT+7',
-  },
-  {
-    name: 'GMT-8',
-    value: 'Etc/GMT+8',
-  },
-  {
-    name: 'GMT-9',
-    value: 'Etc/GMT+9',
-  },
-  {
-    name: 'GMT-10',
-    value: 'Etc/GMT+10',
-  },
-  {
-    name: 'GMT-11',
-    value: 'Etc/GMT+11',
-  },
-  {
-    name: 'GMT-12',
-    value: 'Etc/GMT+12',
-  },
-];
 
 export const timestampCommand: BotCommand = {
   getDefinition: (t) => ({
@@ -139,26 +34,22 @@ export const timestampCommand: BotCommand = {
     switch (focusedOption.name) {
       case TimestampAtSubcommandOptionName.TIMEZONE: {
         const value = interaction.options.getString(TimestampAtSubcommandOptionName.TIMEZONE)?.trim();
-        if (typeof value !== 'string' || value.length === 0) {
-          await interaction.respond(DEFAULT_TIMEZONE_OPTIONS);
-          return;
-        }
-
         let tzNames: string[];
-        try {
-          tzNames = findTimezone(value);
-        } catch (e) {
-          if (!(e instanceof TimezoneError)) {
-            throw e;
+        if (typeof value !== 'string' || value.length === 0) {
+          tzNames = gmtTimezoneOptions;
+        } else {
+          try {
+            tzNames = findTimezone(value);
+          } catch (e) {
+            if (!(e instanceof TimezoneError)) {
+              throw e;
+            }
+            await interaction.respond([]);
+            return;
           }
-          await interaction.respond([]);
-          return;
         }
 
-        await interaction.respond(tzNames.slice(0, 25).map(name => ({
-          name: getTimezoneLabel(name),
-          value: name,
-        })));
+        await interaction.respond(tzNames.slice(0, 25).map(name => ({ name, value: name })));
       }
         break;
       default:
@@ -201,7 +92,13 @@ export const timestampCommand: BotCommand = {
         }
         let localMoment: Moment;
         try {
-          localMoment = moment.tz(timezone).millisecond(0);
+          if (gmtZoneRegex.test(timezone)) {
+            const utcOffset = Math.round(constrain(getGmtTimezoneValue(timezone, 0), -16, 16));
+            localMoment = moment.tz('UTC').utcOffset(utcOffset);
+          } else {
+            localMoment = moment.tz(timezone);
+          }
+          localMoment = localMoment.millisecond(0);
           if (year !== null) localMoment.year(constrain(year, 0));
           if (month !== null) localMoment.month(constrain(month - 1, 0, 11));
           if (date !== null) localMoment.date(constrain(date, 1, 31));

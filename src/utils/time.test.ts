@@ -3,8 +3,7 @@ import {
   adjustMoment,
   constrain,
   findTimezone,
-  formattedResponse,
-  getTimezoneLabel,
+  formattedResponse, gmtTimezoneOptions,
   pad,
   supportedFormats,
 } from './time.js';
@@ -38,44 +37,16 @@ describe('time utils', () => {
 
   describe('findTimezone', () => {
     it('should find exact match', () => {
-      const gmtOptions = [
-        'GMT',
-        'Etc/GMT',
-        'Etc/GMT-9',
-        'Etc/GMT-8',
-        'Etc/GMT-7',
-        'Etc/GMT-6',
-        'Etc/GMT-5',
-        'Etc/GMT-4',
-        'Etc/GMT-3',
-        'Etc/GMT-2',
-        'Etc/GMT-1',
-        'Etc/GMT+1',
-        'Etc/GMT+2',
-        'Etc/GMT+3',
-        'Etc/GMT+4',
-        'Etc/GMT+5',
-        'Etc/GMT+6',
-        'Etc/GMT+7',
-        'Etc/GMT+8',
-        'Etc/GMT+9',
-        'Etc/GMT-14',
-        'Etc/GMT-13',
-        'Etc/GMT-12',
-        'Etc/GMT-11',
-        'Etc/GMT-10',
-        'Etc/GMT+10',
-        'Etc/GMT+11',
-        'Etc/GMT+12',
-      ];
-      expect(findTimezone('GMT')).toEqual(gmtOptions);
-      expect(findTimezone('gmt')).toEqual(gmtOptions);
+      expect(findTimezone('GMT')).toEqual(gmtTimezoneOptions);
+      expect(findTimezone('gmt')).toEqual(gmtTimezoneOptions);
       expect(findTimezone('cet')).toEqual(['CET']);
     });
 
     it('should find partial match', () => {
-      expect(findTimezone('gmt+2')).toEqual(['Etc/GMT-2']);
-      expect(findTimezone('gmt-12')).toEqual(['Etc/GMT+12']);
+      expect(findTimezone('gmt+')).toEqual(['GMT+1', 'GMT+2', 'GMT+3', 'GMT+4', 'GMT+5', 'GMT+6', 'GMT+7', 'GMT+8', 'GMT+9', 'GMT+10', 'GMT+11', 'GMT+12', 'GMT+13', 'GMT+14', 'GMT+15', 'GMT+16']);
+      expect(findTimezone('gmt+2')).toEqual(['GMT+2']);
+      expect(findTimezone('gmt-1')).toEqual(['GMT-1', 'GMT-10', 'GMT-11', 'GMT-12', 'GMT-13', 'GMT-14', 'GMT-15', 'GMT-16']);
+      expect(findTimezone('gmt-12')).toEqual(['GMT-12']);
       expect(findTimezone('budapest')).toEqual(['Europe/Budapest']);
       expect(findTimezone('london')).toEqual(['Europe/London']);
       expect(findTimezone('los angeles')).toEqual(['America/Los_Angeles']);
@@ -138,15 +109,6 @@ describe('time utils', () => {
       expect(constrain(3, 0, 5)).toEqual(3);
       expect(constrain(5, 0, 5)).toEqual(5);
       expect(constrain(10, 0, 5)).toEqual(5);
-    });
-  });
-
-  describe('getTimezoneLabel', () => {
-    it('should switch signs and remove Etc prefix in GMT options', () => {
-      expect(getTimezoneLabel('GMT')).toEqual('GMT');
-      expect(getTimezoneLabel('Europe/Budapest')).toEqual('Europe/Budapest');
-      expect(getTimezoneLabel('Etc/GMT+2')).toEqual('GMT-2');
-      expect(getTimezoneLabel('Etc/GMT-12')).toEqual('GMT+12');
     });
   });
 });
