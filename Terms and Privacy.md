@@ -21,12 +21,12 @@ by regular users, not by automated tools.
 ## Privacy Policy
 
 The bot records command executions for debugging purposes. This includes the username and discriminator of the user that
-executed the command, the command itself (all parameters and their values) and the server it was executed in. No further
-information is collected or stored by the bot.
+executed the command, the command itself (all parameters and their values) and the server it was executed in. This data
+is stored on the application server for up to 30 days. No further information is collected or stored by the bot.
 
 By adding the bot to your server, you agree to this information being recorded, and you acknowledge that this
 information will not be shared with any third parties, and will be used only for the purpose of finding the root cause
 of any issues that arise during the bot's development.
 
-If you accidentally sent some personally identifiable information to the bot, and would like to make sure it is wiped
-from the logs, contact the bot's developer using the contact information at https://djdavid98.art/#contact
+If you accidentally sent some personal information to the bot, and would like to make sure it is wiped from the logs as
+soon as possible, contact the bot's developer using the contact information at https://djdavid98.art/#contact
