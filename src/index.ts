@@ -3,11 +3,10 @@ import { promises as fs } from 'fs';
 import { join } from 'path';
 import { createClient } from './utils/client.js';
 import {
+  cleanGlobalCommands,
   getAuthorizedServers,
   updateGlobalCommands,
   updateGuildCommands,
-  cleanGuildCommands,
-  cleanGlobalCommands,
 } from './utils/update-guild-commands.js';
 import { initI18next } from './constants/locales.js';
 import { env } from './env.js';
@@ -30,7 +29,8 @@ import { env } from './env.js';
     await cleanGlobalCommands();
     await Promise.all(serverIds.map((serverId) => updateGuildCommands(serverId, t)));
   } else {
-    await Promise.all(serverIds.map((serverId) => cleanGuildCommands(serverId)));
+    // Clean guild commands on startup, used only while the app was using guild commands, now it's no longer needed
+    // await Promise.all(serverIds.map((serverId) => cleanGuildCommands(serverId)));
     await updateGlobalCommands(t);
   }
 
