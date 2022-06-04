@@ -18,6 +18,7 @@ export const gmtTimezoneOptions = [
   'GMT+5',
   'GMT-6',
   'GMT+6',
+  'GMT-7',
   'GMT+7',
   'GMT-8',
   'GMT+8',
