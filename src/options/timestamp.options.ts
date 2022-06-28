@@ -4,10 +4,11 @@ import {
 } from 'discord-api-types/payloads/v10/_interactions/_applicationCommands/chatInput.js';
 import { TFunction } from 'i18next';
 import {
+  TimestampAddSubcommandOptionName,
   TimestampAgoSubcommandOptionName,
   TimestampAtSubcommandOptionName,
   TimestampCommandOptionName,
-  TimestampInSubcommandOptionName, TimestampUnixSubcommandOptionName,
+  TimestampInSubcommandOptionName, TimestampSubtractSubcommandOptionName, TimestampUnixSubcommandOptionName,
 } from '../types/localization.js';
 import { MessageTimestampFormat } from '../utils/message-timestamp.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
@@ -131,6 +132,98 @@ const getAgoOptions = (t: TFunction): APIApplicationCommandBasicOption[] => [
   },
 ];
 
+const getAddOptions = (t: TFunction): APIApplicationCommandBasicOption[] => [
+  {
+    name: TimestampAddSubcommandOptionName.TO,
+    ...getLocalizedObject('name', (lng) => t('commands.add.options.to.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.add.options.to.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+    required: true,
+  },
+  {
+    name: TimestampAddSubcommandOptionName.ADD_YEARS,
+    ...getLocalizedObject('name', (lng) => t('commands.add.options.years.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.add.options.years.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+  },
+  {
+    name: TimestampAddSubcommandOptionName.ADD_MONTHS,
+    ...getLocalizedObject('name', (lng) => t('commands.add.options.months.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.add.options.months.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+  },
+  {
+    name: TimestampAddSubcommandOptionName.ADD_DAYS,
+    ...getLocalizedObject('name', (lng) => t('commands.add.options.days.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.add.options.days.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+  },
+  {
+    name: TimestampAddSubcommandOptionName.ADD_HOURS,
+    ...getLocalizedObject('name', (lng) => t('commands.add.options.hours.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.add.options.hours.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+  },
+  {
+    name: TimestampAddSubcommandOptionName.ADD_MINUTES,
+    ...getLocalizedObject('name', (lng) => t('commands.add.options.minutes.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.add.options.minutes.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+  },
+  {
+    name: TimestampAddSubcommandOptionName.ADD_SECONDS,
+    ...getLocalizedObject('name', (lng) => t('commands.add.options.seconds.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.add.options.seconds.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+  },
+];
+
+const getSubtractOptions = (t: TFunction): APIApplicationCommandBasicOption[] => [
+  {
+    name: TimestampSubtractSubcommandOptionName.FROM,
+    ...getLocalizedObject('name', (lng) => t('commands.subtract.options.from.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.subtract.options.from.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+    required: true,
+  },
+  {
+    name: TimestampSubtractSubcommandOptionName.SUBTRACT_YEARS,
+    ...getLocalizedObject('name', (lng) => t('commands.subtract.options.years.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.subtract.options.years.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+  },
+  {
+    name: TimestampSubtractSubcommandOptionName.SUBTRACT_MONTHS,
+    ...getLocalizedObject('name', (lng) => t('commands.subtract.options.months.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.subtract.options.months.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+  },
+  {
+    name: TimestampSubtractSubcommandOptionName.SUBTRACT_DAYS,
+    ...getLocalizedObject('name', (lng) => t('commands.subtract.options.days.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.subtract.options.days.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+  },
+  {
+    name: TimestampSubtractSubcommandOptionName.SUBTRACT_HOURS,
+    ...getLocalizedObject('name', (lng) => t('commands.subtract.options.hours.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.subtract.options.hours.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+  },
+  {
+    name: TimestampSubtractSubcommandOptionName.SUBTRACT_MINUTES,
+    ...getLocalizedObject('name', (lng) => t('commands.subtract.options.minutes.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.subtract.options.minutes.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+  },
+  {
+    name: TimestampSubtractSubcommandOptionName.SUBTRACT_SECONDS,
+    ...getLocalizedObject('name', (lng) => t('commands.subtract.options.seconds.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.subtract.options.seconds.description', { lng })),
+    type: ApplicationCommandOptionType.Number,
+  },
+];
+
 const getAtOptions = (t: TFunction): APIApplicationCommandBasicOption[] => [
   {
     name: TimestampAtSubcommandOptionName.YEAR,
@@ -216,5 +309,19 @@ export const getTimestampCommandOptions = (t: TFunction): APIApplicationCommandO
     ...getLocalizedObject('description', (lng) => t('commands.unix.description', { lng })),
     type: ApplicationCommandOptionType.Subcommand,
     options: getUnixOptions(t),
+  },
+  {
+    name: TimestampCommandOptionName.ADD,
+    ...getLocalizedObject('name', (lng) => t('commands.add.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.add.description', { lng })),
+    type: ApplicationCommandOptionType.Subcommand,
+    options: getAddOptions(t),
+  },
+  {
+    name: TimestampCommandOptionName.SUBTRACT,
+    ...getLocalizedObject('name', (lng) => t('commands.subtract.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.subtract.description', { lng })),
+    type: ApplicationCommandOptionType.Subcommand,
+    options: getSubtractOptions(t),
   },
 ];

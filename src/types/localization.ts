@@ -10,6 +10,8 @@ export enum TimestampCommandOptionName {
   AGO = 'ago',
   AT = 'at',
   UNIX = 'unix',
+  ADD = 'add',
+  SUBTRACT = 'subtract',
 }
 
 export enum TimestampAtSubcommandOptionName {
@@ -41,6 +43,26 @@ export enum TimestampAgoSubcommandOptionName {
   SECONDS_AGO = 'seconds',
 }
 
+export enum TimestampAddSubcommandOptionName {
+  TO = 'to',
+  ADD_YEARS = 'years',
+  ADD_MONTHS = 'months',
+  ADD_DAYS = 'days',
+  ADD_HOURS = 'hours',
+  ADD_MINUTES = 'minutes',
+  ADD_SECONDS = 'seconds',
+}
+
+export enum TimestampSubtractSubcommandOptionName {
+  FROM = 'from',
+  SUBTRACT_YEARS = 'years',
+  SUBTRACT_MONTHS = 'months',
+  SUBTRACT_DAYS = 'days',
+  SUBTRACT_HOURS = 'hours',
+  SUBTRACT_MINUTES = 'minutes',
+  SUBTRACT_SECONDS = 'seconds',
+}
+
 export enum TimestampUnixSubcommandOptionName {
   VALUE = 'value',
 }
@@ -54,6 +76,8 @@ interface CommandOptionsMap {
   [TimestampCommandOptionName.IN]: TimestampInSubcommandOptionName,
   [TimestampCommandOptionName.AGO]: TimestampAgoSubcommandOptionName,
   [TimestampCommandOptionName.AT]: TimestampAtSubcommandOptionName,
+  [TimestampCommandOptionName.ADD]: TimestampAddSubcommandOptionName,
+  [TimestampCommandOptionName.SUBTRACT]: TimestampSubtractSubcommandOptionName,
 }
 
 interface CommandResponsesMap {
@@ -61,6 +85,8 @@ interface CommandResponsesMap {
   [TimestampCommandOptionName.IN]: never,
   [TimestampCommandOptionName.AGO]: never,
   [TimestampCommandOptionName.AT]: never,
+  [TimestampCommandOptionName.ADD]: never,
+  [TimestampCommandOptionName.SUBTRACT]: never,
 }
 
 interface OptionChoicesMap {

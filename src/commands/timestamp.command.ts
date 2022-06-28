@@ -10,10 +10,11 @@ import {
   supportedFormats,
 } from '../utils/time.js';
 import {
+  TimestampAddSubcommandOptionName,
   TimestampAgoSubcommandOptionName,
   TimestampAtSubcommandOptionName,
   TimestampCommandOptionName,
-  TimestampInSubcommandOptionName,
+  TimestampInSubcommandOptionName, TimestampSubtractSubcommandOptionName,
   TimestampUnixSubcommandOptionName,
 } from '../types/localization.js';
 import { getTimestampCommandOptions } from '../options/timestamp.options.js';
@@ -145,6 +146,64 @@ export const timestampCommand: BotCommand = {
         };
 
         const localMoment = adjustMoment(addOptions, 'add');
+        ts = new MessageTimestamp(localMoment.toDate());
+      }
+        break;
+      case TimestampCommandOptionName.ADD: {
+        const nowTimestamp = interaction.options.getNumber(TimestampAddSubcommandOptionName.TO, true);
+        let now: Date;
+        try {
+          now = new Date(nowTimestamp);
+        } catch (e) {
+          if (e instanceof RangeError && e.message === 'Invalid date') {
+            await interaction.reply({
+              content: t('commands.timestamp.responses.invalidDate'),
+              ephemeral: true,
+            });
+            return;
+          }
+
+          throw e;
+        }
+        const addOptions = {
+          years: interaction.options.getNumber(TimestampAddSubcommandOptionName.ADD_YEARS),
+          months: interaction.options.getNumber(TimestampAddSubcommandOptionName.ADD_MONTHS),
+          days: interaction.options.getNumber(TimestampAddSubcommandOptionName.ADD_DAYS),
+          hours: interaction.options.getNumber(TimestampAddSubcommandOptionName.ADD_HOURS),
+          minutes: interaction.options.getNumber(TimestampAddSubcommandOptionName.ADD_MINUTES),
+          seconds: interaction.options.getNumber(TimestampAddSubcommandOptionName.ADD_SECONDS),
+        };
+
+        const localMoment = adjustMoment(addOptions, 'add', now);
+        ts = new MessageTimestamp(localMoment.toDate());
+      }
+        break;
+      case TimestampCommandOptionName.SUBTRACT: {
+        const nowTimestamp = interaction.options.getNumber(TimestampSubtractSubcommandOptionName.FROM, true);
+        let now: Date;
+        try {
+          now = new Date(nowTimestamp);
+        } catch (e) {
+          if (e instanceof RangeError && e.message === 'Invalid date') {
+            await interaction.reply({
+              content: t('commands.timestamp.responses.invalidDate'),
+              ephemeral: true,
+            });
+            return;
+          }
+
+          throw e;
+        }
+        const addOptions = {
+          years: interaction.options.getNumber(TimestampSubtractSubcommandOptionName.SUBTRACT_YEARS),
+          months: interaction.options.getNumber(TimestampSubtractSubcommandOptionName.SUBTRACT_MONTHS),
+          days: interaction.options.getNumber(TimestampSubtractSubcommandOptionName.SUBTRACT_DAYS),
+          hours: interaction.options.getNumber(TimestampSubtractSubcommandOptionName.SUBTRACT_HOURS),
+          minutes: interaction.options.getNumber(TimestampSubtractSubcommandOptionName.SUBTRACT_MINUTES),
+          seconds: interaction.options.getNumber(TimestampSubtractSubcommandOptionName.SUBTRACT_SECONDS),
+        };
+
+        const localMoment = adjustMoment(addOptions, 'subtract', now);
         ts = new MessageTimestamp(localMoment.toDate());
       }
         break;

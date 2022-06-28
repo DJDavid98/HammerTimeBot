@@ -47,27 +47,27 @@
       "options": {
         "years": {
           "name": "év",
-          "description": "How many years to add to the current time"
+          "description": "Hány évet kell hozzáadni az aktuális időhöz"
         },
         "months": {
           "name": "hónap",
-          "description": "How many months to add to the current time"
+          "description": "Hány hónapot kell hozzáadni az aktuális időhöz"
         },
         "days": {
           "name": "nap",
-          "description": "How many days to add to the current time"
+          "description": "Hány napot kell hozzáadni az aktuális időhöz"
         },
         "hours": {
           "name": "óra",
-          "description": "How many hours to add to the current time"
+          "description": "Hány órát kell hozzáadni az aktuális időhöz"
         },
         "minutes": {
           "name": "perc",
-          "description": "How many minutes to add to the current time"
+          "description": "Hány percet kell hozzáadni az aktuális időhöz"
         },
         "seconds": {
           "name": "másodperc",
-          "description": "How many seconds to add to the current time"
+          "description": "Hány másodpercet kell hozzáadni az aktuális időhöz"
         }
       }
     },
@@ -116,6 +116,76 @@
             "F": "hét napja, dátum és idő",
             "R": "viszonylagos"
           }
+        }
+      }
+    },
+    "add": {
+      "name": "hozzáad",
+      "description": "Hozzáad egy kis időt a megadott UNIX időbélyeghez",
+      "responses": {},
+      "options": {
+        "to": {
+          "name": "ehhez",
+          "description": "A UNIX időbélyeg másodpercekben"
+        },
+        "years": {
+          "name": "év",
+          "description": "Hány évet kell hozzáadni a megadott időbélyeghez"
+        },
+        "months": {
+          "name": "hónap",
+          "description": "Hány hónapot kell hozzáadni a megadott időbélyeghez"
+        },
+        "days": {
+          "name": "nap",
+          "description": "Hány napot kell hozzáadni a megadott időbélyeghez"
+        },
+        "hours": {
+          "name": "óra",
+          "description": "Hány órát kell hozzáadni a megadott időbélyeghez"
+        },
+        "minutes": {
+          "name": "perc",
+          "description": "Hány percet kell hozzáadni a megadott időbélyeghez"
+        },
+        "seconds": {
+          "name": "másodperc",
+          "description": "Hány másodpercet kell hozzáadni a megadott időbélyeghez"
+        }
+      }
+    },
+    "subtract": {
+      "name": "kivon",
+      "description": "Kivon egy kis időt a megadott UNIX időbélyegből",
+      "responses": {},
+      "options": {
+        "from": {
+          "name": "ebből",
+          "description": "A UNIX időbélyeg másodpercekben"
+        },
+        "years": {
+          "name": "ehhez",
+          "description": "Hány évet kell kivonni a megadott időbélyegből"
+        },
+        "months": {
+          "name": "év",
+          "description": "Hány hónapot kell kivonni a megadott időbélyegből"
+        },
+        "days": {
+          "name": "hónap",
+          "description": "Hány napot kell kivonni a megadott időbélyegből"
+        },
+        "hours": {
+          "name": "nap",
+          "description": "Hány órát kell kivonni a megadott időbélyegből"
+        },
+        "minutes": {
+          "name": "óra",
+          "description": "Hány percet kell kivonni a megadott időbélyegből"
+        },
+        "seconds": {
+          "name": "perc",
+          "description": "Hány másodpercet kell kivonni a megadott időbélyegből"
         }
       }
     },
