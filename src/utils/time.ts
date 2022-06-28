@@ -131,8 +131,8 @@ export const formattedResponse = (ts: MessageTimestamp, formats: MessageTimestam
   return strings.join('\n');
 };
 
-export const adjustMoment = <TimeMap extends Partial<Record<unitOfTime.DurationConstructor, number | null>>>(timeMap: TimeMap, method: 'add' | 'subtract', now?: Date): Moment => {
-  const timestamp = moment(now);
+export const adjustMoment = <TimeMap extends Partial<Record<unitOfTime.DurationConstructor, number | null>>>(timeMap: TimeMap, method: 'add' | 'subtract', now?: Date | Moment): Moment => {
+  const timestamp = moment.isMoment(now) ? now : moment(now);
   (Object.keys(timeMap) as unitOfTime.DurationConstructor[]).forEach((key) => {
     const value = timeMap[key];
     if (typeof value === 'number' && value > 0) timestamp[method](value, key);

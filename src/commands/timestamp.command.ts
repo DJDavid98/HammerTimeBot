@@ -150,21 +150,8 @@ export const timestampCommand: BotCommand = {
       }
         break;
       case TimestampCommandOptionName.ADD: {
-        const nowTimestamp = interaction.options.getNumber(TimestampAddSubcommandOptionName.TO, true);
-        let now: Date;
-        try {
-          now = new Date(nowTimestamp);
-        } catch (e) {
-          if (e instanceof RangeError && e.message === 'Invalid date') {
-            await interaction.reply({
-              content: t('commands.timestamp.responses.invalidDate'),
-              ephemeral: true,
-            });
-            return;
-          }
-
-          throw e;
-        }
+        const to = interaction.options.getNumber(TimestampAddSubcommandOptionName.TO, true);
+        const now = moment.unix(to).utc();
         const addOptions = {
           years: interaction.options.getNumber(TimestampAddSubcommandOptionName.ADD_YEARS),
           months: interaction.options.getNumber(TimestampAddSubcommandOptionName.ADD_MONTHS),
@@ -179,21 +166,8 @@ export const timestampCommand: BotCommand = {
       }
         break;
       case TimestampCommandOptionName.SUBTRACT: {
-        const nowTimestamp = interaction.options.getNumber(TimestampSubtractSubcommandOptionName.FROM, true);
-        let now: Date;
-        try {
-          now = new Date(nowTimestamp);
-        } catch (e) {
-          if (e instanceof RangeError && e.message === 'Invalid date') {
-            await interaction.reply({
-              content: t('commands.timestamp.responses.invalidDate'),
-              ephemeral: true,
-            });
-            return;
-          }
-
-          throw e;
-        }
+        const from = interaction.options.getNumber(TimestampSubtractSubcommandOptionName.FROM, true);
+        const now = moment.unix(from).utc();
         const addOptions = {
           years: interaction.options.getNumber(TimestampSubtractSubcommandOptionName.SUBTRACT_YEARS),
           months: interaction.options.getNumber(TimestampSubtractSubcommandOptionName.SUBTRACT_MONTHS),
