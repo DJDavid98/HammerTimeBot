@@ -1,15 +1,22 @@
-import { AutocompleteInteraction, ButtonInteraction, CommandInteraction } from 'discord.js';
+import {
+  AutocompleteInteraction,
+  ButtonInteraction,
+  ChatInputCommandInteraction,
+  CommandInteraction,
+  InteractionType,
+} from 'discord.js';
 import { TFunction } from 'i18next';
 import { commandMap, isKnownCommandInteraction } from './commands.js';
 import { EmojiCharacters } from '../constants/emoji-characters.js';
 import { getUserIdentifier, stringifyChannelName, stringifyGuildName, stringifyOptionsData } from './messaging.js';
+import { ApplicationCommandType } from 'discord-api-types/v10';
 
 const ellipsis = '…';
 
 const processingErrorMessageFactory = (): string => `${EmojiCharacters.OCTAGONAL_SIGN} There was an unexpected error while processing this interaction`;
 
-const handleInteractionError = async (interaction: CommandInteraction | ButtonInteraction | AutocompleteInteraction) => {
-  if (interaction.isAutocomplete()) {
+const handleInteractionError = async (interaction: ChatInputCommandInteraction | ButtonInteraction | AutocompleteInteraction) => {
+  if (interaction.type === InteractionType.ApplicationCommandAutocomplete) {
     await interaction.respond([
       {
         value: '',
@@ -39,7 +46,16 @@ const handleInteractionError = async (interaction: CommandInteraction | ButtonIn
   });
 };
 
+const isChatInputCommandInteraction = (interaction: CommandInteraction): interaction is ChatInputCommandInteraction => {
+  return interaction.commandType === ApplicationCommandType.ChatInput;
+};
+
 export const handleCommandInteraction = async (interaction: CommandInteraction, t: TFunction): Promise<void> => {
+  if (!isChatInputCommandInteraction(interaction)) {
+    await interaction.reply(`Unsupported command type ${interaction.commandName}`);
+    return;
+  }
+
   if (!isKnownCommandInteraction(interaction)) {
     await interaction.reply(`Unknown command ${interaction.commandName}`);
     return;

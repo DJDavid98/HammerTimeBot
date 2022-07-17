@@ -1,8 +1,9 @@
-import { Client, Intents } from 'discord.js';
+import { Client, InteractionType } from 'discord.js';
 import { TFunction } from 'i18next';
 import { env } from '../env.js';
 import { getGitData } from './get-git-data.js';
-import { handleCommandInteraction, handleCommandAutocomplete } from './interaction-handlers.js';
+import { handleCommandAutocomplete, handleCommandInteraction } from './interaction-handlers.js';
+import { GatewayIntentBits } from 'discord-api-types/v10';
 
 const handleReady = async (client: Client<true>) => {
   const clientUser = client.user;
@@ -16,22 +17,22 @@ const handleReady = async (client: Client<true>) => {
 };
 
 export const createClient = async (t: TFunction): Promise<void> => {
-  const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+  const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
   client.on('ready', handleReady);
 
   client.on('interactionCreate', async (interaction) => {
-    if (interaction.isCommand()) {
-      await handleCommandInteraction(interaction, t);
-      return;
+    switch (interaction.type) {
+      case InteractionType.ApplicationCommand:
+        await handleCommandInteraction(interaction, t);
+        return;
+      case InteractionType.ApplicationCommandAutocomplete:
+        await handleCommandAutocomplete(interaction, t);
+        return;
+      default:
+        throw new Error(`Unhandled interaction of type ${interaction.type}`);
     }
 
-    if (interaction.isAutocomplete()) {
-      await handleCommandAutocomplete(interaction, t);
-      return;
-    }
-
-    throw new Error(`Unhandled interaction of type ${interaction.type}`);
   });
 
   await client.login(env.DISCORD_BOT_TOKEN);

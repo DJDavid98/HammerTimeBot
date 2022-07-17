@@ -1,7 +1,4 @@
-import { APIApplicationCommand } from 'discord-api-types/v10';
-import {
-  APIApplicationCommandOption,
-} from 'discord-api-types/payloads/v10/_interactions/_applicationCommands/chatInput.js';
+import { APIApplicationCommand, APIApplicationCommandOption } from 'discord-api-types/v10';
 import { BotCommandName } from './bot-interaction.js';
 import { MessageTimestampFormat } from '../utils/message-timestamp.js';
 

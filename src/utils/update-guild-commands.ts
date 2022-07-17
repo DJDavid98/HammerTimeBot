@@ -1,4 +1,4 @@
-import { RESTGetAPICurrentUserGuildsResult, Routes } from 'discord-api-types/rest/v10';
+import { RESTGetAPICurrentUserGuildsResult, Routes } from 'discord-api-types/v10';
 import { REST } from '@discordjs/rest';
 import { Snowflake } from 'discord-api-types/globals';
 import { TFunction } from 'i18next';

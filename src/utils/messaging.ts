@@ -1,11 +1,17 @@
-import { BaseCommandInteraction, CommandInteractionOption, User } from 'discord.js';
+import {
+  ApplicationCommandOptionType,
+  CommandInteraction,
+  ChannelType,
+  CommandInteractionOption,
+  User,
+} from 'discord.js';
 
 export const getUserIdentifier = (user: User): `${string}#${string} (${string})` => `${user.username}#${user.discriminator} (${user.id})`;
 
-export const stringifyChannelName = (channel: BaseCommandInteraction['channel']): string => {
+export const stringifyChannelName = (channel: CommandInteraction['channel']): string => {
   if (channel) {
     let stringName: string;
-    if (channel.isText() && 'name' in channel) {
+    if (channel.type === ChannelType.GuildText && 'name' in channel) {
       stringName = `#${channel.name}`;
     } else {
       stringName = channel.toString();
@@ -17,7 +23,7 @@ export const stringifyChannelName = (channel: BaseCommandInteraction['channel'])
   return '(unknown channel)';
 };
 
-export const stringifyGuildName = (guild: BaseCommandInteraction['guild']): string => {
+export const stringifyGuildName = (guild: CommandInteraction['guild']): string => {
   if (guild) {
     return `${guild.name} (${guild.id})`;
   }
@@ -30,16 +36,16 @@ export const stringifyOptionsData = (data: readonly CommandInteractionOption[]):
   let optionValue: string | number | boolean | null | undefined = option.value;
   // eslint-disable-next-line default-case
   switch (option.type) {
-    case 'CHANNEL':
-      if (option.channel) optionValue = `${option.channel.type === 'GUILD_TEXT' ? '#' : ''}${option.channel.name}`;
+    case ApplicationCommandOptionType.Channel:
+      if (option.channel) optionValue = `${option.channel.type === ChannelType.GuildText ? '#' : ''}${option.channel.name}`;
       break;
-    case 'USER':
+    case ApplicationCommandOptionType.User:
       if (option.user) optionValue = getUserIdentifier(option.user);
       break;
-    case 'ROLE':
+    case ApplicationCommandOptionType.Role:
       if (option.role) optionValue = `@${option.role.name}`;
       break;
-    case 'SUB_COMMAND':
+    case ApplicationCommandOptionType.Subcommand:
       optionValue = option.options ? stringifyOptionsData(option.options) : null;
       break;
   }
