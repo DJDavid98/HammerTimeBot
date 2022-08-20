@@ -15,7 +15,18 @@ import type esTranslation from '../locales/es/translation.json';
 import type ukTranslation from '../locales/uk/translation.json';
 import { join } from 'path';
 
-export type SupportedLanguage = keyof Pick<LocalizationMap, 'hu' | 'en-US' | 'en-GB' | 'de' | 'el' | 'it' | 'pl' | 'ru' | 'es-ES' | 'uk'>;
+export type SupportedLanguage = keyof Pick<LocalizationMap, (
+  | 'hu'
+  | 'en-US'
+  | 'en-GB'
+  | 'de'
+  | 'el'
+  | 'it'
+  | 'pl'
+  | 'ru'
+  // | 'es-ES'
+  | 'uk'
+)>;
 const languagesRecord: Record<SupportedLanguage, true> = {
   hu: true,
   'en-US': true,
@@ -25,7 +36,7 @@ const languagesRecord: Record<SupportedLanguage, true> = {
   it: true,
   pl: true,
   ru: true,
-  'es-ES': true,
+  // 'es-ES': true,
   uk: true,
 };
 

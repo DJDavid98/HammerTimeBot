@@ -18,9 +18,16 @@ export function getLocalizedObject<Key extends LocalizedKey>(key: Key, translato
   const baseObject = includeBaseKey ? { [key]: translator() } : undefined;
   return {
     ...baseObject,
-    [localizationsKey]: SUPPORTED_LANGUAGES.reduce((localizations, locale) => ({
-      ...localizations,
-      [locale]: translator(locale),
-    }), {} as SupportedLocalizations),
+    [localizationsKey]: SUPPORTED_LANGUAGES.reduce((localizations, locale) => {
+      let value = translator(locale);
+      if (key === 'name') {
+        // Automatically replace spaces with dash and make all-lowercase
+        value = value.toLowerCase().replace(/ /g, '-');
+      }
+      return ({
+        ...localizations,
+        [locale]: value,
+      });
+    }, {} as SupportedLocalizations),
   } as LocalizedValue<Key>;
 }

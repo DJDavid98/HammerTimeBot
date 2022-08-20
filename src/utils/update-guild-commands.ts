@@ -20,7 +20,7 @@ export const getAuthorizedServers = async (): Promise<string[]> => {
 export const updateGuildCommands = async (guildId: Snowflake, t: TFunction): Promise<void> => {
   const guildIdString = `guildId:${guildId}`;
   try {
-    console.log(`Started refreshing guild (/) commands (${guildIdString})`);
+    console.log(`Started reloading guild (/) commands (${guildIdString})`);
 
     await rest.put(
       Routes.applicationGuildCommands(env.DISCORD_CLIENT_ID, guildId),
