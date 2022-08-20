@@ -5,12 +5,28 @@ import { env } from '../env.js';
 import { Localization } from '../types/localization.js';
 import type huTranslation from '../locales/hu/translation.json';
 import type enTranslation from '../locales/en/translation.json';
+import type enGbTranslation from '../locales/en-GB/translation.json';
+import type deTranslation from '../locales/de/translation.json';
+import type elTranslation from '../locales/el/translation.json';
+import type itTranslation from '../locales/it/translation.json';
+import type plTranslation from '../locales/pl/translation.json';
+import type ruTranslation from '../locales/ru/translation.json';
+import type esTranslation from '../locales/es/translation.json';
+import type ukTranslation from '../locales/uk/translation.json';
 import { join } from 'path';
 
-export type SupportedLanguage = keyof Pick<LocalizationMap, 'hu' | 'en-US'>;
+export type SupportedLanguage = keyof Pick<LocalizationMap, 'hu' | 'en-US' | 'en-GB' | 'de' | 'el' | 'it' | 'pl' | 'ru' | 'es-ES' | 'uk'>;
 const languagesRecord: Record<SupportedLanguage, true> = {
   hu: true,
   'en-US': true,
+  'en-GB': true,
+  de: true,
+  el: true,
+  it: true,
+  pl: true,
+  ru: true,
+  'es-ES': true,
+  uk: true,
 };
 
 // Type-safe language constants
@@ -23,6 +39,14 @@ type TypeValidator<T extends Record<SupportedLanguage, Localization>> = T;
 type ValidatedLocalizationMap = TypeValidator<{
   hu: typeof huTranslation,
   'en-US': typeof enTranslation,
+  'en-GB': typeof enGbTranslation,
+  de: typeof deTranslation,
+  el: typeof elTranslation,
+  it: typeof itTranslation,
+  pl: typeof plTranslation,
+  ru: typeof ruTranslation,
+  'es-ES': typeof esTranslation,
+  uk: typeof ukTranslation,
 }>;
 /* eslint-enable @typescript-eslint/no-unused-vars */
 

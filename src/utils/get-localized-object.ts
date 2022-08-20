@@ -2,7 +2,7 @@ import { SUPPORTED_LANGUAGES, SupportedLanguage } from '../constants/locales.js'
 
 type LocalizedKey = 'description' | 'name';
 type LocalizationsKey<Key extends LocalizedKey> = `${Key}_localizations`;
-type SupportedLocalizations = Record<SupportedLanguage, string>;
+export type SupportedLocalizations = Record<SupportedLanguage, string>;
 export type SupportedLocalizationMap<Key extends LocalizedKey> = Record<LocalizationsKey<Key>, SupportedLocalizations>;
 export type LocalizedValue<Key extends LocalizedKey> =
   Record<Key, string>
