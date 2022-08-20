@@ -1,6 +1,6 @@
 # HammerTimeBot ![Workflow status](https://github.com/DJDavid98/HammerTimeBot/workflows/Build/badge.svg) <a title="Crowdin" target="_blank" href="https://crowdin.com/project/hammertimebot"><img src="https://badges.crowdin.net/hammertimebot/localized.svg" alt=""></a></h1>
 
-Chat bot written in Node.js (using [discord.js](https://www.npmjs.com/package/discord.js)) for [HammerTime]
+Discord bot written in Node.js (using [discord.js](https://www.npmjs.com/package/discord.js)) for [HammerTime]
 
 [HammerTime]: https://github.com/DJDavid98/HammerTime
 
@@ -28,3 +28,14 @@ everyone at once.
 [#translator-signup]: https://discord.com/channels/952258283882819595/952292965211074650
 
 English and Hungarian translations have been included, so no translators will be needed for these two languages.
+
+### Credits
+
+- 🇩🇪 German: Fabian9799
+- 🇬🇷 Greek: BelleBernice
+- 🇮🇹 Italian: Lory Pelli (pellilory126)
+- 🇰🇷 Korean: Bin (cheesepickle12345678, sjkim04
+- 🇵🇱 Polish: Dawid (MinerPL)
+- 🇷🇺 Russian: GameHacker, Nikita Sharikov (Aligatoor)
+- 🇪🇸 Spanish: Pablo Luna (shaulyareaj)
+- 🇺🇦 Ukrainian: enky, GameHacker
