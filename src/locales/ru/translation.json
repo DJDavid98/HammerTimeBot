@@ -1,0 +1,203 @@
+{
+  "commands": {
+    "timestamp": {
+      "name": "timestamp",
+      "description": "Может использоваться для генерации кода для временных меток во всех форматах",
+      "options": [],
+      "responses": {
+        "invalidDate": "Указанная дата недействительна (например: заданный день не существует)",
+        "timezoneNotFound": "Указанный часовой пояс не может быть найден"
+      }
+    },
+    "ago": {
+      "name": "ago",
+      "description": "Укажите временную метку в прошлом относительно текущего времени",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "years",
+          "description": "Сколько лет нужно вычесть из текущего времени"
+        },
+        "months": {
+          "name": "months",
+          "description": "Сколько месяцев нужно вычесть из текущего времени"
+        },
+        "days": {
+          "name": "days",
+          "description": "Сколько дней нужно вычесть из текущего времени"
+        },
+        "hours": {
+          "name": "hours",
+          "description": "Сколько часов нужно вычесть из текущего времени"
+        },
+        "minutes": {
+          "name": "minutes",
+          "description": "Сколько минут нужно вычесть из текущего времени"
+        },
+        "seconds": {
+          "name": "seconds",
+          "description": "Сколько секунд нужно вычесть из текущего времени"
+        }
+      }
+    },
+    "in": {
+      "name": "in",
+      "description": "Укажите временную метку в будущем относительно текущего времени",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "years",
+          "description": "Сколько лет нужно прибавить к текущему времени"
+        },
+        "months": {
+          "name": "months",
+          "description": "Сколько месяцев нужно прибавить к текущему времени"
+        },
+        "days": {
+          "name": "days",
+          "description": "Сколько дней нужно прибавить к текущему времени"
+        },
+        "hours": {
+          "name": "hours",
+          "description": "Сколько часов нужно прибавить к текущему времени"
+        },
+        "minutes": {
+          "name": "minutes",
+          "description": "Сколько минут нужно прибавить к текущему времени"
+        },
+        "seconds": {
+          "name": "seconds",
+          "description": "Сколько секунд нужно прибавить к текущему времени"
+        }
+      }
+    },
+    "at": {
+      "name": "at",
+      "description": "Укажите точные компоненты временной метки (включая часовой пояс)",
+      "responses": [],
+      "options": {
+        "year": {
+          "name": "year",
+          "description": "Укажите год (по умолчанию - текущий год)"
+        },
+        "month": {
+          "name": "month",
+          "description": "Укажите месяц (по умолчанию - текущий месяц)"
+        },
+        "day": {
+          "name": "day",
+          "description": "Укажите день (по умолчанию - текущий день)"
+        },
+        "hour": {
+          "name": "hour",
+          "description": "Укажите час (по умолчанию - текущий час)"
+        },
+        "minute": {
+          "name": "minute",
+          "description": "Укажите минуту (по умолчанию используется текущая минута)"
+        },
+        "second": {
+          "name": "second",
+          "description": "Укажите секунду (по умолчанию 0)"
+        },
+        "timezone": {
+          "name": "timezone",
+          "description": "Укажите часовой пояс (по умолчанию GMT)"
+        },
+        "format": {
+          "name": "format",
+          "description": "Возвращает только указанный формат в ответе",
+          "choices": {
+            "d": "short date",
+            "D": "long date",
+            "t": "short time",
+            "T": "long time",
+            "f": "date and time",
+            "F": "weekday, date and time",
+            "R": "relative"
+          }
+        }
+      }
+    },
+    "add": {
+      "name": "add",
+      "description": "Добавить некоторое время к указанной временной метке UNIX",
+      "responses": [],
+      "options": {
+        "to": {
+          "name": "to",
+          "description": "Временная метка UNIX в секундах"
+        },
+        "years": {
+          "name": "years",
+          "description": "Сколько лет нужно прибавить к указанной временной метке"
+        },
+        "months": {
+          "name": "months",
+          "description": "Сколько месяцев нужно прибавить к указанной временной метке"
+        },
+        "days": {
+          "name": "days",
+          "description": "Сколько дней нужно прибавить к указанной временной метке"
+        },
+        "hours": {
+          "name": "hours",
+          "description": "Сколько часов нужно прибавить к указанной временной метке"
+        },
+        "minutes": {
+          "name": "minutes",
+          "description": "Сколько минут нужно добавить к указанной метке времени"
+        },
+        "seconds": {
+          "name": "seconds",
+          "description": "Сколько секунд нужно добавить к указанной метке времени"
+        }
+      }
+    },
+    "subtract": {
+      "name": "subtract",
+      "description": "Вычесть некоторое время из указанной временной метки UNIX",
+      "responses": [],
+      "options": {
+        "from": {
+          "name": "from",
+          "description": "Временная метка UNIX в секундах"
+        },
+        "years": {
+          "name": "years",
+          "description": "Сколько лет нужно вычесть из указанной временной метки"
+        },
+        "months": {
+          "name": "months",
+          "description": "Сколько месяцев нужно вычесть из указанной временной метки"
+        },
+        "days": {
+          "name": "days",
+          "description": "Сколько дней нужно вычесть из указанной метки времени"
+        },
+        "hours": {
+          "name": "hours",
+          "description": "Сколько часов нужно вычесть из указанной метки времени"
+        },
+        "minutes": {
+          "name": "minutes",
+          "description": "Сколько минут вычесть из указанной метки времени"
+        },
+        "seconds": {
+          "name": "seconds",
+          "description": "Сколько секунд вычесть из указанной метки времени"
+        }
+      }
+    },
+    "unix": {
+      "name": "unix",
+      "description": "Отображение синтаксиса для конкретной временной метки UNIX",
+      "options": {
+        "value": {
+          "name": "value",
+          "description": "Временная метка UNIX в секундах"
+        }
+      }
+    }
+  }
+}
