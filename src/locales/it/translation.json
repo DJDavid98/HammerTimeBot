@@ -1,0 +1,203 @@
+{
+  "commands": {
+    "timestamp": {
+      "name": "timestamp",
+      "description": "Può essere utilizzato per generare codice per timestamp in tutti i formati",
+      "options": [],
+      "responses": {
+        "invalidDate": "La data specificata non è valida (per esempio: il giorno specificato non esiste)",
+        "timezoneNotFound": "Impossibile trovare il fuso orario specificato"
+      }
+    },
+    "ago": {
+      "name": "fa",
+      "description": "Specifica un timestamp nel passato rispetto all'ora corrente",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "anni",
+          "description": "Quanti anni sottrarre dall'ora corrente"
+        },
+        "months": {
+          "name": "mesi",
+          "description": "Quanti mesi sottrarre dall'ora corrente"
+        },
+        "days": {
+          "name": "giorni",
+          "description": "Quanti giorni sottrarre dall'ora corrente"
+        },
+        "hours": {
+          "name": "ore",
+          "description": "Quanti ore sottrarre dall'ora corrente"
+        },
+        "minutes": {
+          "name": "minuti",
+          "description": "Quanti minuti sottrarre dall'ora corrente"
+        },
+        "seconds": {
+          "name": "secondi",
+          "description": "Quanti secondi sottrarre dall'ora corrente"
+        }
+      }
+    },
+    "in": {
+      "name": "in",
+      "description": "Specifica un timestamp nel futuro rispetto all'ora corrente",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "anni",
+          "description": "Quanti anni aggiungere all'ora corrente"
+        },
+        "months": {
+          "name": "mesi",
+          "description": "Quanti mesi aggiungere all'ora corrente"
+        },
+        "days": {
+          "name": "giorni",
+          "description": "Quanti giorni aggiungere all'ora corrente"
+        },
+        "hours": {
+          "name": "ore",
+          "description": "Quante ore aggiungere all'ora corrente"
+        },
+        "minutes": {
+          "name": "minuti",
+          "description": "Quanti minuti aggiungere all'ora corrente"
+        },
+        "seconds": {
+          "name": "secondi",
+          "description": "Quanti secondi aggiungere all'ora corrente"
+        }
+      }
+    },
+    "at": {
+      "name": "alle",
+      "description": "Specifica i componenti esatti del timestamp (incluso il fuso orario)",
+      "responses": [],
+      "options": {
+        "year": {
+          "name": "anno",
+          "description": "Specifica l'anno (predefinito all'anno corrente)"
+        },
+        "month": {
+          "name": "mese",
+          "description": "Specifica il mese (predefinito al mese corrente)"
+        },
+        "day": {
+          "name": "giorno",
+          "description": "Specifica il giorno (predefinito al giorno corrente)"
+        },
+        "hour": {
+          "name": "ora",
+          "description": "Specifica l'ora (predefinita all'ora corrente)"
+        },
+        "minute": {
+          "name": "minuto",
+          "description": "Specifica il minuto (predefinito al minuto corrente)"
+        },
+        "second": {
+          "name": "secondo",
+          "description": "Specifica il secondo (predefinito a 0)"
+        },
+        "timezone": {
+          "name": "fuso orario",
+          "description": "Specifica il fuso orario (predefinito a GMT)"
+        },
+        "format": {
+          "name": "formato",
+          "description": "Restituisce solo il formato specificato nella risposta",
+          "choices": {
+            "d": "data abbreviata",
+            "D": "data estesa",
+            "t": "ora abbreviata",
+            "T": "ora estesa",
+            "f": "data e ora",
+            "F": "giorno della settimana, data e ora",
+            "R": "relativo"
+          }
+        }
+      }
+    },
+    "add": {
+      "name": "aggiungi",
+      "description": "Aggiungi un po' di tempo al timestamp UNIX specificato",
+      "responses": [],
+      "options": {
+        "to": {
+          "name": "a",
+          "description": "Il timestamp UNIX in secondi"
+        },
+        "years": {
+          "name": "anni",
+          "description": "Quanti anni aggiungere al timestamp specificato"
+        },
+        "months": {
+          "name": "mesi",
+          "description": "Quanti mesi aggiungere al timestamp specificato"
+        },
+        "days": {
+          "name": "giorni",
+          "description": "Quanti giorni aggiungere al timestamp specificato"
+        },
+        "hours": {
+          "name": "ore",
+          "description": "Quante ore aggiungere al timestamp specificato"
+        },
+        "minutes": {
+          "name": "minuti",
+          "description": "Quanti minuti aggiungere al timestamp specificato"
+        },
+        "seconds": {
+          "name": "secondi",
+          "description": "Quanti secondi aggiungere al timestamp specificato"
+        }
+      }
+    },
+    "subtract": {
+      "name": "sottrarre",
+      "description": "Sottrai un po' di tempo dal timestamp UNIX specificato",
+      "responses": [],
+      "options": {
+        "from": {
+          "name": "da",
+          "description": "Il timestamp UNIX in secondi"
+        },
+        "years": {
+          "name": "anni",
+          "description": "Quanti anni sottrarre dal timestamp specificato"
+        },
+        "months": {
+          "name": "mesi",
+          "description": "Quanti mesi sottrarre dal timestamp specificato"
+        },
+        "days": {
+          "name": "giorni",
+          "description": "Quanti giorni sottrarre dal timestamp specificato"
+        },
+        "hours": {
+          "name": "ore",
+          "description": "Quante ore sottrarre dal timestamp specificato"
+        },
+        "minutes": {
+          "name": "minuti",
+          "description": "Quanti minuti sottrarre dal timestamp specificato"
+        },
+        "seconds": {
+          "name": "secondi",
+          "description": "Quanti secondi sottrarre dal timestamp specificato"
+        }
+      }
+    },
+    "unix": {
+      "name": "unix",
+      "description": "Visualizza le sintassi per uno specifico timestamp UNIX",
+      "options": {
+        "value": {
+          "name": "valore",
+          "description": "Il timestamp UNIX in secondi"
+        }
+      }
+    }
+  }
+}

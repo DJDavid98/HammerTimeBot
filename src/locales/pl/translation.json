@@ -1,0 +1,203 @@
+{
+  "commands": {
+    "timestamp": {
+      "name": "znacznik czasowy",
+      "description": "Może być użyty do wygenerowania kodu znaczników czasu we wszystkich formatach",
+      "options": [],
+      "responses": {
+        "invalidDate": "Podana data jest nieprawidłowa (na przykład: podany dzień nie istnieje)",
+        "timezoneNotFound": "Nie można znaleźć podanej strefy czasowej"
+      }
+    },
+    "ago": {
+      "name": "temu",
+      "description": "Określenie znacznika czasu w przeszłości w stosunku do bieżącego czasu",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "lat",
+          "description": "Ile lat należy odjąć od obecnego czasu"
+        },
+        "months": {
+          "name": "miesięcy",
+          "description": "Ile miesięcy należy odjąć od bieżącego czasu"
+        },
+        "days": {
+          "name": "dni",
+          "description": "Ile dni należy odjąć od bieżącego czasu"
+        },
+        "hours": {
+          "name": "godzin",
+          "description": "Ile godzin należy odjąć od bieżącego czasu"
+        },
+        "minutes": {
+          "name": "minut",
+          "description": "Ile minut należy odjąć od bieżącego czasu"
+        },
+        "seconds": {
+          "name": "sekund",
+          "description": "Ile sekund należy odjąć od bieżącego czasu"
+        }
+      }
+    },
+    "in": {
+      "name": "w",
+      "description": "Określenie znacznika czasu w przyszłości w odniesieniu do bieżącego czasu",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "lata",
+          "description": "Ile lat należy dodać do bieżącego czasu"
+        },
+        "months": {
+          "name": "miesiące",
+          "description": "Ile miesięcy należy dodać do bieżącego czasu"
+        },
+        "days": {
+          "name": "dni",
+          "description": "Ile dni należy dodać do bieżącego czasu"
+        },
+        "hours": {
+          "name": "godziny",
+          "description": "Ile godzin należy dodać do bieżącego czasu"
+        },
+        "minutes": {
+          "name": "minuty",
+          "description": "Ile minut należy dodać do bieżącego czasu"
+        },
+        "seconds": {
+          "name": "sekundy",
+          "description": "Ile sekund należy dodać do bieżącego czasu"
+        }
+      }
+    },
+    "at": {
+      "name": "o",
+      "description": "Określ dokładne składniki znacznika czasu (w tym strefę czasową)",
+      "responses": [],
+      "options": {
+        "year": {
+          "name": "rok",
+          "description": "Określ rok (domyślnie jest to bieżący rok)"
+        },
+        "month": {
+          "name": "miesiąc",
+          "description": "Określ miesiąc (domyślnie jest to bieżący miesiąc)"
+        },
+        "day": {
+          "name": "dzień",
+          "description": "Określ dzień (domyślnie jest to bieżący dzień)"
+        },
+        "hour": {
+          "name": "godzina",
+          "description": "Określ godzinę (domyślnie jest to bieżąca godzina)"
+        },
+        "minute": {
+          "name": "minuta",
+          "description": "Określ minutę (domyślnie jest to bieżąca minuta)"
+        },
+        "second": {
+          "name": "sekunda",
+          "description": "Określ sekundę (domyślnie 0)"
+        },
+        "timezone": {
+          "name": "strefa czasowa",
+          "description": "Określ strefę czasową (domyślnie GMT)"
+        },
+        "format": {
+          "name": "format",
+          "description": "Zwraca tylko określony format w odpowiedzi",
+          "choices": {
+            "d": "krótka data",
+            "D": "długa data",
+            "t": "krótki czas",
+            "T": "długi czas",
+            "f": "data i czas",
+            "F": "dzień tygodnia, data i godzina",
+            "R": "względna"
+          }
+        }
+      }
+    },
+    "add": {
+      "name": "dodaj",
+      "description": "Dodaj trochę czasu do podanego timestampu UNIX",
+      "responses": [],
+      "options": {
+        "to": {
+          "name": "do",
+          "description": "Znacznik czasowy UNIX w sekundach"
+        },
+        "years": {
+          "name": "lata",
+          "description": "Ile lat należy dodać do podanego znacznika czasu"
+        },
+        "months": {
+          "name": "miesiące",
+          "description": "Ile miesięcy należy dodać do podanego znacznika czasu"
+        },
+        "days": {
+          "name": "dni",
+          "description": "Ile dni należy dodać do podanego znacznika czasu"
+        },
+        "hours": {
+          "name": "godziny",
+          "description": "Ile godzin należy dodać do podanego znacznika czasu"
+        },
+        "minutes": {
+          "name": "minuty",
+          "description": "Ile minut należy dodać do podanego znacznika czasu"
+        },
+        "seconds": {
+          "name": "sekundy",
+          "description": "Ile sekund należy dodać do podanego znacznika czasu"
+        }
+      }
+    },
+    "subtract": {
+      "name": "odejmij",
+      "description": "Odejmij pewien czas od podanego znacznika czasu UNIX",
+      "responses": [],
+      "options": {
+        "from": {
+          "name": "z",
+          "description": "Znacznik czasowy UNIX w sekundach"
+        },
+        "years": {
+          "name": "lata",
+          "description": "Ile lat należy odjąć od podanego znacznika czasu"
+        },
+        "months": {
+          "name": "miesiące",
+          "description": "Ile miesięcy należy odjąć od podanego znacznika czasu"
+        },
+        "days": {
+          "name": "dni",
+          "description": "Ile dni należy odjąć od podanego znacznika czasu"
+        },
+        "hours": {
+          "name": "godziny",
+          "description": "Ile godzin należy odjąć od podanego znacznika czasu"
+        },
+        "minutes": {
+          "name": "minut",
+          "description": "Ile minut należy odjąć od podanego znacznika czasu"
+        },
+        "seconds": {
+          "name": "sekund",
+          "description": "Ile sekund należy odjąć od podanego znacznika czasu"
+        }
+      }
+    },
+    "unix": {
+      "name": "unix",
+      "description": "Wyświetl składnie dla określonego znacznika czasu UNIX",
+      "options": {
+        "value": {
+          "name": "wartość",
+          "description": "Znacznik czasowy UNIX w sekundach"
+        }
+      }
+    }
+  }
+}

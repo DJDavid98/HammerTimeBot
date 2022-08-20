@@ -1,0 +1,203 @@
+{
+  "commands": {
+    "timestamp": {
+      "name": "zeitstempel",
+      "description": "Kann verwendet werden, um den Code für Zeitstempel in allen Formaten zu erzeugen",
+      "options": [],
+      "responses": {
+        "invalidDate": "Das angegebene Datum ist ungültig (zum Beispiel: der angegebene Tag existiert nicht)",
+        "timezoneNotFound": "Die angegebene Zeitzone kann nicht gefunden werden"
+      }
+    },
+    "ago": {
+      "name": "vor",
+      "description": "Geben Sie einen Zeitstempel in der Vergangenheit relativ zur aktuellen Zeit an",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "jahre",
+          "description": "Wie viele Jahre von der aktuellen Zeit abgezogen werden sollen"
+        },
+        "months": {
+          "name": "monate",
+          "description": "Wie viele Monate von der aktuellen Zeit abgezogen werden sollen"
+        },
+        "days": {
+          "name": "tage",
+          "description": "Wie viele Tage von der aktuellen Zeit abgezogen werden sollen"
+        },
+        "hours": {
+          "name": "stunden",
+          "description": "Wie viele Stunden von der aktuellen Zeit abgezogen werden sollen"
+        },
+        "minutes": {
+          "name": "minuten",
+          "description": "Wie viele Minuten von der aktuellen Zeit abgezogen werden sollen"
+        },
+        "seconds": {
+          "name": "sekunden",
+          "description": "Wie viele Sekunden von der aktuellen Zeit abgezogen werden sollen"
+        }
+      }
+    },
+    "in": {
+      "name": "in",
+      "description": "Geben Sie einen Zeitstempel in der Zukunft relativ zur aktuellen Zeit an",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "jahre",
+          "description": "Wie viele Jahre zur aktuellen Zeit addiert werden sollen"
+        },
+        "months": {
+          "name": "monate",
+          "description": "Wie viele Monate zur aktuellen Zeit addiert werden sollen"
+        },
+        "days": {
+          "name": "tage",
+          "description": "Wie viele Tage zur aktuellen Zeit hinzugezählt werden sollen"
+        },
+        "hours": {
+          "name": "stunden",
+          "description": "Wie viele Stunden zur aktuellen Zeit addiert werden sollen"
+        },
+        "minutes": {
+          "name": "minuten",
+          "description": "Wie viele Minuten zur aktuellen Zeit hinzugefügt werden sollen"
+        },
+        "seconds": {
+          "name": "sekunden",
+          "description": "Wie viele Sekunden zur aktuellen Zeit addiert werden sollen"
+        }
+      }
+    },
+    "at": {
+      "name": "um",
+      "description": "Geben Sie die genauen Komponenten des Zeitstempels an (einschließlich der Zeitzone)",
+      "responses": [],
+      "options": {
+        "year": {
+          "name": "jahr",
+          "description": "Geben Sie das Jahr an (Standardwert ist das aktuelle Jahr)"
+        },
+        "month": {
+          "name": "monat",
+          "description": "Geben Sie den Monat an (Standardwert ist der aktuelle Monat)"
+        },
+        "day": {
+          "name": "tag",
+          "description": "Geben Sie den Tag an (Standardwert ist der aktuelle Tag)"
+        },
+        "hour": {
+          "name": "stunde",
+          "description": "Geben Sie die Stunde an (Standardwert ist die aktuelle Stunde)"
+        },
+        "minute": {
+          "name": "minute",
+          "description": "Geben Sie die Minute an (Standardwert ist die aktuelle Minute)"
+        },
+        "second": {
+          "name": "sekunde",
+          "description": "Geben Sie die Sekunde an (Standardwert ist 0)"
+        },
+        "timezone": {
+          "name": "zeitzone",
+          "description": "Geben Sie die Zeitzone an (Standardeinstellung: GMT)"
+        },
+        "format": {
+          "name": "format",
+          "description": "Gibt nur das angegebene Format in der Antwort zurück",
+          "choices": {
+            "d": "kurzes Datum",
+            "D": "langes Datum",
+            "t": "kurze Zeit",
+            "T": "lange Zeit",
+            "f": "Datum und Uhrzeit",
+            "F": "Wochentag, Datum und Uhrzeit",
+            "R": "relativ"
+          }
+        }
+      }
+    },
+    "add": {
+      "name": "hinzufügen",
+      "description": "Fügt dem angegebenen UNIX-Zeitstempel eine gewisse Zeit hinzu",
+      "responses": [],
+      "options": {
+        "to": {
+          "name": "zu",
+          "description": "Der UNIX-Zeitstempel in Sekunden"
+        },
+        "years": {
+          "name": "Jahre",
+          "description": "Wie viele Jahre zum angegebenen Zeitstempel hinzugefügt werden sollen"
+        },
+        "months": {
+          "name": "Monate",
+          "description": "Wie viele Monate zum angegebenen Zeitstempel hinzugefügt werden sollen"
+        },
+        "days": {
+          "name": "Tage",
+          "description": "Wie viele Tage zum angegebenen Zeitstempel hinzugefügt werden sollen"
+        },
+        "hours": {
+          "name": "stunden",
+          "description": "Wie viele Stunden zum angegebenen Zeitstempel hinzugefügt werden sollen"
+        },
+        "minutes": {
+          "name": "minuten",
+          "description": "Wie viele Minuten zu dem angegebenen Zeitstempel hinzugefügt werden sollen"
+        },
+        "seconds": {
+          "name": "sekunden",
+          "description": "Wie viele Sekunden zu dem angegebenen Zeitstempel hinzugefügt werden sollen"
+        }
+      }
+    },
+    "subtract": {
+      "name": "subtrahieren",
+      "description": "Subtrahiert eine gewisse Zeit von dem angegebenen UNIX-Zeitstempel",
+      "responses": [],
+      "options": {
+        "from": {
+          "name": "von",
+          "description": "Der UNIX-Zeitstempel in Sekunden"
+        },
+        "years": {
+          "name": "jahre",
+          "description": "Wie viele Jahre vom angegebenen Zeitstempel abgezogen werden sollen"
+        },
+        "months": {
+          "name": "monate",
+          "description": "Wie viele Monate vom angegebenen Zeitstempel abgezogen werden sollen"
+        },
+        "days": {
+          "name": "tage",
+          "description": "Wie viele Tage vom angegebenen Zeitstempel abgezogen werden sollen"
+        },
+        "hours": {
+          "name": "stunden",
+          "description": "Wie viele Stunden vom angegebenen Zeitstempel abgezogen werden sollen"
+        },
+        "minutes": {
+          "name": "minuten",
+          "description": "Wie viele Minuten werden von dem angegebenen Zeitstempel abgezogen"
+        },
+        "seconds": {
+          "name": "sekunden",
+          "description": "Wie viele Sekunden werden von dem angegebenen Zeitstempel abgezogen"
+        }
+      }
+    },
+    "unix": {
+      "name": "unix",
+      "description": "Zeigt den Syntax für einen bestimmten UNIX Zeitstempel an",
+      "options": {
+        "value": {
+          "name": "wert",
+          "description": "Der UNIX-Zeitstempel in Sekunden"
+        }
+      }
+    }
+  }
+}
