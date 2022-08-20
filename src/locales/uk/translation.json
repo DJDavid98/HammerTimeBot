@@ -1,0 +1,203 @@
+{
+  "commands": {
+    "timestamp": {
+      "name": "timestamp",
+      "description": "Можна використовувати для створення коду для позначок часу в усіх форматах",
+      "options": [],
+      "responses": {
+        "invalidDate": "Зазначена дата недійсна (наприклад, даного дня не існує)",
+        "timezoneNotFound": "Неможливо знайти вказаний часовий пояс"
+      }
+    },
+    "ago": {
+      "name": "ago",
+      "description": "Укажіть мітку часу в минулому відносно поточного часу",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "years",
+          "description": "Скільки років відняти від поточного часу"
+        },
+        "months": {
+          "name": "months",
+          "description": "Скільки місяців відняти від поточного часу"
+        },
+        "days": {
+          "name": "days",
+          "description": "Скільки днів відняти від поточного часу"
+        },
+        "hours": {
+          "name": "hours",
+          "description": "Скільки годин відняти від поточного часу"
+        },
+        "minutes": {
+          "name": "minutes",
+          "description": "Скільки хвилин відняти від поточного часу"
+        },
+        "seconds": {
+          "name": "seconds",
+          "description": "Скільки секунд відняти від поточного часу"
+        }
+      }
+    },
+    "in": {
+      "name": "in",
+      "description": "Укажіть мітку часу в майбутньому відносно поточного часу",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "years",
+          "description": "Скільки років додати до поточного часу"
+        },
+        "months": {
+          "name": "months",
+          "description": "Скільки місяців додати до поточного часу"
+        },
+        "days": {
+          "name": "days",
+          "description": "Скільки днів додати до поточного часу"
+        },
+        "hours": {
+          "name": "hours",
+          "description": "Скільки годин додати до поточного часу"
+        },
+        "minutes": {
+          "name": "minutes",
+          "description": "Скільки хвилин додати до поточного часу"
+        },
+        "seconds": {
+          "name": "seconds",
+          "description": "Скільки секунд додати до поточного часу"
+        }
+      }
+    },
+    "at": {
+      "name": "at",
+      "description": "Укажіть точні компоненти мітки часу (включно з часовим поясом)",
+      "responses": [],
+      "options": {
+        "year": {
+          "name": "year",
+          "description": "Вкажіть рік (за замовчуванням поточний рік)"
+        },
+        "month": {
+          "name": "month",
+          "description": "Вкажіть місяць (за замовчуванням поточний місяць)"
+        },
+        "day": {
+          "name": "day",
+          "description": "Вкажіть день (за замовчуванням поточний день)"
+        },
+        "hour": {
+          "name": "hour",
+          "description": "Вкажіть годину (за замовчуванням поточна година)"
+        },
+        "minute": {
+          "name": "minute",
+          "description": "Вкажіть хвилину (за замовчуванням поточна хвилина)"
+        },
+        "second": {
+          "name": "second",
+          "description": "Вкажіть секунди (за замовчуванням 0)"
+        },
+        "timezone": {
+          "name": "timezone",
+          "description": "Вкажіть часовий пояс (за замовчуванням GMT)"
+        },
+        "format": {
+          "name": "format",
+          "description": "Повертає лише вказаний формат у відповіді",
+          "choices": {
+            "d": "короткий формат дати",
+            "D": "повний формат дати",
+            "t": "короткий формат часу",
+            "T": "довгий формат часу",
+            "f": "дата та час",
+            "F": "день тижня, дата та час",
+            "R": "відносний"
+          }
+        }
+      }
+    },
+    "add": {
+      "name": "add",
+      "description": "Додайте час до зазначеної мітки часу UNIX",
+      "responses": [],
+      "options": {
+        "to": {
+          "name": "to",
+          "description": "Мітка часу UNIX у секундах"
+        },
+        "years": {
+          "name": "years",
+          "description": "Скільки років додати до вказаної мітки часу"
+        },
+        "months": {
+          "name": "months",
+          "description": "Скільки місяців додати до вказаної мітки часу"
+        },
+        "days": {
+          "name": "days",
+          "description": "Скільки днів додати до вказаної мітки часу"
+        },
+        "hours": {
+          "name": "hours",
+          "description": "Скільки годин додати до вказаної мітки часу"
+        },
+        "minutes": {
+          "name": "minutes",
+          "description": "Скільки хвилин додати до вказаної мітки часу"
+        },
+        "seconds": {
+          "name": "seconds",
+          "description": "Скільки секунд додати до вказаної мітки часу"
+        }
+      }
+    },
+    "subtract": {
+      "name": "subtract",
+      "description": "Відніміть деякий час із зазначеної мітки часу UNIX",
+      "responses": [],
+      "options": {
+        "from": {
+          "name": "from",
+          "description": "Мітка часу UNIX у секундах"
+        },
+        "years": {
+          "name": "years",
+          "description": "Скільки років відняти від зазначеної мітки часу"
+        },
+        "months": {
+          "name": "months",
+          "description": "Скільки місяців відняти від зазначеної мітки часу"
+        },
+        "days": {
+          "name": "days",
+          "description": "Скільки днів відняти від зазначеної мітки часу"
+        },
+        "hours": {
+          "name": "hours",
+          "description": "Скільки годин відняти від зазначеної мітки часу"
+        },
+        "minutes": {
+          "name": "minutes",
+          "description": "Скільки хвилин відняти від вказаної мітки часу"
+        },
+        "seconds": {
+          "name": "seconds",
+          "description": "Скільки секунд віднімається від зазначеної мітки часу"
+        }
+      }
+    },
+    "unix": {
+      "name": "unix",
+      "description": "Відображення синтаксису для конкретної мітки часу UNIX",
+      "options": {
+        "value": {
+          "name": "value",
+          "description": "Мітка часу UNIX у секундах"
+        }
+      }
+    }
+  }
+}
