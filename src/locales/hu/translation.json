@@ -2,11 +2,11 @@
   "commands": {
     "timestamp": {
       "name": "időbélyeg",
-      "description": "Elavult, a /timestamp előtag nélkül használd a parancsokat",
       "options": {},
       "responses": {
-        "deprecated": "Az al-parancsok le lettek cserélve különálló parancsokkal, mert a {{baseCommand}} beállításai túllépték a Discord's API-jának korlátjait.\nTovábbra is használhatod a megszokott parancsokat annyi különbséggel, hogy a {{baseCommandName}}-et el kell hagynod. Például a {{exampleSubCommand}} mot már csak {{exampleCommand}}.\nKöszönet a megértésért. Bármilyen ezzel a módosítással kapcsolatos visszajelzéssel vagy javaslattal a HammerTime hivatalos Discord szerverét keresd: {{discordInviteUrl}}"
-      }
+        "deprecated": "Az al-parancsok le lettek cserélve különálló parancsokkal, mert a {{baseCommand}} beállításai túllépték a Discord's API-jának korlátjait.\nTovábbra is használhatod a megszokott parancsokat annyi különbséggel, hogy a {{baseCommandName}}-et el kell hagynod. Például a {{exampleSubCommand}} most már csak {{exampleCommand}}.\nKöszönet a megértésért. Bármilyen ezzel a módosítással kapcsolatos visszajelzéssel vagy javaslattal a HammerTime hivatalos Discord szerverét keresd: {{discordInviteUrl}}"
+      },
+      "description": "Elavult, a /timestamp előtag nélkül használd a parancsokat"
     },
     "ago": {
       "name": "ezelőtt",
@@ -205,7 +205,37 @@
             "F": "hét napja, dátum és idő",
             "R": "viszonylagos"
           }
+        },
+        "columns": {
+          "name": "oszlopok",
+          "description": "Meghatározza, hogy milyen adatok szerepeljenek a válasz üzenetben",
+          "choices": {
+            "both": "a kód és az előnézet is",
+            "preview": "csak az előnézet",
+            "syntax": "csak a kód"
+          }
+        },
+        "ephemeral": {
+          "name": "ideiglenes",
+          "description": "Igaz érték esetén az üzenet csak számodra lesz látható (alapértelemezett: hamis)"
+        },
+        "header": {
+          "name": "fejléc",
+          "description": "Megjeleníti a (bot által értelmezett) eredeti időt a válasz tetején"
         }
+      }
+    },
+    "statistics": {
+      "name": "statisztikák",
+      "description": "Megjelenít különféle információkat a bot-ról",
+      "responses": {
+        "totalServerCount": "Használó szerverek száma:",
+        "shardServerCount": "Ezen szilánk által kezelt szerverek:",
+        "uptime": "Szilánk indítási ideje:",
+        "shardCount": "Szilánkok száma:",
+        "shardNumber": "(Ezeket a statisztikákat a(z) {{shardId}}. szilánk generálta)",
+        "noShards": "(A bot jelenleg nem használ szilánkokat)",
+        "serverInvite": "Támogatási szerver meghívó URL:"
       }
     }
   }
