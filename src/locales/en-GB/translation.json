@@ -101,19 +101,6 @@
         "timezone": {
           "name": "timezone",
           "description": "Specify the timezone (defaults to GMT)"
-        },
-        "format": {
-          "name": "format",
-          "description": "Returns only the specified format in the response",
-          "choices": {
-            "d": "short date",
-            "D": "long date",
-            "t": "short time",
-            "T": "long time",
-            "f": "date and time",
-            "F": "weekday, date and time",
-            "R": "relative"
-          }
         }
       }
     },
@@ -200,6 +187,21 @@
     "global": {
       "responses": {
         "invalidDate": "The specified date is invalid (for example: the given day does not exist)"
+      },
+      "options": {
+        "format": {
+          "name": "format",
+          "description": "Returns only the specified format in the response",
+          "choices": {
+            "d": "short date",
+            "D": "long date",
+            "t": "short time",
+            "T": "long time",
+            "f": "date and time",
+            "F": "weekday, date and time",
+            "R": "relative"
+          }
+        }
       }
     }
   }
