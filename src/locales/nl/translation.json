@@ -1,0 +1,203 @@
+{
+  "commands": {
+    "timestamp": {
+      "name": "timestamp",
+      "description": "Genereer de code voor tijdsaanduidingen in alle soorten formaten",
+      "options": [],
+      "responses": {
+        "invalidDate": "De opgegeven datum is ongeldig (bijvoorbeeld: de opgegeven dag bestaat niet)",
+        "timezoneNotFound": "De opgegeven tijdzone kan niet worden gevonden"
+      }
+    },
+    "ago": {
+      "name": "ago",
+      "description": "Genereer een tijdsaanduiding in het verleden, relatief van de huidige tijd",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "years",
+          "description": "Het aantal jaren om van de huidige tijd af te trekken"
+        },
+        "months": {
+          "name": "months",
+          "description": "Het aantal maanden om van de huidige tijd af te trekken"
+        },
+        "days": {
+          "name": "days",
+          "description": "Het aantal dagen om van de huidige tijd af te trekken"
+        },
+        "hours": {
+          "name": "hours",
+          "description": "Het aantal uren om van de huidige tijd af te trekken"
+        },
+        "minutes": {
+          "name": "minutes",
+          "description": "Het aantal minuten om van de huidige tijd af te trekken"
+        },
+        "seconds": {
+          "name": "seconds",
+          "description": "Het aantal seconden om van de huidige tijd af te trekken"
+        }
+      }
+    },
+    "in": {
+      "name": "in",
+      "description": "Genereer een tijdsaanduiding in de toekomst, relatief van de huidige tijd",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "years",
+          "description": "Het aantal jaren om aan de huidige tijd toe te voegen"
+        },
+        "months": {
+          "name": "months",
+          "description": "Het aantal maanden om aan de huidige tijd toe te voegen"
+        },
+        "days": {
+          "name": "days",
+          "description": "Het aantal dagen om aan de huidige tijd toe te voegen"
+        },
+        "hours": {
+          "name": "hours",
+          "description": "Het aantal uren om aan de huidige tijd toe te voegen"
+        },
+        "minutes": {
+          "name": "minutes",
+          "description": "Het aantal minuten om aan de huidige tijd toe te voegen"
+        },
+        "seconds": {
+          "name": "seconds",
+          "description": "Het aantal seconden om aan de huidige tijd toe te voegen"
+        }
+      }
+    },
+    "at": {
+      "name": "at",
+      "description": "Genereer een tijdsaanduiding aan de hand van exacte gegevens (inclusief de tijdzone)",
+      "responses": [],
+      "options": {
+        "year": {
+          "name": "year",
+          "description": "Het jaar van de tijdstempel (standaard is het huidige jaar)"
+        },
+        "month": {
+          "name": "month",
+          "description": "De maand van de tijdstempel (standaard is de huidige maand)"
+        },
+        "day": {
+          "name": "day",
+          "description": "De dag van de tijdstempel (standaard is de huidige dag)"
+        },
+        "hour": {
+          "name": "hour",
+          "description": "Het uur van de tijdstempel (standaard is het huidige uur)"
+        },
+        "minute": {
+          "name": "minute",
+          "description": "De minuut van de tijdstempel (standaard is de huidige minuut)"
+        },
+        "second": {
+          "name": "second",
+          "description": "De seconde van de tijdstempel (standaard is 0)"
+        },
+        "timezone": {
+          "name": "timezone",
+          "description": "De tijdzone van de tijdstempel (standaard is GMT)"
+        },
+        "format": {
+          "name": "format",
+          "description": "Geeft alleen het opgegeven formaat terug in het antwoord",
+          "choices": {
+            "d": "verkorte datum notatie",
+            "D": "uitgeschreven datum",
+            "t": "uren en minuten",
+            "T": "uren, minuten en seconden",
+            "f": "datum en tijd",
+            "F": "dag, datum en tijd",
+            "R": "relatief"
+          }
+        }
+      }
+    },
+    "add": {
+      "name": "add",
+      "description": "Voeg tijd toe aan de opgegeven UNIX-tijdstempel",
+      "responses": [],
+      "options": {
+        "to": {
+          "name": "to",
+          "description": "De UNIX-tijdstempel in seconden"
+        },
+        "years": {
+          "name": "years",
+          "description": "Het aantal jaren om aan de opgegeven tijdstempel toe te voegen"
+        },
+        "months": {
+          "name": "months",
+          "description": "Het aantal maanden om aan de opgegeven tijdstempel toe te voegen"
+        },
+        "days": {
+          "name": "days",
+          "description": "Het aantal dagen om aan de opgegeven tijdstempel toe te voegen"
+        },
+        "hours": {
+          "name": "hours",
+          "description": "Het aantal uren om aan de opgegeven tijdstempel toe te voegen"
+        },
+        "minutes": {
+          "name": "minutes",
+          "description": "Het aantal minuten om aan de opgegeven tijdstempel toe te voegen"
+        },
+        "seconds": {
+          "name": "seconds",
+          "description": "Het aantal seconden om aan de opgegeven tijdstempel toe te voegen"
+        }
+      }
+    },
+    "subtract": {
+      "name": "subtract",
+      "description": "Trek tijd af van de opgegeven UNIX-tijdstempel",
+      "responses": [],
+      "options": {
+        "from": {
+          "name": "from",
+          "description": "De UNIX-tijdstempel in seconden"
+        },
+        "years": {
+          "name": "years",
+          "description": "Het aantal jaren om van de opgegeven tijdstempel af te trekken"
+        },
+        "months": {
+          "name": "months",
+          "description": "Het aantal maanden om van de opgegeven tijdstempel af te trekken"
+        },
+        "days": {
+          "name": "days",
+          "description": "Het aantal dagen om van de opgegeven tijdstempel af te trekken"
+        },
+        "hours": {
+          "name": "hours",
+          "description": "Het aantal uren om van de opgegeven tijdstempel af te trekken"
+        },
+        "minutes": {
+          "name": "minutes",
+          "description": "Het aantal minuten om van de opgegeven tijdstempel af te trekken"
+        },
+        "seconds": {
+          "name": "seconds",
+          "description": "Het aantal seconden om van de opgegeven tijdstempel af te trekken"
+        }
+      }
+    },
+    "unix": {
+      "name": "unix",
+      "description": "Geef de tijdsaanduidingen weer voor de opgegeven UNIX-tijdstempel",
+      "options": {
+        "value": {
+          "name": "value",
+          "description": "De UNIX-tijdstempel in seconden"
+        }
+      }
+    }
+  }
+}
