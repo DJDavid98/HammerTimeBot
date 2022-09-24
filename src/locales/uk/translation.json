@@ -3,11 +3,7 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Можна використовувати для створення коду для позначок часу в усіх форматах",
-      "options": [],
-      "responses": {
-        "invalidDate": "Зазначена дата недійсна (наприклад, даного дня не існує)",
-        "timezoneNotFound": "Неможливо знайти вказаний часовий пояс"
-      }
+      "options": []
     },
     "ago": {
       "name": "ago",
@@ -74,7 +70,9 @@
     "at": {
       "name": "at",
       "description": "Укажіть точні компоненти мітки часу (включно з часовим поясом)",
-      "responses": [],
+      "responses": {
+        "timezoneNotFound": "Неможливо знайти вказаний часовий пояс"
+      },
       "options": {
         "year": {
           "name": "year",
@@ -197,6 +195,11 @@
           "name": "value",
           "description": "Мітка часу UNIX у секундах"
         }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "Зазначена дата недійсна (наприклад, даного дня не існує)"
       }
     }
   }
