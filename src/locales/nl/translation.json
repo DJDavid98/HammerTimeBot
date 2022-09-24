@@ -101,19 +101,6 @@
         "timezone": {
           "name": "timezone",
           "description": "De tijdzone van de tijdstempel (standaard is GMT)"
-        },
-        "format": {
-          "name": "format",
-          "description": "Geeft alleen het opgegeven formaat terug in het antwoord",
-          "choices": {
-            "d": "verkorte datum notatie",
-            "D": "uitgeschreven datum",
-            "t": "uren en minuten",
-            "T": "uren, minuten en seconden",
-            "f": "datum en tijd",
-            "F": "dag, datum en tijd",
-            "R": "relatief"
-          }
         }
       }
     },
@@ -200,6 +187,21 @@
     "global": {
       "responses": {
         "invalidDate": "De opgegeven datum is ongeldig (bijvoorbeeld: de opgegeven dag bestaat niet)"
+      },
+      "options": {
+        "format": {
+          "name": "format",
+          "description": "Geeft alleen het opgegeven formaat terug in het antwoord",
+          "choices": {
+            "d": "verkorte datum notatie",
+            "D": "uitgeschreven datum",
+            "t": "uren en minuten",
+            "T": "uren, minuten en seconden",
+            "f": "datum en tijd",
+            "F": "dag, datum en tijd",
+            "R": "relatief"
+          }
+        }
       }
     }
   }
