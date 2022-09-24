@@ -3,7 +3,8 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Genereer de code voor tijdsaanduidingen in alle soorten formaten",
-      "options": []
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "ago",
@@ -177,6 +178,7 @@
     "unix": {
       "name": "unix",
       "description": "Geef de tijdsaanduidingen weer voor de opgegeven UNIX-tijdstempel",
+      "responses": {},
       "options": {
         "value": {
           "name": "value",

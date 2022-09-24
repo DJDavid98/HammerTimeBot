@@ -10,6 +10,7 @@ import {
   supportedFormats,
 } from '../utils/time.js';
 import {
+  GlobalCommandOptionName,
   TimestampAddSubcommandOptionName,
   TimestampAgoSubcommandOptionName,
   TimestampAtSubcommandOptionName,
@@ -59,7 +60,7 @@ export const timestampCommand: BotCommand = {
   },
   async handle(interaction, t) {
     const subcommand = interaction.options.getSubcommand(true);
-    const formatInput = interaction.options.getString(TimestampAtSubcommandOptionName.FORMAT);
+    const formatInput = interaction.options.getString(GlobalCommandOptionName.FORMAT);
     let ts: MessageTimestamp;
     let prefix: string | undefined;
     switch (subcommand) {
@@ -86,7 +87,7 @@ export const timestampCommand: BotCommand = {
             throw e;
           }
           await interaction.reply({
-            content: t('commands.timestamp.responses.timezoneNotFound'),
+            content: t('commands.at.responses.timezoneNotFound'),
             ephemeral: true,
           });
           return;
@@ -109,7 +110,7 @@ export const timestampCommand: BotCommand = {
         } catch (e) {
           if (e instanceof RangeError && e.message === 'Invalid date') {
             await interaction.reply({
-              content: t('commands.timestamp.responses.invalidDate'),
+              content: t('commands.global.responses.invalidDate'),
               ephemeral: true,
             });
             return;
@@ -188,7 +189,7 @@ export const timestampCommand: BotCommand = {
     const timestamp = ts.getDate().getTime();
     if (Number.isNaN(timestamp)) {
       await interaction.reply({
-        content: t('commands.timestamp.responses.invalidDate'),
+        content: t('commands.global.responses.invalidDate'),
         ephemeral: true,
       });
       return;

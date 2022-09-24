@@ -3,7 +3,8 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Можна використовувати для створення коду для позначок часу в усіх форматах",
-      "options": []
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "ago",
@@ -177,6 +178,7 @@
     "unix": {
       "name": "unix",
       "description": "Відображення синтаксису для конкретної мітки часу UNIX",
+      "responses": {},
       "options": {
         "value": {
           "name": "value",

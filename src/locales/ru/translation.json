@@ -3,7 +3,8 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Может использоваться для генерации кода для временных меток во всех форматах",
-      "options": []
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "ago",
@@ -177,6 +178,7 @@
     "unix": {
       "name": "unix",
       "description": "Отображение синтаксиса для конкретной временной метки UNIX",
+      "responses": {},
       "options": {
         "value": {
           "name": "value",

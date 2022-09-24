@@ -3,7 +3,8 @@
     "timestamp": {
       "name": "időbélyeg",
       "description": "Kiírja egy adott időponthoz a beírandó kódot minden formátumban",
-      "options": []
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "ezelőtt",
@@ -177,6 +178,7 @@
     "unix": {
       "name": "unix",
       "description": "Kódok megjelenítése egy adott UNIX időbélyeghez",
+      "responses": {},
       "options": {
         "value": {
           "name": "érték",

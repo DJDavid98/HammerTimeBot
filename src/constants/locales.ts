@@ -1,3 +1,4 @@
+import { join } from 'path';
 import { LocalizationMap } from 'discord-api-types/v10';
 import i18next from 'i18next';
 import Backend from 'i18next-fs-backend';
@@ -13,7 +14,8 @@ import type plTranslation from '../locales/pl/translation.json';
 import type ruTranslation from '../locales/ru/translation.json';
 import type esTranslation from '../locales/es/translation.json';
 import type ukTranslation from '../locales/uk/translation.json';
-import { join } from 'path';
+import type ptBrTranslation from '../locales/pt-BR/translation.json';
+import type nlTranslation from '../locales/nl/translation.json';
 
 export type SupportedLanguage = keyof Pick<LocalizationMap, (
   | 'hu'
@@ -26,6 +28,8 @@ export type SupportedLanguage = keyof Pick<LocalizationMap, (
   | 'ru'
   // | 'es-ES'
   | 'uk'
+  | 'pt-BR'
+  | 'nl'
 )>;
 const languagesRecord: Record<SupportedLanguage, true> = {
   hu: true,
@@ -38,6 +42,8 @@ const languagesRecord: Record<SupportedLanguage, true> = {
   ru: true,
   // 'es-ES': true,
   uk: true,
+  'pt-BR': true,
+  nl: true,
 };
 
 // Type-safe language constants
@@ -58,6 +64,8 @@ type ValidatedLocalizationMap = TypeValidator<{
   ru: typeof ruTranslation,
   'es-ES': typeof esTranslation,
   uk: typeof ukTranslation,
+  'pt-BR': typeof ptBrTranslation,
+  nl: typeof nlTranslation,
 }>;
 /* eslint-enable @typescript-eslint/no-unused-vars */
 

@@ -3,7 +3,8 @@
     "timestamp": {
       "name": "zeitstempel",
       "description": "Kann verwendet werden, um den Code für Zeitstempel in allen Formaten zu erzeugen",
-      "options": []
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "vor",
@@ -177,6 +178,7 @@
     "unix": {
       "name": "unix",
       "description": "Zeigt den Syntax für einen bestimmten UNIX Zeitstempel an",
+      "responses": {},
       "options": {
         "value": {
           "name": "wert",

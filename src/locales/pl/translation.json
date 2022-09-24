@@ -3,7 +3,8 @@
     "timestamp": {
       "name": "znacznik czasowy",
       "description": "Może być użyty do wygenerowania kodu znaczników czasu we wszystkich formatach",
-      "options": []
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "temu",
@@ -177,6 +178,7 @@
     "unix": {
       "name": "unix",
       "description": "Wyświetl składnie dla określonego znacznika czasu UNIX",
+      "responses": {},
       "options": {
         "value": {
           "name": "wartość",

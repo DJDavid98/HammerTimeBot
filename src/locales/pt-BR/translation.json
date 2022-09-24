@@ -3,7 +3,8 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Pode ser usado para gerar o código para timestamps em todos os formatos",
-      "options": []
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "há",
@@ -177,6 +178,7 @@
     "unix": {
       "name": "unix",
       "description": "Mostra as sintaxes para uma timestamp UNIX específica",
+      "responses": {},
       "options": {
         "value": {
           "name": "valor",

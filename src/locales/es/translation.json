@@ -3,7 +3,8 @@
     "timestamp": {
       "name": "marca de tiempo",
       "description": "Puede ser utilizado para generar el código de las marcas de tiempo en todos los formatos",
-      "options": []
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "hace",
@@ -177,6 +178,7 @@
     "unix": {
       "name": "unix",
       "description": "Mostrar las sintaxis de una marca de tiempo UNIX específica",
+      "responses": {},
       "options": {
         "value": {
           "name": "valor",
