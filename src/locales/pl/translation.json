@@ -101,19 +101,6 @@
         "timezone": {
           "name": "strefa czasowa",
           "description": "Określ strefę czasową (domyślnie GMT)"
-        },
-        "format": {
-          "name": "format",
-          "description": "Zwraca tylko określony format w odpowiedzi",
-          "choices": {
-            "d": "krótka data",
-            "D": "długa data",
-            "t": "krótki czas",
-            "T": "długi czas",
-            "f": "data i czas",
-            "F": "dzień tygodnia, data i godzina",
-            "R": "względna"
-          }
         }
       }
     },
@@ -200,6 +187,21 @@
     "global": {
       "responses": {
         "invalidDate": "Podana data jest nieprawidłowa (na przykład: podany dzień nie istnieje)"
+      },
+      "options": {
+        "format": {
+          "name": "format",
+          "description": "Zwraca tylko określony format w odpowiedzi",
+          "choices": {
+            "d": "krótka data",
+            "D": "długa data",
+            "t": "krótki czas",
+            "T": "długi czas",
+            "f": "data i czas",
+            "F": "dzień tygodnia, data i godzina",
+            "R": "względna"
+          }
+        }
       }
     }
   }
