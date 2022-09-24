@@ -3,7 +3,7 @@ import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../utils/message-timestamp.js';
 import { getStatisticsCommandOptions } from '../options/statistics.options.js';
 import { getTotalServerCount } from '../utils/get-total-server-count.js';
-import { isEphemeralResponse } from '../utils/messaging.js';
+import { getBareNumberFormatter, isEphemeralResponse } from '../utils/messaging.js';
 import { env } from '../env.js';
 
 export const statisticsCommand: BotCommand = {
@@ -16,11 +16,12 @@ export const statisticsCommand: BotCommand = {
     const { shard } = interaction.client;
     const uptimeInMilliseconds = Math.round(process.uptime() * 1000);
     const shardStartTs = new MessageTimestamp(new Date(Date.now() - uptimeInMilliseconds));
+    const numberFormatter = getBareNumberFormatter(interaction);
 
-    const totalServerCount = `**${t('commands.statistics.responses.totalServerCount')}** ${await getTotalServerCount(interaction.client)}`;
-    const shardServerCount = shard ? `**${t('commands.statistics.responses.shardServerCount')}** ${interaction.client.guilds.cache.size}` : null;
+    const totalServerCount = `**${t('commands.statistics.responses.totalServerCount')}** ${numberFormatter.format(await getTotalServerCount(interaction.client))}`;
+    const shardServerCount = shard ? `**${t('commands.statistics.responses.shardServerCount')}** ${numberFormatter.format(interaction.client.guilds.cache.size)}` : null;
     const uptime = `**${t('commands.statistics.responses.uptime')}** ${shardStartTs.toString(MessageTimestampFormat.RELATIVE)}`;
-    const shardCount = shard ? `**${t('commands.statistics.responses.shardCount')}** ${shard.count}` : null;
+    const shardCount = shard ? `**${t('commands.statistics.responses.shardCount')}** ${numberFormatter.format(shard.count)}` : null;
     const footer = `*${shard ? t('commands.statistics.responses.shardNumber', { replace: { shardId: shard?.ids.join(', ') } }) : t('commands.statistics.responses.noShards')}*`;
     const serverInvite = `**${t('commands.statistics.responses.serverInvite')}** ${env.DISCORD_INVITE_URL}`;
 

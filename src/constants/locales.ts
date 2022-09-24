@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { LocalizationMap } from 'discord-api-types/v10';
-import i18next from 'i18next';
+import i18next, { i18n } from 'i18next';
 import Backend from 'i18next-fs-backend';
 import { env } from '../env.js';
 import { Localization } from '../types/localization.js';
@@ -48,7 +48,7 @@ const languagesRecord: Record<SupportedLanguage, true> = {
 
 // Type-safe language constants
 export const SUPPORTED_LANGUAGES = Object.keys(languagesRecord) as SupportedLanguage[];
-const DEFAULT_LANGUAGE: SupportedLanguage = 'en-US';
+export const DEFAULT_LANGUAGE: SupportedLanguage = 'en-US';
 
 type TypeValidator<T extends Record<SupportedLanguage, Localization>> = T;
 /* eslint-disable @typescript-eslint/no-unused-vars -- This type validates the structure of the i18n files at build time */
@@ -71,16 +71,19 @@ type ValidatedLocalizationMap = TypeValidator<{
 
 const localesPath = join('.', 'src', 'locales');
 
-export const initI18next = () => i18next.use(Backend).init({
-  lng: DEFAULT_LANGUAGE,
-  fallbackLng: DEFAULT_LANGUAGE,
-  debug: env.LOCAL,
-  preload: SUPPORTED_LANGUAGES,
-  backend: {
-    loadPath: join(localesPath, '{{lng}}', '{{ns}}.json'),
-    addPath: join(localesPath, '{{lng}}', '{{ns}}.missing.json'),
-  },
-  interpolation: {
-    escapeValue: false,
-  },
-});
+export const initI18next = async (): Promise<i18n> => {
+  await i18next.use(Backend).init({
+    lng: DEFAULT_LANGUAGE,
+    fallbackLng: DEFAULT_LANGUAGE,
+    debug: env.LOCAL,
+    preload: SUPPORTED_LANGUAGES,
+    backend: {
+      loadPath: join(localesPath, '{{lng}}', '{{ns}}.json'),
+    },
+    interpolation: {
+      escapeValue: false,
+    },
+  });
+
+  return i18next;
+};
