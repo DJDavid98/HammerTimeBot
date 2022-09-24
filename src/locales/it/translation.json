@@ -3,11 +3,7 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Può essere utilizzato per generare codice per timestamp in tutti i formati",
-      "options": [],
-      "responses": {
-        "invalidDate": "La data specificata non è valida (per esempio: il giorno specificato non esiste)",
-        "timezoneNotFound": "Impossibile trovare il fuso orario specificato"
-      }
+      "options": []
     },
     "ago": {
       "name": "fa",
@@ -74,7 +70,9 @@
     "at": {
       "name": "alle",
       "description": "Specifica i componenti esatti del timestamp (incluso il fuso orario)",
-      "responses": [],
+      "responses": {
+        "timezoneNotFound": "Impossibile trovare il fuso orario specificato"
+      },
       "options": {
         "year": {
           "name": "anno",
@@ -197,6 +195,11 @@
           "name": "valore",
           "description": "Il timestamp UNIX in secondi"
         }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "La data specificata non è valida (per esempio: il giorno specificato non esiste)"
       }
     }
   }
