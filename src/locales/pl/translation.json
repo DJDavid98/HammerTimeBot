@@ -3,11 +3,8 @@
     "timestamp": {
       "name": "znacznik czasowy",
       "description": "Może być użyty do wygenerowania kodu znaczników czasu we wszystkich formatach",
-      "options": [],
-      "responses": {
-        "invalidDate": "Podana data jest nieprawidłowa (na przykład: podany dzień nie istnieje)",
-        "timezoneNotFound": "Nie można znaleźć podanej strefy czasowej"
-      }
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "temu",
@@ -74,7 +71,9 @@
     "at": {
       "name": "o",
       "description": "Określ dokładne składniki znacznika czasu (w tym strefę czasową)",
-      "responses": [],
+      "responses": {
+        "timezoneNotFound": "Nie można znaleźć podanej strefy czasowej"
+      },
       "options": {
         "year": {
           "name": "rok",
@@ -103,19 +102,6 @@
         "timezone": {
           "name": "strefa czasowa",
           "description": "Określ strefę czasową (domyślnie GMT)"
-        },
-        "format": {
-          "name": "format",
-          "description": "Zwraca tylko określony format w odpowiedzi",
-          "choices": {
-            "d": "krótka data",
-            "D": "długa data",
-            "t": "krótki czas",
-            "T": "długi czas",
-            "f": "data i czas",
-            "F": "dzień tygodnia, data i godzina",
-            "R": "względna"
-          }
         }
       }
     },
@@ -192,10 +178,31 @@
     "unix": {
       "name": "unix",
       "description": "Wyświetl składnie dla określonego znacznika czasu UNIX",
+      "responses": {},
       "options": {
         "value": {
           "name": "wartość",
           "description": "Znacznik czasowy UNIX w sekundach"
+        }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "Podana data jest nieprawidłowa (na przykład: podany dzień nie istnieje)"
+      },
+      "options": {
+        "format": {
+          "name": "format",
+          "description": "Zwraca tylko określony format w odpowiedzi",
+          "choices": {
+            "d": "krótka data",
+            "D": "długa data",
+            "t": "krótki czas",
+            "T": "długi czas",
+            "f": "data i czas",
+            "F": "dzień tygodnia, data i godzina",
+            "R": "względna"
+          }
         }
       }
     }

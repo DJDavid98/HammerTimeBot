@@ -7,8 +7,7 @@ import { initI18next } from './constants/locales.js';
 (async () => {
   const tzDataPath = join('.', 'node_modules', 'moment-timezone', 'data', 'packed', 'latest.json');
   console.log(`Loading timezone data from ${tzDataPath}`);
-  const data = await fs.readFile(tzDataPath)
-    .then((contents) => JSON.parse(contents.toString()));
+  const data = await fs.readFile(tzDataPath).then((contents) => JSON.parse(contents.toString()));
   moment.tz.load(data);
 
   console.log('Initializing i18n');

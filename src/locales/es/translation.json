@@ -3,11 +3,8 @@
     "timestamp": {
       "name": "marca de tiempo",
       "description": "Puede ser utilizado para generar el código de las marcas de tiempo en todos los formatos",
-      "options": [],
-      "responses": {
-        "invalidDate": "La fecha indicada no es válida (por ejemplo: el día dado no existe)",
-        "timezoneNotFound": "La zona horaria indicada no pudo ser encontrada"
-      }
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "hace",
@@ -74,7 +71,9 @@
     "at": {
       "name": "en",
       "description": "Especifique los componentes exactos de la marca de tiempo (incluyendo la zona horaria)",
-      "responses": [],
+      "responses": {
+        "timezoneNotFound": "La zona horaria indicada no pudo ser encontrada"
+      },
       "options": {
         "year": {
           "name": "año",
@@ -103,19 +102,6 @@
         "timezone": {
           "name": "zona horaria",
           "description": "Especifique la zona horaria (por defecto será GMT)"
-        },
-        "format": {
-          "name": "formato",
-          "description": "Devuelve sólo el formato especificado en la respuesta",
-          "choices": {
-            "d": "fecha corta",
-            "D": "fecha larga",
-            "t": "tiempo corto",
-            "T": "hora larga",
-            "f": "fecha y hora",
-            "F": "día de la semana, fecha y hora",
-            "R": "relativa"
-          }
         }
       }
     },
@@ -192,10 +178,31 @@
     "unix": {
       "name": "unix",
       "description": "Mostrar las sintaxis de una marca de tiempo UNIX específica",
+      "responses": {},
       "options": {
         "value": {
           "name": "valor",
           "description": "La marca de tiempo UNIX en segundos"
+        }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "La fecha indicada no es válida (por ejemplo: el día dado no existe)"
+      },
+      "options": {
+        "format": {
+          "name": "formato",
+          "description": "Devuelve sólo el formato especificado en la respuesta",
+          "choices": {
+            "d": "fecha corta",
+            "D": "fecha larga",
+            "t": "tiempo corto",
+            "T": "hora larga",
+            "f": "fecha y hora",
+            "F": "día de la semana, fecha y hora",
+            "R": "relativa"
+          }
         }
       }
     }

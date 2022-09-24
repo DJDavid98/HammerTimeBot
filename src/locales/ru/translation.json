@@ -3,11 +3,8 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Может использоваться для генерации кода для временных меток во всех форматах",
-      "options": [],
-      "responses": {
-        "invalidDate": "Указанная дата недействительна (например: заданный день не существует)",
-        "timezoneNotFound": "Указанный часовой пояс не может быть найден"
-      }
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "ago",
@@ -74,7 +71,9 @@
     "at": {
       "name": "at",
       "description": "Укажите точные компоненты временной метки (включая часовой пояс)",
-      "responses": [],
+      "responses": {
+        "timezoneNotFound": "Указанный часовой пояс не может быть найден"
+      },
       "options": {
         "year": {
           "name": "year",
@@ -103,19 +102,6 @@
         "timezone": {
           "name": "timezone",
           "description": "Укажите часовой пояс (по умолчанию GMT)"
-        },
-        "format": {
-          "name": "format",
-          "description": "Возвращает только указанный формат в ответе",
-          "choices": {
-            "d": "short date",
-            "D": "long date",
-            "t": "short time",
-            "T": "long time",
-            "f": "date and time",
-            "F": "weekday, date and time",
-            "R": "relative"
-          }
         }
       }
     },
@@ -192,10 +178,31 @@
     "unix": {
       "name": "unix",
       "description": "Отображение синтаксиса для конкретной временной метки UNIX",
+      "responses": {},
       "options": {
         "value": {
           "name": "value",
           "description": "Временная метка UNIX в секундах"
+        }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "Указанная дата недействительна (например: заданный день не существует)"
+      },
+      "options": {
+        "format": {
+          "name": "format",
+          "description": "Возвращает только указанный формат в ответе",
+          "choices": {
+            "d": "short date",
+            "D": "long date",
+            "t": "short time",
+            "T": "long time",
+            "f": "date and time",
+            "F": "weekday, date and time",
+            "R": "relative"
+          }
         }
       }
     }

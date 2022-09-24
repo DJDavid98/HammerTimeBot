@@ -4,48 +4,51 @@ import {
 } from 'discord-api-types/payloads/v10/_interactions/_applicationCommands/chatInput.js';
 import { TFunction } from 'i18next';
 import {
+  GlobalCommandOptionName,
   TimestampAddSubcommandOptionName,
   TimestampAgoSubcommandOptionName,
   TimestampAtSubcommandOptionName,
   TimestampCommandOptionName,
-  TimestampInSubcommandOptionName, TimestampSubtractSubcommandOptionName, TimestampUnixSubcommandOptionName,
+  TimestampInSubcommandOptionName,
+  TimestampSubtractSubcommandOptionName,
+  TimestampUnixSubcommandOptionName,
 } from '../types/localization.js';
 import { MessageTimestampFormat } from '../utils/message-timestamp.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 
 const getFormatOption = (t: TFunction): APIApplicationCommandBasicOption => ({
-  name: TimestampAtSubcommandOptionName.FORMAT,
-  ...getLocalizedObject('name', (lng) => t('commands.at.options.format.name', { lng }), false),
-  ...getLocalizedObject('description', (lng) => t('commands.at.options.format.description', { lng })),
+  name: GlobalCommandOptionName.FORMAT,
+  ...getLocalizedObject('name', (lng) => t('commands.global.options.format.name', { lng }), false),
+  ...getLocalizedObject('description', (lng) => t('commands.global.options.format.description', { lng })),
   type: ApplicationCommandOptionType.String,
   choices: [
     {
       value: MessageTimestampFormat.SHORT_DATE,
-      ...getLocalizedObject('name', (lng) => t('commands.at.options.format.choices.d', { lng })),
+      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.d', { lng })),
     },
     {
       value: MessageTimestampFormat.LONG_DATE,
-      ...getLocalizedObject('name', (lng) => t('commands.at.options.format.choices.D', { lng })),
+      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.D', { lng })),
     },
     {
       value: MessageTimestampFormat.SHORT_TIME,
-      ...getLocalizedObject('name', (lng) => t('commands.at.options.format.choices.t', { lng })),
+      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.t', { lng })),
     },
     {
       value: MessageTimestampFormat.LONG_TIME,
-      ...getLocalizedObject('name', (lng) => t('commands.at.options.format.choices.T', { lng })),
+      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.T', { lng })),
     },
     {
       value: MessageTimestampFormat.SHORT_FULL,
-      ...getLocalizedObject('name', (lng) => t('commands.at.options.format.choices.f', { lng })),
+      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.f', { lng })),
     },
     {
       value: MessageTimestampFormat.LONG_FULL,
-      ...getLocalizedObject('name', (lng) => t('commands.at.options.format.choices.F', { lng })),
+      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.F', { lng })),
     },
     {
       value: MessageTimestampFormat.RELATIVE,
-      ...getLocalizedObject('name', (lng) => t('commands.at.options.format.choices.R', { lng })),
+      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.R', { lng })),
     },
   ],
 });

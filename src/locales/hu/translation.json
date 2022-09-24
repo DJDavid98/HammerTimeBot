@@ -3,11 +3,8 @@
     "timestamp": {
       "name": "időbélyeg",
       "description": "Kiírja egy adott időponthoz a beírandó kódot minden formátumban",
-      "options": [],
-      "responses": {
-        "invalidDate": "A megadott dátum érvénytelen (például: az adott nap nem létezik)",
-        "timezoneNotFound": "A megadott időzóna nem található"
-      }
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "ezelőtt",
@@ -74,7 +71,9 @@
     "at": {
       "name": "ekkor",
       "description": "Add meg az időbélyeg pontos részeit (az időzónát beleértve)",
-      "responses": [],
+      "responses": {
+        "timezoneNotFound": "A megadott időzóna nem található"
+      },
       "options": {
         "year": {
           "name": "év",
@@ -103,19 +102,6 @@
         "timezone": {
           "name": "időzóna",
           "description": "Add meg az időzónát (alapértelmezett: GMT)"
-        },
-        "format": {
-          "name": "formátum",
-          "description": "A formátumok közül csak a kértet adja vissza",
-          "choices": {
-            "d": "rövid dátum",
-            "D": "hosszú dátum",
-            "t": "rövid idő",
-            "T": "hosszú idő",
-            "f": "dátum és idő",
-            "F": "hét napja, dátum és idő",
-            "R": "viszonylagos"
-          }
         }
       }
     },
@@ -192,10 +178,31 @@
     "unix": {
       "name": "unix",
       "description": "Kódok megjelenítése egy adott UNIX időbélyeghez",
+      "responses": {},
       "options": {
         "value": {
           "name": "érték",
           "description": "A UNIX időbélyeg másodpercekben"
+        }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "A megadott dátum érvénytelen (például: az adott nap nem létezik)"
+      },
+      "options": {
+        "format": {
+          "name": "formátum",
+          "description": "A formátumok közül csak a kértet adja vissza",
+          "choices": {
+            "d": "rövid dátum",
+            "D": "hosszú dátum",
+            "t": "rövid idő",
+            "T": "hosszú idő",
+            "f": "dátum és idő",
+            "F": "hét napja, dátum és idő",
+            "R": "viszonylagos"
+          }
         }
       }
     }

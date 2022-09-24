@@ -3,11 +3,8 @@
     "timestamp": {
       "name": "zeitstempel",
       "description": "Kann verwendet werden, um den Code für Zeitstempel in allen Formaten zu erzeugen",
-      "options": [],
-      "responses": {
-        "invalidDate": "Das angegebene Datum ist ungültig (zum Beispiel: der angegebene Tag existiert nicht)",
-        "timezoneNotFound": "Die angegebene Zeitzone kann nicht gefunden werden"
-      }
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "vor",
@@ -74,7 +71,9 @@
     "at": {
       "name": "um",
       "description": "Geben Sie die genauen Komponenten des Zeitstempels an (einschließlich der Zeitzone)",
-      "responses": [],
+      "responses": {
+        "timezoneNotFound": "Die angegebene Zeitzone kann nicht gefunden werden"
+      },
       "options": {
         "year": {
           "name": "jahr",
@@ -103,19 +102,6 @@
         "timezone": {
           "name": "zeitzone",
           "description": "Geben Sie die Zeitzone an (Standardeinstellung: GMT)"
-        },
-        "format": {
-          "name": "format",
-          "description": "Gibt nur das angegebene Format in der Antwort zurück",
-          "choices": {
-            "d": "kurzes Datum",
-            "D": "langes Datum",
-            "t": "kurze Zeit",
-            "T": "lange Zeit",
-            "f": "Datum und Uhrzeit",
-            "F": "Wochentag, Datum und Uhrzeit",
-            "R": "relativ"
-          }
         }
       }
     },
@@ -192,10 +178,31 @@
     "unix": {
       "name": "unix",
       "description": "Zeigt den Syntax für einen bestimmten UNIX Zeitstempel an",
+      "responses": {},
       "options": {
         "value": {
           "name": "wert",
           "description": "Der UNIX-Zeitstempel in Sekunden"
+        }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "Das angegebene Datum ist ungültig (zum Beispiel: der angegebene Tag existiert nicht)"
+      },
+      "options": {
+        "format": {
+          "name": "format",
+          "description": "Gibt nur das angegebene Format in der Antwort zurück",
+          "choices": {
+            "d": "kurzes Datum",
+            "D": "langes Datum",
+            "t": "kurze Zeit",
+            "T": "lange Zeit",
+            "f": "Datum und Uhrzeit",
+            "F": "Wochentag, Datum und Uhrzeit",
+            "R": "relativ"
+          }
         }
       }
     }

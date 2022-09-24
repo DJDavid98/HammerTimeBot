@@ -2,6 +2,10 @@ import { APIApplicationCommand, APIApplicationCommandOption } from 'discord-api-
 import { BotCommandName } from './bot-interaction.js';
 import { MessageTimestampFormat } from '../utils/message-timestamp.js';
 
+export enum GlobalCommandOptionName {
+  FORMAT = 'format',
+}
+
 export enum TimestampCommandOptionName {
   IN = 'in',
   AGO = 'ago',
@@ -19,7 +23,6 @@ export enum TimestampAtSubcommandOptionName {
   MINUTE = 'minute',
   SECOND = 'second',
   TIMEZONE = 'timezone',
-  FORMAT = 'format',
 }
 
 export enum TimestampInSubcommandOptionName {
@@ -64,8 +67,12 @@ export enum TimestampUnixSubcommandOptionName {
   VALUE = 'value',
 }
 
-export enum TimestampCommandResponse {
+export enum GlobalCommandResponse {
   INVALID_DATE = 'invalidDate',
+}
+
+export enum TimestampAtSubCommandResponse {
+  TIMEZONE_NOT_FOUND = 'timezoneNotFound',
 }
 
 interface CommandOptionsMap {
@@ -75,19 +82,22 @@ interface CommandOptionsMap {
   [TimestampCommandOptionName.AT]: TimestampAtSubcommandOptionName,
   [TimestampCommandOptionName.ADD]: TimestampAddSubcommandOptionName,
   [TimestampCommandOptionName.SUBTRACT]: TimestampSubtractSubcommandOptionName,
+  [TimestampCommandOptionName.UNIX]: TimestampUnixSubcommandOptionName,
 }
 
 interface CommandResponsesMap {
-  [BotCommandName.TIMESTAMP]: TimestampCommandResponse,
+  global: GlobalCommandResponse,
+  [BotCommandName.TIMESTAMP]: never,
   [TimestampCommandOptionName.IN]: never,
   [TimestampCommandOptionName.AGO]: never,
-  [TimestampCommandOptionName.AT]: never,
+  [TimestampCommandOptionName.AT]: TimestampAtSubCommandResponse,
   [TimestampCommandOptionName.ADD]: never,
   [TimestampCommandOptionName.SUBTRACT]: never,
+  [TimestampCommandOptionName.UNIX]: never,
 }
 
 interface OptionChoicesMap {
-  [TimestampAtSubcommandOptionName.FORMAT]: MessageTimestampFormat,
+  [GlobalCommandOptionName.FORMAT]: MessageTimestampFormat,
 }
 
 export type OptionLocalization<OptionName extends string = string> =

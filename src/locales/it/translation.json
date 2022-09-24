@@ -3,11 +3,8 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Può essere utilizzato per generare codice per timestamp in tutti i formati",
-      "options": [],
-      "responses": {
-        "invalidDate": "La data specificata non è valida (per esempio: il giorno specificato non esiste)",
-        "timezoneNotFound": "Impossibile trovare il fuso orario specificato"
-      }
+      "responses": {},
+      "options": {}
     },
     "ago": {
       "name": "fa",
@@ -74,7 +71,9 @@
     "at": {
       "name": "alle",
       "description": "Specifica i componenti esatti del timestamp (incluso il fuso orario)",
-      "responses": [],
+      "responses": {
+        "timezoneNotFound": "Impossibile trovare il fuso orario specificato"
+      },
       "options": {
         "year": {
           "name": "anno",
@@ -103,19 +102,6 @@
         "timezone": {
           "name": "fuso orario",
           "description": "Specifica il fuso orario (predefinito a GMT)"
-        },
-        "format": {
-          "name": "formato",
-          "description": "Restituisce solo il formato specificato nella risposta",
-          "choices": {
-            "d": "data abbreviata",
-            "D": "data estesa",
-            "t": "ora abbreviata",
-            "T": "ora estesa",
-            "f": "data e ora",
-            "F": "giorno della settimana, data e ora",
-            "R": "relativo"
-          }
         }
       }
     },
@@ -192,10 +178,31 @@
     "unix": {
       "name": "unix",
       "description": "Visualizza le sintassi per uno specifico timestamp UNIX",
+      "responses": {},
       "options": {
         "value": {
           "name": "valore",
           "description": "Il timestamp UNIX in secondi"
+        }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "La data specificata non è valida (per esempio: il giorno specificato non esiste)"
+      },
+      "options": {
+        "format": {
+          "name": "formato",
+          "description": "Restituisce solo il formato specificato nella risposta",
+          "choices": {
+            "d": "data abbreviata",
+            "D": "data estesa",
+            "t": "ora abbreviata",
+            "T": "ora estesa",
+            "f": "data e ora",
+            "F": "giorno della settimana, data e ora",
+            "R": "relativo"
+          }
         }
       }
     }
