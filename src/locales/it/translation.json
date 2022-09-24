@@ -101,19 +101,6 @@
         "timezone": {
           "name": "fuso orario",
           "description": "Specifica il fuso orario (predefinito a GMT)"
-        },
-        "format": {
-          "name": "formato",
-          "description": "Restituisce solo il formato specificato nella risposta",
-          "choices": {
-            "d": "data abbreviata",
-            "D": "data estesa",
-            "t": "ora abbreviata",
-            "T": "ora estesa",
-            "f": "data e ora",
-            "F": "giorno della settimana, data e ora",
-            "R": "relativo"
-          }
         }
       }
     },
@@ -200,6 +187,21 @@
     "global": {
       "responses": {
         "invalidDate": "La data specificata non è valida (per esempio: il giorno specificato non esiste)"
+      },
+      "options": {
+        "format": {
+          "name": "formato",
+          "description": "Restituisce solo il formato specificato nella risposta",
+          "choices": {
+            "d": "data abbreviata",
+            "D": "data estesa",
+            "t": "ora abbreviata",
+            "T": "ora estesa",
+            "f": "data e ora",
+            "F": "giorno della settimana, data e ora",
+            "R": "relativo"
+          }
+        }
       }
     }
   }
