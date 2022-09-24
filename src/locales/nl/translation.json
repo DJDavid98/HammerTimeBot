@@ -3,11 +3,7 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Genereer de code voor tijdsaanduidingen in alle soorten formaten",
-      "options": [],
-      "responses": {
-        "invalidDate": "De opgegeven datum is ongeldig (bijvoorbeeld: de opgegeven dag bestaat niet)",
-        "timezoneNotFound": "De opgegeven tijdzone kan niet worden gevonden"
-      }
+      "options": []
     },
     "ago": {
       "name": "ago",
@@ -74,7 +70,9 @@
     "at": {
       "name": "at",
       "description": "Genereer een tijdsaanduiding aan de hand van exacte gegevens (inclusief de tijdzone)",
-      "responses": [],
+      "responses": {
+        "timezoneNotFound": "De opgegeven tijdzone kan niet worden gevonden"
+      },
       "options": {
         "year": {
           "name": "year",
@@ -197,6 +195,11 @@
           "name": "value",
           "description": "De UNIX-tijdstempel in seconden"
         }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "De opgegeven datum is ongeldig (bijvoorbeeld: de opgegeven dag bestaat niet)"
       }
     }
   }
