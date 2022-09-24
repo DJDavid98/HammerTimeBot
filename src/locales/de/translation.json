@@ -101,19 +101,6 @@
         "timezone": {
           "name": "zeitzone",
           "description": "Geben Sie die Zeitzone an (Standardeinstellung: GMT)"
-        },
-        "format": {
-          "name": "format",
-          "description": "Gibt nur das angegebene Format in der Antwort zurück",
-          "choices": {
-            "d": "kurzes Datum",
-            "D": "langes Datum",
-            "t": "kurze Zeit",
-            "T": "lange Zeit",
-            "f": "Datum und Uhrzeit",
-            "F": "Wochentag, Datum und Uhrzeit",
-            "R": "relativ"
-          }
         }
       }
     },
@@ -200,6 +187,21 @@
     "global": {
       "responses": {
         "invalidDate": "Das angegebene Datum ist ungültig (zum Beispiel: der angegebene Tag existiert nicht)"
+      },
+      "options": {
+        "format": {
+          "name": "format",
+          "description": "Gibt nur das angegebene Format in der Antwort zurück",
+          "choices": {
+            "d": "kurzes Datum",
+            "D": "langes Datum",
+            "t": "kurze Zeit",
+            "T": "lange Zeit",
+            "f": "Datum und Uhrzeit",
+            "F": "Wochentag, Datum und Uhrzeit",
+            "R": "relativ"
+          }
+        }
       }
     }
   }
