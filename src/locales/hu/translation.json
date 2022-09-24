@@ -3,11 +3,7 @@
     "timestamp": {
       "name": "időbélyeg",
       "description": "Kiírja egy adott időponthoz a beírandó kódot minden formátumban",
-      "options": [],
-      "responses": {
-        "invalidDate": "A megadott dátum érvénytelen (például: az adott nap nem létezik)",
-        "timezoneNotFound": "A megadott időzóna nem található"
-      }
+      "options": []
     },
     "ago": {
       "name": "ezelőtt",
@@ -74,7 +70,9 @@
     "at": {
       "name": "ekkor",
       "description": "Add meg az időbélyeg pontos részeit (az időzónát beleértve)",
-      "responses": [],
+      "responses": {
+        "timezoneNotFound": "A megadott időzóna nem található"
+      },
       "options": {
         "year": {
           "name": "év",
@@ -197,6 +195,11 @@
           "name": "érték",
           "description": "A UNIX időbélyeg másodpercekben"
         }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "A megadott dátum érvénytelen (például: az adott nap nem létezik)"
       }
     }
   }
