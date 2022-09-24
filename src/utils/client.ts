@@ -4,8 +4,25 @@ import { env } from '../env.js';
 import { getGitData } from './get-git-data.js';
 import { handleCommandAutocomplete, handleCommandInteraction } from './interaction-handlers.js';
 import { GatewayIntentBits } from 'discord-api-types/v10';
+import {
+  cleanGlobalCommands,
+  getAuthorizedServers,
+  updateGlobalCommands,
+  updateGuildCommands,
+} from './update-guild-commands.js';
 
-const handleReady = async (client: Client<true>) => {
+const updateCommands = async (t: TFunction) => {
+  console.log(`Application ${env.LOCAL ? 'is' : 'is NOT'} in local mode`);
+  if (env.LOCAL) {
+    const serverIds = await getAuthorizedServers();
+    await cleanGlobalCommands();
+    await Promise.all(serverIds.map((serverId) => updateGuildCommands(serverId, t)));
+  } else {
+    await updateGlobalCommands(t);
+  }
+};
+
+const handleReady = (t: TFunction) => async (client: Client<true>) => {
   const clientUser = client.user;
   if (!clientUser) throw new Error('Expected `client.user` to be defined');
   console.log(`Logged in as ${clientUser.tag}!`);
@@ -14,12 +31,22 @@ const handleReady = async (client: Client<true>) => {
     .then(({ hash }) => `version ${hash}`)
     .catch(() => 'an unknown version');
   clientUser.setActivity(versionString);
+
+  const shardIds = client.shard?.ids;
+  if (shardIds) {
+    console.log(`# Shard ${shardIds.join(', ')}`);
+
+    if (shardIds.includes(0)) {
+      console.log('Shard 0 is updating commands');
+      await updateCommands(t);
+    }
+  }
 };
 
 export const createClient = async (t: TFunction): Promise<void> => {
   const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-  client.on('ready', handleReady);
+  client.on('ready', handleReady(t));
 
   client.on('interactionCreate', async (interaction) => {
     switch (interaction.type) {

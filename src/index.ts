@@ -1,39 +1,35 @@
-import moment from 'moment-timezone';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { createClient } from './utils/client.js';
-import {
-  cleanGlobalCommands,
-  getAuthorizedServers,
-  updateGlobalCommands,
-  updateGuildCommands,
-} from './utils/update-guild-commands.js';
-import { initI18next } from './constants/locales.js';
+import { ShardingManager } from 'discord.js';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { env } from './env.js';
 
 // This file is the main entry point which starts the bot
 
-(async () => {
-  const tzDataPath = join('.', 'node_modules', 'moment-timezone', 'data', 'packed', 'latest.json');
-  console.log(`Loading timezone data from ${tzDataPath}`);
-  const data = await fs.readFile(tzDataPath)
-    .then((contents) => JSON.parse(contents.toString()));
-  moment.tz.load(data);
+(async function createShards() {
+  const currentFolder = dirname(fileURLToPath(import.meta.url));
+  const botScriptPath = `${currentFolder}/bot.js`;
 
-  console.log('Initializing i18n');
-  const t = await initI18next();
+  console.log(`Starting recommended number of shards with path ${botScriptPath}`);
+  const manager = new ShardingManager(botScriptPath, { token: env.DISCORD_BOT_TOKEN });
 
-  console.log(`Application ${env.LOCAL ? 'is' : 'is NOT'} in local mode`);
-  const serverIds = await getAuthorizedServers();
-  if (env.LOCAL) {
-    await cleanGlobalCommands();
-    await Promise.all(serverIds.map((serverId) => updateGuildCommands(serverId, t)));
-  } else {
-    // Clean guild commands on startup, used only while the app was using guild commands, now it's no longer needed
-    // await Promise.all(serverIds.map((serverId) => cleanGuildCommands(serverId)));
-    await updateGlobalCommands(t);
-  }
+  manager.spawn();
+  manager.on('shardCreate', shard => {
+    console.log(`Shard ${shard.id} created`);
 
-  console.log('Creating client');
-  await createClient(t);
+    shard.on('spawn', () => {
+      console.log(`Shard ${shard.id} spawned`);
+    });
+    shard.on('ready', () => {
+      console.log(`Shard ${shard.id} ready`);
+    });
+    shard.on('disconnect', () => {
+      console.log(`Shard ${shard.id} disconnected`);
+    });
+    shard.on('reconnecting', () => {
+      console.log(`Shard ${shard.id} reconnecting`);
+    });
+    shard.on('death', () => {
+      console.log(`Shard ${shard.id} died`);
+    });
+  });
 })();
