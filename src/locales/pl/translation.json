@@ -3,11 +3,7 @@
     "timestamp": {
       "name": "znacznik czasowy",
       "description": "Może być użyty do wygenerowania kodu znaczników czasu we wszystkich formatach",
-      "options": [],
-      "responses": {
-        "invalidDate": "Podana data jest nieprawidłowa (na przykład: podany dzień nie istnieje)",
-        "timezoneNotFound": "Nie można znaleźć podanej strefy czasowej"
-      }
+      "options": []
     },
     "ago": {
       "name": "temu",
@@ -74,7 +70,9 @@
     "at": {
       "name": "o",
       "description": "Określ dokładne składniki znacznika czasu (w tym strefę czasową)",
-      "responses": [],
+      "responses": {
+        "timezoneNotFound": "Nie można znaleźć podanej strefy czasowej"
+      },
       "options": {
         "year": {
           "name": "rok",
@@ -197,6 +195,11 @@
           "name": "wartość",
           "description": "Znacznik czasowy UNIX w sekundach"
         }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "Podana data jest nieprawidłowa (na przykład: podany dzień nie istnieje)"
       }
     }
   }
