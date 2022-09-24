@@ -2,7 +2,7 @@ import { BotCommand } from '../types/bot-interaction.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../utils/message-timestamp.js';
 import { getStatisticsCommandOptions } from '../options/statistics.options.js';
-import { getTotalServerCount } from '../utils/get-total-server-count.js';
+import { getTotalServerCount, getTotalUserCount } from '../utils/usage-stats.js';
 import { getBareNumberFormatter, isEphemeralResponse } from '../utils/messaging.js';
 import { env } from '../env.js';
 
@@ -17,8 +17,10 @@ export const statisticsCommand: BotCommand = {
     const uptimeInMilliseconds = Math.round(process.uptime() * 1000);
     const shardStartTs = new MessageTimestamp(new Date(Date.now() - uptimeInMilliseconds));
     const numberFormatter = getBareNumberFormatter(interaction);
+    const totalUserNumber = await getTotalUserCount(interaction.client);
 
     const totalServerCount = `**${t('commands.statistics.responses.totalServerCount')}** ${numberFormatter.format(await getTotalServerCount(interaction.client))}`;
+    const totalUserCount = totalUserNumber > 0 ? `**${t('commands.statistics.responses.totalUserCount')}** ${numberFormatter.format(await getTotalUserCount(interaction.client))}` : null;
     const shardServerCount = shard ? `**${t('commands.statistics.responses.shardServerCount')}** ${numberFormatter.format(interaction.client.guilds.cache.size)}` : null;
     const uptime = `**${t('commands.statistics.responses.uptime')}** ${shardStartTs.toString(MessageTimestampFormat.RELATIVE)}`;
     const shardCount = shard ? `**${t('commands.statistics.responses.shardCount')}** ${numberFormatter.format(shard.count)}` : null;
@@ -27,6 +29,7 @@ export const statisticsCommand: BotCommand = {
 
     const content = [
       totalServerCount,
+      totalUserCount,
       shardServerCount,
       uptime,
       shardCount,

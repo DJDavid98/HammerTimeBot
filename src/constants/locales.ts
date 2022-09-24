@@ -4,7 +4,7 @@ import i18next, { i18n } from 'i18next';
 import Backend from 'i18next-fs-backend';
 import { env } from '../env.js';
 import { Localization } from '../types/localization.js';
-import type enTranslation from '../locales/en/translation.json';
+import type enUsTranslation from '../locales/en-US/translation.json';
 import type huTranslation from '../locales/hu/translation.json';
 import type enGbTranslation from '../locales/en-GB/translation.json';
 import type deTranslation from '../locales/de/translation.json';
@@ -55,7 +55,7 @@ type TypeValidator<T extends Record<SupportedLanguage, Localization>> = T;
 // noinspection JSUnusedLocalSymbols
 type ValidatedLocalizationMap = TypeValidator<{
   hu: typeof huTranslation,
-  'en-US': typeof enTranslation,
+  'en-US': typeof enUsTranslation,
   'en-GB': typeof enGbTranslation,
   de: typeof deTranslation,
   el: typeof elTranslation,
