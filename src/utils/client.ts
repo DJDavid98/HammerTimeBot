@@ -62,5 +62,5 @@ export const createClient = async (t: TFunction): Promise<void> => {
 
   });
 
-  await client.login(env.DISCORD_BOT_TOKEN);
+  await client.login();
 };

@@ -1,10 +1,12 @@
 import {
   ApplicationCommandOptionType,
-  CommandInteraction,
   ChannelType,
+  ChatInputCommandInteraction,
+  CommandInteraction,
   CommandInteractionOption,
   User,
 } from 'discord.js';
+import { GlobalCommandOptionName } from '../types/localization.js';
 
 export const getUserIdentifier = (user: User): `${string}#${string} (${string})` => `${user.username}#${user.discriminator} (${user.id})`;
 
@@ -51,3 +53,5 @@ export const stringifyOptionsData = (data: readonly CommandInteractionOption[]):
   }
   return `(${optionName}${optionValue !== null ? `:${optionValue}` : ''})`;
 }).join(' ');
+
+export const isEphemeralResponse = (interaction: ChatInputCommandInteraction): boolean => interaction.options.getBoolean(GlobalCommandOptionName.EPHEMERAL) ?? false;

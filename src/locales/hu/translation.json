@@ -2,9 +2,11 @@
   "commands": {
     "timestamp": {
       "name": "időbélyeg",
-      "description": "Kiírja egy adott időponthoz a beírandó kódot minden formátumban",
-      "responses": {},
-      "options": {}
+      "description": "Elavult, a /timestamp előtag nélkül használd a parancsokat",
+      "options": {},
+      "responses": {
+        "deprecated": "Az al-parancsok le lettek cserélve különálló parancsokkal, mert a {{baseCommand}} beállításai túllépték a Discord's API-jának korlátjait.\nTovábbra is használhatod a megszokott parancsokat annyi különbséggel, hogy a {{baseCommandName}}-et el kell hagynod. Például a {{exampleSubCommand}} mot már csak {{exampleCommand}}.\nKöszönet a megértésért. Bármilyen ezzel a módosítással kapcsolatos visszajelzéssel vagy javaslattal a HammerTime hivatalos Discord szerverét keresd: {{discordInviteUrl}}"
+      }
     },
     "ago": {
       "name": "ezelőtt",

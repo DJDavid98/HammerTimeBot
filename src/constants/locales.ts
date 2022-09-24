@@ -4,8 +4,8 @@ import i18next from 'i18next';
 import Backend from 'i18next-fs-backend';
 import { env } from '../env.js';
 import { Localization } from '../types/localization.js';
-import type huTranslation from '../locales/hu/translation.json';
 import type enTranslation from '../locales/en/translation.json';
+import type huTranslation from '../locales/hu/translation.json';
 import type enGbTranslation from '../locales/en-GB/translation.json';
 import type deTranslation from '../locales/de/translation.json';
 import type elTranslation from '../locales/el/translation.json';
@@ -79,5 +79,8 @@ export const initI18next = () => i18next.use(Backend).init({
   backend: {
     loadPath: join(localesPath, '{{lng}}', '{{ns}}.json'),
     addPath: join(localesPath, '{{lng}}', '{{ns}}.missing.json'),
+  },
+  interpolation: {
+    escapeValue: false,
   },
 });

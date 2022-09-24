@@ -3,6 +3,7 @@ import levenshtein from 'js-levenshtein';
 import { unitOfTime } from 'moment';
 import { TimezoneError } from './timezone-error.js';
 import { MessageTimestamp, MessageTimestampFormat } from './message-timestamp.js';
+import { ResponseColumnChoices } from '../types/localization.js';
 
 export const gmtTimezoneOptions = [
   'GMT',
@@ -123,10 +124,16 @@ export const findTimezone = (value: string): string[] => {
 
 export const supportedFormats = Object.values(MessageTimestampFormat);
 
-export const formattedResponse = (ts: MessageTimestamp, formats: MessageTimestampFormat[]): string => {
+const responseFormatters: Record<ResponseColumnChoices, (formatted: string) => string> = {
+  [ResponseColumnChoices.PREVIEW_ONLY]: (formatted) => `**${formatted}**`,
+  [ResponseColumnChoices.SYNTAX_ONLY]: (formatted) => `\`${formatted}\``,
+  [ResponseColumnChoices.BOTH]: (formatted) => `${responseFormatters[ResponseColumnChoices.SYNTAX_ONLY](formatted)} → ${responseFormatters[ResponseColumnChoices.PREVIEW_ONLY](formatted)}`,
+};
+
+export const formattedResponse = (ts: MessageTimestamp, formats: MessageTimestampFormat[], columns: ResponseColumnChoices): string => {
   const strings = formats.map((format) => {
     const formatted = ts.toString(format);
-    return `\`${formatted}\` → **${formatted}**`;
+    return responseFormatters[columns](formatted);
   });
   return strings.join('\n');
 };

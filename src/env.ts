@@ -7,6 +7,7 @@ const {
   DISCORD_CLIENT_ID,
   LOCAL,
   UA_STRING,
+  DISCORD_INVITE_URL,
 } = process.env;
 
 /**
@@ -18,6 +19,7 @@ export const env = (() => {
     DISCORD_CLIENT_ID,
     LOCAL: typeof LOCAL !== 'undefined' && LOCAL === 'true',
     UA_STRING,
+    DISCORD_INVITE_URL,
   };
 
   type Values = typeof values;
