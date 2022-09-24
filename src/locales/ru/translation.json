@@ -101,19 +101,6 @@
         "timezone": {
           "name": "timezone",
           "description": "Укажите часовой пояс (по умолчанию GMT)"
-        },
-        "format": {
-          "name": "format",
-          "description": "Возвращает только указанный формат в ответе",
-          "choices": {
-            "d": "short date",
-            "D": "long date",
-            "t": "short time",
-            "T": "long time",
-            "f": "date and time",
-            "F": "weekday, date and time",
-            "R": "relative"
-          }
         }
       }
     },
@@ -200,6 +187,21 @@
     "global": {
       "responses": {
         "invalidDate": "Указанная дата недействительна (например: заданный день не существует)"
+      },
+      "options": {
+        "format": {
+          "name": "format",
+          "description": "Возвращает только указанный формат в ответе",
+          "choices": {
+            "d": "short date",
+            "D": "long date",
+            "t": "short time",
+            "T": "long time",
+            "f": "date and time",
+            "F": "weekday, date and time",
+            "R": "relative"
+          }
+        }
       }
     }
   }
