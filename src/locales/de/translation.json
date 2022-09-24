@@ -3,11 +3,7 @@
     "timestamp": {
       "name": "zeitstempel",
       "description": "Kann verwendet werden, um den Code für Zeitstempel in allen Formaten zu erzeugen",
-      "options": [],
-      "responses": {
-        "invalidDate": "Das angegebene Datum ist ungültig (zum Beispiel: der angegebene Tag existiert nicht)",
-        "timezoneNotFound": "Die angegebene Zeitzone kann nicht gefunden werden"
-      }
+      "options": []
     },
     "ago": {
       "name": "vor",
@@ -74,7 +70,9 @@
     "at": {
       "name": "um",
       "description": "Geben Sie die genauen Komponenten des Zeitstempels an (einschließlich der Zeitzone)",
-      "responses": [],
+      "responses": {
+        "timezoneNotFound": "Die angegebene Zeitzone kann nicht gefunden werden"
+      },
       "options": {
         "year": {
           "name": "jahr",
@@ -197,6 +195,11 @@
           "name": "wert",
           "description": "Der UNIX-Zeitstempel in Sekunden"
         }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "Das angegebene Datum ist ungültig (zum Beispiel: der angegebene Tag existiert nicht)"
       }
     }
   }
