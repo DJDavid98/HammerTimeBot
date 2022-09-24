@@ -101,19 +101,6 @@
         "timezone": {
           "name": "időzóna",
           "description": "Add meg az időzónát (alapértelmezett: GMT)"
-        },
-        "format": {
-          "name": "formátum",
-          "description": "A formátumok közül csak a kértet adja vissza",
-          "choices": {
-            "d": "rövid dátum",
-            "D": "hosszú dátum",
-            "t": "rövid idő",
-            "T": "hosszú idő",
-            "f": "dátum és idő",
-            "F": "hét napja, dátum és idő",
-            "R": "viszonylagos"
-          }
         }
       }
     },
@@ -200,6 +187,21 @@
     "global": {
       "responses": {
         "invalidDate": "A megadott dátum érvénytelen (például: az adott nap nem létezik)"
+      },
+      "options": {
+        "format": {
+          "name": "formátum",
+          "description": "A formátumok közül csak a kértet adja vissza",
+          "choices": {
+            "d": "rövid dátum",
+            "D": "hosszú dátum",
+            "t": "rövid idő",
+            "T": "hosszú idő",
+            "f": "dátum és idő",
+            "F": "hét napja, dátum és idő",
+            "R": "viszonylagos"
+          }
+        }
       }
     }
   }
