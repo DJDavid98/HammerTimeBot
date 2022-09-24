@@ -235,7 +235,8 @@
         "shardCount": "Szilánkok száma:",
         "shardNumber": "(Ezeket a statisztikákat a(z) {{shardId}}. szilánk generálta)",
         "noShards": "(A bot jelenleg nem használ szilánkokat)",
-        "serverInvite": "Támogatási szerver meghívó URL:"
+        "serverInvite": "Támogatási szerver meghívó URL:",
+        "totalUserCount": "A szerverek összes felhasználója:"
       }
     }
   }
