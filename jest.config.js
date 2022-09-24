@@ -18,6 +18,9 @@ const config = {
     'src/**/*.{js,jsx,ts,tsx}',
     '!src/**/*.d.ts',
   ],
+  coveragePathIgnorePatterns: [
+    'src/index.ts',
+  ],
 };
 
 export default config;

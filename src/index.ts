@@ -5,7 +5,7 @@ import { env } from './env.js';
 
 // This file is the main entry point which starts the bot
 
-(async function createShards() {
+async function createShards() {
   const currentFolder = dirname(fileURLToPath(import.meta.url));
   const botScriptPath = `${currentFolder}/bot.js`;
 
@@ -32,4 +32,10 @@ import { env } from './env.js';
       console.log(`Shard ${shard.id} died`);
     });
   });
-})();
+}
+
+if (env.LOCAL) {
+  import('./bot.js');
+} else {
+  createShards();
+}
