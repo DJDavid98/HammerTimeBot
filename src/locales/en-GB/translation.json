@@ -228,6 +228,7 @@
     "statistics": {
       "name": "statistics",
       "description": "Displays various information about the bot",
+      "options": {},
       "responses": {
         "totalServerCount": "Total servers joined:",
         "shardServerCount": "Servers on this shard:",

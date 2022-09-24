@@ -69,6 +69,7 @@ interface CommandOptionsMap {
   [BotCommandName.ADD]: AddCommandOptionName,
   [BotCommandName.SUBTRACT]: SubtractCommandOptionName,
   [BotCommandName.UNIX]: UnixCommandOptionName,
+  [BotCommandName.STATISTICS]: never,
 }
 
 export enum GlobalCommandResponse {
@@ -92,6 +93,7 @@ interface CommandResponsesMap {
   [BotCommandName.ADD]: never,
   [BotCommandName.SUBTRACT]: never,
   [BotCommandName.UNIX]: never,
+  [BotCommandName.STATISTICS]: never,
 }
 
 export enum ResponseColumnChoices {

@@ -228,6 +228,7 @@
     "statistics": {
       "name": "statisztikák",
       "description": "Megjelenít különféle információkat a bot-ról",
+      "options": {},
       "responses": {
         "totalServerCount": "Használó szerverek száma:",
         "shardServerCount": "Ezen szilánk által kezelt szerverek:",

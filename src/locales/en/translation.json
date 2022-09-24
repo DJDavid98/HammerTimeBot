@@ -193,19 +193,6 @@
         "invalidDate": "The specified date is invalid (for example: the given day does not exist)"
       },
       "options": {
-        "columns": {
-          "name": "columns",
-          "description": "Specify which columns to display in the returned response",
-          "choices": {
-            "both": "both syntax and preview",
-            "preview": "preview only",
-            "syntax": "syntax only"
-          }
-        },
-        "ephemeral": {
-          "name": "ephemeral",
-          "description": "When true the response will only be visible to you (default: false)"
-        },
         "format": {
           "name": "format",
           "description": "Returns only the specified format in the response",
@@ -219,6 +206,19 @@
             "R": "relative"
           }
         },
+        "columns": {
+          "name": "columns",
+          "description": "Specify which columns to display in the returned response",
+          "choices": {
+            "both": "both syntax and preview",
+            "preview": "preview only",
+            "syntax": "syntax only"
+          }
+        },
+        "ephemeral": {
+          "name": "ephemeral",
+          "description": "When true the response will only be visible to you (default: false)"
+        },
         "header": {
           "name": "header",
           "description": "Display the initial time (as interpreted by the bot) on top of the response"
@@ -228,6 +228,7 @@
     "statistics": {
       "name": "statistics",
       "description": "Displays various information about the bot",
+      "options": {},
       "responses": {
         "totalServerCount": "Total servers joined:",
         "shardServerCount": "Servers on this shard:",
