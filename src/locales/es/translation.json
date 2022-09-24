@@ -3,11 +3,7 @@
     "timestamp": {
       "name": "marca de tiempo",
       "description": "Puede ser utilizado para generar el código de las marcas de tiempo en todos los formatos",
-      "options": [],
-      "responses": {
-        "invalidDate": "La fecha indicada no es válida (por ejemplo: el día dado no existe)",
-        "timezoneNotFound": "La zona horaria indicada no pudo ser encontrada"
-      }
+      "options": []
     },
     "ago": {
       "name": "hace",
@@ -74,7 +70,9 @@
     "at": {
       "name": "en",
       "description": "Especifique los componentes exactos de la marca de tiempo (incluyendo la zona horaria)",
-      "responses": [],
+      "responses": {
+        "timezoneNotFound": "La zona horaria indicada no pudo ser encontrada"
+      },
       "options": {
         "year": {
           "name": "año",
@@ -197,6 +195,11 @@
           "name": "valor",
           "description": "La marca de tiempo UNIX en segundos"
         }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "La fecha indicada no es válida (por ejemplo: el día dado no existe)"
       }
     }
   }
