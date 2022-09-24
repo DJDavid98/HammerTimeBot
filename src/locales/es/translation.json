@@ -101,19 +101,6 @@
         "timezone": {
           "name": "zona horaria",
           "description": "Especifique la zona horaria (por defecto será GMT)"
-        },
-        "format": {
-          "name": "formato",
-          "description": "Devuelve sólo el formato especificado en la respuesta",
-          "choices": {
-            "d": "fecha corta",
-            "D": "fecha larga",
-            "t": "tiempo corto",
-            "T": "hora larga",
-            "f": "fecha y hora",
-            "F": "día de la semana, fecha y hora",
-            "R": "relativa"
-          }
         }
       }
     },
@@ -200,6 +187,21 @@
     "global": {
       "responses": {
         "invalidDate": "La fecha indicada no es válida (por ejemplo: el día dado no existe)"
+      },
+      "options": {
+        "format": {
+          "name": "formato",
+          "description": "Devuelve sólo el formato especificado en la respuesta",
+          "choices": {
+            "d": "fecha corta",
+            "D": "fecha larga",
+            "t": "tiempo corto",
+            "T": "hora larga",
+            "f": "fecha y hora",
+            "F": "día de la semana, fecha y hora",
+            "R": "relativa"
+          }
+        }
       }
     }
   }
