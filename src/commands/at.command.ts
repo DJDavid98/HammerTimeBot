@@ -59,7 +59,7 @@ export const atCommand: BotCommand = {
           throw e;
         }
         await interaction.reply({
-          content: t('commands.timestamp.responses.timezoneNotFound'),
+          content: t('commands.at.responses.timezoneNotFound'),
           ephemeral: true,
         });
         return;
@@ -84,7 +84,7 @@ export const atCommand: BotCommand = {
     } catch (e) {
       if (e instanceof RangeError && e.message === 'Invalid date') {
         await interaction.reply({
-          content: t('commands.timestamp.responses.invalidDate'),
+          content: t('commands.global.responses.invalidDate'),
           ephemeral: true,
         });
         return;
