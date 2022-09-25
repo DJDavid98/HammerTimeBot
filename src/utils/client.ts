@@ -45,7 +45,7 @@ const handleReady = (i18next: i18n) => async (client: Client<true>) => {
 };
 
 export const createClient = async (i18next: i18n): Promise<void> => {
-  const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
+  const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
   client.on('ready', handleReady(i18next));
 
