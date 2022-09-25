@@ -17,7 +17,7 @@ $ pm2 start pm2.json
 
 New language contributions are welcome! They are handled through [Crowdin]. If you don't see your language listed, that
 means it's likely not supported by the Discord client itself, meaning translations would be pointless. If a language is
-available in Discord's setting but is not listed on Crowdin, or you want to help with the translations of an existing
+available in Discord's settings but is not listed on Crowdin, or you want to help with the translations of an existing
 language, please [join our Discord server] and ask for your language to be added to the project in
 the [#translator-signup] channel. You will be given the Translator role and granted access to a language-specific
 channel for further discussion. This is necessary so that when new translations are needed for any potential new bot
@@ -36,7 +36,6 @@ English and Hungarian translations have been included, so no translators will be
 - 🇩🇪 German: Fabian9799
 - 🇬🇷 Greek: BelleBernice
 - 🇮🇹 Italian: Lory Pelli (pellilory126)
-- 🇰🇷 Korean: Bin (cheesepickle12345678, sjkim04
 - 🇵🇱 Polish: Dawid (MinerPL)
 - 🇷🇺 Russian: GameHacker, Nikita Sharikov (Aligatoor)
 - 🇪🇸 Spanish: Pablo Luna (shaulyareaj)
