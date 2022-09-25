@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Можна використовувати для створення коду для позначок часу в усіх форматах",
-      "options": {},
+      "options": [],
       "responses": {
         "deprecated": "Subcommands have been replaced with separate commands because the options of the {{baseCommand}} command reached the limits of Discord's API.\nYou can use the same commands as before, the only difference is that you must leave off {{baseCommandName}}. For example {{exampleSubCommand}} is now simply {{exampleCommand}}.\nThank you for your understanding. Please direct any feedback regarding this change to HammerTime's official Discord server: {{discordInviteUrl}}"
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "ago",
       "description": "Укажіть мітку часу в минулому відносно поточного часу",
-      "responses": {},
+      "responses": [],
       "options": {
         "years": {
           "name": "years",
@@ -42,7 +42,7 @@
     "in": {
       "name": "in",
       "description": "Укажіть мітку часу в майбутньому відносно поточного часу",
-      "responses": {},
+      "responses": [],
       "options": {
         "years": {
           "name": "years",
@@ -110,7 +110,7 @@
     "add": {
       "name": "add",
       "description": "Додайте час до зазначеної мітки часу UNIX",
-      "responses": {},
+      "responses": [],
       "options": {
         "to": {
           "name": "to",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "subtract",
       "description": "Відніміть деякий час із зазначеної мітки часу UNIX",
-      "responses": {},
+      "responses": [],
       "options": {
         "from": {
           "name": "from",
@@ -180,7 +180,7 @@
     "unix": {
       "name": "unix",
       "description": "Відображення синтаксису для конкретної мітки часу UNIX",
-      "responses": {},
+      "responses": [],
       "options": {
         "value": {
           "name": "value",
@@ -228,7 +228,7 @@
     "statistics": {
       "name": "statistics",
       "description": "Displays various information about the bot",
-      "options": {},
+      "options": [],
       "responses": {
         "totalServerCount": "Total servers joined:",
         "shardServerCount": "Servers on this shard:",
