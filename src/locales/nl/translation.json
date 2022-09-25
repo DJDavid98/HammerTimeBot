@@ -2,16 +2,16 @@
   "commands": {
     "timestamp": {
       "name": "timestamp",
+      "description": "Verouderd, gebruik de commando's zonder het /timestamp voorvoegsel",
       "options": {},
       "responses": {
         "deprecated": "Subcommando's zijn vervangen door afzonderlijke commando's omdat de opties van het commando {{baseCommand}} de grenzen van Discord's API heeft bereikt.\nU kunt dezelfde commando's gebruiken als voorheen, het enige verschil is dat u {{baseCommandName}} moet weglaten. Bijvoorbeeld {{exampleSubCommand}} is nu gewoon {{exampleCommand}}.\nBedankt voor uw begrip. Voor alle soorten feedback kunt u terecht bij de officiële Discord-server van HammerTime: {{discordInviteUrl}}"
-      },
-      "description": "Verouderd, gebruik de commando's zonder het /timestamp voorvoegsel"
+      }
     },
     "ago": {
       "name": "ago",
       "description": "Genereer een tijdsaanduiding in het verleden, relatief van de huidige tijd",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "years",
@@ -42,7 +42,7 @@
     "in": {
       "name": "in",
       "description": "Genereer een tijdsaanduiding in de toekomst, relatief van de huidige tijd",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "years",
@@ -110,7 +110,7 @@
     "add": {
       "name": "add",
       "description": "Voeg tijd toe aan de opgegeven UNIX-tijdstempel",
-      "responses": [],
+      "responses": {},
       "options": {
         "to": {
           "name": "to",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "subtract",
       "description": "Trek tijd af van de opgegeven UNIX-tijdstempel",
-      "responses": [],
+      "responses": {},
       "options": {
         "from": {
           "name": "from",
