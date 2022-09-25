@@ -2,9 +2,11 @@
   "commands": {
     "timestamp": {
       "name": "timestamp",
-      "description": "Genereer de code voor tijdsaanduidingen in alle soorten formaten",
-      "responses": {},
-      "options": {}
+      "options": [],
+      "responses": {
+        "deprecated": "Subcommando's zijn vervangen door afzonderlijke commando's omdat de opties van het commando {{baseCommand}} de grenzen van Discord's API heeft bereikt.\nU kunt dezelfde commando's gebruiken als voorheen, het enige verschil is dat u {{baseCommandName}} moet weglaten. Bijvoorbeeld {{exampleSubCommand}} is nu gewoon {{exampleCommand}}.\nBedankt voor uw begrip. Voor alle soorten feedback kunt u terecht bij de officiële Discord-server van HammerTime: {{discordInviteUrl}}"
+      },
+      "description": "Verouderd, gebruik de commando's zonder het /timestamp voorvoegsel"
     },
     "ago": {
       "name": "ago",
@@ -178,7 +180,7 @@
     "unix": {
       "name": "unix",
       "description": "Geef de tijdsaanduidingen weer voor de opgegeven UNIX-tijdstempel",
-      "responses": {},
+      "responses": [],
       "options": {
         "value": {
           "name": "value",
@@ -203,7 +205,38 @@
             "F": "dag, datum en tijd",
             "R": "relatief"
           }
+        },
+        "columns": {
+          "name": "columns",
+          "description": "Geef aan welke kolommen moeten worden weergegeven in het antwoord",
+          "choices": {
+            "both": "syntaxis en voorbeeld",
+            "preview": "alleen een voorbeeld",
+            "syntax": "alleen de syntaxis"
+          }
+        },
+        "ephemeral": {
+          "name": "ephemeral",
+          "description": "Indien true dan zal het antwoord alleen voor u zichtbaar zijn (standaard: false)"
+        },
+        "header": {
+          "name": "header",
+          "description": "Geef de oorspronkelijke tijd (aangevuld met de standaardwaarden) bovenaan in het antwoord weer"
         }
+      }
+    },
+    "statistics": {
+      "name": "statistics",
+      "description": "Geeft verschillende informatie en statistieken over de bot weer",
+      "responses": {
+        "totalServerCount": "Aantal gejoinde servers:",
+        "shardServerCount": "Servers op deze shard:",
+        "uptime": "Opstarttijd van de shard:",
+        "shardCount": "Aantal shards:",
+        "shardNumber": "(Deze statistieken zijn gegenereerd door shard #{{shardId}})",
+        "noShards": "(De bot maakt momenteel geen gebruik van sharding)",
+        "serverInvite": "Support server uitnodiging:",
+        "totalUserCount": "Totaal aantal gebruikers in gejoinde servers:"
       }
     }
   }
