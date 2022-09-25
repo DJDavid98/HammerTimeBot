@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Deprecato, si prega di utilizzare i comandi senza il prefisso /timestamp",
-      "options": {},
+      "options": [],
       "responses": {
         "deprecated": "I sottocomandi sono stati sostituiti con comandi separati perché le opzioni del comando {{baseCommand}} hanno raggiunto i limiti dell'API di Discord.\nPuoi usare gli stessi comandi di prima, l'unica differenza è che devi lasciare {{baseCommandName}}. Per esempio {{exampleSubCommand}} ora è semplicemente {{exampleCommand}}.\nGrazie per la tua comprensione. Si prega di indirizzare qualsiasi feedback riguardante questa modifica al server ufficiale di Discord di HammerTime: {{discordInviteUrl}}"
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "fa",
       "description": "Specifica un timestamp nel passato rispetto all'ora corrente",
-      "responses": {},
+      "responses": [],
       "options": {
         "years": {
           "name": "anni",
@@ -42,7 +42,7 @@
     "in": {
       "name": "in",
       "description": "Specifica un timestamp nel futuro rispetto all'ora corrente",
-      "responses": {},
+      "responses": [],
       "options": {
         "years": {
           "name": "anni",
@@ -110,7 +110,7 @@
     "add": {
       "name": "aggiungi",
       "description": "Aggiungi un po' di tempo al timestamp UNIX specificato",
-      "responses": {},
+      "responses": [],
       "options": {
         "to": {
           "name": "a",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "sottrarre",
       "description": "Sottrai un po' di tempo dal timestamp UNIX specificato",
-      "responses": {},
+      "responses": [],
       "options": {
         "from": {
           "name": "da",
@@ -180,7 +180,7 @@
     "unix": {
       "name": "unix",
       "description": "Visualizza le sintassi per uno specifico timestamp UNIX",
-      "responses": {},
+      "responses": [],
       "options": {
         "value": {
           "name": "valore",
@@ -228,7 +228,7 @@
     "statistics": {
       "name": "statistiche",
       "description": "Visualizza varie informazioni sul bot",
-      "options": {},
+      "options": [],
       "responses": {
         "totalServerCount": "Numero totale server in cui il bot si trova:",
         "shardServerCount": "Server su questo frammento:",
