@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "időbélyeg",
       "description": "Elavult, a /timestamp előtag nélkül használd a parancsokat",
-      "options": {},
+      "options": [],
       "responses": {
         "deprecated": "Az al-parancsok le lettek cserélve különálló parancsokkal, mert a {{baseCommand}} beállításai túllépték a Discord's API-jának korlátjait.\nTovábbra is használhatod a megszokott parancsokat annyi különbséggel, hogy a {{baseCommandName}}-et el kell hagynod. Például a {{exampleSubCommand}} most már csak {{exampleCommand}}.\nKöszönet a megértésért. Bármilyen ezzel a módosítással kapcsolatos visszajelzéssel vagy javaslattal a HammerTime hivatalos Discord szerverét keresd: {{discordInviteUrl}}"
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "ezelőtt",
       "description": "Viszonylagos múltbeli időpont meghatározása az aktuális időhöz képest",
-      "responses": {},
+      "responses": [],
       "options": {
         "years": {
           "name": "évvel",
@@ -42,7 +42,7 @@
     "in": {
       "name": "múlva",
       "description": "Viszonylagos jövőbeli időpont meghatározása az aktuális időhöz képest",
-      "responses": {},
+      "responses": [],
       "options": {
         "years": {
           "name": "év",
@@ -110,7 +110,7 @@
     "add": {
       "name": "hozzáad",
       "description": "Hozzáad egy kis időt a megadott UNIX időbélyeghez",
-      "responses": {},
+      "responses": [],
       "options": {
         "to": {
           "name": "ehhez",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "kivon",
       "description": "Kivon egy kis időt a megadott UNIX időbélyegből",
-      "responses": {},
+      "responses": [],
       "options": {
         "from": {
           "name": "ebből",
@@ -180,7 +180,7 @@
     "unix": {
       "name": "unix",
       "description": "Kódok megjelenítése egy adott UNIX időbélyeghez",
-      "responses": {},
+      "responses": [],
       "options": {
         "value": {
           "name": "érték",
@@ -228,7 +228,7 @@
     "statistics": {
       "name": "statisztikák",
       "description": "Megjelenít különféle információkat a bot-ról",
-      "options": {},
+      "options": [],
       "responses": {
         "totalServerCount": "Használó szerverek száma:",
         "shardServerCount": "Ezen szilánk által kezelt szerverek:",
