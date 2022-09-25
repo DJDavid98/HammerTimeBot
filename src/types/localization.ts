@@ -3,19 +3,13 @@ import { BotCommandName } from './bot-interaction.js';
 import { MessageTimestampFormat } from '../utils/message-timestamp.js';
 
 export enum GlobalCommandOptionName {
+  COLUMNS = 'columns',
+  EPHEMERAL = 'ephemeral',
   FORMAT = 'format',
+  HEADER = 'header',
 }
 
-export enum TimestampCommandOptionName {
-  IN = 'in',
-  AGO = 'ago',
-  AT = 'at',
-  UNIX = 'unix',
-  ADD = 'add',
-  SUBTRACT = 'subtract',
-}
-
-export enum TimestampAtSubcommandOptionName {
+export enum AtCommandOptionName {
   YEAR = 'year',
   MONTH = 'month',
   DATE = 'day',
@@ -25,7 +19,7 @@ export enum TimestampAtSubcommandOptionName {
   TIMEZONE = 'timezone',
 }
 
-export enum TimestampInSubcommandOptionName {
+export enum InCommandOptionName {
   IN_YEARS = 'years',
   IN_MONTHS = 'months',
   IN_DAYS = 'days',
@@ -34,7 +28,7 @@ export enum TimestampInSubcommandOptionName {
   IN_SECONDS = 'seconds',
 }
 
-export enum TimestampAgoSubcommandOptionName {
+export enum AgoCommandOptionName {
   YEARS_AGO = 'years',
   MONTHS_AGO = 'months',
   DAYS_AGO = 'days',
@@ -43,7 +37,7 @@ export enum TimestampAgoSubcommandOptionName {
   SECONDS_AGO = 'seconds',
 }
 
-export enum TimestampAddSubcommandOptionName {
+export enum AddCommandOptionName {
   TO = 'to',
   ADD_YEARS = 'years',
   ADD_MONTHS = 'months',
@@ -53,7 +47,7 @@ export enum TimestampAddSubcommandOptionName {
   ADD_SECONDS = 'seconds',
 }
 
-export enum TimestampSubtractSubcommandOptionName {
+export enum SubtractCommandOptionName {
   FROM = 'from',
   SUBTRACT_YEARS = 'years',
   SUBTRACT_MONTHS = 'months',
@@ -63,40 +57,53 @@ export enum TimestampSubtractSubcommandOptionName {
   SUBTRACT_SECONDS = 'seconds',
 }
 
-export enum TimestampUnixSubcommandOptionName {
+export enum UnixCommandOptionName {
   VALUE = 'value',
+}
+
+interface CommandOptionsMap {
+  [BotCommandName.TIMESTAMP]: never,
+  [BotCommandName.IN]: InCommandOptionName,
+  [BotCommandName.AGO]: AgoCommandOptionName,
+  [BotCommandName.AT]: AtCommandOptionName,
+  [BotCommandName.ADD]: AddCommandOptionName,
+  [BotCommandName.SUBTRACT]: SubtractCommandOptionName,
+  [BotCommandName.UNIX]: UnixCommandOptionName,
+  [BotCommandName.STATISTICS]: never,
 }
 
 export enum GlobalCommandResponse {
   INVALID_DATE = 'invalidDate',
 }
 
-export enum TimestampAtSubCommandResponse {
-  TIMEZONE_NOT_FOUND = 'timezoneNotFound',
+export enum TimestampCommandResponse {
+  DEPRECATED = 'deprecated',
 }
 
-interface CommandOptionsMap {
-  [BotCommandName.TIMESTAMP]: never,
-  [TimestampCommandOptionName.IN]: TimestampInSubcommandOptionName,
-  [TimestampCommandOptionName.AGO]: TimestampAgoSubcommandOptionName,
-  [TimestampCommandOptionName.AT]: TimestampAtSubcommandOptionName,
-  [TimestampCommandOptionName.ADD]: TimestampAddSubcommandOptionName,
-  [TimestampCommandOptionName.SUBTRACT]: TimestampSubtractSubcommandOptionName,
-  [TimestampCommandOptionName.UNIX]: TimestampUnixSubcommandOptionName,
+export enum AtCommandResponse {
+  TIMEZONE_NOT_FOUND = 'timezoneNotFound',
 }
 
 interface CommandResponsesMap {
   global: GlobalCommandResponse,
-  [BotCommandName.TIMESTAMP]: never,
-  [TimestampCommandOptionName.IN]: never,
-  [TimestampCommandOptionName.AGO]: never,
-  [TimestampCommandOptionName.AT]: TimestampAtSubCommandResponse,
-  [TimestampCommandOptionName.ADD]: never,
-  [TimestampCommandOptionName.SUBTRACT]: never,
-  [TimestampCommandOptionName.UNIX]: never,
+  [BotCommandName.TIMESTAMP]: TimestampCommandResponse,
+  [BotCommandName.IN]: never,
+  [BotCommandName.AGO]: never,
+  [BotCommandName.AT]: AtCommandResponse,
+  [BotCommandName.ADD]: never,
+  [BotCommandName.SUBTRACT]: never,
+  [BotCommandName.UNIX]: never,
+  [BotCommandName.STATISTICS]: never,
+}
+
+export enum ResponseColumnChoices {
+  SYNTAX_ONLY = 'syntax',
+  PREVIEW_ONLY = 'preview',
+  BOTH = 'both',
 }
 
 interface OptionChoicesMap {
+  [GlobalCommandOptionName.COLUMNS]: ResponseColumnChoices,
   [GlobalCommandOptionName.FORMAT]: MessageTimestampFormat,
 }
 

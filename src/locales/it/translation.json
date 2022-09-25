@@ -2,9 +2,11 @@
   "commands": {
     "timestamp": {
       "name": "timestamp",
-      "description": "Può essere utilizzato per generare codice per timestamp in tutti i formati",
-      "responses": {},
-      "options": {}
+      "options": {},
+      "responses": {
+        "deprecated": "I sottocomandi sono stati sostituiti con comandi separati perché le opzioni del comando {{baseCommand}} hanno raggiunto i limiti dell'API di Discord.\nPuoi usare gli stessi comandi di prima, l'unica differenza è che devi lasciare {{baseCommandName}}. Per esempio {{exampleSubCommand}} ora è semplicemente {{exampleCommand}}.\nGrazie per la tua comprensione. Si prega di indirizzare qualsiasi feedback riguardante questa modifica al server ufficiale di Discord di HammerTime: {{discordInviteUrl}}"
+      },
+      "description": "Deprecato, si prega di utilizzare i comandi senza il prefisso /timestamp"
     },
     "ago": {
       "name": "fa",
@@ -203,7 +205,39 @@
             "F": "giorno della settimana, data e ora",
             "R": "relativo"
           }
+        },
+        "columns": {
+          "name": "colonne",
+          "description": "Specificare quali colonne visualizzare nella risposta restituita",
+          "choices": {
+            "both": "sintassi e anteprima",
+            "preview": "solo anteprima",
+            "syntax": "solo sintassi"
+          }
+        },
+        "ephemeral": {
+          "name": "effimero",
+          "description": "Quando vero la risposta sarà visibile solo a te (predefinito: falso)"
+        },
+        "header": {
+          "name": "intestazione",
+          "description": "Visualizzi l'ora iniziale (come interpretata dal bot) in cima alla risposta"
         }
+      }
+    },
+    "statistics": {
+      "name": "statistiche",
+      "description": "Visualizza varie informazioni sul bot",
+      "options": {},
+      "responses": {
+        "totalServerCount": "Numero totale server in cui il bot si trova:",
+        "shardServerCount": "Server su questo frammento:",
+        "uptime": "Tempo di avvio del frammento:",
+        "shardCount": "Numero di frammenti:",
+        "shardNumber": "(Queste statistiche sono state generate dal frammento #{{shardId}})",
+        "noShards": "(Il bot non sta attualmente usando frammenti)",
+        "serverInvite": "URL di invito del server di supporto:",
+        "totalUserCount": "Numeri totale utenti nei server in cui il bot si trova:"
       }
     }
   }

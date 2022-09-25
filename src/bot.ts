@@ -11,8 +11,8 @@ import { initI18next } from './constants/locales.js';
   moment.tz.load(data);
 
   console.log('Initializing i18n');
-  const t = await initI18next();
+  const i18n = await initI18next();
 
   console.log('Creating client');
-  await createClient(t);
+  await createClient(i18n);
 })();

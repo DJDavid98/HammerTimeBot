@@ -3,7 +3,14 @@ import type { RESTPostAPIChatInputApplicationCommandsJSONBody } from 'discord-ap
 import { TFunction } from 'i18next';
 
 export enum BotCommandName {
+  ADD = 'add',
+  AGO = 'ago',
+  AT = 'at',
+  IN = 'in',
+  STATISTICS = 'statistics',
+  SUBTRACT = 'subtract',
   TIMESTAMP = 'timestamp',
+  UNIX = 'unix',
 }
 
 export type BotCommandDefinition = Omit<RESTPostAPIChatInputApplicationCommandsJSONBody, 'type'>;

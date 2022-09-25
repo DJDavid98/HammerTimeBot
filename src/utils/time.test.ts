@@ -3,12 +3,14 @@ import {
   adjustMoment,
   constrain,
   findTimezone,
-  formattedResponse, gmtTimezoneOptions,
+  formattedResponse,
+  gmtTimezoneOptions,
   pad,
   supportedFormats,
 } from './time.js';
 import { MessageTimestamp, MessageTimestampFormat } from './message-timestamp.js';
 import { TimezoneError } from './timezone-error.js';
+import { ResponseColumnChoices } from '../types/localization.js';
 
 describe('time utils', () => {
   const nowInSeconds = 1650802953;
@@ -64,12 +66,27 @@ describe('time utils', () => {
 
   describe('formattedResponse', () => {
     it('should return all supported formats', () => {
-      const actual = formattedResponse(ts, supportedFormats);
+      const actual = formattedResponse(ts, supportedFormats, ResponseColumnChoices.BOTH);
       expect(actual).toMatchSnapshot();
     });
 
     it('should return only requested format', () => {
-      const actual = formattedResponse(ts, [MessageTimestampFormat.RELATIVE]);
+      const actual = formattedResponse(ts, [MessageTimestampFormat.RELATIVE], ResponseColumnChoices.BOTH);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should return only previews', () => {
+      const actual = formattedResponse(ts, supportedFormats, ResponseColumnChoices.PREVIEW_ONLY);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should return only syntaxes', () => {
+      const actual = formattedResponse(ts, supportedFormats, ResponseColumnChoices.SYNTAX_ONLY);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should return preview only in requested format', () => {
+      const actual = formattedResponse(ts, [MessageTimestampFormat.RELATIVE], ResponseColumnChoices.PREVIEW_ONLY);
       expect(actual).toMatchSnapshot();
     });
   });

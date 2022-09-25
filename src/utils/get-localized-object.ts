@@ -10,17 +10,17 @@ export type LocalizedValue<Key extends LocalizedKey> =
 
 export type TranslatorFunction = (lng?: SupportedLanguage) => string;
 
-export function getLocalizedObject<Key extends LocalizedKey>(key: Key, translator: TranslatorFunction, includeBaseKey: false): SupportedLocalizationMap<Key>;
-export function getLocalizedObject<Key extends LocalizedKey>(key: Key, translator: TranslatorFunction, includeBaseKey?: true): LocalizedValue<Key>;
+export function getLocalizedObject<Key extends LocalizedKey>(key: Key, translator: TranslatorFunction, includeBaseKey: false, sanitize?: boolean): SupportedLocalizationMap<Key>;
+export function getLocalizedObject<Key extends LocalizedKey>(key: Key, translator: TranslatorFunction, includeBaseKey?: true, sanitize?: boolean): LocalizedValue<Key>;
 
-export function getLocalizedObject<Key extends LocalizedKey>(key: Key, translator: TranslatorFunction, includeBaseKey = true): LocalizedValue<Key> {
+export function getLocalizedObject<Key extends LocalizedKey>(key: Key, translator: TranslatorFunction, includeBaseKey = true, sanitize = true): LocalizedValue<Key> {
   const localizationsKey: LocalizationsKey<Key> = `${key}_localizations` as const;
   const baseObject = includeBaseKey ? { [key]: translator() } : undefined;
   return {
     ...baseObject,
     [localizationsKey]: SUPPORTED_LANGUAGES.reduce((localizations, locale) => {
       let value = translator(locale);
-      if (key === 'name') {
+      if (sanitize && key === 'name') {
         // Automatically replace spaces with dash and make all-lowercase
         value = value.toLowerCase().replace(/ /g, '-');
       }

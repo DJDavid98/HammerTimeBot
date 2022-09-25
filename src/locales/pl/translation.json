@@ -2,9 +2,11 @@
   "commands": {
     "timestamp": {
       "name": "znacznik czasowy",
-      "description": "Może być użyty do wygenerowania kodu znaczników czasu we wszystkich formatach",
-      "responses": {},
-      "options": {}
+      "options": {},
+      "responses": {
+        "deprecated": "Subkomendy zostały zastąpione oddzielnymi komendami, ponieważ opcje komendy {{baseCommand}} osiągneły limit API Discord.\nMożna używać tych samych poleceń, co poprzednio, jedyną różnicą jest to, że trzeba opuścić {{baseCommandName}}. Na przykład {{exampleSubCommand}} to teraz po prostu {{exampleCommand}}.\nDziękujemy za zrozumienie. Wszelkie uwagi dotyczące tej zmiany proszę kierować na oficjalnym serwerze Discord HammerTime: {{discordInviteUrl}}"
+      },
+      "description": "Przestarzałe, proszę używać poleceń bez prefiksu /timestamp"
     },
     "ago": {
       "name": "temu",
@@ -203,7 +205,39 @@
             "F": "dzień tygodnia, data i godzina",
             "R": "względna"
           }
+        },
+        "columns": {
+          "name": "kolumny",
+          "description": "Określ kolumny wyświetlane w zwróconej odpowiedzi",
+          "choices": {
+            "both": "zarówno składnia, jak i podgląd",
+            "preview": "tylko podgląd",
+            "syntax": "tylko składnia"
+          }
+        },
+        "ephemeral": {
+          "name": "ephemeral",
+          "description": "Kiedy true odpowiedź widoczna będzie tylko dla Ciebie (domyślnie: false)"
+        },
+        "header": {
+          "name": "nagłówek",
+          "description": "Wyświetla czas początku (zgodnie z interpretacją bota) na górze odpowiedzi"
         }
+      }
+    },
+    "statistics": {
+      "name": "statystyki",
+      "description": "Wyświetla rózne informacje o bocie",
+      "options": {},
+      "responses": {
+        "totalServerCount": "Łączna liczba serwerów:",
+        "shardServerCount": "Serwerów na tym shardzie:",
+        "uptime": "Czas startu shardu:",
+        "shardCount": "Liczba shardów:",
+        "shardNumber": "(Te statystyki zostały wygenerowane przez shard #{{shardId}})",
+        "noShards": "(Bot nie używa obecnie shardingu)",
+        "serverInvite": "Zaproszenie na serwer wsparcia:",
+        "totalUserCount": "Łączna ilość użytkownikach na serwerach:"
       }
     }
   }

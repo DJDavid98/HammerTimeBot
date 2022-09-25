@@ -1,10 +1,12 @@
 import {
   ApplicationCommandOptionType,
-  CommandInteraction,
   ChannelType,
+  ChatInputCommandInteraction,
+  CommandInteraction,
   CommandInteractionOption,
   User,
 } from 'discord.js';
+import { GlobalCommandOptionName } from '../types/localization.js';
 
 export const getUserIdentifier = (user: User): `${string}#${string} (${string})` => `${user.username}#${user.discriminator} (${user.id})`;
 
@@ -51,3 +53,23 @@ export const stringifyOptionsData = (data: readonly CommandInteractionOption[]):
   }
   return `(${optionName}${optionValue !== null ? `:${optionValue}` : ''})`;
 }).join(' ');
+
+export const isEphemeralResponse = (interaction: ChatInputCommandInteraction): boolean => interaction.options.getBoolean(GlobalCommandOptionName.EPHEMERAL) ?? false;
+
+
+type BareNumberFormatter = Pick<Intl.NumberFormat, 'format'>;
+const numberFormatterCache: Partial<Record<string, BareNumberFormatter>> = {};
+export const getBareNumberFormatter = (interaction: Pick<CommandInteraction, 'locale'>) => {
+  let numberFormatter: BareNumberFormatter | undefined = numberFormatterCache[interaction.locale];
+  if (!numberFormatter) {
+    numberFormatter = { format: (value: number): string => value.toString() };
+    try {
+      numberFormatter = new Intl.NumberFormat(interaction.locale);
+    } catch (e) {
+      console.error(`Failed to create number formatter with locale ${interaction.locale}`);
+      console.error(e);
+    }
+    numberFormatterCache[interaction.locale] = numberFormatter;
+  }
+  return numberFormatter;
+};
