@@ -1,0 +1,244 @@
+{
+  "commands": {
+    "timestamp": {
+      "name": "时间戳",
+      "description": "Deprecated, please use the commands without the /timestamp prefix",
+      "options": [],
+      "responses": {
+        "deprecated": "子指令已被替换为分开的指令，因为 {{baseCommand}} 指令达到了 Discord API 的限制。\n您仍然可以使用和以前一样的指令，唯一的区别是您不应再输入 {{baseCommandName}} 。例如，要调用 {{exampleSubCommand}} ，现在您只需输入 {{exampleCommand}} 。\n感谢您的理解。如果您有任何反馈，请您发送到 HammerTime 的官方 Discord 服务器：{{discordInviteUrl}}"
+      }
+    },
+    "ago": {
+      "name": "前",
+      "description": "指定一个“一段时间以前”（相对当前时间）的时间戳",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "年",
+          "description": "要从当前时间减去多少年"
+        },
+        "months": {
+          "name": "月",
+          "description": "要从当前时间中减去多少个月"
+        },
+        "days": {
+          "name": "天",
+          "description": "要从当前时间减去多少天"
+        },
+        "hours": {
+          "name": "小时",
+          "description": "要从当前时间中减去多少小时"
+        },
+        "minutes": {
+          "name": "分钟",
+          "description": "要从当前时间中减去多少分钟"
+        },
+        "seconds": {
+          "name": "秒",
+          "description": "要从当前时间减去多少秒"
+        }
+      }
+    },
+    "in": {
+      "name": "后",
+      "description": "指定一个“一段时间以后”（相对当前时间）的时间戳",
+      "responses": [],
+      "options": {
+        "years": {
+          "name": "年",
+          "description": "要从当前时间加上多少年"
+        },
+        "months": {
+          "name": "月",
+          "description": "要从当前时间中加上多少个月"
+        },
+        "days": {
+          "name": "天",
+          "description": "要从当前时间加上多少天"
+        },
+        "hours": {
+          "name": "小时",
+          "description": "要从当前时间中加上多少小时"
+        },
+        "minutes": {
+          "name": "分钟",
+          "description": "要从当前时间中加上多少分钟"
+        },
+        "seconds": {
+          "name": "秒",
+          "description": "要从当前时间中加上多少秒"
+        }
+      }
+    },
+    "at": {
+      "name": "指定时间",
+      "description": "手动指定时间戳的各部分（包括时区）",
+      "responses": {
+        "timezoneNotFound": "找不到指定的时区"
+      },
+      "options": {
+        "year": {
+          "name": "年",
+          "description": "指定年份（默认为当前年）"
+        },
+        "month": {
+          "name": "月",
+          "description": "指定月份（默认为当前月份）"
+        },
+        "day": {
+          "name": "日",
+          "description": "指定日期（默认为当前日期）"
+        },
+        "hour": {
+          "name": "时",
+          "description": "指定时（默认为当前时）"
+        },
+        "minute": {
+          "name": "分",
+          "description": "指定分（默认为当前分）"
+        },
+        "second": {
+          "name": "秒",
+          "description": "指定秒（默认为 0）"
+        },
+        "timezone": {
+          "name": "时区",
+          "description": "指定时区（默认为 GMT）"
+        }
+      }
+    },
+    "add": {
+      "name": "加",
+      "description": "指定 UNIX 时间戳，然后相对于该时间戳加上一段时间",
+      "responses": [],
+      "options": {
+        "to": {
+          "name": "原时间戳",
+          "description": "UNIX 时间戳，单位为秒"
+        },
+        "years": {
+          "name": "年",
+          "description": "要从指定时间戳加上多少年"
+        },
+        "months": {
+          "name": "月",
+          "description": "要从指定时间戳加上多少个月"
+        },
+        "days": {
+          "name": "天",
+          "description": "要从指定时间戳加上多少天"
+        },
+        "hours": {
+          "name": "小时",
+          "description": "要从指定时间戳加上多少个小时"
+        },
+        "minutes": {
+          "name": "分钟",
+          "description": "要从指定时间戳加上多少分钟"
+        },
+        "seconds": {
+          "name": "秒",
+          "description": "要从指定时间戳加上多少秒"
+        }
+      }
+    },
+    "subtract": {
+      "name": "减",
+      "description": "指定 UNIX 时间戳，然后相对于该时间戳减去一段时间",
+      "responses": [],
+      "options": {
+        "from": {
+          "name": "原时间戳",
+          "description": "UNIX 时间戳，单位为秒"
+        },
+        "years": {
+          "name": "年",
+          "description": "要从指定时间戳减去多少年"
+        },
+        "months": {
+          "name": "月",
+          "description": "要从指定时间戳减去多少个月"
+        },
+        "days": {
+          "name": "天",
+          "description": "要从指定时间戳减去多少天"
+        },
+        "hours": {
+          "name": "小时",
+          "description": "要从指定时间戳减去多少小时"
+        },
+        "minutes": {
+          "name": "分钟",
+          "description": "要从指定时间戳减去多少分钟"
+        },
+        "seconds": {
+          "name": "秒",
+          "description": "要从指定时间戳减去多少秒"
+        }
+      }
+    },
+    "unix": {
+      "name": "unix",
+      "description": "指定 UNIX 时间戳显示时间戳语法",
+      "responses": [],
+      "options": {
+        "value": {
+          "name": "时间戳",
+          "description": "UNIX 时间戳，单位为秒"
+        }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "指定的日期无效（例如：给定的日期不存在）"
+      },
+      "options": {
+        "format": {
+          "name": "格式",
+          "description": "仅显示指定日期与时间格式的语法",
+          "choices": {
+            "d": "短日期",
+            "D": "长日期",
+            "t": "短时间",
+            "T": "长时间",
+            "f": "日期与时间",
+            "F": "星期几，日期与时间",
+            "R": "相对"
+          }
+        },
+        "columns": {
+          "name": "列",
+          "description": "指定要显示哪些列",
+          "choices": {
+            "both": "语法和预览",
+            "preview": "仅预览",
+            "syntax": "仅语法"
+          }
+        },
+        "ephemeral": {
+          "name": "仅自己可见",
+          "description": "如果设为 true，那么机器人的回应消息只有您可见（默认：false）"
+        },
+        "header": {
+          "name": "表头",
+          "description": "在回应的顶部显示指令作用于的原始时间"
+        }
+      }
+    },
+    "statistics": {
+      "name": "统计",
+      "description": "显示关于机器人的一些统计信息",
+      "options": [],
+      "responses": {
+        "totalServerCount": "已加入服务器数量：",
+        "shardServerCount": "本分机加入的服务器数量：",
+        "uptime": "分机启动时间：",
+        "shardCount": "分机数量：",
+        "shardNumber": "（这些数据由 {{shardId}} 号分机生成。）",
+        "noShards": "（本机器人当前未使用分机。）",
+        "serverInvite": "客服 Discord 服务器：",
+        "totalUserCount": "已加入的服务器总计的用户数："
+      }
+    }
+  }
+}
