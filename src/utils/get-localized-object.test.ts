@@ -5,15 +5,15 @@ import {
   SupportedLocalizations,
   TranslatorFunction,
 } from './get-localized-object.js';
-import { SUPPORTED_LANGUAGES } from '../constants/locales.js';
+import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from '../constants/locales.js';
 
 describe('getLocalizedObject', () => {
   const mockTranslator: TranslatorFunction = (lng) => `mock.key.${lng}`;
-  const mockNameLocalizationMap = SUPPORTED_LANGUAGES.reduce((mockObject, language) => ({
+  const mockNameLocalizationMap = SUPPORTED_LANGUAGES.reduce((mockObject, language) => language === DEFAULT_LANGUAGE ? mockObject : ({
     ...mockObject,
     [language]: `mock.key.${language.toLowerCase()}`,
   }), {} as SupportedLocalizations);
-  const mockDescriptionLocalizationMap = SUPPORTED_LANGUAGES.reduce((mockObject, language) => ({
+  const mockDescriptionLocalizationMap = SUPPORTED_LANGUAGES.reduce((mockObject, language) => language === DEFAULT_LANGUAGE ? mockObject : ({
     ...mockObject,
     [language]: `mock.key.${language}`,
   }), {} as SupportedLocalizations);
@@ -21,7 +21,7 @@ describe('getLocalizedObject', () => {
   it('should work with base key inclusion', () => {
     const actual = getLocalizedObject('name', mockTranslator);
     const expected: LocalizedValue<'name'> = {
-      name: 'mock.key.undefined',
+      name: `mock.key.${DEFAULT_LANGUAGE}`,
       name_localizations: mockNameLocalizationMap,
     };
     expect(actual).toEqual(expected);
