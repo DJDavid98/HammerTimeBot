@@ -33,12 +33,16 @@ English and Hungarian translations have been included, so no translators will be
 
 ### Credits
 
+- 🇧🇷 Brazilian Portuguese: leo0six
+- 🇨🇳 Simplified Chinese: CPYW_7226, user670839245
 - 🇩🇪 German: Fabian9799
+- 🇪🇸 Spanish: Pablo Luna (shaulyareaj)
+- 🇫🇷 French: Cookie Kiro (Cookikui)
 - 🇬🇷 Greek: BelleBernice
 - 🇮🇹 Italian: Lory Pelli (pellilory126)
+- 🇰🇷 Korean: Bin (cheesepickle12345678, sjkim04
+- 🇳🇱 Dutch: Jesse (Jessuh)
 - 🇵🇱 Polish: Dawid (MinerPL)
 - 🇷🇺 Russian: GameHacker, Nikita Sharikov (Aligatoor)
-- 🇪🇸 Spanish: Pablo Luna (shaulyareaj)
+- 🇹🇷 Turkish: Baran Moroğan (okunamayanad)
 - 🇺🇦 Ukrainian: enky, GameHacker
-- 🇧🇷 Brazilian Portuguese: leo0six
-- 🇳🇱 Dutch: Jesse (Jessuh)
