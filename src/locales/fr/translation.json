@@ -9,24 +9,24 @@
       }
     },
     "ago": {
-      "name": "ago",
-      "description": "Specify a timestamp in the past relative to the current time",
+      "name": "passée",
+      "description": "Spécifiez un timestamp dans le passé par rapport à l'heure courante",
       "responses": [],
       "options": {
         "years": {
-          "name": "years",
-          "description": "How many years to subtract from the current time"
+          "name": "années",
+          "description": "Combien d'années à soustraire du temps actuel"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to subtract from the current time"
+          "name": "mois",
+          "description": "Combien de mois à soustraire de l'heure actuelle"
         },
         "days": {
-          "name": "days",
-          "description": "How many days to subtract from the current time"
+          "name": "jours",
+          "description": "Combien de jours à soustraire de l'heure actuelle"
         },
         "hours": {
-          "name": "hours",
+          "name": "heures",
           "description": "How many hours to subtract from the current time"
         },
         "minutes": {
@@ -45,19 +45,19 @@
       "responses": [],
       "options": {
         "years": {
-          "name": "years",
+          "name": "années",
           "description": "How many years to add to the current time"
         },
         "months": {
-          "name": "months",
+          "name": "mois",
           "description": "How many months to add to the current time"
         },
         "days": {
-          "name": "days",
+          "name": "jours",
           "description": "How many days to add to the current time"
         },
         "hours": {
-          "name": "hours",
+          "name": "heures",
           "description": "How many hours to add to the current time"
         },
         "minutes": {
@@ -74,7 +74,7 @@
       "name": "at",
       "description": "Specify the exact components of the timestamp (including the timezone)",
       "responses": {
-        "timezoneNotFound": "The specified timezone cannot be found"
+        "timezoneNotFound": "Le fuseau horaire spécifié est introuvable"
       },
       "options": {
         "year": {
@@ -152,19 +152,19 @@
           "description": "The UNIX timestamp in seconds"
         },
         "years": {
-          "name": "years",
+          "name": "années",
           "description": "How many years to subtract from the specified timestamp"
         },
         "months": {
-          "name": "months",
+          "name": "mois",
           "description": "How many months to subtract from the specified timestamp"
         },
         "days": {
-          "name": "days",
+          "name": "jours",
           "description": "How many days to subtract from the specified timestamp"
         },
         "hours": {
-          "name": "hours",
+          "name": "heures",
           "description": "How many hours to subtract from the specified timestamp"
         },
         "minutes": {
@@ -190,7 +190,7 @@
     },
     "global": {
       "responses": {
-        "invalidDate": "The specified date is invalid (for example: the given day does not exist)"
+        "invalidDate": "La date spécifié est invalide (exemple : le jour n'existe pas)"
       },
       "options": {
         "format": {
