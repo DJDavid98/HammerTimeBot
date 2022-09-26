@@ -1,7 +1,7 @@
 {
   "commands": {
     "timestamp": {
-      "name": "timestamp",
+      "name": "laiko žyma",
       "description": "Deprecated, please use the commands without the /timestamp prefix",
       "options": [],
       "responses": {
