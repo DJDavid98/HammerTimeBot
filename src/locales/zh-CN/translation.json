@@ -2,7 +2,7 @@
   "commands": {
     "timestamp": {
       "name": "时间戳",
-      "description": "Deprecated, please use the commands without the /timestamp prefix",
+      "description": "已弃用。请去掉指令中的 /时间戳 前缀。",
       "options": [],
       "responses": {
         "deprecated": "子指令已被替换为分开的指令，因为 {{baseCommand}} 指令达到了 Discord API 的限制。\n您仍然可以使用和以前一样的指令，唯一的区别是您不应再输入 {{baseCommandName}} 。例如，要调用 {{exampleSubCommand}} ，现在您只需输入 {{exampleCommand}} 。\n感谢您的理解。如果您有任何反馈，请您发送到 HammerTime 的官方 Discord 服务器：{{discordInviteUrl}}"
