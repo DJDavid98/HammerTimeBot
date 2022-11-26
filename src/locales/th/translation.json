@@ -1,56 +1,56 @@
 {
   "commands": {
     "timestamp": {
-      "name": "timestamp",
-      "description": "Deprecated, please use the commands without the /timestamp prefix",
+      "name": "ตัวเวลา",
+      "description": "ได้เลิกใช้แล้ว กรุณาโปรดใช้คำสั่งโดยไม่ใช้ /timestamp",
       "options": [],
       "responses": {
-        "deprecated": "Subcommands have been replaced with separate commands because the options of the {{baseCommand}} command reached the limits of Discord's API.\nYou can use the same commands as before, the only difference is that you must leave off {{baseCommandName}}. For example {{exampleSubCommand}} is now simply {{exampleCommand}}.\nThank you for your understanding. Please direct any feedback regarding this change to HammerTime's official Discord server: {{discordInviteUrl}}"
+        "deprecated": "คำสั่งย่อยได้ถูกเปลี่ยนเป็นคำสั่งใหม่เพราะตัวเลือกของคำสั่ง {{baseCommand}} นั้นมีมากกว่าที่ Discord ยอมรับไว้\nคุณยังใช้คำสั่งได้เหมือนเดิมแต่ออกจากกลุ่มคำสั่ง {{baseCommandName}} เช่น คำสั่ง {{exampleSubCommand}} กลายเป็น {{exampleCommand}}\nขอบคุณที่คุณเข้าใจพวกเรา กรุณาส่งมารถส่งคำติชมได้ที่กับการเปลี่ยนแปลงนี้ได้ที่ Discord เซิร์ฟเวอร์ HammerTime อย่างทางการได้ที่:\n{{discordInviteUrl}}"
       }
     },
     "ago": {
-      "name": "ago",
-      "description": "Specify a timestamp in the past relative to the current time",
+      "name": "ที่ผ่านมา",
+      "description": "กรุณาระบุเวลาในอดีตของเวลาปัจจุบัน",
       "responses": [],
       "options": {
         "years": {
-          "name": "years",
-          "description": "How many years to subtract from the current time"
+          "name": "ปี",
+          "description": "หาปีได้นีปีนั้นมาลบกับปีปัจจุบัน"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to subtract from the current time"
+          "name": "เดือน",
+          "description": "หาเดือนได้โดยนำเดือนมาลบกับเดือนปัจจุบัน"
         },
         "days": {
-          "name": "days",
-          "description": "How many days to subtract from the current time"
+          "name": "วัน",
+          "description": "หาวันได้โดยนำวันมาลบกันวันปัจจุบัน"
         },
         "hours": {
-          "name": "hours",
-          "description": "How many hours to subtract from the current time"
+          "name": "ชั่วโมง",
+          "description": "หาชั่วโมงได้โดยนำชั่วโมงมาลบกับชั่วโมงปัจจุบัน"
         },
         "minutes": {
-          "name": "minutes",
-          "description": "How many minutes to subtract from the current time"
+          "name": "นาที",
+          "description": "หานาทีได้โดยนำนาทีลบกับปัจจุบัน"
         },
         "seconds": {
-          "name": "seconds",
-          "description": "How many seconds to subtract from the current time"
+          "name": "วินาที",
+          "description": "หาวินาทีได้โดยนำวินาทีมาลบกับปัจจุบัน"
         }
       }
     },
     "in": {
-      "name": "in",
-      "description": "Specify a timestamp in the future relative to the current time",
+      "name": "ใน",
+      "description": "ระบุเวลาในอนาคตของเวลาปัจจุบัน",
       "responses": [],
       "options": {
         "years": {
-          "name": "years",
-          "description": "How many years to add to the current time"
+          "name": "ปี",
+          "description": "หาปีได้นีปีนั้นมาบวกกับปีปัจจุบัน"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to add to the current time"
+          "name": "เดือน",
+          "description": "หาเดือนได้โดยนำเดือนมาบวกกับเดือนปัจจุบัน"
         },
         "days": {
           "name": "days",
