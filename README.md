@@ -44,5 +44,6 @@ English and Hungarian translations have been included, so no translators will be
 - 🇳🇱 Dutch: Jesse (Jessuh)
 - 🇵🇱 Polish: Dawid (MinerPL)
 - 🇷🇺 Russian: GameHacker, Nikita Sharikov (Aligatoor)
+- 🇹🇭 Thai: Rukchad Wongprayoon (unpredictable)
 - 🇹🇷 Turkish: Baran Moroğan (okunamayanad)
 - 🇺🇦 Ukrainian: enky, GameHacker
