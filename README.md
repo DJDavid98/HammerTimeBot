@@ -35,6 +35,7 @@ English and Hungarian translations have been included, so no translators will be
 
 - 🇧🇷 Brazilian Portuguese: leo0six
 - 🇨🇳 Simplified Chinese: CPYW_7226, user670839245
+- 🇨🇿 Czech: klauny
 - 🇩🇪 German: Fabian9799
 - 🇪🇸 Spanish: Pablo Luna (shaulyareaj)
 - 🇫🇷 French: Cookie Kiro (Cookikui)
