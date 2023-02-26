@@ -1,213 +1,213 @@
 {
   "commands": {
     "timestamp": {
-      "name": "timestamp",
-      "description": "Deprecated, please use the commands without the /timestamp prefix",
+      "name": "časové razítko",
+      "description": "Zastaralé, používejte prosím příkazy bez předpony /timestamp",
       "options": [],
       "responses": {
-        "deprecated": "Subcommands have been replaced with separate commands because the options of the {{baseCommand}} command reached the limits of Discord's API.\nYou can use the same commands as before, the only difference is that you must leave off {{baseCommandName}}. For example {{exampleSubCommand}} is now simply {{exampleCommand}}.\nThank you for your understanding. Please direct any feedback regarding this change to HammerTime's official Discord server: {{discordInviteUrl}}"
+        "deprecated": "Dílčí příkazy byly nahrazeny samostatnými příkazy, protože možnosti příkazu {{baseCommand}} dosáhly limitů rozhraní API služby Discord.\nMůžete používat stejné příkazy jako dříve, jediný rozdíl je v tom, že musíte vynechat {{baseCommandName}}. Například {{exampleSubCommand}} je nyní jednoduše {{exampleCommand}}.\nDěkujeme za pochopení. Jakoukoli zpětnou vazbu týkající se této změny prosím směřujte na oficiální server Discord společnosti HammerTime: {{discordInviteUrl}}"
       }
     },
     "ago": {
-      "name": "ago",
-      "description": "Specify a timestamp in the past relative to the current time",
+      "name": "před",
+      "description": "Zadání časového razítka v minulosti vzhledem k aktuálnímu času",
       "responses": [],
       "options": {
         "years": {
-          "name": "years",
-          "description": "How many years to subtract from the current time"
+          "name": "roky",
+          "description": "Kolik let odečíst od aktuálního času"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to subtract from the current time"
+          "name": "měsíce",
+          "description": "Kolik měsíců odečíst od aktuálního času"
         },
         "days": {
-          "name": "days",
-          "description": "How many days to subtract from the current time"
+          "name": "dny",
+          "description": "Kolik dní odečíst od aktuálního času"
         },
         "hours": {
-          "name": "hours",
-          "description": "How many hours to subtract from the current time"
+          "name": "hodiny",
+          "description": "Kolik hodin odečíst od aktuálního času"
         },
         "minutes": {
-          "name": "minutes",
-          "description": "How many minutes to subtract from the current time"
+          "name": "minuty",
+          "description": "Kolik minut odečíst od aktuálního času"
         },
         "seconds": {
-          "name": "seconds",
-          "description": "How many seconds to subtract from the current time"
+          "name": "vteřiny",
+          "description": "Kolik vteřin odečíst od aktuálního času"
         }
       }
     },
     "in": {
-      "name": "in",
-      "description": "Specify a timestamp in the future relative to the current time",
+      "name": "v",
+      "description": "Zadání časového razítka v budoucnosti vzhledem k aktuálnímu času",
       "responses": [],
       "options": {
         "years": {
-          "name": "years",
-          "description": "How many years to add to the current time"
+          "name": "roky",
+          "description": "Kolik let přidat k aktuálnímu času"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to add to the current time"
+          "name": "měsíce",
+          "description": "Kolik měsíců přidat k aktuálnímu času"
         },
         "days": {
-          "name": "days",
-          "description": "How many days to add to the current time"
+          "name": "dny",
+          "description": "Kolik dní přidat k aktuálnímu času"
         },
         "hours": {
-          "name": "hours",
-          "description": "How many hours to add to the current time"
+          "name": "hodiny",
+          "description": "Kolik hodin přidat k aktuálnímu času"
         },
         "minutes": {
-          "name": "minutes",
-          "description": "How many minutes to add to the current time"
+          "name": "minuty",
+          "description": "Kolik minut přidat k aktuálnímu času"
         },
         "seconds": {
-          "name": "seconds",
-          "description": "How many seconds to add to the current time"
+          "name": "vteřiny",
+          "description": "Kolik vteřin přidat k aktuálnímu času"
         }
       }
     },
     "at": {
-      "name": "at",
-      "description": "Specify the exact components of the timestamp (including the timezone)",
+      "name": "na",
+      "description": "Zadejte přesné součásti časového razítka (včetně časového pásma)",
       "responses": {
-        "timezoneNotFound": "The specified timezone cannot be found"
+        "timezoneNotFound": "Zadané časové pásmo nelze nalézt"
       },
       "options": {
         "year": {
-          "name": "year",
-          "description": "Specify the year (defaults to current year)"
+          "name": "rok",
+          "description": "Zadejte rok (výchozí hodnota je aktuální rok)"
         },
         "month": {
-          "name": "month",
-          "description": "Specify the month (defaults to current month)"
+          "name": "měsíc",
+          "description": "Zadejte měsíc (výchozí hodnota je aktuální měsíc)"
         },
         "day": {
-          "name": "day",
-          "description": "Specify the day (defaults to current day)"
+          "name": "den",
+          "description": "Zadání dne (výchozí hodnota je aktuální den)"
         },
         "hour": {
-          "name": "hour",
-          "description": "Specify the hour (defaults to current hour)"
+          "name": "hodina",
+          "description": "Zadání hodiny (výchozí hodnota je aktuální hodina)"
         },
         "minute": {
-          "name": "minute",
-          "description": "Specify the minute (defaults to current minute)"
+          "name": "minuta",
+          "description": "Zadejte minutu (výchozí hodnota je aktuální minuta)"
         },
         "second": {
-          "name": "second",
-          "description": "Specify the second (defaults to 0)"
+          "name": "vteřina",
+          "description": "Zadejte vteřiny (výchozí hodnota je 0)"
         },
         "timezone": {
-          "name": "timezone",
-          "description": "Specify the timezone (defaults to GMT)"
+          "name": "časové pásmo",
+          "description": "Zadejte časové pásmo (výchozí hodnota je GMT)"
         }
       }
     },
     "add": {
-      "name": "add",
-      "description": "Add some time to the specified UNIX timestamp",
+      "name": "přidat",
+      "description": "Přidání času k zadanému časovému razítku systému UNIX",
       "responses": [],
       "options": {
         "to": {
-          "name": "to",
-          "description": "The UNIX timestamp in seconds"
+          "name": "do",
+          "description": "Časové razítko systému UNIX ve vteřinách"
         },
         "years": {
-          "name": "years",
-          "description": "How many years to add to the specified timestamp"
+          "name": "roky",
+          "description": "Kolik let se má přičíst k zadanému časovému razítku"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to add to the specified timestamp"
+          "name": "měsíce",
+          "description": "Kolik měsíců se má přičíst k zadanému časovému razítku"
         },
         "days": {
-          "name": "days",
-          "description": "How many days to add to the specified timestamp"
+          "name": "dny",
+          "description": "Kolik dní se má přičíst k zadanému časovému razítku"
         },
         "hours": {
-          "name": "hours",
-          "description": "How many hours to add to the specified timestamp"
+          "name": "hodiny",
+          "description": "Kolik hodin přidat k zadanému časovému razítku"
         },
         "minutes": {
-          "name": "minutes",
-          "description": "How many minutes to add to the specified timestamp"
+          "name": "minuty",
+          "description": "Kolik minut přidat k zadanému časovému razítku"
         },
         "seconds": {
-          "name": "seconds",
-          "description": "How many seconds to add to the specified timestamp"
+          "name": "vteřiny",
+          "description": "Kolik vteřin se má přičíst k zadanému časovému razítku"
         }
       }
     },
     "subtract": {
-      "name": "subtract",
-      "description": "Subtract some time from the specified UNIX timestamp",
+      "name": "odečíst",
+      "description": "Odečtení určitého času od zadaného časového razítka systému UNIX",
       "responses": [],
       "options": {
         "from": {
-          "name": "from",
-          "description": "The UNIX timestamp in seconds"
+          "name": "od",
+          "description": "Časové razítko systému UNIX ve vteřinách"
         },
         "years": {
-          "name": "years",
-          "description": "How many years to subtract from the specified timestamp"
+          "name": "roky",
+          "description": "Kolik let odečíst od zadaného časového razítka"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to subtract from the specified timestamp"
+          "name": "měsíce",
+          "description": "Kolik měsíců se má odečíst od zadaného časového razítka"
         },
         "days": {
-          "name": "days",
-          "description": "How many days to subtract from the specified timestamp"
+          "name": "dny",
+          "description": "Kolik dní odečíst od zadaného časového razítka"
         },
         "hours": {
-          "name": "hours",
-          "description": "How many hours to subtract from the specified timestamp"
+          "name": "hodiny",
+          "description": "Kolik hodin se má odečíst od zadaného časového razítka"
         },
         "minutes": {
-          "name": "minutes",
-          "description": "How many minutes to subtract from to the specified timestamp"
+          "name": "minuty",
+          "description": "Kolik minut se má odečíst od zadaného časového údaje"
         },
         "seconds": {
-          "name": "seconds",
-          "description": "How many seconds to subtract from to the specified timestamp"
+          "name": "vteřiny",
+          "description": "Kolik vteřin se má odečíst od zadaného časového razítka"
         }
       }
     },
     "unix": {
       "name": "unix",
-      "description": "Display the syntaxes for a specific UNIX timestamp",
+      "description": "Zobrazení syntaxe pro konkrétní časové razítko systému UNIX",
       "responses": [],
       "options": {
         "value": {
-          "name": "value",
-          "description": "The UNIX timestamp in seconds"
+          "name": "hodnota",
+          "description": "Časové razítko systému UNIX ve vteřinách"
         }
       }
     },
     "global": {
       "responses": {
-        "invalidDate": "The specified date is invalid (for example: the given day does not exist)"
+        "invalidDate": "Zadané datum je neplatné (například: daný den neexistuje)"
       },
       "options": {
         "format": {
-          "name": "format",
-          "description": "Returns only the specified format in the response",
+          "name": "formát",
+          "description": "Vrátí pouze zadaný formát v odpovědi",
           "choices": {
-            "d": "short date",
-            "D": "long date",
-            "t": "short time",
-            "T": "long time",
-            "f": "date and time",
-            "F": "weekday, date and time",
-            "R": "relative"
+            "d": "krátké datum",
+            "D": "dlouhé datum",
+            "t": "krátká doba",
+            "T": "dlouhá doba",
+            "f": "datum a čas",
+            "F": "den v týdnu, datum a čas",
+            "R": "relativní"
           }
         },
         "columns": {
-          "name": "columns",
+          "name": "sloupce",
           "description": "Specify which columns to display in the returned response",
           "choices": {
             "both": "both syntax and preview",
@@ -217,27 +217,27 @@
         },
         "ephemeral": {
           "name": "ephemeral",
-          "description": "When true the response will only be visible to you (default: false)"
+          "description": "Pokud je hodnota pravdivá, bude odpověď viditelná pouze pro vás (výchozí: nepravdivá)"
         },
         "header": {
-          "name": "header",
-          "description": "Display the initial time (as interpreted by the bot) on top of the response"
+          "name": "záhlaví",
+          "description": "Zobrazení počátečního času (podle interpretace bota) v horní části odpovědi"
         }
       }
     },
     "statistics": {
-      "name": "statistics",
-      "description": "Displays various information about the bot",
+      "name": "statistiky",
+      "description": "Zobrazuje různé informace o botovi",
       "options": [],
       "responses": {
-        "totalServerCount": "Total servers joined:",
-        "shardServerCount": "Servers on this shard:",
-        "uptime": "Shard startup time:",
-        "shardCount": "Number of shards:",
-        "shardNumber": "(These statistics were generated by shard #{{shardId}})",
-        "noShards": "(The bot is not currently using sharding)",
-        "serverInvite": "Support server invite URL:",
-        "totalUserCount": "Total users in joined servers:"
+        "totalServerCount": "Celkový počet připojených serverů:",
+        "shardServerCount": "Servery na tomto střepu:",
+        "uptime": "Doba spuštění střepu:",
+        "shardCount": "Počet střepů:",
+        "shardNumber": "(Tyto statistiky byly vygenerovány oddílem #{{shardId}})",
+        "noShards": "(Bot v současné době nepoužívá sharding)",
+        "serverInvite": "Adresa URL pro pozvání na server podpory:",
+        "totalUserCount": "Celkový počet uživatelů na připojených serverech:"
       }
     }
   }
