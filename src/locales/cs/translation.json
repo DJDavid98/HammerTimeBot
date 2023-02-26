@@ -208,15 +208,15 @@
         },
         "columns": {
           "name": "sloupce",
-          "description": "Specify which columns to display in the returned response",
+          "description": "Určení sloupců, které se mají zobrazit ve vrácené odpovědi",
           "choices": {
-            "both": "both syntax and preview",
-            "preview": "preview only",
-            "syntax": "syntax only"
+            "both": "jak syntaxe, tak náhled",
+            "preview": "pouze náhled",
+            "syntax": "pouze syntaxe"
           }
         },
         "ephemeral": {
-          "name": "ephemeral",
+          "name": "efemérní",
           "description": "Pokud je hodnota pravdivá, bude odpověď viditelná pouze pro vás (výchozí: nepravdivá)"
         },
         "header": {
