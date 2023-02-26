@@ -4,6 +4,7 @@ import { InCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getInOptions } from '../options/in.options.js';
+import moment from 'moment-timezone';
 
 export const inCommand: BotCommand = {
   getDefinition: (t) => ({
@@ -21,8 +22,9 @@ export const inCommand: BotCommand = {
       seconds: interaction.options.getNumber(InCommandOptionName.IN_SECONDS),
     };
 
-    const localMoment = adjustMoment(addOptions, 'add');
+    const timezone = 'UTC';
+    const localMoment = adjustMoment(addOptions, 'add', moment.tz(timezone));
 
-    await replyWithSyntax(localMoment, interaction, t);
+    await replyWithSyntax(localMoment, interaction, t, timezone);
   },
 };
