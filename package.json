@@ -15,8 +15,8 @@
     "watch:dev:nodemon": "nodemon ./build/index.js",
     "watch:dev:commands": "concurrently --names TSC,Nodemon -c \"blue,green\" \"npm run watch:dev:tsc\" \"npm run watch:dev:nodemon\"",
     "watch:dev": "npm run build:clean && npm run build && npm run watch:dev:commands",
-    "test": "jest --ci",
-    "test:watch": "jest --watch",
+    "test": "jest --ci --randomize",
+    "test:watch": "jest --watch --randomize",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@types/i18next-fs-backend": "^1.1.2",
-    "@types/jest": "^27.0.1",
+    "@types/jest": "^29.4.0",
     "@types/js-levenshtein": "^1.1.1",
     "@types/node": "^18.0.5",
     "@types/shell-escape": "^0.2.0",
@@ -54,10 +54,10 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.6.0",
     "husky": "^7.0.4",
-    "jest": "^28.1.3",
+    "jest": "^29.5.0",
     "jest-ts-webcompat-resolver": "^1.0.0",
     "nodemon": "^2.0.12",
-    "ts-jest": "^28.0.7",
+    "ts-jest": "^29.0.5",
     "typescript": "^4.7"
   },
   "nodemonConfig": {
