@@ -16,6 +16,7 @@ import type el from '../locales/el/translation.json';
 import type hi from '../locales/hi/translation.json';
 import type hu from '../locales/hu/translation.json';
 import type it from '../locales/it/translation.json';
+import type id from '../locales/id/translation.json';
 import type ja from '../locales/ja/translation.json';
 import type ko from '../locales/ko/translation.json';
 import type lt from '../locales/lt/translation.json';
@@ -51,6 +52,7 @@ type ValidatedLocalizationMap = TypeValidator<{
   [Locale.Greek]: typeof el,
   [Locale.Hindi]: typeof hi,
   [Locale.Hungarian]: typeof hu,
+  [Locale.Indonesian]: typeof id,
   [Locale.Italian]: typeof it,
   [Locale.Japanese]: typeof ja,
   [Locale.Korean]: typeof ko,
