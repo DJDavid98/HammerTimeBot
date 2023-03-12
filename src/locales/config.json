@@ -1,15 +1,20 @@
 {
   "languages": {
-    "pt-BR": {
-      "name": "Portuguese, Brazilian",
-      "emoji": "\uD83C\uDDE7\uD83C\uDDF7",
-      "credits": [
-        {
-          "crowdin": "leo0six"
-        }
-      ]
+    "id": {
+      "name": "Indonesian",
+      "emoji": "\uD83C\uDDEE\uD83C\uDDE9"
     },
-    "zh": {
+    "en-US": {
+      "name": "English, United States"
+    },
+    "en-GB": {
+      "name": "English, United Kingdom"
+    },
+    "bg": {
+      "name": "Bulgarian",
+      "emoji": "\uD83C\uDDE7\uD83C\uDDEC"
+    },
+    "zh-CN": {
       "name": "Chinese Simplified",
       "emoji": "\uD83C\uDDE8\uD83C\uDDF3",
       "credits": [
@@ -21,12 +26,48 @@
         }
       ]
     },
+    "zh-TW": {
+      "name": "ChineseTW",
+      "emoji": "\uD83C\uDDF9\uD83C\uDDFC"
+    },
+    "hr": {
+      "name": "Croatian",
+      "emoji": "\uD83C\uDDED\uD83C\uDDF7"
+    },
     "cs": {
       "name": "Czech",
       "emoji": "\uD83C\uDDE8\uD83C\uDDFF",
       "credits": [
         {
           "crowdin": "klauny"
+        }
+      ]
+    },
+    "da": {
+      "name": "Danish",
+      "emoji": "\uD83C\uDDE9\uD83C\uDDF0"
+    },
+    "nl": {
+      "name": "Dutch",
+      "emoji": "\uD83C\uDDF3\uD83C\uDDF1",
+      "credits": [
+        {
+          "crowdin": "Jessuh",
+          "displayName": "Jesse"
+        }
+      ]
+    },
+    "fi": {
+      "name": "Finnish",
+      "emoji": "\uD83C\uDDEB\uD83C\uDDEE"
+    },
+    "fr": {
+      "name": "French",
+      "emoji": "\uD83C\uDDEB\uD83C\uDDF7",
+      "credits": [
+        {
+          "crowdin": "Cookikui",
+          "displayName": "Cookie Kiro"
         }
       ]
     },
@@ -39,26 +80,6 @@
         }
       ]
     },
-    "es": {
-      "name": "Spanish",
-      "emoji": "\uD83C\uDDEA\uD83C\uDDF8",
-      "credits": [
-        {
-          "crowdin": "shaulyareaj",
-          "displayName": "Pablo Luna"
-        }
-      ]
-    },
-    "fr": {
-      "name": "French",
-      "emoji": "\uD83C\uDDEB\uD83C\uDDF7",
-      "credits": [
-        {
-          "crowdin": "Cookikui",
-          "displayName": "Cookie Kiro"
-        }
-      ]
-    },
     "el": {
       "name": "Greek",
       "emoji": "\uD83C\uDDEC\uD83C\uDDF7",
@@ -67,6 +88,13 @@
           "crowdin": "BelleBernice"
         }
       ]
+    },
+    "hi": {
+      "name": "Hindi",
+      "emoji": "\uD83C\uDDEE\uD83C\uDDF3"
+    },
+    "hu": {
+      "name": "Hungarian"
     },
     "it": {
       "name": "Italian",
@@ -78,6 +106,10 @@
           "url": "https://top.gg/bot/1076200668810985634"
         }
       ]
+    },
+    "ja": {
+      "name": "Japanese",
+      "emoji": "\uD83C\uDDEF\uD83C\uDDF5"
     },
     "ko": {
       "name": "Korean",
@@ -94,15 +126,13 @@
         }
       ]
     },
-    "nl": {
-      "name": "Dutch",
-      "emoji": "\uD83C\uDDF3\uD83C\uDDF1",
-      "credits": [
-        {
-          "crowdin": "Jessuh",
-          "displayName": "Jesse"
-        }
-      ]
+    "lt": {
+      "name": "Lithuanian",
+      "emoji": "\uD83C\uDDF1\uD83C\uDDF9"
+    },
+    "no": {
+      "name": "Norwegian",
+      "emoji": "\uD83C\uDDF3\uD83C\uDDF4"
     },
     "pl": {
       "name": "Polish",
@@ -112,6 +142,19 @@
           "crowdin": "MinerPL"
         }
       ]
+    },
+    "pt-BR": {
+      "name": "Portuguese, Brazilian",
+      "emoji": "\uD83C\uDDE7\uD83C\uDDF7",
+      "credits": [
+        {
+          "crowdin": "leo0six"
+        }
+      ]
+    },
+    "ro": {
+      "name": "Romanian",
+      "emoji": "\uD83C\uDDF7\uD83C\uDDF4"
     },
     "ru": {
       "name": "Russian",
@@ -125,6 +168,20 @@
           "displayName": "Nikita Sharikov"
         }
       ]
+    },
+    "es-ES": {
+      "name": "Spanish",
+      "emoji": "\uD83C\uDDEA\uD83C\uDDF8",
+      "credits": [
+        {
+          "crowdin": "shaulyareaj",
+          "displayName": "Pablo Luna"
+        }
+      ]
+    },
+    "sv-SE": {
+      "name": "Swedish",
+      "emoji": "\uD83C\uDDF8\uD83C\uDDEA"
     },
     "th": {
       "name": "Thai",
@@ -158,6 +215,10 @@
           "crowdin": "enky"
         }
       ]
+    },
+    "vi": {
+      "name": "Vietnamese",
+      "emoji": "\uD83C\uDDFB\uD83C\uDDF3"
     }
   }
 }
