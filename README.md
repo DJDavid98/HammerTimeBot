@@ -33,18 +33,26 @@ English and Hungarian translations have been included, so no translators will be
 
 ### Credits
 
-- 🇧🇷 Brazilian Portuguese: leo0six
-- 🇨🇳 Simplified Chinese: CPYW_7226, user670839245
-- 🇨🇿 Czech: klauny
-- 🇩🇪 German: Fabian9799
-- 🇪🇸 Spanish: Pablo Luna (shaulyareaj)
-- 🇫🇷 French: Cookie Kiro (Cookikui)
-- 🇬🇷 Greek: BelleBernice
-- 🇮🇹 Italian: Lory Pelli (pellilory126)
-- 🇰🇷 Korean: Bin (cheesepickle12345678, sjkim04
-- 🇳🇱 Dutch: Jesse (Jessuh)
-- 🇵🇱 Polish: Dawid (MinerPL)
-- 🇷🇺 Russian: GameHacker, Nikita Sharikov (Aligatoor)
-- 🇹🇭 Thai: Rukchad Wongprayoon (unpredictable)
-- 🇹🇷 Turkish: Baran Moroğan (okunamayanad)
-- 🇺🇦 Ukrainian: enky, GameHacker
+- 🇨🇳 Chinese Simplified
+  - [CPYW_7226](https://crowdin.com/profile/CPYW_7226)
+  - [User670](https://crowdin.com/profile/User670)
+- 🇨🇿 Czech: [klauny](https://crowdin.com/profile/klauny)
+- 🇳🇱 Dutch: [Jesse](https://crowdin.com/profile/Jessuh)
+- 🇫🇷 French: [Cookie Kiro](https://crowdin.com/profile/Cookikui)
+- 🇩🇪 German: [Fabian9799](https://crowdin.com/profile/Fabian9799)
+- 🇬🇷 Greek: [BelleBernice](https://crowdin.com/profile/BelleBernice)
+- 🇮🇹 Italian: [RVG|𝓵𝓸𝓻𝔂](https://top.gg/bot/1076200668810985634)
+- 🇰🇷 Korean
+  - [Bin](https://crowdin.com/profile/cheesepickle12345678)
+  - [김카츄 (sjk)](https://github.com/sjkim04)
+- 🇵🇱 Polish: [MinerPL](https://crowdin.com/profile/MinerPL)
+- 🇧🇷 Portuguese, Brazilian: [leo0six](https://crowdin.com/profile/leo0six)
+- 🇷🇺 Russian
+  - [GameHacker](https://crowdin.com/profile/GameHacker)
+  - [Nikita Sharikov](https://crowdin.com/profile/Aligatoor)
+- 🇪🇸 Spanish: [Pablo Luna](https://crowdin.com/profile/shaulyareaj)
+- 🇹🇭 Thai: [Rukchad Wongprayoon](https://crowdin.com/profile/unpredictable)
+- 🇹🇷 Turkish: [Baran Moroğan](https://github.com/tututuana)
+- 🇺🇦 Ukrainian
+  - [enky](https://crowdin.com/profile/enky)
+  - [GameHacker](https://crowdin.com/profile/GameHacker)

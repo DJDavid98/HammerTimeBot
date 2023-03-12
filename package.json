@@ -10,6 +10,7 @@
     "build": "tsc",
     "build:clean": "rimraf build",
     "start": "node ./build/index.js",
+    "prestart:dev": "node ./utils/translation-credits.js",
     "start:dev": "npm run build:clean && npm run build && npm run start",
     "watch:dev:tsc": "tsc --watch --preserveWatchOutput",
     "watch:dev:nodemon": "nodemon ./build/index.js",

@@ -1,0 +1,163 @@
+{
+  "languages": {
+    "pt-BR": {
+      "name": "Portuguese, Brazilian",
+      "emoji": "\uD83C\uDDE7\uD83C\uDDF7",
+      "credits": [
+        {
+          "crowdin": "leo0six"
+        }
+      ]
+    },
+    "zh": {
+      "name": "Chinese Simplified",
+      "emoji": "\uD83C\uDDE8\uD83C\uDDF3",
+      "credits": [
+        {
+          "crowdin": "CPYW_7226"
+        },
+        {
+          "crowdin": "User670"
+        }
+      ]
+    },
+    "cs": {
+      "name": "Czech",
+      "emoji": "\uD83C\uDDE8\uD83C\uDDFF",
+      "credits": [
+        {
+          "crowdin": "klauny"
+        }
+      ]
+    },
+    "de": {
+      "name": "German",
+      "emoji": "\uD83C\uDDE9\uD83C\uDDEA",
+      "credits": [
+        {
+          "crowdin": "Fabian9799"
+        }
+      ]
+    },
+    "es": {
+      "name": "Spanish",
+      "emoji": "\uD83C\uDDEA\uD83C\uDDF8",
+      "credits": [
+        {
+          "crowdin": "shaulyareaj",
+          "displayName": "Pablo Luna"
+        }
+      ]
+    },
+    "fr": {
+      "name": "French",
+      "emoji": "\uD83C\uDDEB\uD83C\uDDF7",
+      "credits": [
+        {
+          "crowdin": "Cookikui",
+          "displayName": "Cookie Kiro"
+        }
+      ]
+    },
+    "el": {
+      "name": "Greek",
+      "emoji": "\uD83C\uDDEC\uD83C\uDDF7",
+      "credits": [
+        {
+          "crowdin": "BelleBernice"
+        }
+      ]
+    },
+    "it": {
+      "name": "Italian",
+      "emoji": "\uD83C\uDDEE\uD83C\uDDF9",
+      "credits": [
+        {
+          "crowdin": "pellilory126",
+          "displayName": "RVG|\uD835\uDCF5\uD835\uDCF8\uD835\uDCFB\uD835\uDD02",
+          "url": "https://top.gg/bot/1076200668810985634"
+        }
+      ]
+    },
+    "ko": {
+      "name": "Korean",
+      "emoji": "\uD83C\uDDF0\uD83C\uDDF7",
+      "credits": [
+        {
+          "crowdin": "cheesepickle12345678",
+          "displayName": "Bin"
+        },
+        {
+          "crowdin": "sjkim04",
+          "displayName": "김카츄 (sjk)",
+          "url": "https://github.com/sjkim04"
+        }
+      ]
+    },
+    "nl": {
+      "name": "Dutch",
+      "emoji": "\uD83C\uDDF3\uD83C\uDDF1",
+      "credits": [
+        {
+          "crowdin": "Jessuh",
+          "displayName": "Jesse"
+        }
+      ]
+    },
+    "pl": {
+      "name": "Polish",
+      "emoji": "\uD83C\uDDF5\uD83C\uDDF1",
+      "credits": [
+        {
+          "crowdin": "MinerPL"
+        }
+      ]
+    },
+    "ru": {
+      "name": "Russian",
+      "emoji": "\uD83C\uDDF7\uD83C\uDDFA",
+      "credits": [
+        {
+          "crowdin": "GameHacker"
+        },
+        {
+          "crowdin": "Aligatoor",
+          "displayName": "Nikita Sharikov"
+        }
+      ]
+    },
+    "th": {
+      "name": "Thai",
+      "emoji": "\uD83C\uDDF9\uD83C\uDDED",
+      "credits": [
+        {
+          "crowdin": "unpredictable",
+          "displayName": "Rukchad Wongprayoon"
+        }
+      ]
+    },
+    "tr": {
+      "name": "Turkish",
+      "emoji": "\uD83C\uDDF9\uD83C\uDDF7",
+      "credits": [
+        {
+          "crowdin": "okunamayanad",
+          "displayName": "Baran Moroğan",
+          "url": "https://github.com/tututuana"
+        }
+      ]
+    },
+    "uk": {
+      "name": "Ukrainian",
+      "emoji": "\uD83C\uDDFA\uD83C\uDDE6",
+      "credits": [
+        {
+          "crowdin": "GameHacker"
+        },
+        {
+          "crowdin": "enky"
+        }
+      ]
+    }
+  }
+}
