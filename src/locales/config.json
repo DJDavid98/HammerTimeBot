@@ -32,7 +32,14 @@
     },
     "hr": {
       "name": "Croatian",
-      "emoji": "\uD83C\uDDED\uD83C\uDDF7"
+      "emoji": "\uD83C\uDDED\uD83C\uDDF7",
+      "credits": [
+        {
+          "crowdin": "stjepanmih13x",
+          "displayName": "Volvone",
+          "url": "https://github.com/volvone"
+        }
+      ]
     },
     "cs": {
       "name": "Czech",

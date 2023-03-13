@@ -36,6 +36,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇨🇳 Chinese Simplified
   - [CPYW_7226](https://crowdin.com/profile/CPYW_7226)
   - [User670](https://crowdin.com/profile/User670)
+- 🇭🇷 Croatian: [Volvone](https://github.com/volvone)
 - 🇨🇿 Czech: [klauny](https://crowdin.com/profile/klauny)
 - 🇳🇱 Dutch: [Jesse](https://crowdin.com/profile/Jessuh)
 - 🇫🇷 French: [Cookie Kiro](https://crowdin.com/profile/Cookikui)
