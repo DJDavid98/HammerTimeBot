@@ -52,7 +52,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Nikita Sharikov](https://crowdin.com/profile/Aligatoor)
 - 🇪🇸 Spanish: [Pablo Luna](https://crowdin.com/profile/shaulyareaj)
 - 🇹🇭 Thai: [Rukchad Wongprayoon](https://crowdin.com/profile/unpredictable)
-- 🇹🇷 Turkish: [Baran Moroğan](https://github.com/tututuana)
+- 🇹🇷 Turkish: [Baran Moroğan](https://crowdin.com/profile/okunamayanad)
 - 🇺🇦 Ukrainian
   - [enky](https://crowdin.com/profile/enky)
   - [GameHacker](https://crowdin.com/profile/GameHacker)
