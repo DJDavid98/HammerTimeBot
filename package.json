@@ -1,7 +1,7 @@
 {
   "name": "hammertimebot",
   "version": "1.0.0",
-  "description": "Chat bot for the MLP Vector Club's Discord server",
+  "description": "Discord bot version of https://hammertime.cyou using slash commands",
   "author": "DJDavid98 <djdavid98@protonmail.com> (https://github.com/DJDavid98)",
   "private": true,
   "type": "module",
@@ -38,7 +38,7 @@
     "shell-escape": "^0.2.0",
     "tslib": "^2.3.0",
     "utf-8-validate": "^5.0.5",
-    "zlib-sync": "^0.1.7"
+    "zlib-sync": "^0.1.8"
   },
   "devDependencies": {
     "@types/i18next-fs-backend": "^1.1.2",
