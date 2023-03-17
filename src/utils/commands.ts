@@ -14,6 +14,7 @@ import { statisticsCommand } from '../commands/statistics.command.js';
 import { subtractCommand } from '../commands/subtract.command.js';
 import { timestampCommand } from '../commands/timestamp.command.js';
 import { unixCommand } from '../commands/unix.command.js';
+import { snowflakeCommand } from '../commands/snowflake.command.js';
 
 export const commandMap: Record<BotCommandName, BotCommand> = {
   [BotCommandName.ADD]: addCommand,
@@ -24,6 +25,7 @@ export const commandMap: Record<BotCommandName, BotCommand> = {
   [BotCommandName.SUBTRACT]: subtractCommand,
   [BotCommandName.TIMESTAMP]: timestampCommand,
   [BotCommandName.UNIX]: unixCommand,
+  [BotCommandName.SNOWFLAKE]: snowflakeCommand,
 };
 
 export const commandNames = (Object.keys(commandMap) as BotCommandName[]);

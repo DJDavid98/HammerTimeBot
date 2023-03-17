@@ -61,6 +61,10 @@ export enum UnixCommandOptionName {
   VALUE = 'value',
 }
 
+export enum SnowflakeCommandOptionName {
+  VALUE = 'value',
+}
+
 interface CommandOptionsMap {
   [BotCommandName.TIMESTAMP]: never,
   [BotCommandName.IN]: InCommandOptionName,

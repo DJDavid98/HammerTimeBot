@@ -11,6 +11,7 @@ export enum BotCommandName {
   SUBTRACT = 'subtract',
   TIMESTAMP = 'timestamp',
   UNIX = 'unix',
+  SNOWFLAKE = 'snowflake'
 }
 
 export type BotCommandDefinition = Omit<RESTPostAPIChatInputApplicationCommandsJSONBody, 'type'>;

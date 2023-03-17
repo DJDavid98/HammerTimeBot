@@ -188,6 +188,19 @@
         }
       }
     },
+    "snowflake": {
+      "name": "snowflake",
+      "description": "Display the syntaxes for a specific Discord snowflake",
+      "responses": {
+        "invalidSnowflake": "The specified snowflake is invalid"
+      },
+      "options": {
+        "value": {
+          "name": "value",
+          "description": "The Discord snowflake"
+        }
+      }
+    },
     "global": {
       "responses": {
         "invalidDate": "The specified date is invalid (for example: the given day does not exist)"

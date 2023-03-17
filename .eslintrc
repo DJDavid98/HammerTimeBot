@@ -68,11 +68,11 @@
           "hu/translation",
           "en-US/translation"
         ],
-        "jsonBaseURIs": [
-          {
-            "baseURI": "./src/locales/"
-          }
-        ]
+        // "jsonBaseURIs": [
+        //   {
+        //     "baseURI": "./src/locales"
+        //   }
+        // ]
       }
     ]
   }
