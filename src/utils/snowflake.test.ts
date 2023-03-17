@@ -1,5 +1,8 @@
 import snowflakeToUnix from './snowflake.js';
 
+const INVALID_SNOWFLAKE_ERROR = new Error('Invalid snowflake. Snowflakes must be a valid number.');
+const INVALID_SNOWFLAKE_TOO_SMALL_ERROR = new Error('Invalid snowflake. Snowflakes must be greater than 4194303.');
+
 describe('snowflakteToUnix', () => {
   it('should convert a snowflake to a unix timestamp', () => {
     expect(snowflakeToUnix('996673713938366504')).toEqual(1657695930);
@@ -12,15 +15,15 @@ describe('snowflakteToUnix', () => {
     expect(snowflakeToUnix('4194304')).toEqual(1420070400);
   });
   it('should throw an error if the snowflake is invalid', () => {
-    expect(() => snowflakeToUnix('invalid')).toThrow(new Error('Invalid snowflake. Snowflakes must be a valid number.'));
-    expect(() => snowflakeToUnix('')).toThrow(new Error('Invalid snowflake. Snowflakes must be a valid number.'));
-    expect(() => snowflakeToUnix('120312039NotANumber012021')).toThrow(new Error('Invalid snowflake. Snowflakes must be a valid number.'));
-    expect(() => snowflakeToUnix('one')).toThrow(new Error('Invalid snowflake. Snowflakes must be a valid number.'));
+    expect(() => snowflakeToUnix('invalid')).toThrow(INVALID_SNOWFLAKE_ERROR);
+    expect(() => snowflakeToUnix('')).toThrow(INVALID_SNOWFLAKE_ERROR);
+    expect(() => snowflakeToUnix('120312039NotANumber012021')).toThrow(INVALID_SNOWFLAKE_ERROR);
+    expect(() => snowflakeToUnix('one')).toThrow(INVALID_SNOWFLAKE_ERROR);
   });
   it('should throw an error if the snowflake is too small', () => {
-    expect(() => snowflakeToUnix('4194303')).toThrow(new Error('Invalid snowflake. Snowflakes must be greater than 4194303.'));
-    expect(() => snowflakeToUnix('0')).toThrow(new Error('Invalid snowflake. Snowflakes must be greater than 4194303.'));
-    expect(() => snowflakeToUnix('-10')).toThrow(new Error('Invalid snowflake. Snowflakes must be greater than 4194303.'));
-    expect(() => snowflakeToUnix('-138353487208644608')).toThrow(new Error('Invalid snowflake. Snowflakes must be greater than 4194303.'));
+    expect(() => snowflakeToUnix('4194303')).toThrow(INVALID_SNOWFLAKE_TOO_SMALL_ERROR);
+    expect(() => snowflakeToUnix('0')).toThrow(INVALID_SNOWFLAKE_TOO_SMALL_ERROR);
+    expect(() => snowflakeToUnix('-10')).toThrow(INVALID_SNOWFLAKE_TOO_SMALL_ERROR);
+    expect(() => snowflakeToUnix('-138353487208644608')).toThrow(INVALID_SNOWFLAKE_TOO_SMALL_ERROR);
   });
 });
