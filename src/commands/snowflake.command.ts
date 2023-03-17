@@ -4,8 +4,7 @@ import { BotCommand } from '../types/bot-interaction.js';
 import { SnowflakeCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
-
-const DISCORD_EPOCH = 1420070400000;
+import snowflakeToUnix from '../utils/snowflake.js';
 
 export const snowflakeCommand: BotCommand = {
   getDefinition: (t) => ({
@@ -30,20 +29,3 @@ export const snowflakeCommand: BotCommand = {
     await replyWithSyntax(localMoment, interaction, t);
   },
 };
-
-function snowflakeToUnix(snowflake: string) {
-  let snowflakeNumber;
-  try {
-    snowflakeNumber = BigInt(snowflake);
-  } catch (e) {
-    throw new Error('Invalid snowflake. Snowflakes must be a valid number.');
-  }
-
-  if (snowflakeNumber < 4194304) {
-    throw new Error('Invalid snowflake. Snowflakes must be greater than 4194303.');
-  }
-
-
-
-  return (Number(BigInt(snowflake) >> 22n) + DISCORD_EPOCH) / 1000;
-}
