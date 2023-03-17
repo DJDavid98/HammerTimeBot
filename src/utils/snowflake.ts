@@ -18,7 +18,5 @@ export default function snowflakeToUnix(snowflake: string) {
     throw new Error('Invalid snowflake. Snowflakes must be greater than 4194303.');
   }
 
-
-
-  return (Number(BigInt(snowflake) >> 22n) + DISCORD_EPOCH) / 1000;
+  return Math.floor(((Number(BigInt(snowflakeNumber) >> 22n)) + DISCORD_EPOCH) / 1000);
 }
