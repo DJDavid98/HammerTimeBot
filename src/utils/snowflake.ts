@@ -7,10 +7,9 @@ const DISCORD_EPOCH = 1420070400000;
  * @throws {Error} If the snowflake is invalid
  */
 export default function snowflakeToUnix(snowflake: string) {
-  let snowflakeNumber;
-  try {
-    snowflakeNumber = BigInt(snowflake);
-  } catch (e) {
+  const snowflakeNumber = Number(snowflake);
+  
+  if (isNaN(snowflakeNumber) || snowflake.length === 0) {
     throw new Error('Invalid snowflake. Snowflakes must be a valid number.');
   }
 
