@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Deprecated, please use the commands without the /timestamp prefix",
-      "options": [],
+      "options": {},
       "responses": {
         "deprecated": "Subcommands have been replaced with separate commands because the options of the {{baseCommand}} command reached the limits of Discord's API.\nYou can use the same commands as before, the only difference is that you must leave off {{baseCommandName}}. For example {{exampleSubCommand}} is now simply {{exampleCommand}}.\nThank you for your understanding. Please direct any feedback regarding this change to HammerTime's official Discord server: {{discordInviteUrl}}"
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "ago",
       "description": "現在時間から過去のタイムスタンプを作成",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "years",
@@ -42,7 +42,7 @@
     "in": {
       "name": "in",
       "description": "現在時間から未来のタイムスタンプを作成",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "years",
@@ -110,7 +110,7 @@
     "add": {
       "name": "addd",
       "description": "指定されたUNIXタイムスタンプに時間を足す",
-      "responses": [],
+      "responses": {},
       "options": {
         "to": {
           "name": "to",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "subtract",
       "description": "指定されたUNIXタイムスタンプから時間を引く",
-      "responses": [],
+      "responses": {},
       "options": {
         "from": {
           "name": "from",
@@ -169,18 +169,18 @@
         },
         "minutes": {
           "name": "minutes",
-          "description": "指定されたタイムスタンプから引く分数"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "seconds",
-          "description": "指定されたタイムスタンプから引く秒数"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
     "unix": {
       "name": "unix",
       "description": "特定のUNIXタイムスタンプの構文を表示する",
-      "responses": [],
+      "responses": {},
       "options": {
         "value": {
           "name": "value",
@@ -190,7 +190,9 @@
     },
     "global": {
       "responses": {
-        "invalidDate": "指定された日付が無効です（例：指定された日が存在しない）"
+        "invalidDate": "指定された日付が無効です（例：指定された日が存在しない）",
+        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -228,7 +230,7 @@
     "statistics": {
       "name": "statistics",
       "description": "Displays various information about the bot",
-      "options": [],
+      "options": {},
       "responses": {
         "totalServerCount": "Total servers joined:",
         "shardServerCount": "Servers on this shard:",
