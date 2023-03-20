@@ -169,11 +169,11 @@
         },
         "minutes": {
           "name": "óra",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Hány percet kell kivonni a megadott időbélyegből"
         },
         "seconds": {
           "name": "perc",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Hány másodpercet kell kivonni a megadott időbélyegből"
         }
       }
     },
@@ -191,8 +191,8 @@
     "global": {
       "responses": {
         "invalidDate": "A megadott dátum érvénytelen (például: az adott nap nem létezik)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
+        "noComponentsCurrentTime": "Legalább egy időegységet meg kell adnod a módosításhoz. Ha az aktuális időre van szükséged, használd ezt a parancsot paraméterek nélkül: `/{{atCommand}}`",
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -256,16 +256,16 @@
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "Üzenet Elküldve",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "Elküldési időpont ehhez az üzenethez: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "Üzenet Utóljára Szerkesztve",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "Utolsó szerkesztési időpont ehhez az üzenethez: {{url}}",
+        "notEdited": "Ez az üzenet még nem volt szerkesztve"
       }
     }
   }
