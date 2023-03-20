@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Obsoleto, por favor use os comandos sem o prefixo /timestamp",
-      "options": [],
+      "options": {},
       "responses": {
         "deprecated": "Os subcomandos foram substituídos por comandos separados porque as opções do comando {{baseCommand}} atingiram os limites da API do Discord.\nVocê pode usar os mesmos comandos como antes, a única diferença é que você deve deixar de usar {{baseCommandName}}. Por exemplo, {{exampleSubCommand}} é simplesmente {{exampleCommand}} agora.\nObrigado pela sua compreensão. Por favor, deixe qualquer tipo de feedback sobre esta mudança no servidor oficial do HammerTime no Discord: {{discordInviteUrl}}"
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "há",
       "description": "Especifique uma timestamp no passado em relação à hora atual",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "anos",
@@ -42,7 +42,7 @@
     "in": {
       "name": "em",
       "description": "Especifique uma timestamp no futuro em relação à hora atual",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "anos",
@@ -110,7 +110,7 @@
     "add": {
       "name": "adicionar",
       "description": "Adicione um tempo para a timestamp UNIX especificada",
-      "responses": [],
+      "responses": {},
       "options": {
         "to": {
           "name": "para",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "subtrair",
       "description": "Subtraia um tempo da timestamp UNIX especificada",
-      "responses": [],
+      "responses": {},
       "options": {
         "from": {
           "name": "de",
@@ -169,18 +169,18 @@
         },
         "minutes": {
           "name": "minutos",
-          "description": "Quantos minutos para subtrair da timestamp especificada"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "segundos",
-          "description": "Quantos segundos para subtrair da timestamp especificada"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
     "unix": {
       "name": "unix",
       "description": "Mostra as sintaxes para uma timestamp UNIX específica",
-      "responses": [],
+      "responses": {},
       "options": {
         "value": {
           "name": "valor",
@@ -190,7 +190,9 @@
     },
     "global": {
       "responses": {
-        "invalidDate": "A data especificada é inválida (por exemplo: o dia fornecido não existe)"
+        "invalidDate": "A data especificada é inválida (por exemplo: o dia fornecido não existe)",
+        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -228,7 +230,7 @@
     "statistics": {
       "name": "estatísticas",
       "description": "Mostra várias informações sobre o bot",
-      "options": [],
+      "options": {},
       "responses": {
         "totalServerCount": "Total de servidores entrados:",
         "shardServerCount": "Servidores neste fragmento:",
@@ -251,6 +253,19 @@
           "name": "value",
           "description": "The Snowflake number"
         }
+      }
+    },
+    "Message Sent": {
+      "name": "Message Sent",
+      "responses": {
+        "targetMessage": "Send timestamp for the following message: {{url}}"
+      }
+    },
+    "Message Last Edited": {
+      "name": "Message Last Edited",
+      "responses": {
+        "targetMessage": "Last edit timestamp for the following message: {{url}}",
+        "notEdited": "This message has not been edited yet"
       }
     }
   }

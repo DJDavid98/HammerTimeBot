@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "zeitstempel",
       "description": "Veraltet, bitte verwende die Befehle ohne den /timestamp Prefix",
-      "options": [],
+      "options": {},
       "responses": {
         "deprecated": "Unterbefehle wurden durch separate Befehle ersetzt, da die Optionen des {{baseCommand}} -Befehls die Grenzen der Discords API erreicht haben.\nDu kannst die gleichen Befehle wie bisher verwenden, der einzige Unterschied ist, dass du {{baseCommandName}} weglassen musst. Zum Beispiel ist {{exampleSubCommand}} jetzt einfach {{exampleCommand}}.\nVielen Dank für dein Verständnis. Bitte richte jegliches Feedback zu dieser Änderung an den offiziellen Discord-Server von HammerTime: {{discordInviteUrl}}"
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "vor",
       "description": "Geben Sie einen Zeitstempel in der Vergangenheit relativ zur aktuellen Zeit an",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "jahre",
@@ -42,7 +42,7 @@
     "in": {
       "name": "in",
       "description": "Geben Sie einen Zeitstempel in der Zukunft relativ zur aktuellen Zeit an",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "jahre",
@@ -110,7 +110,7 @@
     "add": {
       "name": "hinzufügen",
       "description": "Fügt dem angegebenen UNIX-Zeitstempel eine gewisse Zeit hinzu",
-      "responses": [],
+      "responses": {},
       "options": {
         "to": {
           "name": "zu",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "subtrahieren",
       "description": "Subtrahiert eine gewisse Zeit von dem angegebenen UNIX-Zeitstempel",
-      "responses": [],
+      "responses": {},
       "options": {
         "from": {
           "name": "von",
@@ -169,18 +169,18 @@
         },
         "minutes": {
           "name": "minuten",
-          "description": "Wie viele Minuten werden von dem angegebenen Zeitstempel abgezogen"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "sekunden",
-          "description": "Wie viele Sekunden werden von dem angegebenen Zeitstempel abgezogen"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
     "unix": {
       "name": "unix",
       "description": "Zeigt den Syntax für einen bestimmten UNIX Zeitstempel an",
-      "responses": [],
+      "responses": {},
       "options": {
         "value": {
           "name": "wert",
@@ -190,7 +190,9 @@
     },
     "global": {
       "responses": {
-        "invalidDate": "Das angegebene Datum ist ungültig (zum Beispiel: der angegebene Tag existiert nicht)"
+        "invalidDate": "Das angegebene Datum ist ungültig (zum Beispiel: der angegebene Tag existiert nicht)",
+        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -228,7 +230,7 @@
     "statistics": {
       "name": "statistiken",
       "description": "Zeigt verschiedene Informationen über den Bot an",
-      "options": [],
+      "options": {},
       "responses": {
         "totalServerCount": "Gesamtzahl der beigetretenen Server:",
         "shardServerCount": "Server auf diesem Shard:",
@@ -251,6 +253,19 @@
           "name": "value",
           "description": "The Snowflake number"
         }
+      }
+    },
+    "Message Sent": {
+      "name": "Message Sent",
+      "responses": {
+        "targetMessage": "Send timestamp for the following message: {{url}}"
+      }
+    },
+    "Message Last Edited": {
+      "name": "Message Last Edited",
+      "responses": {
+        "targetMessage": "Last edit timestamp for the following message: {{url}}",
+        "notEdited": "This message has not been edited yet"
       }
     }
   }

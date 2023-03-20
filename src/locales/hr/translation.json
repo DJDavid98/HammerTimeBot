@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "vremenska oznaka",
       "description": "Zastarjelo, koristite naredbe bez prefiksa /timestamp",
-      "options": [],
+      "options": {},
       "responses": {
         "deprecated": "Podnaredbe su zamijenjene zasebnim naredbama jer su opcije naredbe {{baseCommand}} dosegle granice Discordovog API-ja.\nMožete koristiti iste naredbe kao i prije, jedina je razlika što morate izostaviti {{baseCommandName}}. Na primjer, {{exampleSubCommand}} je sada jednostavno {{exampleCommand}}.\nHvala na razumijevanju. Sve povratne informacije u vezi s ovom promjenom uputite na HammerTimeov službeni Discord poslužitelj: {{discordInviteUrl}}"
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "prije",
       "description": "Navedite vremensku oznaku u prošlosti u odnosu na trenutno vrijeme",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "godina",
@@ -42,7 +42,7 @@
     "in": {
       "name": "u",
       "description": "Navedite vremensku oznaku u budućnosti u odnosu na trenutno vrijeme",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "godina",
@@ -110,7 +110,7 @@
     "add": {
       "name": "dodaj",
       "description": "Dodajte malo vremena navedenoj UNIX vremenskoj oznaci",
-      "responses": [],
+      "responses": {},
       "options": {
         "to": {
           "name": "do",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "oduzeti",
       "description": "Dodajte malo vremena navedenoj UNIX vremenskoj oznaci",
-      "responses": [],
+      "responses": {},
       "options": {
         "from": {
           "name": "od",
@@ -169,18 +169,18 @@
         },
         "minutes": {
           "name": "minute",
-          "description": "Koliko minuta treba oduzeti od navedene vremenske oznake"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "sekunde",
-          "description": "Koliko sekundi treba oduzeti od navedene vremenske oznake"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
     "unix": {
       "name": "unix",
       "description": "Prikažite sintaksu za određenu UNIX vremensku oznaku",
-      "responses": [],
+      "responses": {},
       "options": {
         "value": {
           "name": "vrijednost",
@@ -190,7 +190,9 @@
     },
     "global": {
       "responses": {
-        "invalidDate": "Navedeni datum je nevažeći (na primjer: navedeni dan ne postoji)"
+        "invalidDate": "Navedeni datum je nevažeći (na primjer: navedeni dan ne postoji)",
+        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -228,7 +230,7 @@
     "statistics": {
       "name": "statistike",
       "description": "Prikazuje razne informacije o botu",
-      "options": [],
+      "options": {},
       "responses": {
         "totalServerCount": "Ukupan broj pridruženih servera:",
         "shardServerCount": "Poslužitelji na ovom shardu:",
@@ -251,6 +253,19 @@
           "name": "value",
           "description": "The Snowflake number"
         }
+      }
+    },
+    "Message Sent": {
+      "name": "Message Sent",
+      "responses": {
+        "targetMessage": "Send timestamp for the following message: {{url}}"
+      }
+    },
+    "Message Last Edited": {
+      "name": "Message Last Edited",
+      "responses": {
+        "targetMessage": "Last edit timestamp for the following message: {{url}}",
+        "notEdited": "This message has not been edited yet"
       }
     }
   }

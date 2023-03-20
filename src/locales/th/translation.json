@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "ตัวเวลา",
       "description": "ได้เลิกใช้แล้ว กรุณาโปรดใช้คำสั่งโดยไม่ใช้ /timestamp",
-      "options": [],
+      "options": {},
       "responses": {
         "deprecated": "คำสั่งย่อยได้ถูกเปลี่ยนเป็นคำสั่งใหม่เพราะตัวเลือกของคำสั่ง {{baseCommand}} นั้นมีมากกว่าที่ Discord ยอมรับไว้\nคุณยังใช้คำสั่งได้เหมือนเดิมแต่ออกจากกลุ่มคำสั่ง {{baseCommandName}} เช่น คำสั่ง {{exampleSubCommand}} กลายเป็น {{exampleCommand}}\nขอบคุณที่คุณเข้าใจพวกเรา กรุณาส่งมารถส่งคำติชมได้ที่กับการเปลี่ยนแปลงนี้ได้ที่ Discord เซิร์ฟเวอร์ HammerTime อย่างทางการได้ที่:\n{{discordInviteUrl}}"
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "ที่ผ่านมา",
       "description": "กรุณาระบุเวลาในอดีตของเวลาปัจจุบัน",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "ปี",
@@ -42,7 +42,7 @@
     "in": {
       "name": "ใน",
       "description": "ระบุเวลาในอนาคตของเวลาปัจจุบัน",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "ปี",
@@ -110,7 +110,7 @@
     "add": {
       "name": "เพิ่ม",
       "description": "เพิ่มเวลาสำหรับเวลารูปแบบ UNIX",
-      "responses": [],
+      "responses": {},
       "options": {
         "to": {
           "name": "ถึง",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "ลบ",
       "description": "ลบเวลาบางส่วนจากการประทับเวลา UNIX ที่ระบุ",
-      "responses": [],
+      "responses": {},
       "options": {
         "from": {
           "name": "จาก",
@@ -169,18 +169,18 @@
         },
         "minutes": {
           "name": "นาที",
-          "description": "ลบกี่นาทีจากการประทับเวลาที่ระบุ"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "วินาที",
-          "description": "ลบกี่วินาทีจากการประทับเวลาที่ระบุ"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
     "unix": {
       "name": "unix",
       "description": "แสดงไวยากรณ์สำหรับการประทับเวลา UNIX โดยเฉพาะ",
-      "responses": [],
+      "responses": {},
       "options": {
         "value": {
           "name": "ค่า",
@@ -190,7 +190,9 @@
     },
     "global": {
       "responses": {
-        "invalidDate": "วันที่ที่ระบุไม่ถูกต้อง (เช่น วันที่ระบุไม่มีอยู่จริง)"
+        "invalidDate": "วันที่ที่ระบุไม่ถูกต้อง (เช่น วันที่ระบุไม่มีอยู่จริง)",
+        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -228,7 +230,7 @@
     "statistics": {
       "name": "statistics",
       "description": "แสดงข้อมูลต่างๆ เกี่ยวกับบอท",
-      "options": [],
+      "options": {},
       "responses": {
         "totalServerCount": "จำนวนเซิร์ฟเวอร์ที่บอทอยู่ทั้งหมด:",
         "shardServerCount": "จำนวนเซิร์ฟเวอร์ที่บน Shard นี้ทั้งหมด:",
@@ -251,6 +253,19 @@
           "name": "value",
           "description": "The Snowflake number"
         }
+      }
+    },
+    "Message Sent": {
+      "name": "Message Sent",
+      "responses": {
+        "targetMessage": "Send timestamp for the following message: {{url}}"
+      }
+    },
+    "Message Last Edited": {
+      "name": "Message Last Edited",
+      "responses": {
+        "targetMessage": "Last edit timestamp for the following message: {{url}}",
+        "notEdited": "This message has not been edited yet"
       }
     }
   }
