@@ -192,7 +192,7 @@
       "responses": {
         "invalidDate": "指定的日期无效（例如：给定的日期不存在）",
         "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
       },
       "options": {
         "format": {
