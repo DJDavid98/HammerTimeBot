@@ -242,14 +242,14 @@
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "Időbélyeg kinyerése Snowflake-ból (ez Discord által használt ID-k neve)",
       "responses": {
-        "invalidSnowflake": "The specified snowflake is invalid"
+        "invalidSnowflake": "A megadott Snowflake érvénytelen"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The Snowflake number"
+          "name": "érték",
+          "description": "A Snowflake szám"
         }
       }
     }
