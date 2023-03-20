@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "zaman damgası",
       "description": "Destek verilmemektedir, lütfen /timestamp öneki olmadan komutları kullanın",
-      "options": [],
+      "options": {},
       "responses": {
         "deprecated": "Alt komutlar ayrı komutlarla değiştirildi çünkü {{baseCommand}} komutunun seçenekleri Discord'un API'sinin sınırlarına ulaştı.\nEskiden olduğu gibi aynı komutları kullanabilirsiniz, tek fark {{baseCommandName}}'u bırakmanız gerektiğidir. Örneğin {{exampleSubCommand}} artık sadece {{exampleCommand}}.\nAnlayışınız için teşekkürler. Lütfen bu değişiklikle ilgili her türlü geri bildirimi HammerTime'ın resmi Discord sunucusunda bildirin: {{discordInviteUrl}}"
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "geçmiş",
       "description": "Geçerli zamana göre geçmişte bir zaman damgası belirtin",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "yıl",
@@ -42,7 +42,7 @@
     "in": {
       "name": "şuradan",
       "description": "Geçerli zamana göre gelecekte bir zaman damgası belirtin",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "yıl",
@@ -110,7 +110,7 @@
     "add": {
       "name": "ekle",
       "description": "Belirtilen UNIX zaman damgasına zaman ekleyin",
-      "responses": [],
+      "responses": {},
       "options": {
         "to": {
           "name": "şuna",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "çıkar",
       "description": "Belirtilen UNIX zaman damgasından zaman çıkartın",
-      "responses": [],
+      "responses": {},
       "options": {
         "from": {
           "name": "şundan",
@@ -169,18 +169,18 @@
         },
         "minutes": {
           "name": "dakika",
-          "description": "Belirtilen zaman damgasından kaç dakika çıkarılacağı"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "saniye",
-          "description": "Belirtilen zaman damgasından kaç saniye çıkarılacağı"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
     "unix": {
       "name": "unix",
       "description": "Belirli bir UNIX zaman damgası için söz dizimlerini görüntüle",
-      "responses": [],
+      "responses": {},
       "options": {
         "value": {
           "name": "değer",
@@ -190,7 +190,9 @@
     },
     "global": {
       "responses": {
-        "invalidDate": "Belirtilen tarih geçersizdir (örneğin: verilen gün mevcut değil)"
+        "invalidDate": "Belirtilen tarih geçersizdir (örneğin: verilen gün mevcut değil)",
+        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -228,7 +230,7 @@
     "statistics": {
       "name": "istatistikler",
       "description": "Bot hakkında bilgi verir",
-      "options": [],
+      "options": {},
       "responses": {
         "totalServerCount": "Toplam katılınan sunucu sayısı:",
         "shardServerCount": "Bu parçadaki sunucular:",
