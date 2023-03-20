@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "timestamp",
       "description": "Depreciat, vă rugăm să utilizați comenzile fără prefixul /timestamp",
-      "options": [],
+      "options": {},
       "responses": {
         "deprecated": "Subcomenzile au fost înlocuite cu comenzi separate deoarece opțiunile comenzii {{baseCommand}} au atins limitele API-ului Discord.\nPuteți utiliza aceleași comenzi ca înainte, singura diferență este că trebuie să lăsați {{baseCommandName}}. De exemplu, {{exempleSubCommand}} este acum pur și simplu {{exempleCommand}}.\nVă mulțumim pentru înțelegere. Vă rugăm să direcționați orice feedback cu privire la această schimbare către serverul oficial Discord al lui HammerTime: {{discordInviteUrl}}"
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "în urmă",
       "description": "Specificați un marcaj temporal în trecut în raport cu ora curentă",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "ani",
@@ -42,7 +42,7 @@
     "in": {
       "name": "în",
       "description": "Specificați un marcaj temporal în viitor în raport cu ora curentă",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "ani",
@@ -110,7 +110,7 @@
     "add": {
       "name": "adaugă",
       "description": "Adăugați ceva timp la timestamp-ul UNIX specificat",
-      "responses": [],
+      "responses": {},
       "options": {
         "to": {
           "name": "la",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "se sustrage",
       "description": "Sustrage o anumită perioadă de timp din timestamp-ul UNIX specificat",
-      "responses": [],
+      "responses": {},
       "options": {
         "from": {
           "name": "de la",
@@ -169,18 +169,18 @@
         },
         "minutes": {
           "name": "minute",
-          "description": "Câte minute se scad din data și ora specificate"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "secunde",
-          "description": "Câte secunde se scad din data și ora specificate"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
     "unix": {
       "name": "unix",
       "description": "Afișarea sintaxelor pentru un anumit timestamp UNIX",
-      "responses": [],
+      "responses": {},
       "options": {
         "value": {
           "name": "valoare",
@@ -190,7 +190,9 @@
     },
     "global": {
       "responses": {
-        "invalidDate": "Data specificată nu este valabilă (de exemplu: ziua dată nu există)"
+        "invalidDate": "Data specificată nu este valabilă (de exemplu: ziua dată nu există)",
+        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -228,7 +230,7 @@
     "statistics": {
       "name": "statistici",
       "description": "Afișează diverse informații despre bot",
-      "options": [],
+      "options": {},
       "responses": {
         "totalServerCount": "Total servere alăturate:",
         "shardServerCount": "Serverele de pe acest shard:",
