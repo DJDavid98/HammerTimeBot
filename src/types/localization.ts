@@ -1,5 +1,5 @@
 import { APIApplicationCommand, APIApplicationCommandOption } from 'discord-api-types/v10';
-import { BotCommandName } from './bot-interaction.js';
+import { BotChatInputCommandName, BotMessageContextMenuCommandName } from './bot-interaction.js';
 import { MessageTimestampFormat } from '../classes/message-timestamp.js';
 
 export const enum GlobalCommandOptionName {
@@ -66,14 +66,16 @@ export const enum SnowflakeCommandOptionName {
 }
 
 interface CommandOptionsMap {
-  [BotCommandName.TIMESTAMP]: never,
-  [BotCommandName.IN]: InCommandOptionName,
-  [BotCommandName.AGO]: AgoCommandOptionName,
-  [BotCommandName.AT]: AtCommandOptionName,
-  [BotCommandName.ADD]: AddCommandOptionName,
-  [BotCommandName.SUBTRACT]: SubtractCommandOptionName,
-  [BotCommandName.UNIX]: UnixCommandOptionName,
-  [BotCommandName.STATISTICS]: never,
+  [BotChatInputCommandName.TIMESTAMP]: never,
+  [BotChatInputCommandName.IN]: InCommandOptionName,
+  [BotChatInputCommandName.AGO]: AgoCommandOptionName,
+  [BotChatInputCommandName.AT]: AtCommandOptionName,
+  [BotChatInputCommandName.ADD]: AddCommandOptionName,
+  [BotChatInputCommandName.SUBTRACT]: SubtractCommandOptionName,
+  [BotChatInputCommandName.UNIX]: UnixCommandOptionName,
+  [BotChatInputCommandName.STATISTICS]: never,
+  [BotMessageContextMenuCommandName.MESSAGE_SENT]: never,
+  [BotMessageContextMenuCommandName.MESSAGE_LAST_EDITED]: never,
 }
 
 export const enum GlobalCommandResponse {
@@ -94,17 +96,28 @@ export const enum SnowflakeCommandResponse {
   INVALID_SNOWFLAKE = 'invalidSnowflake',
 }
 
+export const enum MessageSentCommandResponse {
+  TARGET_MESSAGE = 'targetMessage',
+}
+
+export const enum MessageLastEditedCommandResponse {
+  TARGET_MESSAGE = 'targetMessage',
+  NOT_EDITED = 'notEdited',
+}
+
 interface CommandResponsesMap {
   global: GlobalCommandResponse,
-  [BotCommandName.TIMESTAMP]: TimestampCommandResponse,
-  [BotCommandName.IN]: never,
-  [BotCommandName.AGO]: never,
-  [BotCommandName.AT]: AtCommandResponse,
-  [BotCommandName.ADD]: never,
-  [BotCommandName.SUBTRACT]: never,
-  [BotCommandName.UNIX]: never,
-  [BotCommandName.STATISTICS]: never,
-  [BotCommandName.SNOWFLAKE]: SnowflakeCommandResponse,
+  [BotChatInputCommandName.TIMESTAMP]: TimestampCommandResponse,
+  [BotChatInputCommandName.IN]: never,
+  [BotChatInputCommandName.AGO]: never,
+  [BotChatInputCommandName.AT]: AtCommandResponse,
+  [BotChatInputCommandName.ADD]: never,
+  [BotChatInputCommandName.SUBTRACT]: never,
+  [BotChatInputCommandName.UNIX]: never,
+  [BotChatInputCommandName.STATISTICS]: never,
+  [BotChatInputCommandName.SNOWFLAKE]: SnowflakeCommandResponse,
+  [BotMessageContextMenuCommandName.MESSAGE_SENT]: MessageSentCommandResponse,
+  [BotMessageContextMenuCommandName.MESSAGE_LAST_EDITED]: MessageLastEditedCommandResponse,
 }
 
 export const enum ResponseColumnChoices {
@@ -124,12 +137,19 @@ export type OptionLocalization<OptionName extends string = string> =
     choices: Record<OptionChoicesMap[OptionName], string>
   } : { choices?: Record<string, never> });
 
+export type ResponsesLocalization<CommandKey extends keyof CommandResponsesMap> = {
+  responses: { [l in CommandResponsesMap[CommandKey]]: string };
+};
+
 export type CommandLocalization<CommandKey extends keyof CommandOptionsMap & keyof CommandResponsesMap = keyof CommandOptionsMap & keyof CommandResponsesMap> =
-  Pick<APIApplicationCommand, 'name' | 'description'>
-  & {
-    options: { [l in CommandOptionsMap[CommandKey]]: OptionLocalization<l> };
-    responses: { [l in CommandResponsesMap[CommandKey]]: string };
-  };
+  Pick<APIApplicationCommand, CommandKey extends BotMessageContextMenuCommandName ? 'name' : ('name' | 'description')>
+  & (
+    CommandKey extends BotMessageContextMenuCommandName
+      ? ResponsesLocalization<CommandKey>
+      : ({
+        options: { [l in CommandOptionsMap[CommandKey]]: OptionLocalization<l> };
+      } & ResponsesLocalization<CommandKey>)
+  );
 
 export type Localization = {
   commands: {

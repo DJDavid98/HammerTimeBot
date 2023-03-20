@@ -1,12 +1,14 @@
 import moment from 'moment-timezone';
-import { BotCommand } from '../types/bot-interaction.js';
+import { BotChatInputCommand } from '../types/bot-interaction.js';
 import { UnixCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getUnixCommandOptions } from '../options/unix.options.js';
+import { ApplicationCommandType } from 'discord-api-types/v10';
 
-export const unixCommand: BotCommand = {
+export const unixCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
+    type: ApplicationCommandType.ChatInput,
     ...getLocalizedObject('description', (lng) => t('commands.unix.description', { lng })),
     ...getLocalizedObject('name', (lng) => t('commands.unix.name', { lng })),
     options: getUnixCommandOptions(t),

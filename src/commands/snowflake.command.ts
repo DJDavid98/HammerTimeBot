@@ -1,14 +1,16 @@
 import moment from 'moment';
 import { getSnowflakeCommandOptions } from '../options/snowflake.options.js';
-import { BotCommand } from '../types/bot-interaction.js';
+import { BotChatInputCommand } from '../types/bot-interaction.js';
 import { SnowflakeCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import snowflakeToUnix from '../utils/snowflake.js';
 import { SnowflakeError } from '../classes/snowflake-error.js';
+import { ApplicationCommandType } from 'discord-api-types/v10';
 
-export const snowflakeCommand: BotCommand = {
+export const snowflakeCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
+    type: ApplicationCommandType.ChatInput,
     ...getLocalizedObject('description', (lng) => t('commands.snowflake.description', { lng })),
     ...getLocalizedObject('name', (lng) => t('commands.snowflake.name', { lng })),
     options: getSnowflakeCommandOptions(t),

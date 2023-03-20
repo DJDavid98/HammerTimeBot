@@ -1,4 +1,4 @@
-import { Client, InteractionType } from 'discord.js';
+import { Client, Events, InteractionType } from 'discord.js';
 import { i18n } from 'i18next';
 import { env } from '../env.js';
 import { getGitData } from './get-git-data.js';
@@ -47,9 +47,9 @@ const handleReady = (i18next: i18n) => async (client: Client<true>) => {
 export const createClient = async (i18next: i18n): Promise<void> => {
   const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-  client.on('ready', handleReady(i18next));
+  client.on(Events.ClientReady, handleReady(i18next));
 
-  client.on('interactionCreate', async (interaction) => {
+  client.on(Events.InteractionCreate, async (interaction) => {
     switch (interaction.type) {
       case InteractionType.ApplicationCommand:
         await handleCommandInteraction(interaction, i18next);

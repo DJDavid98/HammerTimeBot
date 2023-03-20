@@ -2,8 +2,7 @@ import { join } from 'path';
 import i18next, { i18n } from 'i18next';
 import Backend from 'i18next-fs-backend';
 import { env } from '../env.js';
-import { Locale } from 'discord-api-types/v10';
-import { LocaleString } from 'discord-api-types/v10.js';
+import { Locale, LocaleString } from 'discord-api-types/v10';
 
 // Type-safe language constants
 export const SUPPORTED_LANGUAGES = Object.values(Locale) as LocaleString[];

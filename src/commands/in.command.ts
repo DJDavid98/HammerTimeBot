@@ -1,4 +1,4 @@
-import { BotCommand } from '../types/bot-interaction.js';
+import { BotChatInputCommand } from '../types/bot-interaction.js';
 import { adjustMoment } from '../utils/time.js';
 import { InCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
@@ -6,9 +6,11 @@ import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getInOptions } from '../options/in.options.js';
 import moment from 'moment-timezone';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
+import { ApplicationCommandType } from 'discord-api-types/v10';
 
-export const inCommand: BotCommand = {
+export const inCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
+    type: ApplicationCommandType.ChatInput,
     ...getLocalizedObject('description', (lng) => t('commands.in.description', { lng })),
     ...getLocalizedObject('name', (lng) => t('commands.in.name', { lng })),
     options: getInOptions(t),

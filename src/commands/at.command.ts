@@ -1,14 +1,16 @@
 import moment, { Moment } from 'moment-timezone';
-import { BotCommand } from '../types/bot-interaction.js';
+import { BotChatInputCommand } from '../types/bot-interaction.js';
 import { constrain, findTimezone, getGmtTimezoneValue, gmtTimezoneOptions, gmtZoneRegex } from '../utils/time.js';
 import { AtCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { TimezoneError } from '../classes/timezone-error.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getAtOptions } from '../options/at.options.js';
+import { ApplicationCommandType } from 'discord-api-types/v10';
 
-export const atCommand: BotCommand = {
+export const atCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
+    type: ApplicationCommandType.ChatInput,
     ...getLocalizedObject('description', (lng) => t('commands.at.description', { lng })),
     ...getLocalizedObject('name', (lng) => t('commands.at.name', { lng })),
     options: getAtOptions(t),

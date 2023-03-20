@@ -2,11 +2,11 @@ import {
   AutocompleteInteraction,
   ButtonInteraction,
   ChatInputCommandInteraction,
-  CommandInteraction,
-  InteractionType,
+  CommandInteraction, ContextMenuCommandInteraction,
+  InteractionType, MessageContextMenuCommandInteraction,
 } from 'discord.js';
 import { i18n } from 'i18next';
-import { commandMap, isKnownCommandInteraction } from './commands.js';
+import { chatInputCommandMap, isKnownChatInputCommandInteraction } from './commands.js';
 import { EmojiCharacters } from '../constants/emoji-characters.js';
 import {
   getUserIdentifier,
@@ -17,12 +17,13 @@ import {
 } from './messaging.js';
 import { ApplicationCommandType } from 'discord-api-types/v10';
 import { DEFAULT_LANGUAGE } from '../constants/locales.js';
+import { messageContextMenuCommandMap, isKnownMessageContextmenuInteraction } from './message-context-menu-commands.js';
 
 const ellipsis = '…';
 
 const processingErrorMessageFactory = (): string => `${EmojiCharacters.OCTAGONAL_SIGN} There was an unexpected error while processing this interaction`;
 
-const handleInteractionError = async (interaction: ChatInputCommandInteraction | ButtonInteraction | AutocompleteInteraction) => {
+const handleInteractionError = async (interaction: ChatInputCommandInteraction | ButtonInteraction | AutocompleteInteraction | ContextMenuCommandInteraction) => {
   if (interaction.type === InteractionType.ApplicationCommandAutocomplete) {
     await interaction.respond([
       {
@@ -57,19 +58,47 @@ const isChatInputCommandInteraction = (interaction: CommandInteraction): interac
   return interaction.commandType === ApplicationCommandType.ChatInput;
 };
 
-export const handleCommandInteraction = async (interaction: CommandInteraction, i18next: i18n): Promise<void> => {
-  if (!isChatInputCommandInteraction(interaction)) {
-    await interaction.reply(`Unsupported command type ${interaction.commandName}`);
+export const handleContextMenuInteraction = async (interaction: MessageContextMenuCommandInteraction, i18next: i18n): Promise<void> => {
+  if (!isKnownMessageContextmenuInteraction(interaction)) {
+    await interaction.reply({
+      content: `Unsupported context menu interaction with name ${interaction.commandName}`,
+      ephemeral: true,
+    });
     return;
   }
 
-  if (!isKnownCommandInteraction(interaction)) {
+  const { commandName, locale } = interaction;
+  const command = messageContextMenuCommandMap[commandName];
+  const t = i18next.getFixedT(locale);
+
+  try {
+    await command.handle(interaction, t);
+  } catch (e) {
+    console.error(`Error while responding to context menu command (commandName=${commandName})`, e);
+    await handleInteractionError(interaction);
+  }
+};
+
+
+export const handleCommandInteraction = async (interaction: CommandInteraction, i18next: i18n): Promise<void> => {
+  if (!isChatInputCommandInteraction(interaction)) {
+    if (interaction.isMessageContextMenuCommand()) {
+      return handleContextMenuInteraction(interaction, i18next);
+    }
+    await interaction.reply({
+      content: `Unsupported command type ${interaction.commandType} when running ${interaction.commandName}`,
+      ephemeral: true,
+    });
+    return;
+  }
+
+  if (!isKnownChatInputCommandInteraction(interaction)) {
     await interaction.reply(`Unknown command ${interaction.commandName}`);
     return;
   }
 
   const { commandName, user, options, channel, guild, locale } = interaction;
-  const command = commandMap[commandName];
+  const command = chatInputCommandMap[commandName];
   const ephemeral = isEphemeralResponse(interaction);
   // Always use user's locale for ephemeral responses, otherwise use server's preferred locale when available
   const t = i18next.getFixedT(
@@ -96,12 +125,12 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
 };
 
 export const handleCommandAutocomplete = async (interaction: AutocompleteInteraction, i18next: i18n): Promise<void> => {
-  if (!isKnownCommandInteraction(interaction)) {
+  if (!isKnownChatInputCommandInteraction(interaction)) {
     return;
   }
 
   const { commandName, locale } = interaction;
-  const command = commandMap[commandName];
+  const command = chatInputCommandMap[commandName];
   const t = i18next.getFixedT(locale);
 
   try {

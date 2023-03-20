@@ -1,14 +1,16 @@
 import moment from 'moment-timezone';
-import { BotCommand } from '../types/bot-interaction.js';
+import { BotChatInputCommand } from '../types/bot-interaction.js';
 import { adjustMoment } from '../utils/time.js';
 import { SubtractCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getSubtractOptions } from '../options/subtract.options.js';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
+import { ApplicationCommandType } from 'discord-api-types/v10';
 
-export const subtractCommand: BotCommand = {
+export const subtractCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
+    type: ApplicationCommandType.ChatInput,
     ...getLocalizedObject('description', (lng) => t('commands.subtract.description', { lng })),
     ...getLocalizedObject('name', (lng) => t('commands.subtract.name', { lng })),
     options: getSubtractOptions(t),

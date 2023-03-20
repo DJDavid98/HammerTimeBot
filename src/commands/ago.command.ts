@@ -1,4 +1,4 @@
-import { BotCommand } from '../types/bot-interaction.js';
+import { BotChatInputCommand } from '../types/bot-interaction.js';
 import { adjustMoment } from '../utils/time.js';
 import { AgoCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
@@ -6,9 +6,11 @@ import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getAgoOptions } from '../options/ago.options.js';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
 import moment from 'moment-timezone';
+import { ApplicationCommandType } from 'discord-api-types/v10';
 
-export const agoCommand: BotCommand = {
+export const agoCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
+    type: ApplicationCommandType.ChatInput,
     ...getLocalizedObject('description', (lng) => t('commands.ago.description', { lng })),
     ...getLocalizedObject('name', (lng) => t('commands.ago.name', { lng })),
     options: getAgoOptions(t),

@@ -1,19 +1,21 @@
-import { BotCommand, BotCommandName } from '../types/bot-interaction.js';
+import { BotChatInputCommand, BotChatInputCommandName } from '../types/bot-interaction.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { env } from '../env.js';
+import { ApplicationCommandType } from 'discord-api-types/v10';
 
-const baseCommandName = BotCommandName.TIMESTAMP;
+const baseCommandName = BotChatInputCommandName.TIMESTAMP;
 const exampleCommands = [
-  BotCommandName.ADD,
-  BotCommandName.AGO,
-  BotCommandName.AT,
-  BotCommandName.IN,
-  BotCommandName.SUBTRACT,
-  BotCommandName.UNIX,
+  BotChatInputCommandName.ADD,
+  BotChatInputCommandName.AGO,
+  BotChatInputCommandName.AT,
+  BotChatInputCommandName.IN,
+  BotChatInputCommandName.SUBTRACT,
+  BotChatInputCommandName.UNIX,
 ];
 
-export const timestampCommand: BotCommand = {
+export const timestampCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
+    type: ApplicationCommandType.ChatInput,
     ...getLocalizedObject('description', (lng) => t('commands.timestamp.description', { lng })),
     ...getLocalizedObject('name', (lng) => t('commands.timestamp.name', { lng })),
   }),

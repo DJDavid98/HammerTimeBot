@@ -2,8 +2,8 @@ import { RESTGetAPICurrentUserGuildsResult, Routes } from 'discord-api-types/v10
 import { REST } from '@discordjs/rest';
 import { Snowflake } from 'discord-api-types/globals';
 import { TFunction } from 'i18next';
-import { getCommands } from './commands.js';
 import { env } from '../env.js';
+import { getApplicationCommands } from './get-application-commands.js';
 
 const rest = new REST({
   version: '10',
@@ -24,7 +24,7 @@ export const updateGuildCommands = async (guildId: Snowflake, t: TFunction): Pro
 
     await rest.put(
       Routes.applicationGuildCommands(env.DISCORD_CLIENT_ID, guildId),
-      { body: getCommands(t) },
+      { body: getApplicationCommands(t) },
     );
 
     console.log(`Successfully reloaded guild (/) commands (${guildIdString})`);
@@ -59,7 +59,7 @@ export const updateGlobalCommands = async (t: TFunction): Promise<void> => {
 
     await rest.put(
       Routes.applicationCommands(env.DISCORD_CLIENT_ID),
-      { body: getCommands(t) },
+      { body: getApplicationCommands(t) },
     );
 
     console.log('Successfully reloaded application (/) commands');

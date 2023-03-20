@@ -1,13 +1,15 @@
-import { BotCommand } from '../types/bot-interaction.js';
+import { BotChatInputCommand } from '../types/bot-interaction.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
 import { getStatisticsCommandOptions } from '../options/statistics.options.js';
 import { getTotalServerCount, getTotalUserCount } from '../utils/usage-stats.js';
 import { getBareNumberFormatter, isEphemeralResponse } from '../utils/messaging.js';
 import { env } from '../env.js';
+import { ApplicationCommandType } from 'discord-api-types/v10';
 
-export const statisticsCommand: BotCommand = {
+export const statisticsCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
+    type: ApplicationCommandType.ChatInput,
     ...getLocalizedObject('description', (lng) => t('commands.statistics.description', { lng })),
     ...getLocalizedObject('name', (lng) => t('commands.statistics.name', { lng })),
     options: getStatisticsCommandOptions(t),

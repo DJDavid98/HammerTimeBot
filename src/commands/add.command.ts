@@ -1,5 +1,5 @@
 import moment from 'moment-timezone';
-import { BotCommand } from '../types/bot-interaction.js';
+import { BotChatInputCommand } from '../types/bot-interaction.js';
 import { adjustMoment } from '../utils/time.js';
 import { AddCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
@@ -7,7 +7,7 @@ import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getAddOptions } from '../options/add.options.js';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
 
-export const addCommand: BotCommand = {
+export const addCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
     ...getLocalizedObject('description', (lng) => t('commands.add.description', { lng })),
     ...getLocalizedObject('name', (lng) => t('commands.add.name', { lng })),
