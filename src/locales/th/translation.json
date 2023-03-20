@@ -241,7 +241,17 @@
       }
     },
     "snowflake": {
-      "name": "snowflake"
+      "name": "snowflake",
+      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "responses": {
+        "invalidSnowflake": "The specified snowflake is invalid"
+      },
+      "options": {
+        "value": {
+          "name": "value",
+          "description": "The Snowflake number"
+        }
+      }
     }
   }
 }
