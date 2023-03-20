@@ -239,6 +239,9 @@
         "serverInvite": "Támogatási szerver meghívó URL:",
         "totalUserCount": "A szerverek összes felhasználója:"
       }
+    },
+    "snowflake": {
+      "name": "snowflake"
     }
   }
 }
