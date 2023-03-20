@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "时间戳",
       "description": "已弃用。请去掉指令中的 /时间戳 前缀。",
-      "options": [],
+      "options": {},
       "responses": {
         "deprecated": "子指令已被替换为分开的指令，因为 {{baseCommand}} 指令达到了 Discord API 的限制。\n您仍然可以使用和以前一样的指令，唯一的区别是您不应再输入 {{baseCommandName}} 。例如，要调用 {{exampleSubCommand}} ，现在您只需输入 {{exampleCommand}} 。\n感谢您的理解。如果您有任何反馈，请您发送到 HammerTime 的官方 Discord 服务器：{{discordInviteUrl}}"
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "前",
       "description": "指定一个“一段时间以前”（相对当前时间）的时间戳",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "年",
@@ -42,7 +42,7 @@
     "in": {
       "name": "后",
       "description": "指定一个“一段时间以后”（相对当前时间）的时间戳",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "年",
@@ -110,7 +110,7 @@
     "add": {
       "name": "加",
       "description": "指定 UNIX 时间戳，然后相对于该时间戳加上一段时间",
-      "responses": [],
+      "responses": {},
       "options": {
         "to": {
           "name": "原时间戳",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "减",
       "description": "指定 UNIX 时间戳，然后相对于该时间戳减去一段时间",
-      "responses": [],
+      "responses": {},
       "options": {
         "from": {
           "name": "原时间戳",
@@ -169,18 +169,18 @@
         },
         "minutes": {
           "name": "分钟",
-          "description": "要从指定时间戳减去多少分钟"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "秒",
-          "description": "要从指定时间戳减去多少秒"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
     "unix": {
       "name": "unix",
       "description": "指定 UNIX 时间戳显示时间戳语法",
-      "responses": [],
+      "responses": {},
       "options": {
         "value": {
           "name": "时间戳",
@@ -190,7 +190,9 @@
     },
     "global": {
       "responses": {
-        "invalidDate": "指定的日期无效（例如：给定的日期不存在）"
+        "invalidDate": "指定的日期无效（例如：给定的日期不存在）",
+        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -228,7 +230,7 @@
     "statistics": {
       "name": "统计",
       "description": "显示关于机器人的一些统计信息",
-      "options": [],
+      "options": {},
       "responses": {
         "totalServerCount": "已加入服务器数量：",
         "shardServerCount": "本分机加入的服务器数量：",
