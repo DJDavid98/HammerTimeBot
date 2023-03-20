@@ -51,7 +51,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇷🇺 Russian
   - [GameHacker](https://crowdin.com/profile/GameHacker)
   - [Nikita Sharikov](https://crowdin.com/profile/Aligatoor)
-- 🇪🇸 Spanish: [Pablo Luna](https://crowdin.com/profile/shaulyareaj)
+- 🇪🇸 Spanish: [Yareaj](https://github.com/Yareaj/)
 - 🇹🇭 Thai: [Rukchad Wongprayoon](https://crowdin.com/profile/unpredictable)
 - 🇹🇷 Turkish: [Baran Moroğan](https://crowdin.com/profile/okunamayanad)
 - 🇺🇦 Ukrainian
