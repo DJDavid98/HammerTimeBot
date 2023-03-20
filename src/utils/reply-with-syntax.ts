@@ -1,4 +1,4 @@
-import { MessageTimestamp, MessageTimestampFormat } from './message-timestamp.js';
+import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
 import { formattedResponse, supportedFormats } from './time.js';
 import { ChatInputCommandInteraction } from 'discord.js';
 import { TFunction } from 'i18next';

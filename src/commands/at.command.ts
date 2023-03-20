@@ -3,7 +3,7 @@ import { BotCommand } from '../types/bot-interaction.js';
 import { constrain, findTimezone, getGmtTimezoneValue, gmtTimezoneOptions, gmtZoneRegex } from '../utils/time.js';
 import { AtCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
-import { TimezoneError } from '../utils/timezone-error.js';
+import { TimezoneError } from '../classes/timezone-error.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getAtOptions } from '../options/at.options.js';
 

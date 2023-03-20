@@ -8,8 +8,8 @@ import {
   pad,
   supportedFormats,
 } from './time.js';
-import { MessageTimestamp, MessageTimestampFormat } from './message-timestamp.js';
-import { TimezoneError } from './timezone-error.js';
+import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
+import { TimezoneError } from '../classes/timezone-error.js';
 import { ResponseColumnChoices } from '../types/localization.js';
 
 describe('time utils', () => {

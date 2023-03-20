@@ -5,6 +5,7 @@ import { SnowflakeCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import snowflakeToUnix from '../utils/snowflake.js';
+import { SnowflakeError } from '../classes/snowflake-error.js';
 
 export const snowflakeCommand: BotCommand = {
   getDefinition: (t) => ({
@@ -18,11 +19,15 @@ export const snowflakeCommand: BotCommand = {
     try {
       unixValue = snowflakeToUnix(snowflake);
     } catch (e) {
-      await interaction.reply({
-        content: t('commands.snowflake.responses.invalidSnowflake'),
-        ephemeral: true,
-      });
-      return;
+      if (e instanceof SnowflakeError) {
+        await interaction.reply({
+          content: t('commands.snowflake.responses.invalidSnowflake'),
+          ephemeral: true,
+        });
+        return;
+      }
+
+      throw e;
     }
     const localMoment = moment.unix(unixValue).utc();
 

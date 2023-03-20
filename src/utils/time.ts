@@ -1,8 +1,8 @@
 import moment, { Moment } from 'moment-timezone';
 import levenshtein from 'js-levenshtein';
 import { unitOfTime } from 'moment';
-import { TimezoneError } from './timezone-error.js';
-import { MessageTimestamp, MessageTimestampFormat } from './message-timestamp.js';
+import { TimezoneError } from '../classes/timezone-error.js';
+import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
 import { ResponseColumnChoices } from '../types/localization.js';
 
 export const gmtTimezoneOptions = [

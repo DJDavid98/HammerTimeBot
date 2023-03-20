@@ -1,15 +1,15 @@
 import { APIApplicationCommand, APIApplicationCommandOption } from 'discord-api-types/v10';
 import { BotCommandName } from './bot-interaction.js';
-import { MessageTimestampFormat } from '../utils/message-timestamp.js';
+import { MessageTimestampFormat } from '../classes/message-timestamp.js';
 
-export enum GlobalCommandOptionName {
+export const enum GlobalCommandOptionName {
   COLUMNS = 'columns',
   EPHEMERAL = 'ephemeral',
   FORMAT = 'format',
   HEADER = 'header',
 }
 
-export enum AtCommandOptionName {
+export const enum AtCommandOptionName {
   YEAR = 'year',
   MONTH = 'month',
   DATE = 'day',
@@ -19,7 +19,7 @@ export enum AtCommandOptionName {
   TIMEZONE = 'timezone',
 }
 
-export enum InCommandOptionName {
+export const enum InCommandOptionName {
   IN_YEARS = 'years',
   IN_MONTHS = 'months',
   IN_DAYS = 'days',
@@ -28,7 +28,7 @@ export enum InCommandOptionName {
   IN_SECONDS = 'seconds',
 }
 
-export enum AgoCommandOptionName {
+export const enum AgoCommandOptionName {
   YEARS_AGO = 'years',
   MONTHS_AGO = 'months',
   DAYS_AGO = 'days',
@@ -37,7 +37,7 @@ export enum AgoCommandOptionName {
   SECONDS_AGO = 'seconds',
 }
 
-export enum AddCommandOptionName {
+export const enum AddCommandOptionName {
   TO = 'to',
   ADD_YEARS = 'years',
   ADD_MONTHS = 'months',
@@ -47,7 +47,7 @@ export enum AddCommandOptionName {
   ADD_SECONDS = 'seconds',
 }
 
-export enum SubtractCommandOptionName {
+export const enum SubtractCommandOptionName {
   FROM = 'from',
   SUBTRACT_YEARS = 'years',
   SUBTRACT_MONTHS = 'months',
@@ -57,11 +57,11 @@ export enum SubtractCommandOptionName {
   SUBTRACT_SECONDS = 'seconds',
 }
 
-export enum UnixCommandOptionName {
+export const enum UnixCommandOptionName {
   VALUE = 'value',
 }
 
-export enum SnowflakeCommandOptionName {
+export const enum SnowflakeCommandOptionName {
   VALUE = 'value',
 }
 
@@ -76,16 +76,22 @@ interface CommandOptionsMap {
   [BotCommandName.STATISTICS]: never,
 }
 
-export enum GlobalCommandResponse {
+export const enum GlobalCommandResponse {
   INVALID_DATE = 'invalidDate',
+  NO_COMPONENTS_CURRENT_TIME = 'noComponentsCurrentTime',
+  NO_COMPONENTS_UNIX = 'noComponentsUnix',
 }
 
-export enum TimestampCommandResponse {
+export const enum TimestampCommandResponse {
   DEPRECATED = 'deprecated',
 }
 
-export enum AtCommandResponse {
+export const enum AtCommandResponse {
   TIMEZONE_NOT_FOUND = 'timezoneNotFound',
+}
+
+export const enum SnowflakeCommandResponse {
+  INVALID_SNOWFLAKE = 'invalidSnowflake',
 }
 
 interface CommandResponsesMap {
@@ -98,9 +104,10 @@ interface CommandResponsesMap {
   [BotCommandName.SUBTRACT]: never,
   [BotCommandName.UNIX]: never,
   [BotCommandName.STATISTICS]: never,
+  [BotCommandName.SNOWFLAKE]: SnowflakeCommandResponse,
 }
 
-export enum ResponseColumnChoices {
+export const enum ResponseColumnChoices {
   SYNTAX_ONLY = 'syntax',
   PREVIEW_ONLY = 'preview',
   BOTH = 'both',

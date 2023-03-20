@@ -1,7 +1,7 @@
 import { APIApplicationCommandBasicOption, ApplicationCommandOptionType } from 'discord-api-types/v10';
 import { TFunction } from 'i18next';
 import { GlobalCommandOptionName, ResponseColumnChoices } from '../types/localization.js';
-import { MessageTimestampFormat } from '../utils/message-timestamp.js';
+import { MessageTimestampFormat } from '../classes/message-timestamp.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 
 const getFormatOption = (t: TFunction): APIApplicationCommandBasicOption => ({

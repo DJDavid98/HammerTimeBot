@@ -1,9 +1,7 @@
 import snowflakeToUnix from './snowflake.js';
+import { SnowflakeError } from '../classes/snowflake-error.js';
 
-const INVALID_SNOWFLAKE_ERROR = new Error('Invalid snowflake. Snowflakes must be a valid number.');
-const INVALID_SNOWFLAKE_TOO_SMALL_ERROR = new Error('Invalid snowflake. Snowflakes must be greater than 4194303.');
-
-describe('snowflakteToUnix', () => {
+describe('snowflakeToUnix', () => {
   it('should convert a snowflake to a unix timestamp', () => {
     expect(snowflakeToUnix('996673713938366504')).toEqual(1657695930);
     expect(snowflakeToUnix('1005505184094507048')).toEqual(1659801517);
@@ -14,16 +12,16 @@ describe('snowflakteToUnix', () => {
     expect(snowflakeToUnix('0x1EB87C37A81FFF8')).toEqual(1453056441);
     expect(snowflakeToUnix('4194304')).toEqual(1420070400);
   });
-  it('should throw an error if the snowflake is invalid', () => {
-    expect(() => snowflakeToUnix('invalid')).toThrow(INVALID_SNOWFLAKE_ERROR);
-    expect(() => snowflakeToUnix('')).toThrow(INVALID_SNOWFLAKE_ERROR);
-    expect(() => snowflakeToUnix('120312039NotANumber012021')).toThrow(INVALID_SNOWFLAKE_ERROR);
-    expect(() => snowflakeToUnix('one')).toThrow(INVALID_SNOWFLAKE_ERROR);
+  it('should throw an error if the snowflake is not a number', () => {
+    const invalidInput = ['invalid', '', '120312039NotANumber012021', 'one'];
+    invalidInput.forEach(input => {
+      expect(() => snowflakeToUnix(input)).toThrow(new SnowflakeError(input));
+    });
   });
   it('should throw an error if the snowflake is too small', () => {
-    expect(() => snowflakeToUnix('4194303')).toThrow(INVALID_SNOWFLAKE_TOO_SMALL_ERROR);
-    expect(() => snowflakeToUnix('0')).toThrow(INVALID_SNOWFLAKE_TOO_SMALL_ERROR);
-    expect(() => snowflakeToUnix('-10')).toThrow(INVALID_SNOWFLAKE_TOO_SMALL_ERROR);
-    expect(() => snowflakeToUnix('-138353487208644608')).toThrow(INVALID_SNOWFLAKE_TOO_SMALL_ERROR);
+    const invalidInput = ['4194303', '0', '-10', '-138353487208644608'];
+    invalidInput.forEach(input => {
+      expect(() => snowflakeToUnix(input)).toThrow(new SnowflakeError(input));
+    });
   });
 });

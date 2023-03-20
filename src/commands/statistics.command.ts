@@ -1,6 +1,6 @@
 import { BotCommand } from '../types/bot-interaction.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
-import { MessageTimestamp, MessageTimestampFormat } from '../utils/message-timestamp.js';
+import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
 import { getStatisticsCommandOptions } from '../options/statistics.options.js';
 import { getTotalServerCount, getTotalUserCount } from '../utils/usage-stats.js';
 import { getBareNumberFormatter, isEphemeralResponse } from '../utils/messaging.js';
