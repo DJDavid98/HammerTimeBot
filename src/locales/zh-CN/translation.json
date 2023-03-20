@@ -239,6 +239,9 @@
         "serverInvite": "客服 Discord 服务器：",
         "totalUserCount": "已加入的服务器总计的用户数："
       }
+    },
+    "snowflake": {
+      "name": "snowflake"
     }
   }
 }
