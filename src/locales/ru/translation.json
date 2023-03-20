@@ -192,7 +192,7 @@
       "responses": {
         "invalidDate": "Указанная дата недействительна (например: заданный день не существует)",
         "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
       },
       "options": {
         "format": {
