@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "časové razítko",
       "description": "Zastaralé, používejte prosím příkazy bez předpony /timestamp",
-      "options": [],
+      "options": {},
       "responses": {
         "deprecated": "Dílčí příkazy byly nahrazeny samostatnými příkazy, protože možnosti příkazu {{baseCommand}} dosáhly limitů rozhraní API služby Discord.\nMůžete používat stejné příkazy jako dříve, jediný rozdíl je v tom, že musíte vynechat {{baseCommandName}}. Například {{exampleSubCommand}} je nyní jednoduše {{exampleCommand}}.\nDěkujeme za pochopení. Jakoukoli zpětnou vazbu týkající se této změny prosím směřujte na oficiální server Discord společnosti HammerTime: {{discordInviteUrl}}"
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "před",
       "description": "Zadání časového razítka v minulosti vzhledem k aktuálnímu času",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "roky",
@@ -42,7 +42,7 @@
     "in": {
       "name": "v",
       "description": "Zadání časového razítka v budoucnosti vzhledem k aktuálnímu času",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "roky",
@@ -110,7 +110,7 @@
     "add": {
       "name": "přidat",
       "description": "Přidání času k zadanému časovému razítku systému UNIX",
-      "responses": [],
+      "responses": {},
       "options": {
         "to": {
           "name": "do",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "odečíst",
       "description": "Odečtení určitého času od zadaného časového razítka systému UNIX",
-      "responses": [],
+      "responses": {},
       "options": {
         "from": {
           "name": "od",
@@ -169,18 +169,18 @@
         },
         "minutes": {
           "name": "minuty",
-          "description": "Kolik minut se má odečíst od zadaného časového údaje"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "vteřiny",
-          "description": "Kolik vteřin se má odečíst od zadaného časového razítka"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
     "unix": {
       "name": "unix",
       "description": "Zobrazení syntaxe pro konkrétní časové razítko systému UNIX",
-      "responses": [],
+      "responses": {},
       "options": {
         "value": {
           "name": "hodnota",
@@ -190,7 +190,9 @@
     },
     "global": {
       "responses": {
-        "invalidDate": "Zadané datum je neplatné (například: daný den neexistuje)"
+        "invalidDate": "Zadané datum je neplatné (například: daný den neexistuje)",
+        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -228,7 +230,7 @@
     "statistics": {
       "name": "statistiky",
       "description": "Zobrazuje různé informace o botovi",
-      "options": [],
+      "options": {},
       "responses": {
         "totalServerCount": "Celkový počet připojených serverů:",
         "shardServerCount": "Servery na tomto střepu:",
