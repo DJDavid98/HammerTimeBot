@@ -4,6 +4,8 @@ import { AgoCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getAgoOptions } from '../options/ago.options.js';
+import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
+import moment from 'moment-timezone';
 
 export const agoCommand: BotCommand = {
   getDefinition: (t) => ({
@@ -12,7 +14,7 @@ export const agoCommand: BotCommand = {
     options: getAgoOptions(t),
   }),
   async handle(interaction, t) {
-    const subtractOptions = {
+    const options = {
       years: interaction.options.getNumber(AgoCommandOptionName.YEARS_AGO),
       months: interaction.options.getNumber(AgoCommandOptionName.MONTHS_AGO),
       days: interaction.options.getNumber(AgoCommandOptionName.DAYS_AGO),
@@ -21,8 +23,21 @@ export const agoCommand: BotCommand = {
       seconds: interaction.options.getNumber(AgoCommandOptionName.SECONDS_AGO),
     };
 
-    const localMoment = adjustMoment(subtractOptions, 'subtract');
+    if (!atLeastOneNonZeroKey(options)) {
+      await interaction.reply({
+        content: t('commands.global.responses.noComponentsCurrentTime', {
+          replace: {
+            atCommand: t('commands.at.name'),
+          },
+        }),
+        ephemeral: true,
+      });
+      return;
+    }
 
-    await replyWithSyntax(localMoment, interaction, t);
+    const timezone = 'UTC';
+    const localMoment = adjustMoment(options, 'subtract', moment.tz(timezone));
+
+    await replyWithSyntax(localMoment, interaction, t, timezone);
   },
 };

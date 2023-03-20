@@ -190,7 +190,9 @@
     },
     "global": {
       "responses": {
-        "invalidDate": "The specified date is invalid (for example: the given day does not exist)"
+        "invalidDate": "The specified date is invalid (for example: the given day does not exist)",
+        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
       },
       "options": {
         "format": {

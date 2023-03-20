@@ -70,7 +70,6 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
 
   const { commandName, user, options, channel, guild, locale } = interaction;
   const command = commandMap[commandName];
-  const level = interaction.inGuild() ? 'GUILD' : 'APP';
   const ephemeral = isEphemeralResponse(interaction);
   // Always use user's locale for ephemeral responses, otherwise use server's preferred locale when available
   const t = i18next.getFixedT(
@@ -86,7 +85,7 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
   const optionsString = options.data.length > 0
     ? ` ${stringifyOptionsData(interaction.options.data)}`
     : '';
-  console.log(`${getUserIdentifier(user)} ran [${level}] /${commandName}${optionsString} in ${stringifyChannelName(channel)} of ${stringifyGuildName(guild)}`);
+  console.log(`${getUserIdentifier(user)} ran /${commandName}${optionsString} in ${stringifyChannelName(channel)} of ${stringifyGuildName(guild)}`);
 
   try {
     await command.handle(interaction, t);

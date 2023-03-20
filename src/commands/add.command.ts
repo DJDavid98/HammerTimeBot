@@ -5,6 +5,7 @@ import { AddCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getAddOptions } from '../options/add.options.js';
+import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
 
 export const addCommand: BotCommand = {
   getDefinition: (t) => ({
@@ -15,7 +16,7 @@ export const addCommand: BotCommand = {
   async handle(interaction, t) {
     const to = interaction.options.getNumber(AddCommandOptionName.TO, true);
     const now = moment.unix(to).utc();
-    const addOptions = {
+    const options = {
       years: interaction.options.getNumber(AddCommandOptionName.ADD_YEARS),
       months: interaction.options.getNumber(AddCommandOptionName.ADD_MONTHS),
       days: interaction.options.getNumber(AddCommandOptionName.ADD_DAYS),
@@ -24,7 +25,19 @@ export const addCommand: BotCommand = {
       seconds: interaction.options.getNumber(AddCommandOptionName.ADD_SECONDS),
     };
 
-    const localMoment = adjustMoment(addOptions, 'add', now);
+    if (!atLeastOneNonZeroKey(options)) {
+      await interaction.reply({
+        content: t('commands.global.responses.noComponentsUnix', {
+          replace: {
+            unixCommand: t('commands.unix.name'),
+          },
+        }),
+        ephemeral: true,
+      });
+      return;
+    }
+
+    const localMoment = adjustMoment(options, 'add', now);
 
     await replyWithSyntax(localMoment, interaction, t);
   },

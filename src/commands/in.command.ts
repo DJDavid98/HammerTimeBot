@@ -5,6 +5,7 @@ import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getInOptions } from '../options/in.options.js';
 import moment from 'moment-timezone';
+import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
 
 export const inCommand: BotCommand = {
   getDefinition: (t) => ({
@@ -13,7 +14,7 @@ export const inCommand: BotCommand = {
     options: getInOptions(t),
   }),
   async handle(interaction, t) {
-    const addOptions = {
+    const options = {
       years: interaction.options.getNumber(InCommandOptionName.IN_YEARS),
       months: interaction.options.getNumber(InCommandOptionName.IN_MONTHS),
       days: interaction.options.getNumber(InCommandOptionName.IN_DAYS),
@@ -22,8 +23,20 @@ export const inCommand: BotCommand = {
       seconds: interaction.options.getNumber(InCommandOptionName.IN_SECONDS),
     };
 
+    if (!atLeastOneNonZeroKey(options)) {
+      await interaction.reply({
+        content: t('commands.global.responses.noComponentsCurrentTime', {
+          replace: {
+            atCommand: t('commands.at.name'),
+          },
+        }),
+        ephemeral: true,
+      });
+      return;
+    }
+
     const timezone = 'UTC';
-    const localMoment = adjustMoment(addOptions, 'add', moment.tz(timezone));
+    const localMoment = adjustMoment(options, 'add', moment.tz(timezone));
 
     await replyWithSyntax(localMoment, interaction, t, timezone);
   },

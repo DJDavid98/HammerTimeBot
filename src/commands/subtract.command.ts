@@ -5,6 +5,7 @@ import { SubtractCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getSubtractOptions } from '../options/subtract.options.js';
+import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
 
 export const subtractCommand: BotCommand = {
   getDefinition: (t) => ({
@@ -15,7 +16,7 @@ export const subtractCommand: BotCommand = {
   async handle(interaction, t) {
     const from = interaction.options.getNumber(SubtractCommandOptionName.FROM, true);
     const now = moment.unix(from).utc();
-    const addOptions = {
+    const options = {
       years: interaction.options.getNumber(SubtractCommandOptionName.SUBTRACT_YEARS),
       months: interaction.options.getNumber(SubtractCommandOptionName.SUBTRACT_MONTHS),
       days: interaction.options.getNumber(SubtractCommandOptionName.SUBTRACT_DAYS),
@@ -24,7 +25,19 @@ export const subtractCommand: BotCommand = {
       seconds: interaction.options.getNumber(SubtractCommandOptionName.SUBTRACT_SECONDS),
     };
 
-    const localMoment = adjustMoment(addOptions, 'subtract', now);
+    if (!atLeastOneNonZeroKey(options)) {
+      await interaction.reply({
+        content: t('commands.global.responses.noComponentsUnix', {
+          replace: {
+            unixCommand: t('commands.unix.name'),
+          },
+        }),
+        ephemeral: true,
+      });
+      return;
+    }
+
+    const localMoment = adjustMoment(options, 'subtract', now);
 
     await replyWithSyntax(localMoment, interaction, t);
   },
