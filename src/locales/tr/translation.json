@@ -239,6 +239,9 @@
         "serverInvite": "Destek sunucusu davet URL'si:",
         "totalUserCount": "Botun hizmet verdiği toplam kişi sayısı:"
       }
+    },
+    "snowflake": {
+      "name": "snowflake"
     }
   }
 }
