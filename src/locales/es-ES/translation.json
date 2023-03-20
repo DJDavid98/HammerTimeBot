@@ -239,6 +239,9 @@
         "serverInvite": "Support server invite URL:",
         "totalUserCount": "Total de usuarios en los servidores unidos:"
       }
+    },
+    "snowflake": {
+      "name": "snowflake"
     }
   }
 }
