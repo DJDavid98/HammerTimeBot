@@ -244,7 +244,7 @@
       "name": "snowflake",
       "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
       "responses": {
-        "invalidSnowflake": "The specified snowflake is invalid"
+        "invalidSnowflake": "The specified Snowflake is invalid"
       },
       "options": {
         "value": {
