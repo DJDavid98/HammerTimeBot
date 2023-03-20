@@ -239,6 +239,19 @@
         "serverInvite": "Support server invite URL:",
         "totalUserCount": "Total users in joined servers:"
       }
+    },
+    "snowflake": {
+      "name": "snowflake",
+      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "responses": {
+        "invalidSnowflake": "The specified Snowflake is invalid"
+      },
+      "options": {
+        "value": {
+          "name": "value",
+          "description": "The Snowflake number"
+        }
+      }
     }
   }
 }

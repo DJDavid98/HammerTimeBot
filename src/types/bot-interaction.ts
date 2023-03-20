@@ -7,6 +7,7 @@ export enum BotCommandName {
   AGO = 'ago',
   AT = 'at',
   IN = 'in',
+  SNOWFLAKE = 'snowflake',
   STATISTICS = 'statistics',
   SUBTRACT = 'subtract',
   TIMESTAMP = 'timestamp',
