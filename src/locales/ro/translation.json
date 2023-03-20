@@ -239,6 +239,9 @@
         "serverInvite": "URL de invitație a serverului de suport:",
         "totalUserCount": "Numărul total de utilizatori în serverele alăturate:"
       }
+    },
+    "snowflake": {
+      "name": "snowflake"
     }
   }
 }
