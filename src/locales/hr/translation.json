@@ -239,6 +239,9 @@
         "serverInvite": "URL poziva server za podršku:",
         "totalUserCount": "Ukupan broj korisnika na pridruženim poslužiteljima:"
       }
+    },
+    "snowflake": {
+      "name": "snowflake"
     }
   }
 }
