@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "timestamp",
       "description": "구식화됨. /timestamp가 붙어있지 않은 명령어를 사용해 주세요.",
-      "options": [],
+      "options": {},
       "responses": {
         "deprecated": "{{baseCommand}} 명령어의 옵션 수가 Discord API의 한계에 도달했으므로, 서브커맨드들은 개별의 명령어로 분리되었습니다.\n이전과 같은 명령어를 사용할 수 있는 것은 변하지 않지만, {{baseCommandName}}에서 벗어나는 것만이 달라집니다. 예를 들면, {{exampleSubCommand}}는 단순히 {{exampleCommand}}가 됩니다.\n이해해 주셔서 감사합니다. 이 변경에 대한 의견이 있으시면, HammerTime의 공식 서버에서 저희에게 전해 주실 수 있습니다."
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "ago",
       "description": "현재 시간에서 특정 시간 전의 타임스탬프를 구할 수 있습니다.",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "years",
@@ -42,7 +42,7 @@
     "in": {
       "name": "in",
       "description": "현재 시간에서 특정 시간 후의 타임스탬프를 구할 수 있습니다.",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "years",
@@ -110,7 +110,7 @@
     "add": {
       "name": "add",
       "description": "지정된 UNIX 타임스탬프에 시간 추가하기",
-      "responses": [],
+      "responses": {},
       "options": {
         "to": {
           "name": "to",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "subtract",
       "description": "지정된 UNIX 타임스탬프에서 시간을 빼기",
-      "responses": [],
+      "responses": {},
       "options": {
         "from": {
           "name": "from",
@@ -169,18 +169,18 @@
         },
         "minutes": {
           "name": "minutes",
-          "description": "현재 시간에서 뺄 분수"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "seconds",
-          "description": "현재 시간에서 뺄 초수"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
     "unix": {
       "name": "unix",
       "description": "특정 UNIX 타임스탬프에 대한 구문 표시",
-      "responses": [],
+      "responses": {},
       "options": {
         "value": {
           "name": "value",
@@ -190,7 +190,9 @@
     },
     "global": {
       "responses": {
-        "invalidDate": "입력하신 날짜가 유효하지 않습니다. (예: 년, 월, 일)"
+        "invalidDate": "입력하신 날짜가 유효하지 않습니다. (예: 년, 월, 일)",
+        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -228,7 +230,7 @@
     "statistics": {
       "name": "statistics",
       "description": "봇에 대한 여러가지 통계를 표시",
-      "options": [],
+      "options": {},
       "responses": {
         "totalServerCount": "참가한 서버 수:",
         "shardServerCount": "이 shard에 있는 서버 수:",
