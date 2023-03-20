@@ -3,7 +3,7 @@
     "timestamp": {
       "name": "χρονοσήμανση",
       "description": "Καταργήθηκε, παρακαλούμε χρησιμοποιήστε τις εντολές χωρίς το πρόθεμα /timestamp",
-      "options": [],
+      "options": {},
       "responses": {
         "deprecated": "Οι υποεντολές αντικαταστάθηκαν με ξεχωριστές εντολές επειδή οι επιλογές της εντολής {{baseCommand}} έφτασαν στα όρια του API του Discord.\nΜπορείτε να χρησιμοποιήσετε τις ίδιες εντολές όπως και πριν, η μόνη διαφορά είναι ότι πρέπει να αφήσετε εκτός το {{baseCommandName}}. Για παράδειγμα, η εντολή {{exampleSubCommand}} γράφεται τώρα απλά {{exampleCommand}}.\nΣας ευχαριστούμε για την κατανόησή σας. Παρακαλούμε στείλτε οποιοδήποτε σχόλιο σχετικά με αυτή την αλλαγή στον επίσημο διακομιστή Discord του HammerTime: {{discordInviteUrl}}"
       }
@@ -11,7 +11,7 @@
     "ago": {
       "name": "πρίν",
       "description": "Καθορίστε μια χρονοσήμανση στο παρελθόν σε σχέση με την τρέχουσα ώρα",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "χρόνια",
@@ -42,7 +42,7 @@
     "in": {
       "name": "σε",
       "description": "Καθορίστε μια χρονοσήμανση στο μέλλον σε σχέση με την τρέχουσα ώρα",
-      "responses": [],
+      "responses": {},
       "options": {
         "years": {
           "name": "χρόνια",
@@ -110,7 +110,7 @@
     "add": {
       "name": "προσθήκη",
       "description": "Προσθέστε λίγο χρόνο στην καθορισμένη χρονοσήμανση UNIX",
-      "responses": [],
+      "responses": {},
       "options": {
         "to": {
           "name": "σε",
@@ -145,7 +145,7 @@
     "subtract": {
       "name": "αφαίρεση",
       "description": "Αφαιρέστε λίγο χρόνο από την καθορισμένη χρονοσήμανση UNIX",
-      "responses": [],
+      "responses": {},
       "options": {
         "from": {
           "name": "από",
@@ -169,18 +169,18 @@
         },
         "minutes": {
           "name": "λεπτά",
-          "description": "Πόσα λεπτά να αφαιρέσετε από την καθορισμένη χρονοσήμανση"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "δευτερόλεπτα",
-          "description": "Πόσα δευτερόλεπτα να αφαιρέσετε από την καθορισμένη χρονοσήμανση"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
     "unix": {
       "name": "unix",
       "description": "Εμφάνιση της σύνταξης UNIX για μια συγκεκριμένη χρονοσήμανση",
-      "responses": [],
+      "responses": {},
       "options": {
         "value": {
           "name": "τιμή",
@@ -190,7 +190,9 @@
     },
     "global": {
       "responses": {
-        "invalidDate": "Η καθορισμένη ημερομηνία δεν είναι έγκυρη (για παράδειγμα: η δεδομένη ημέρα δεν υπάρχει)"
+        "invalidDate": "Η καθορισμένη ημερομηνία δεν είναι έγκυρη (για παράδειγμα: η δεδομένη ημέρα δεν υπάρχει)",
+        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
+        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use the `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -228,7 +230,7 @@
     "statistics": {
       "name": "στατιστικά",
       "description": "Εμφανίζει διάφορες πληροφορίες σχετικά με το bot",
-      "options": [],
+      "options": {},
       "responses": {
         "totalServerCount": "Συνολικά συνδεδεμένοι διακομιστές:",
         "shardServerCount": "Διακομιστές σε αυτό το τεμάχιο:",
