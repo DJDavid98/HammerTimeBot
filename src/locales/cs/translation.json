@@ -239,6 +239,9 @@
         "serverInvite": "Adresa URL pro pozvání na server podpory:",
         "totalUserCount": "Celkový počet uživatelů na připojených serverech:"
       }
+    },
+    "snowflake": {
+      "name": "snowflake"
     }
   }
 }
