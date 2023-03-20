@@ -239,6 +239,9 @@
         "serverInvite": "Zaproszenie na serwer wsparcia:",
         "totalUserCount": "Łączna ilość użytkownikach na serwerach:"
       }
+    },
+    "snowflake": {
+      "name": "snowflake"
     }
   }
 }
