@@ -239,6 +239,9 @@
         "serverInvite": "URL di invito del server di supporto:",
         "totalUserCount": "Numeri totale utenti nei server in cui il bot si trova:"
       }
+    },
+    "snowflake": {
+      "name": "snowflake"
     }
   }
 }
