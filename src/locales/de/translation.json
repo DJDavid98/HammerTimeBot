@@ -254,6 +254,19 @@
           "description": "The Snowflake number"
         }
       }
+    },
+    "Message Sent": {
+      "name": "Message Sent",
+      "responses": {
+        "targetMessage": "Send timestamp for the following message: {{url}}"
+      }
+    },
+    "Message Last Edited": {
+      "name": "Message Last Edited",
+      "responses": {
+        "targetMessage": "Last edit timestamp for the following message: {{url}}",
+        "notEdited": "This message has not been edited yet"
+      }
     }
   }
 }
