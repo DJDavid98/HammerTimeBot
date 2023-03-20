@@ -239,6 +239,9 @@
         "serverInvite": "지원 서버 링크:",
         "totalUserCount": "참가한 서버의 사용자 합계:"
       }
+    },
+    "snowflake": {
+      "name": "snowflake"
     }
   }
 }
