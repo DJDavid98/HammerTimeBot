@@ -169,11 +169,11 @@
         },
         "minutes": {
           "name": "minuti",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Quanti minuti sottrarre dal timestamp specificato"
         },
         "seconds": {
           "name": "secondi",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Quanti secondi sottrarre dal timestamp specificato"
         }
       }
     },
@@ -191,8 +191,8 @@
     "global": {
       "responses": {
         "invalidDate": "La data specificata non è valida (per esempio: il giorno specificato non esiste)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
+        "noComponentsCurrentTime": "Devi specificare almeno un componente da cambiare. Se hai bisogno dell'orario corrente use `/{{atCommand}}` senza specificare nessun parametro",
+        "noComponentsUnix": "Devi specificare almeno un componente da cambiare. Se vuoi ottenere la sintassi per lo UNIX timestamp, usa`/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -244,28 +244,28 @@
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "Visualizza la sintassi per il timestamp di uno Snowflake (gli ID all'interno di Discord)",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "Lo Snowflake specificato non è valido"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The Snowflake number"
+          "name": "valore",
+          "description": "Il numero Snowflake"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "Messaggio Inviato",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "Invia timestamp per il seguente messaggio: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "Ultima Modifica Messaggio",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "Ultima modifica timestamp per il seguente messaggio: {{url}}",
+        "notEdited": "Questo messaggio non è ancora stato modificato"
       }
     }
   }
