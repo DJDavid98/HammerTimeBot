@@ -192,7 +192,7 @@
       "responses": {
         "invalidDate": "De opgegeven datum is ongeldig (bijvoorbeeld: de opgegeven dag bestaat niet)",
         "noComponentsCurrentTime": "U moet minstens één argument opgeven om te wijzigen. Als u de huidige tijd nodig hebt, gebruikt u `/{{atCommand}}` zonder argumenten op te geven",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
+        "noComponentsUnix": "U moet minstens één argument opgeven om te wijzigen. Als u de syntaxis voor een UNIX-tijdstempel wilt krijgen, gebruik dan `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -244,28 +244,28 @@
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "Toon de syntaxis voor de tijdstempel van een Snowflake (de meeste ID's binnen Discord)",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "De opgegeven Snowflake is ongeldig"
       },
       "options": {
         "value": {
           "name": "value",
-          "description": "The Snowflake number"
+          "description": "Het Snowflake nummer"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "Tijd van het versturen",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "De tijdstempel van het versturen van het volgende bericht: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "Tijd van de laatste wijziging",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "De tijdstempel van de laatste bewerking van het volgende bericht: {{url}}",
+        "notEdited": "Dit bericht is nog niet bewerkt"
       }
     }
   }
