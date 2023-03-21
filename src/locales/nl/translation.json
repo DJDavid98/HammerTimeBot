@@ -169,11 +169,11 @@
         },
         "minutes": {
           "name": "minutes",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Het aantal minuten om van de opgegeven tijdstempel af te trekken"
         },
         "seconds": {
           "name": "seconds",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Het aantal seconden om van de opgegeven tijdstempel af te trekken"
         }
       }
     },
@@ -191,7 +191,7 @@
     "global": {
       "responses": {
         "invalidDate": "De opgegeven datum is ongeldig (bijvoorbeeld: de opgegeven dag bestaat niet)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
+        "noComponentsCurrentTime": "U moet minstens één argument opgeven om te wijzigen. Als u de huidige tijd nodig hebt, gebruikt u `/{{atCommand}}` zonder argumenten op te geven",
         "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
       },
       "options": {
