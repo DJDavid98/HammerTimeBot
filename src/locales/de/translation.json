@@ -244,14 +244,14 @@
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "Anzeige der Syntax für den Zeitstempel einer snowflake (die meisten IDs in Discord)",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "Der angegebene snowflake ist ungültig"
       },
       "options": {
         "value": {
           "name": "wert",
-          "description": "The Snowflake number"
+          "description": "Die snowflake-Nummer"
         }
       }
     },
