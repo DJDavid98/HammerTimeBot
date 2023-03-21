@@ -169,11 +169,11 @@
         },
         "minutes": {
           "name": "分钟",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "要从指定时间戳减去多少分钟"
         },
         "seconds": {
           "name": "秒",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "要从指定时间戳减去多少秒"
         }
       }
     },
@@ -191,8 +191,8 @@
     "global": {
       "responses": {
         "invalidDate": "指定的日期无效（例如：给定的日期不存在）",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
+        "noComponentsCurrentTime": "您必须指定至少一个要更改的时间数值。若要显示当前时间，请不带任何参数使用 `/{{atCommand}}`。",
+        "noComponentsUnix": "您必须指定至少一个要更改的时间数值。若要获取某个UNIX时间戳的语法，请使用 `/{{unixCommand}}`。"
       },
       "options": {
         "format": {
@@ -244,28 +244,28 @@
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "显示某个Snowflake中时间的时间戳语法。Snowflake是Discord中大多数数字ID的格式。",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "指定的Snowflake无效。"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The Snowflake number"
+          "name": "值",
+          "description": "Snowflake的数值"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "消息发送时间",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "下面是此消息的发送时间的时间戳： {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "消息最后编辑时间",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "下面是此消息的最后编辑时间的时间戳： {{url}}",
+        "notEdited": "此消息尚未被编辑。"
       }
     }
   }
