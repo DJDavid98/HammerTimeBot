@@ -169,11 +169,11 @@
         },
         "minutes": {
           "name": "minuten",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Wie viele Minuten werden von dem angegebenen Zeitstempel abgezogen"
         },
         "seconds": {
           "name": "sekunden",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Wie viele Sekunden werden von dem angegebenen Zeitstempel abgezogen"
         }
       }
     },
@@ -191,8 +191,8 @@
     "global": {
       "responses": {
         "invalidDate": "Das angegebene Datum ist ungültig (zum Beispiel: der angegebene Tag existiert nicht)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
+        "noComponentsCurrentTime": "Du musst mindestens einmal eine Zeitkomponente angeben, um sie zu ändern. Wenn du die aktuelle Zeit brauchst, benutze `/{{atCommand}}` ohne irgendwelche Argumente anzugeben",
+        "noComponentsUnix": "Du musst mindestens einmal eine Zeitkomponente angeben, um sie zu ändern. Wenn du die Syntax für einen UNIX Zeitstempel erhalten möchtest, benutze `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -250,22 +250,22 @@
       },
       "options": {
         "value": {
-          "name": "value",
+          "name": "wert",
           "description": "The Snowflake number"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "Nachricht versendet",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "Sende den Zeitstempel für die folgende Nachricht: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "Nachricht zuletzt bearbeitet",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "Zeitstempel der letzten Bearbeitung für die folgende Nachricht: {{url}}",
+        "notEdited": "Diese Nachricht wurde noch nicht bearbeitet"
       }
     }
   }
