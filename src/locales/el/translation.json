@@ -169,11 +169,11 @@
         },
         "minutes": {
           "name": "λεπτά",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Πόσα λεπτά να αφαιρεθούν από την καθορισμένη χρονοσήμανση"
         },
         "seconds": {
           "name": "δευτερόλεπτα",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Πόσα δευτερόλεπτα να αφαιρεθούν από την καθορισμένη χρονοσήμανση"
         }
       }
     },
@@ -191,8 +191,8 @@
     "global": {
       "responses": {
         "invalidDate": "Η καθορισμένη ημερομηνία δεν είναι έγκυρη (για παράδειγμα: η δεδομένη ημέρα δεν υπάρχει)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
+        "noComponentsCurrentTime": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν χρειάζεστε την τρέχουσα ώρα, χρησιμοποιήστε `/{{atCommand}}` χωρίς να καθορίσετε οποιαδήποτε παραμέτρους",
+        "noComponentsUnix": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν θέλετε να λάβετε την σύνταξη της εντολής UNIX χρονοσήμανσης, χρησιμοποιήστε `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -244,28 +244,28 @@
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "Εμφάνιση σύνταξης της εντολής snowflake για μια χρονοσήμανση (τα περισσότερα ID μέσα στο Discord)",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "Η τιμή της εντολής snowflake δεν είναι έγκυρη"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The Snowflake number"
+          "name": "τιμή",
+          "description": "Η τιμή της εντολής snowflake"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "Απεσταλμένο μήνυμα",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "Αποστολή χρονοσήμανσης για το ακόλουθο μήνυμα: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "Τελευταία Επεξεργασία Μηνύματος",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "Τελευταία επεξεργασία χρονοσήμανσης για το ακόλουθο μήνυμα: {{url}}",
+        "notEdited": "Αυτό το μήνυμα δεν έχει επεξεργαστεί ακόμα"
       }
     }
   }
