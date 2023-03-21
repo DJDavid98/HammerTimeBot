@@ -11,4 +11,13 @@ describe('getExactTimePrefix', () => {
     const actual = getExactTimePrefix(now, timezone);
     expect(actual).toEqual(expected);
   });
+
+  it('should include milliseconds in output when available', () => {
+    const timezone = 'UTC';
+    const now = moment.tz('1970-01-01 12:34:56.789', timezone);
+    const expected =
+      `${EmojiCharacters.CALENDAR} 1970-01-01 • ${EmojiCharacters.TWELVE_THIRTY} 12:34:56.789 • ${EmojiCharacters.GLOBE} ${timezone}`;
+    const actual = getExactTimePrefix(now, timezone);
+    expect(actual).toEqual(expected);
+  });
 });

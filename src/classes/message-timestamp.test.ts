@@ -2,8 +2,9 @@ import { MessageTimestamp, MessageTimestampFormat } from './message-timestamp.js
 
 
 describe('MessageTimestamp', () => {
-  const nowInSeconds = 1629274020;
-  const now = new Date(nowInSeconds * 1e3);
+  const nowInMilliseconds = 1629274020123;
+  const nowInSeconds = Math.floor(nowInMilliseconds / 1000);
+  const now = new Date(nowInMilliseconds);
   const ts = new MessageTimestamp(now);
 
   it('should stringify to the long full format by default', () => {

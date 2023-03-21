@@ -32,7 +32,7 @@ export const getExactTimePrefix = (localMoment: Moment, timezone: string): strin
   const clockNumber = ((localMoment.hours() % 12) * 100) + (localMoment.minutes() > 30 ? 30 : 0);
   return [
     `${EmojiCharacters.CALENDAR} ${localMoment.format('YYYY-MM-DD')}`,
-    `${clockEmojiMap[clockNumber]} ${localMoment.format('HH:mm:ss')}`,
+    `${clockEmojiMap[clockNumber]} ${localMoment.format(localMoment.milliseconds() > 0 ? 'HH:mm:ss.SSS' : 'HH:mm:ss')}`,
     `${EmojiCharacters.GLOBE} ${timezone}`,
   ].join(' • ');
 };

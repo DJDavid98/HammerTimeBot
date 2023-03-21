@@ -27,7 +27,7 @@ export class MessageTimestamp {
   toString(tsFormat?: undefined): `<t:${string}:${MessageTimestampFormat.LONG_FULL}>`;
 
   toString<F extends MessageTimestampFormat>(tsFormat?: F): `<t:${string}:${F | MessageTimestampFormat.LONG_FULL}>` {
-    return MessageTimestamp.fromTimestamp(Math.round(this.date.getTime() / 1000), tsFormat);
+    return MessageTimestamp.fromTimestamp(Math.floor(this.date.getTime() / 1000), tsFormat);
   }
 
   static fromTimestamp<F extends MessageTimestampFormat>(unixTimestamp: string | number, tsFormat?: F): `<t:${string}:${F | MessageTimestampFormat.LONG_FULL}>` {
