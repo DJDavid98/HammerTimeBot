@@ -244,25 +244,25 @@
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "Prikaži sintaksu za vremensku oznaku Snowflake (većina ID-ova unutar Discorda)",
       "responses": {
         "invalidSnowflake": "Navedena Snowflake nije važeća"
       },
       "options": {
         "value": {
           "name": "vrijednost",
-          "description": "The Snowflake number"
+          "description": "Broj snowflake"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "Poruka Poslana",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "Pošalji vremensku oznaku za sljedeću poruku: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "Poruka Uređena",
       "responses": {
         "targetMessage": "Vremenska oznaka zadnjeg uređivanja za sljedeću poruku: {{url}}",
         "notEdited": "Ova poruka još nije uređena"
