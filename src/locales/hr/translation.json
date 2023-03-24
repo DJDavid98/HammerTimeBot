@@ -169,11 +169,11 @@
         },
         "minutes": {
           "name": "minute",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Koliko minuta se oduzima od navedene vremenske oznake"
         },
         "seconds": {
           "name": "sekunde",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Koliko se sekundi oduzima od navedene vremenske oznake"
         }
       }
     },
@@ -191,8 +191,8 @@
     "global": {
       "responses": {
         "invalidDate": "Navedeni datum je nevažeći (na primjer: navedeni dan ne postoji)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
+        "noComponentsCurrentTime": "Morate navesti barem jednu vremensku komponentu za promjenu. Ako vam je potrebno trenutno vrijeme, koristite `/{{atCommand}}` bez navođenja argumenata",
+        "noComponentsUnix": "Morate navesti barem jednu vremensku komponentu za promjenu. Ako želite dobiti sintaksu za UNIX vremensku oznaku, koristite `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -246,11 +246,11 @@
       "name": "snowflake",
       "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "Navedena Snowflake nije važeća"
       },
       "options": {
         "value": {
-          "name": "value",
+          "name": "vrijednost",
           "description": "The Snowflake number"
         }
       }
@@ -264,8 +264,8 @@
     "Message Last Edited": {
       "name": "Message Last Edited",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "Vremenska oznaka zadnjeg uređivanja za sljedeću poruku: {{url}}",
+        "notEdited": "Ova poruka još nije uređena"
       }
     }
   }
