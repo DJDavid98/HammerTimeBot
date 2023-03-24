@@ -49,6 +49,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇵🇱 Polish: [MinerPL](https://crowdin.com/profile/MinerPL)
 - 🇧🇷 Portuguese, Brazilian: [leo0six](https://crowdin.com/profile/leo0six)
 - 🇷🇺 Russian
+  - [Artiom Boyko](https://crowdin.com/profile/Ajno)
   - [GameHacker](https://crowdin.com/profile/GameHacker)
   - [Nikita Sharikov](https://crowdin.com/profile/Aligatoor)
 - 🇪🇸 Spanish: [Yareaj](https://github.com/Yareaj/)
