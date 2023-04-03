@@ -1,115 +1,115 @@
 {
   "commands": {
     "timestamp": {
-      "name": "timestamp",
-      "description": "Deprecated, please use the commands without the /timestamp prefix",
+      "name": "stempel waktu",
+      "description": "Tidak digunakan lagi, harap gunakan perintah tanpa awalan /timestamp",
       "options": {},
       "responses": {
-        "deprecated": "Subcommands have been replaced with separate commands because the options of the {{baseCommand}} command reached the limits of Discord's API.\nYou can use the same commands as before, the only difference is that you must leave off {{baseCommandName}}. For example {{exampleSubCommand}} is now simply {{exampleCommand}}.\nThank you for your understanding. Please direct any feedback regarding this change to HammerTime's official Discord server: {{discordInviteUrl}}"
+        "deprecated": "Subperintah telah diganti dengan perintah terpisah karena opsi perintah {{baseCommand}} mencapai batas API Discord.\nAnda dapat menggunakan perintah yang sama seperti sebelumnya, satu-satunya perbedaan adalah Anda harus mengabaikan {{baseCommandName}}. Misalnya {{exampleSubCommand}} sekarang hanya {{exampleCommand}}.\nTerima kasih atas pengertian Anda. Kirimkan umpan balik terkait perubahan ini ke server Discord resmi HammerTime: {{discordInviteUrl}}"
       }
     },
     "ago": {
-      "name": "ago",
-      "description": "Specify a timestamp in the past relative to the current time",
+      "name": "lalu",
+      "description": "Tentukan stempel waktu di masa lalu relatif terhadap waktu saat ini",
       "responses": {},
       "options": {
         "years": {
-          "name": "years",
-          "description": "How many years to subtract from the current time"
+          "name": "tahun",
+          "description": "Berapa tahun untuk dikurangi dari waktu saat ini"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to subtract from the current time"
+          "name": "bulan",
+          "description": "Berapa bulan untuk dikurangi dari waktu saat ini"
         },
         "days": {
-          "name": "days",
-          "description": "How many days to subtract from the current time"
+          "name": "hari",
+          "description": "Berapa hari untuk dikurangi dari waktu saat ini"
         },
         "hours": {
-          "name": "hours",
-          "description": "How many hours to subtract from the current time"
+          "name": "jam",
+          "description": "Berapa jam untuk dikurangi dari waktu saat ini"
         },
         "minutes": {
-          "name": "minutes",
-          "description": "How many minutes to subtract from the current time"
+          "name": "menit",
+          "description": "Berapa menit untuk dikurangi dari waktu saat ini"
         },
         "seconds": {
-          "name": "seconds",
-          "description": "How many seconds to subtract from the current time"
+          "name": "detik",
+          "description": "Berapa detik untuk dikurangi dari waktu saat ini"
         }
       }
     },
     "in": {
-      "name": "in",
-      "description": "Specify a timestamp in the future relative to the current time",
+      "name": "dalam",
+      "description": "Tentukan stempel waktu di masa mendatang relatif terhadap waktu saat ini",
       "responses": {},
       "options": {
         "years": {
-          "name": "years",
-          "description": "How many years to add to the current time"
+          "name": "tahun",
+          "description": "Berapa tahun yang harus ditambahkan ke waktu saat ini"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to add to the current time"
+          "name": "bulan",
+          "description": "Berapa bulan yang harus ditambahkan ke waktu saat ini"
         },
         "days": {
-          "name": "days",
-          "description": "How many days to add to the current time"
+          "name": "hari",
+          "description": "Berapa hari yang harus ditambahkan ke waktu saat ini"
         },
         "hours": {
-          "name": "hours",
-          "description": "How many hours to add to the current time"
+          "name": "jam",
+          "description": "Berapa jam yang harus ditambahkan ke waktu saat ini"
         },
         "minutes": {
-          "name": "minutes",
-          "description": "How many minutes to add to the current time"
+          "name": "menit",
+          "description": "Berapa menit yang harus ditambahkan ke waktu saat ini"
         },
         "seconds": {
-          "name": "seconds",
-          "description": "How many seconds to add to the current time"
+          "name": "detik",
+          "description": "Berapa detik yang harus ditambahkan ke waktu saat ini"
         }
       }
     },
     "at": {
-      "name": "at",
-      "description": "Specify the exact components of the timestamp (including the timezone)",
+      "name": "pada",
+      "description": "Tentukan komponen cap waktu yang tepat (termasuk zona waktu)",
       "responses": {
-        "timezoneNotFound": "The specified timezone cannot be found"
+        "timezoneNotFound": "Zona waktu yang ditentukan tidak dapat ditemukan"
       },
       "options": {
         "year": {
-          "name": "year",
-          "description": "Specify the year (defaults to current year)"
+          "name": "tahun",
+          "description": "Tentukan tahun (default pada tahun saat ini)"
         },
         "month": {
-          "name": "month",
-          "description": "Specify the month (defaults to current month)"
+          "name": "bulan",
+          "description": "Tentukan bulan (default pada bulan saat ini)"
         },
         "day": {
-          "name": "day",
-          "description": "Specify the day (defaults to current day)"
+          "name": "hari",
+          "description": "Tentukan hari (default pada hari saat ini)"
         },
         "hour": {
-          "name": "hour",
-          "description": "Specify the hour (defaults to current hour)"
+          "name": "jam",
+          "description": "Tentukan jam (default pada jam saat ini)"
         },
         "minute": {
-          "name": "minute",
-          "description": "Specify the minute (defaults to current minute)"
+          "name": "menit",
+          "description": "Tentukan menit (default pada menit saat ini)"
         },
         "second": {
-          "name": "second",
-          "description": "Specify the second (defaults to 0)"
+          "name": "detik",
+          "description": "Tentukan detik (default ke 0)"
         },
         "timezone": {
-          "name": "timezone",
-          "description": "Specify the timezone (defaults to GMT)"
+          "name": "zona waktu",
+          "description": "Tentukan zona waktu (default pada GMT)"
         }
       }
     },
     "add": {
-      "name": "add",
-      "description": "Add some time to the specified UNIX timestamp",
+      "name": "menambahkan",
+      "description": "Tambahkan waktu ke stempel waktu UNIX yang ditentukan",
       "responses": {},
       "options": {
         "to": {
@@ -214,58 +214,58 @@
           "choices": {
             "both": "both syntax and preview",
             "preview": "preview only",
-            "syntax": "syntax only"
+            "syntax": "sintaks saja"
           }
         },
         "ephemeral": {
-          "name": "ephemeral",
-          "description": "When true the response will only be visible to you (default: false)"
+          "name": "tidak kekal",
+          "description": "Jika benar, respons hanya akan terlihat oleh Anda (default: false)"
         },
         "header": {
-          "name": "header",
-          "description": "Display the initial time (as interpreted by the bot) on top of the response"
+          "name": "tajuk",
+          "description": "Tampilkan waktu awal (sebagaimana ditafsirkan oleh bot) di atas respons"
         }
       }
     },
     "statistics": {
-      "name": "statistics",
-      "description": "Displays various information about the bot",
+      "name": "statistik",
+      "description": "Menampilkan berbagai informasi tentang bot",
       "options": {},
       "responses": {
-        "totalServerCount": "Total servers joined:",
-        "shardServerCount": "Servers on this shard:",
-        "uptime": "Shard startup time:",
-        "shardCount": "Number of shards:",
-        "shardNumber": "(These statistics were generated by shard #{{shardId}})",
-        "noShards": "(The bot is not currently using sharding)",
-        "serverInvite": "Support server invite URL:",
-        "totalUserCount": "Total users in joined servers:"
+        "totalServerCount": "Total server yang bergabung:",
+        "shardServerCount": "Server pada pecahan ini:",
+        "uptime": "Waktu mulai pecahan:",
+        "shardCount": "Jumlah pecahan:",
+        "shardNumber": "(Statistik ini dihasilkan oleh pecahan #{{shardId}})",
+        "noShards": "(Bot saat ini tidak menggunakan sharding)",
+        "serverInvite": "Mendukung URL undangan server:",
+        "totalUserCount": "Total pengguna di server yang bergabung:"
       }
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "Tampilkan sintaks untuk stempel waktu Snowflake (sebagian besar ID dalam Discord)",
       "responses": {
         "invalidSnowflake": "The specified Snowflake is invalid"
       },
       "options": {
         "value": {
-          "name": "value",
+          "name": "nilai",
           "description": "The Snowflake number"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "Pesan Terkirim",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "Kirim stempel waktu untuk pesan berikut: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "Pesan Terakhir Diedit",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "Stempel waktu pengeditan terakhir untuk pesan berikut: {{url}}",
+        "notEdited": "Pesan ini belum diedit"
       }
     }
   }
