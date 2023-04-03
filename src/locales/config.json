@@ -2,7 +2,13 @@
   "languages": {
     "id": {
       "name": "Indonesian",
-      "emoji": "\uD83C\uDDEE\uD83C\uDDE9"
+      "emoji": "\uD83C\uDDEE\uD83C\uDDE9",
+      "credits": [
+        {
+          "crowdin": "jackiecr2911",
+          "displayName": "Jackie"
+        }
+      ]
     },
     "en-US": {
       "name": "English, United States"
@@ -161,7 +167,17 @@
     },
     "ro": {
       "name": "Romanian",
-      "emoji": "\uD83C\uDDF7\uD83C\uDDF4"
+      "emoji": "\uD83C\uDDF7\uD83C\uDDF4",
+      "credits": [
+        {
+          "crowdin": "Iepurooy",
+          "displayName": "Ant. Rares"
+        },
+        {
+          "crowdin": "mihaiofficialRO",
+          "displayName": "mihai"
+        }
+      ]
     },
     "ru": {
       "name": "Russian",

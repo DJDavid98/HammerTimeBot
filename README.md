@@ -42,12 +42,16 @@ English and Hungarian translations have been included, so no translators will be
 - 🇫🇷 French: [Cookie Kiro](https://crowdin.com/profile/Cookikui)
 - 🇩🇪 German: [Fabian9799](https://crowdin.com/profile/Fabian9799)
 - 🇬🇷 Greek: [BelleBernice](https://crowdin.com/profile/BelleBernice)
+- 🇮🇩 Indonesian: [Jackie](https://crowdin.com/profile/jackiecr2911)
 - 🇮🇹 Italian: [RVG|𝓵𝓸𝓻𝔂](https://top.gg/bot/1076200668810985634)
 - 🇰🇷 Korean
   - [Bin](https://crowdin.com/profile/cheesepickle12345678)
   - [김카츄 (sjk)](https://github.com/sjkim04)
 - 🇵🇱 Polish: [MinerPL](https://crowdin.com/profile/MinerPL)
 - 🇧🇷 Portuguese, Brazilian: [leo0six](https://crowdin.com/profile/leo0six)
+- 🇷🇴 Romanian
+  - [Ant. Rares](https://crowdin.com/profile/Iepurooy)
+  - [mihai](https://crowdin.com/profile/mihaiofficialRO)
 - 🇷🇺 Russian
   - [Artiom Boyko](https://crowdin.com/profile/Ajno)
   - [GameHacker](https://crowdin.com/profile/GameHacker)
