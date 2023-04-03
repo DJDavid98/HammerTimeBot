@@ -169,11 +169,11 @@
         },
         "minutes": {
           "name": "minute",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Câte minute se scad de la marcajul de timp specificat"
         },
         "seconds": {
           "name": "secunde",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Câte secunde se scad de la marcajul de timp specificat"
         }
       }
     },
@@ -191,8 +191,8 @@
     "global": {
       "responses": {
         "invalidDate": "Data specificată nu este valabilă (de exemplu: ziua dată nu există)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
+        "noComponentsCurrentTime": "Trebuie să specificați cel puțin o componentă de timp care trebuie modificată. Dacă aveți nevoie de ora curentă, utilizați `/{{atCommand}}` fără să specificați niciun argument",
+        "noComponentsUnix": "Trebuie să specificați cel puțin o componentă de timp care trebuie modificată. Dacă doriți să obțineți sintaxa pentru un timestamp UNIX, utilizați `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -244,28 +244,28 @@
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "Afișează sintaxa pentru marcajul de timp al unui Snowflake (majoritatea ID-urilor din Discord)",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "Snowflake-ul specificat nu este valabil"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The Snowflake number"
+          "name": "valoare",
+          "description": "Numarul Snowflake"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "Mesaj trimis",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "Trimite marcajul de timp pentru următorul mesaj: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "Ultimul mesaj editat",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "Data și ora ultimei modificări pentru următorul mesaj: {{url}}",
+        "notEdited": "Acest mesaj nu a fost încă editat"
       }
     }
   }
