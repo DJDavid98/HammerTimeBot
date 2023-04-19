@@ -169,11 +169,11 @@
         },
         "minutes": {
           "name": "นาที",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "ลบจำนวนกี่นาทีจากเวลาที่ระบุ"
         },
         "seconds": {
           "name": "วินาที",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "ลบจำนวนกี่วินาทีจากเวลาที่ระบุ"
         }
       }
     },
@@ -191,8 +191,8 @@
     "global": {
       "responses": {
         "invalidDate": "วันที่ที่ระบุไม่ถูกต้อง (เช่น วันที่ระบุไม่มีอยู่จริง)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
+        "noComponentsCurrentTime": "คุณต้องระบุองค์ประกอบเวลาอย่างน้อยหนึ่งรายการเพื่อเปลี่ยนแปลง หากคุณต้องการเวลาปัจจุบัน ให้ใช้ `/{{atCommand}}` โดยไม่ต้องระบุข้อมูลใดๆ",
+        "noComponentsUnix": "คุณต้องระบุองค์ประกอบเวลาอย่างน้อยหนึ่งรายการเพื่อเปลี่ยนแปลง หากคุณต้องการรับไวยากรณ์สำหรับเวลา UNIX ให้ใช้ `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -243,29 +243,29 @@
       }
     },
     "snowflake": {
-      "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "name": "ซะโนวเฟลค",
+      "description": "แสดงไวยากรณ์สำหรับการประทับเวลาของซะโนวเฟลค (ID ส่วนใหญ่ภายใน Discord)",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "ซะโนวเฟลคที่ระบุนั้นมีความผิดพลาด"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The Snowflake number"
+          "name": "ค่า",
+          "description": "เลขซะโนวเฟลค"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "ส่งข้อความแล้ว",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "เวลาที่ส่งสำหรับข้อความต่อไปนี้: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "ข้อความถูกแก้ไขเมื่อใด",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "เวลาที่ถูกแก้ไขของข้อความนี้: {{url}}",
+        "notEdited": "ข้อความนี้ยังไม่ถูกแก้ที"
       }
     }
   }
