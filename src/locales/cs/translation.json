@@ -1,13 +1,5 @@
 {
   "commands": {
-    "timestamp": {
-      "name": "časové razítko",
-      "description": "Zastaralé, používejte prosím příkazy bez předpony /timestamp",
-      "options": {},
-      "responses": {
-        "deprecated": "Dílčí příkazy byly nahrazeny samostatnými příkazy, protože možnosti příkazu {{baseCommand}} dosáhly limitů rozhraní API služby Discord.\nMůžete používat stejné příkazy jako dříve, jediný rozdíl je v tom, že musíte vynechat {{baseCommandName}}. Například {{exampleSubCommand}} je nyní jednoduše {{exampleCommand}}.\nDěkujeme za pochopení. Jakoukoli zpětnou vazbu týkající se této změny prosím směřujte na oficiální server Discord společnosti HammerTime: {{discordInviteUrl}}"
-      }
-    },
     "ago": {
       "name": "před",
       "description": "Zadání časového razítka v minulosti vzhledem k aktuálnímu času",
