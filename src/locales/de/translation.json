@@ -1,13 +1,5 @@
 {
   "commands": {
-    "timestamp": {
-      "name": "zeitstempel",
-      "description": "Veraltet, bitte verwende die Befehle ohne den /timestamp Prefix",
-      "options": {},
-      "responses": {
-        "deprecated": "Unterbefehle wurden durch separate Befehle ersetzt, da die Optionen des {{baseCommand}} -Befehls die Grenzen der Discords API erreicht haben.\nDu kannst die gleichen Befehle wie bisher verwenden, der einzige Unterschied ist, dass du {{baseCommandName}} weglassen musst. Zum Beispiel ist {{exampleSubCommand}} jetzt einfach {{exampleCommand}}.\nVielen Dank für dein Verständnis. Bitte richte jegliches Feedback zu dieser Änderung an den offiziellen Discord-Server von HammerTime: {{discordInviteUrl}}"
-      }
-    },
     "ago": {
       "name": "vor",
       "description": "Geben Sie einen Zeitstempel in der Vergangenheit relativ zur aktuellen Zeit an",

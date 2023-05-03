@@ -1,13 +1,5 @@
 {
   "commands": {
-    "timestamp": {
-      "name": "marca de tiempo",
-      "description": "Puede ser utilizado para generar el código de las marcas de tiempo en todos los formatos",
-      "options": {},
-      "responses": {
-        "deprecated": "Subcommands have been replaced with separate commands because the options of the {{baseCommand}} command reached the limits of Discord's API.\nYou can use the same commands as before, the only difference is that you must leave off {{baseCommandName}}. For example {{exampleSubCommand}} is now simply {{exampleCommand}}.\nThank you for your understanding. Please direct any feedback regarding this change to HammerTime's official Discord server: {{discordInviteUrl}}"
-      }
-    },
     "ago": {
       "name": "hace",
       "description": "Especifique una marca de tiempo en el pasado relativo al tiempo actual",

@@ -1,13 +1,5 @@
 {
   "commands": {
-    "timestamp": {
-      "name": "zaman damgası",
-      "description": "Destek verilmemektedir, lütfen /timestamp öneki olmadan komutları kullanın",
-      "options": {},
-      "responses": {
-        "deprecated": "Alt komutlar ayrı komutlarla değiştirildi çünkü {{baseCommand}} komutunun seçenekleri Discord'un API'sinin sınırlarına ulaştı.\nEskiden olduğu gibi aynı komutları kullanabilirsiniz, tek fark {{baseCommandName}}'u bırakmanız gerektiğidir. Örneğin {{exampleSubCommand}} artık sadece {{exampleCommand}}.\nAnlayışınız için teşekkürler. Lütfen bu değişiklikle ilgili her türlü geri bildirimi HammerTime'ın resmi Discord sunucusunda bildirin: {{discordInviteUrl}}"
-      }
-    },
     "ago": {
       "name": "geçmiş",
       "description": "Geçerli zamana göre geçmişte bir zaman damgası belirtin",

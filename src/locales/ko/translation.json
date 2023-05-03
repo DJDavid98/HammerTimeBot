@@ -1,13 +1,5 @@
 {
   "commands": {
-    "timestamp": {
-      "name": "timestamp",
-      "description": "구식화됨. /timestamp가 붙어있지 않은 명령어를 사용해 주세요.",
-      "options": {},
-      "responses": {
-        "deprecated": "{{baseCommand}} 명령어의 옵션 수가 Discord API의 한계에 도달했으므로, 서브커맨드들은 개별의 명령어로 분리되었습니다.\n이전과 같은 명령어를 사용할 수 있는 것은 변하지 않지만, {{baseCommandName}}에서 벗어나는 것만이 달라집니다. 예를 들면, {{exampleSubCommand}}는 단순히 {{exampleCommand}}가 됩니다.\n이해해 주셔서 감사합니다. 이 변경에 대한 의견이 있으시면, HammerTime의 공식 서버에서 저희에게 전해 주실 수 있습니다."
-      }
-    },
     "ago": {
       "name": "ago",
       "description": "현재 시간에서 특정 시간 전의 타임스탬프를 구할 수 있습니다.",

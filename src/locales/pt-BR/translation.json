@@ -1,13 +1,5 @@
 {
   "commands": {
-    "timestamp": {
-      "name": "timestamp",
-      "description": "Obsoleto, por favor use os comandos sem o prefixo /timestamp",
-      "options": {},
-      "responses": {
-        "deprecated": "Os subcomandos foram substituídos por comandos separados porque as opções do comando {{baseCommand}} atingiram os limites da API do Discord.\nVocê pode usar os mesmos comandos como antes, a única diferença é que você deve deixar de usar {{baseCommandName}}. Por exemplo, {{exampleSubCommand}} é simplesmente {{exampleCommand}} agora.\nObrigado pela sua compreensão. Por favor, deixe qualquer tipo de feedback sobre esta mudança no servidor oficial do HammerTime no Discord: {{discordInviteUrl}}"
-      }
-    },
     "ago": {
       "name": "há",
       "description": "Especifique uma timestamp no passado em relação à hora atual",

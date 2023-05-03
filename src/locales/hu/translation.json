@@ -1,13 +1,5 @@
 {
   "commands": {
-    "timestamp": {
-      "name": "időbélyeg",
-      "description": "Elavult, a /timestamp előtag nélkül használd a parancsokat",
-      "options": {},
-      "responses": {
-        "deprecated": "Az al-parancsok le lettek cserélve különálló parancsokkal, mert a {{baseCommand}} beállításai túllépték a Discord's API-jának korlátjait.\nTovábbra is használhatod a megszokott parancsokat annyi különbséggel, hogy a {{baseCommandName}}-et el kell hagynod. Például a {{exampleSubCommand}} most már csak {{exampleCommand}}.\nKöszönet a megértésért. Bármilyen ezzel a módosítással kapcsolatos visszajelzéssel vagy javaslattal a HammerTime hivatalos Discord szerverét keresd: {{discordInviteUrl}}"
-      }
-    },
     "ago": {
       "name": "ezelőtt",
       "description": "Viszonylagos múltbeli időpont meghatározása az aktuális időhöz képest",
