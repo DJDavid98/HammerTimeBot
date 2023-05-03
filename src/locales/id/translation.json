@@ -1,13 +1,5 @@
 {
   "commands": {
-    "timestamp": {
-      "name": "stempel waktu",
-      "description": "Tidak digunakan lagi, harap gunakan perintah tanpa awalan /timestamp",
-      "options": {},
-      "responses": {
-        "deprecated": "Subperintah telah diganti dengan perintah terpisah karena opsi perintah {{baseCommand}} mencapai batas API Discord.\nAnda dapat menggunakan perintah yang sama seperti sebelumnya, satu-satunya perbedaan adalah Anda harus mengabaikan {{baseCommandName}}. Misalnya {{exampleSubCommand}} sekarang hanya {{exampleCommand}}.\nTerima kasih atas pengertian Anda. Kirimkan umpan balik terkait perubahan ini ke server Discord resmi HammerTime: {{discordInviteUrl}}"
-      }
-    },
     "ago": {
       "name": "lalu",
       "description": "Tentukan stempel waktu di masa lalu relatif terhadap waktu saat ini",
