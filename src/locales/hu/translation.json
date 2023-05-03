@@ -270,22 +270,22 @@
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "Kódok megjelenítése egy adott ISO 8601 időbélyeghez",
       "responses": {
-        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+        "invalidIsoFormat": "A megadott érték nem felel meg az ISO 8601-es szabványnak"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The ISO 8601 standard timestamp in seconds"
+          "name": "érték",
+          "description": "Az ISO 8601 szabványos időbélyeg"
         }
       }
     },
     "Extract Timestamps": {
-      "name": "Extract Timestamps",
+      "name": "Időbélyegek Kinyerése",
       "responses": {
-        "targetMessage": "All timestamps found in the following message: {{url}}",
-        "notEdited": "This message does not contain any timestamps in Discord's format"
+        "targetMessage": "Az összes megtalált időbélyeg ehhez az üzenethez: {{url}}",
+        "noTimestamps": "Ez az üzenet nem tartalmaz időbélyegeket a Discord formátumában"
       }
     }
   }
