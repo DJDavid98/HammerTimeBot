@@ -70,7 +70,6 @@ export const enum SnowflakeCommandOptionName {
 }
 
 interface CommandOptionsMap {
-  [BotChatInputCommandName.TIMESTAMP]: never,
   [BotChatInputCommandName.IN]: InCommandOptionName,
   [BotChatInputCommandName.AGO]: AgoCommandOptionName,
   [BotChatInputCommandName.AT]: AtCommandOptionName,
@@ -87,10 +86,6 @@ export const enum GlobalCommandResponse {
   INVALID_DATE = 'invalidDate',
   NO_COMPONENTS_CURRENT_TIME = 'noComponentsCurrentTime',
   NO_COMPONENTS_UNIX = 'noComponentsUnix',
-}
-
-export const enum TimestampCommandResponse {
-  DEPRECATED = 'deprecated',
 }
 
 export const enum AtCommandResponse {
@@ -121,7 +116,6 @@ export const enum ExtractTimestampsCommandResponse {
 
 interface CommandResponsesMap {
   global: GlobalCommandResponse,
-  [BotChatInputCommandName.TIMESTAMP]: TimestampCommandResponse,
   [BotChatInputCommandName.IN]: never,
   [BotChatInputCommandName.AGO]: never,
   [BotChatInputCommandName.AT]: AtCommandResponse,

@@ -17,7 +17,6 @@ export const enum BotChatInputCommandName {
   SNOWFLAKE = 'snowflake',
   STATISTICS = 'statistics',
   SUBTRACT = 'subtract',
-  TIMESTAMP = 'timestamp',
   UNIX = 'unix',
 }
 

@@ -6,7 +6,6 @@ import { atCommand } from '../commands/at.command.js';
 import { inCommand } from '../commands/in.command.js';
 import { statisticsCommand } from '../commands/statistics.command.js';
 import { subtractCommand } from '../commands/subtract.command.js';
-import { timestampCommand } from '../commands/timestamp.command.js';
 import { unixCommand } from '../commands/unix.command.js';
 import { snowflakeCommand } from '../commands/snowflake.command.js';
 import { isoCommand } from '../commands/iso.command.js';
@@ -18,7 +17,6 @@ export const chatInputCommandMap: Record<BotChatInputCommandName, BotChatInputCo
   [BotChatInputCommandName.IN]: inCommand,
   [BotChatInputCommandName.STATISTICS]: statisticsCommand,
   [BotChatInputCommandName.SUBTRACT]: subtractCommand,
-  [BotChatInputCommandName.TIMESTAMP]: timestampCommand,
   [BotChatInputCommandName.UNIX]: unixCommand,
   [BotChatInputCommandName.SNOWFLAKE]: snowflakeCommand,
   [BotChatInputCommandName.ISO]: isoCommand,
