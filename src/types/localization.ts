@@ -114,6 +114,11 @@ export const enum MessageLastEditedCommandResponse {
   NOT_EDITED = 'notEdited',
 }
 
+export const enum ExtractTimestampsCommandResponse {
+  TARGET_MESSAGE = 'targetMessage',
+  NO_TIMESTAMPS = 'noTimestamps',
+}
+
 interface CommandResponsesMap {
   global: GlobalCommandResponse,
   [BotChatInputCommandName.TIMESTAMP]: TimestampCommandResponse,
@@ -128,6 +133,7 @@ interface CommandResponsesMap {
   [BotChatInputCommandName.SNOWFLAKE]: SnowflakeCommandResponse,
   [BotMessageContextMenuCommandName.MESSAGE_SENT]: MessageSentCommandResponse,
   [BotMessageContextMenuCommandName.MESSAGE_LAST_EDITED]: MessageLastEditedCommandResponse,
+  [BotMessageContextMenuCommandName.EXTRACT_TIMESTAMPS]: ExtractTimestampsCommandResponse,
 }
 
 export const enum ResponseColumnChoices {

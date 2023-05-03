@@ -15,6 +15,14 @@ export const extractTimestampsCommand: BotMessageContextMenuCommand = {
     const contentPrefix = `${messageTarget}\n\n`;
 
     const timestamps = extractTimestampsFromString(interaction.targetMessage.content);
+    if (timestamps.length === 0) {
+      await interaction.reply({
+        content: contentPrefix + t('commands.Extract Timestamps.responses.noTimestamps'),
+        ephemeral: true,
+      });
+      return;
+    }
+
     await interaction.reply({
       content: contentPrefix + timestamps.map(ts => `• ${RESPONSE_FORMATTERS[ResponseColumnChoices.BOTH](ts)}`).join('\n'),
       ephemeral: true,
