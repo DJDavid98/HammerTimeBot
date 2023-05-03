@@ -277,7 +277,7 @@
       "options": {
         "value": {
           "name": "érték",
-          "description": "Az ISO 8601 szabványos időbélyeg"
+          "description": "The ISO 8601 standard timestamp"
         }
       }
     },
