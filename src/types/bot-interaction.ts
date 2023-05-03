@@ -13,6 +13,7 @@ export const enum BotChatInputCommandName {
   AGO = 'ago',
   AT = 'at',
   IN = 'in',
+  ISO = 'iso',
   SNOWFLAKE = 'snowflake',
   STATISTICS = 'statistics',
   SUBTRACT = 'subtract',

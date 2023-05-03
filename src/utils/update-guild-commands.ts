@@ -11,9 +11,11 @@ const rest = new REST({
 }).setToken(env.DISCORD_BOT_TOKEN);
 
 export const getAuthorizedServers = async (): Promise<string[]> => {
+  console.log('Getting authorized servers…');
   const guilds = await rest.get(
     Routes.userGuilds(),
   ) as RESTGetAPICurrentUserGuildsResult;
+  console.log(`Found ${guilds.length} authorized server${guilds.length === 1 ? '' : 's'}`);
   return guilds.map((guild) => guild.id);
 };
 

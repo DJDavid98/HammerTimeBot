@@ -61,6 +61,10 @@ export const enum UnixCommandOptionName {
   VALUE = 'value',
 }
 
+export const enum IsoCommandOptionName {
+  VALUE = 'value',
+}
+
 export const enum SnowflakeCommandOptionName {
   VALUE = 'value',
 }
@@ -73,6 +77,7 @@ interface CommandOptionsMap {
   [BotChatInputCommandName.ADD]: AddCommandOptionName,
   [BotChatInputCommandName.SUBTRACT]: SubtractCommandOptionName,
   [BotChatInputCommandName.UNIX]: UnixCommandOptionName,
+  [BotChatInputCommandName.ISO]: IsoCommandOptionName,
   [BotChatInputCommandName.STATISTICS]: never,
   [BotMessageContextMenuCommandName.MESSAGE_SENT]: never,
   [BotMessageContextMenuCommandName.MESSAGE_LAST_EDITED]: never,
@@ -96,6 +101,10 @@ export const enum SnowflakeCommandResponse {
   INVALID_SNOWFLAKE = 'invalidSnowflake',
 }
 
+export const enum IsoCommandResponse {
+  INVALID_ISO_FORMAT = 'invalidIsoFormat',
+}
+
 export const enum MessageSentCommandResponse {
   TARGET_MESSAGE = 'targetMessage',
 }
@@ -114,6 +123,7 @@ interface CommandResponsesMap {
   [BotChatInputCommandName.ADD]: never,
   [BotChatInputCommandName.SUBTRACT]: never,
   [BotChatInputCommandName.UNIX]: never,
+  [BotChatInputCommandName.ISO]: IsoCommandResponse,
   [BotChatInputCommandName.STATISTICS]: never,
   [BotChatInputCommandName.SNOWFLAKE]: SnowflakeCommandResponse,
   [BotMessageContextMenuCommandName.MESSAGE_SENT]: MessageSentCommandResponse,

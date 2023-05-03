@@ -9,6 +9,7 @@ import { subtractCommand } from '../commands/subtract.command.js';
 import { timestampCommand } from '../commands/timestamp.command.js';
 import { unixCommand } from '../commands/unix.command.js';
 import { snowflakeCommand } from '../commands/snowflake.command.js';
+import { isoCommand } from '../commands/iso.command.js';
 
 export const chatInputCommandMap: Record<BotChatInputCommandName, BotChatInputCommand> = {
   [BotChatInputCommandName.ADD]: addCommand,
@@ -20,10 +21,13 @@ export const chatInputCommandMap: Record<BotChatInputCommandName, BotChatInputCo
   [BotChatInputCommandName.TIMESTAMP]: timestampCommand,
   [BotChatInputCommandName.UNIX]: unixCommand,
   [BotChatInputCommandName.SNOWFLAKE]: snowflakeCommand,
+  [BotChatInputCommandName.ISO]: isoCommand,
 };
 
 export const chatInputCommandNames = (Object.keys(chatInputCommandMap) as BotChatInputCommandName[]);
 
 export const isKnownChatInputCommand = (commandName: string): commandName is BotChatInputCommandName => commandName in chatInputCommandMap;
 
-export const isKnownChatInputCommandInteraction = <InteractionType extends ChatInputCommandInteraction | AutocompleteInteraction>(interaction: InteractionType): interaction is InteractionType & { commandName: BotChatInputCommandName } => isKnownChatInputCommand(interaction.commandName);
+export const isKnownChatInputCommandInteraction = <InteractionType extends ChatInputCommandInteraction | AutocompleteInteraction>(interaction: InteractionType): interaction is InteractionType & {
+  commandName: BotChatInputCommandName
+} => isKnownChatInputCommand(interaction.commandName);
