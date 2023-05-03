@@ -277,7 +277,7 @@
       "options": {
         "value": {
           "name": "value",
-          "description": "The ISO 8601 standard timestamp in seconds"
+          "description": "The ISO 8601 standard timestamp"
         }
       }
     },
@@ -285,7 +285,7 @@
       "name": "Extract Timestamps",
       "responses": {
         "targetMessage": "All timestamps found in the following message: {{url}}",
-        "notEdited": "This message does not contain any timestamps in Discord's format"
+        "noTimestamps": "This message does not contain any timestamps in Discord's format"
       }
     }
   }
