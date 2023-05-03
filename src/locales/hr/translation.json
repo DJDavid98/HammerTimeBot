@@ -1,13 +1,5 @@
 {
   "commands": {
-    "timestamp": {
-      "name": "vremenska oznaka",
-      "description": "Zastarjelo, koristite naredbe bez prefiksa /timestamp",
-      "options": {},
-      "responses": {
-        "deprecated": "Podnaredbe su zamijenjene zasebnim naredbama jer su opcije naredbe {{baseCommand}} dosegle granice Discordovog API-ja.\nMožete koristiti iste naredbe kao i prije, jedina je razlika što morate izostaviti {{baseCommandName}}. Na primjer, {{exampleSubCommand}} je sada jednostavno {{exampleCommand}}.\nHvala na razumijevanju. Sve povratne informacije u vezi s ovom promjenom uputite na HammerTimeov službeni Discord poslužitelj: {{discordInviteUrl}}"
-      }
-    },
     "ago": {
       "name": "prije",
       "description": "Navedite vremensku oznaku u prošlosti u odnosu na trenutno vrijeme",
@@ -270,22 +262,22 @@
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "Prikaz sintakse za određenu vremensku oznaku ISO 8601",
       "responses": {
-        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+        "invalidIsoFormat": "Navedena vrijednost ne odgovara standardu ISO 8601"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The ISO 8601 standard timestamp"
+          "name": "vrijednost",
+          "description": "Standardna vremenska oznaka ISO 8601"
         }
       }
     },
     "Extract Timestamps": {
-      "name": "Extract Timestamps",
+      "name": "Izdvoj vremenske oznake",
       "responses": {
-        "targetMessage": "All timestamps found in the following message: {{url}}",
-        "noTimestamps": "This message does not contain any timestamps in Discord's format"
+        "targetMessage": "Sve vremenske oznake pronađene u sljedećoj poruci: {{url}}",
+        "noTimestamps": "Ova poruka ne sadrži nikakve vremenske oznake u Discordovom formatu"
       }
     }
   }
