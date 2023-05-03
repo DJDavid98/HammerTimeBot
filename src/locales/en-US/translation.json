@@ -277,7 +277,7 @@
       "options": {
         "value": {
           "name": "value",
-          "description": "The ISO 8601 standard timestamp in seconds"
+          "description": "The ISO 8601 standard timestamp"
         }
       }
     },
