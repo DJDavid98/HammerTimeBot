@@ -1,13 +1,5 @@
 {
   "commands": {
-    "timestamp": {
-      "name": "znacznik czasowy",
-      "description": "Przestarzałe, proszę używać poleceń bez prefiksu /timestamp",
-      "options": {},
-      "responses": {
-        "deprecated": "Subkomendy zostały zastąpione oddzielnymi komendami, ponieważ opcje komendy {{baseCommand}} osiągneły limit API Discord.\nMożna używać tych samych poleceń, co poprzednio, jedyną różnicą jest to, że trzeba opuścić {{baseCommandName}}. Na przykład {{exampleSubCommand}} to teraz po prostu {{exampleCommand}}.\nDziękujemy za zrozumienie. Wszelkie uwagi dotyczące tej zmiany proszę kierować na oficjalnym serwerze Discord HammerTime: {{discordInviteUrl}}"
-      }
-    },
     "ago": {
       "name": "temu",
       "description": "Określenie znacznika czasu w przeszłości w stosunku do bieżącego czasu",
