@@ -267,6 +267,19 @@
         "targetMessage": "Τελευταία επεξεργασία χρονοσήμανσης για το ακόλουθο μήνυμα: {{url}}",
         "notEdited": "Αυτό το μήνυμα δεν έχει επεξεργαστεί ακόμα"
       }
+    },
+    "iso": {
+      "name": "iso",
+      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "responses": {
+        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+      },
+      "options": {
+        "value": {
+          "name": "value",
+          "description": "The ISO 8601 standard timestamp in seconds"
+        }
+      }
     }
   }
 }
