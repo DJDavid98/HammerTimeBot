@@ -24,6 +24,7 @@ export const enum BotChatInputCommandName {
 export const enum BotMessageContextMenuCommandName {
   MESSAGE_SENT = 'Message Sent',
   MESSAGE_LAST_EDITED = 'Message Last Edited',
+  EXTRACT_TIMESTAMPS = 'Extract Timestamps',
 }
 
 export type InteractionHandler<T extends BaseInteraction> = (interaction: T, t: TFunction) => void | Promise<void>;

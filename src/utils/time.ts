@@ -124,16 +124,16 @@ export const findTimezone = (value: string): string[] => {
 
 export const supportedFormats = Object.values(MessageTimestampFormat);
 
-const responseFormatters: Record<ResponseColumnChoices, (formatted: string) => string> = {
+export const RESPONSE_FORMATTERS: Record<ResponseColumnChoices, (formatted: string) => string> = {
   [ResponseColumnChoices.PREVIEW_ONLY]: (formatted) => `**${formatted}**`,
   [ResponseColumnChoices.SYNTAX_ONLY]: (formatted) => `\`${formatted}\``,
-  [ResponseColumnChoices.BOTH]: (formatted) => `${responseFormatters[ResponseColumnChoices.SYNTAX_ONLY](formatted)} → ${responseFormatters[ResponseColumnChoices.PREVIEW_ONLY](formatted)}`,
+  [ResponseColumnChoices.BOTH]: (formatted) => `${RESPONSE_FORMATTERS[ResponseColumnChoices.SYNTAX_ONLY](formatted)} → ${RESPONSE_FORMATTERS[ResponseColumnChoices.PREVIEW_ONLY](formatted)}`,
 };
 
 export const formattedResponse = (ts: MessageTimestamp, formats: MessageTimestampFormat[], columns: ResponseColumnChoices): string => {
   const strings = formats.map((format) => {
     const formatted = ts.toString(format);
-    return responseFormatters[columns](formatted);
+    return RESPONSE_FORMATTERS[columns](formatted);
   });
   return strings.join('\n');
 };
