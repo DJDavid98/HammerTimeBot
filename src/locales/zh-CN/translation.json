@@ -262,22 +262,22 @@
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "指定 ISO 8601 时间戳显示时间戳语法",
       "responses": {
-        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+        "invalidIsoFormat": "输入的值不符合 ISO 8601 标准"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The ISO 8601 standard timestamp"
+          "name": "值",
+          "description": "符合 ISO 8601 标准的时间戳"
         }
       }
     },
     "Extract Timestamps": {
-      "name": "Extract Timestamps",
+      "name": "提取时间戳",
       "responses": {
-        "targetMessage": "All timestamps found in the following message: {{url}}",
-        "noTimestamps": "This message does not contain any timestamps in Discord's format"
+        "targetMessage": "在这条消息中找到的所有时间戳如下：{{url}}",
+        "noTimestamps": "这条消息不包含任何 Discord 格式的时间戳"
       }
     }
   }
