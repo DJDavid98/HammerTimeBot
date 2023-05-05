@@ -262,22 +262,22 @@
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "Zeigt den Syntax für einen bestimmten ISO 8601 Zeitstempel an",
       "responses": {
-        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+        "invalidIsoFormat": "Der angegebene Wert entspricht nicht dem ISO 8601 Standard"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The ISO 8601 standard timestamp"
+          "name": "wert",
+          "description": "Der ISO 8601 Standard-Zeitstempel"
         }
       }
     },
     "Extract Timestamps": {
-      "name": "Extract Timestamps",
+      "name": "Zeitstempel extrahieren",
       "responses": {
-        "targetMessage": "All timestamps found in the following message: {{url}}",
-        "noTimestamps": "This message does not contain any timestamps in Discord's format"
+        "targetMessage": "Alle Zeitstempel, die in der folgenden Nachricht gefunden wurden: {{url}}",
+        "noTimestamps": "Diese Nachricht enthält keine Zeitstempel im Discord-Format"
       }
     }
   }
