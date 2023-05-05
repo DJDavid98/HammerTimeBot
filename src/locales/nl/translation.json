@@ -262,7 +262,7 @@
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "Geef de syntax weer voor een opgegeven ISO 8601 tijdsaanduiding",
       "responses": {
         "invalidIsoFormat": "De ingevoerde waarde komt niet overeen met de ISO 8601 standaard"
       },
