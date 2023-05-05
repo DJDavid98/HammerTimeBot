@@ -105,107 +105,107 @@
       "responses": {},
       "options": {
         "to": {
-          "name": "to",
-          "description": "The UNIX timestamp in seconds"
+          "name": "ke",
+          "description": "Stempel waktu UNIX dalam hitungan detik"
         },
         "years": {
-          "name": "years",
-          "description": "How many years to add to the specified timestamp"
+          "name": "tahun",
+          "description": "Berapa tahun untuk ditambahkan ke stempel waktu yang ditentukan"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to add to the specified timestamp"
+          "name": "bulan",
+          "description": "Berapa bulan untuk ditambahkan ke stempel waktu yang ditentukan"
         },
         "days": {
-          "name": "days",
-          "description": "How many days to add to the specified timestamp"
+          "name": "hari",
+          "description": "Berapa hari untuk ditambahkan ke stempel waktu yang ditentukan"
         },
         "hours": {
-          "name": "hours",
-          "description": "How many hours to add to the specified timestamp"
+          "name": "jam",
+          "description": "Berapa jam untuk ditambahkan ke stempel waktu yang ditentukan"
         },
         "minutes": {
-          "name": "minutes",
-          "description": "How many minutes to add to the specified timestamp"
+          "name": "menit",
+          "description": "Berapa menit untuk ditambahkan ke stempel waktu yang ditentukan"
         },
         "seconds": {
-          "name": "seconds",
-          "description": "How many seconds to add to the specified timestamp"
+          "name": "detik",
+          "description": "Berapa detik untuk ditambahkan ke stempel waktu yang ditentukan"
         }
       }
     },
     "subtract": {
-      "name": "subtract",
-      "description": "Subtract some time from the specified UNIX timestamp",
+      "name": "mengurangi",
+      "description": "Kurangi beberapa waktu dari stempel waktu UNIX yang ditentukan",
       "responses": {},
       "options": {
         "from": {
-          "name": "from",
-          "description": "The UNIX timestamp in seconds"
+          "name": "dari",
+          "description": "Stempel waktu UNIX dalam hitungan detik"
         },
         "years": {
-          "name": "years",
-          "description": "How many years to subtract from the specified timestamp"
+          "name": "tahun",
+          "description": "Berapa tahun untuk dikurangi dari stempel waktu yang ditentukan"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to subtract from the specified timestamp"
+          "name": "bulan",
+          "description": "Berapa bulan untuk dikurangi dari stempel waktu yang ditentukan"
         },
         "days": {
-          "name": "days",
-          "description": "How many days to subtract from the specified timestamp"
+          "name": "hari",
+          "description": "Berapa hari untuk dikurangi dari stempel waktu yang ditentukan"
         },
         "hours": {
-          "name": "hours",
-          "description": "How many hours to subtract from the specified timestamp"
+          "name": "jam",
+          "description": "Berapa jam untuk dikurangi dari stempel waktu yang ditentukan"
         },
         "minutes": {
-          "name": "minutes",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "name": "menit",
+          "description": "Berapa menit untuk dikurangi dari stempel waktu yang ditentukan"
         },
         "seconds": {
-          "name": "seconds",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "name": "detik",
+          "description": "Berapa detik untuk dikurangi dari stempel waktu yang ditentukan"
         }
       }
     },
     "unix": {
       "name": "unix",
-      "description": "Display the syntaxes for a specific UNIX timestamp",
+      "description": "Tampilkan sintaks untuk stempel waktu UNIX tertentu",
       "responses": {},
       "options": {
         "value": {
-          "name": "value",
-          "description": "The UNIX timestamp in seconds"
+          "name": "nilai",
+          "description": "Stempel waktu UNIX dalam hitungan detik"
         }
       }
     },
     "global": {
       "responses": {
-        "invalidDate": "The specified date is invalid (for example: the given day does not exist)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
+        "invalidDate": "Tanggal yang ditentukan tidak valid (misalnya: hari yang diberikan tidak ada)",
+        "noComponentsCurrentTime": "Anda harus menentukan setidaknya satu komponen waktu untuk diubah. Jika Anda membutuhkan waktu saat ini, gunakan `/{{atCommand}}` tanpa menentukan argumen apa pun",
+        "noComponentsUnix": "Anda harus menentukan setidaknya satu komponen waktu untuk diubah. Jika Anda ingin mendapatkan sintaks untuk stempel waktu UNIX, gunakan `/{{unixCommand}}`"
       },
       "options": {
         "format": {
           "name": "format",
-          "description": "Returns only the specified format in the response",
+          "description": "Hanya mengembalikan format yang ditentukan dalam respons",
           "choices": {
-            "d": "short date",
-            "D": "long date",
-            "t": "short time",
-            "T": "long time",
-            "f": "date and time",
-            "F": "weekday, date and time",
-            "R": "relative"
+            "d": "tanggal pendek",
+            "D": "tanggal panjang",
+            "t": "waktu yang singkat",
+            "T": "waktu yang lama",
+            "f": "tanggal dan waktu",
+            "F": "hari kerja, tanggal dan waktu",
+            "R": "relatif"
           }
         },
         "columns": {
-          "name": "columns",
-          "description": "Specify which columns to display in the returned response",
+          "name": "kolom",
+          "description": "Tentukan kolom mana yang akan ditampilkan dalam respons yang dikembalikan",
           "choices": {
-            "both": "both syntax and preview",
-            "preview": "preview only",
+            "both": "sintaks dan pratinjau",
+            "preview": "pratinjau saja",
             "syntax": "sintaks saja"
           }
         },
@@ -235,15 +235,15 @@
       }
     },
     "snowflake": {
-      "name": "snowflake",
+      "name": "kepingan salju",
       "description": "Tampilkan sintaks untuk stempel waktu Snowflake (sebagian besar ID dalam Discord)",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "Kepingan Salju yang ditentukan tidak valid"
       },
       "options": {
         "value": {
           "name": "nilai",
-          "description": "The Snowflake number"
+          "description": "Nomor Kepingan Salju"
         }
       }
     },
