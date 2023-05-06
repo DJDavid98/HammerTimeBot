@@ -67,9 +67,11 @@ export const handleContextMenuInteraction = async (interaction: MessageContextMe
     return;
   }
 
-  const { commandName, locale } = interaction;
+  const { commandName, user, locale, channel, guild } = interaction;
   const command = messageContextMenuCommandMap[commandName];
   const t = i18next.getFixedT(locale);
+
+  console.log(`${getUserIdentifier(user)} ran "${commandName}" in ${stringifyChannelName(channel)} of ${stringifyGuildName(guild)}`);
 
   try {
     await command.handle(interaction, t);
