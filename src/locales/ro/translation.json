@@ -262,22 +262,22 @@
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "Afișați sintaxele pentru un anumit marcaj de timp ISO 8601",
       "responses": {
-        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+        "invalidIsoFormat": "Valoarea furnizată nu corespunde standardului ISO 8601"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The ISO 8601 standard timestamp"
+          "name": "valoarea",
+          "description": "Marca temporală standard ISO 8601"
         }
       }
     },
     "Extract Timestamps": {
-      "name": "Extract Timestamps",
+      "name": "Extrageți marcajele de timp",
       "responses": {
-        "targetMessage": "All timestamps found in the following message: {{url}}",
-        "noTimestamps": "This message does not contain any timestamps in Discord's format"
+        "targetMessage": "Toate marcajele de timp găsite în următorul mesaj: {{url}}",
+        "noTimestamps": "Acest mesaj nu conține marcaje temporale în formatul Discord"
       }
     }
   }
