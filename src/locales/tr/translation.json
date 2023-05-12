@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "dakika",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Belirtilen zaman damgasından kaç dakika çıkarılacağı"
         },
         "seconds": {
           "name": "saniye",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Belirtilen zaman damgasından kaç saniye çıkarılacağı"
         }
       }
     },
@@ -183,8 +183,8 @@
     "global": {
       "responses": {
         "invalidDate": "Belirtilen tarih geçersizdir (örneğin: verilen gün mevcut değil)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
+        "noComponentsCurrentTime": "Değiştirmek için en az bir zaman bileşeni belirtmelisiniz. Geçerli saate ihtiyacınız varsa, herhangi bir argüman belirtmeden `/{{atCommand}}` kullanın",
+        "noComponentsUnix": "Değiştirmek için en az bir zaman bileşeni belirtmelisiniz. UNIX zaman damgası için sözdizimini almak istiyorsanız, `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -236,48 +236,48 @@
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "Snowflake için zaman damgası sözdizimlerini görüntüleme (Discord içindeki çoğu ID için)",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "Belirtilen Snowflake geçersiz"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The Snowflake number"
+          "name": "değer",
+          "description": "Snowflake numarası"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "Mesaj gönderildi",
       "responses": {
         "targetMessage": "Send timestamp for the following message: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "Mesajın Son Düzenleme Tarihi",
       "responses": {
         "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "notEdited": "Bu mesaj henüz düzenlenmedi"
       }
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "Belirli bir ISO 8601 zaman damgası için sözdizimlerini görüntüle",
       "responses": {
-        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+        "invalidIsoFormat": "Sağlanan değer ISO 8601 standardıyla eşleşmiyor"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The ISO 8601 standard timestamp"
+          "name": "değer",
+          "description": "ISO 8601 standart zaman damgası"
         }
       }
     },
     "Extract Timestamps": {
-      "name": "Extract Timestamps",
+      "name": "Zaman Damgalarını Çıkart",
       "responses": {
-        "targetMessage": "All timestamps found in the following message: {{url}}",
-        "noTimestamps": "This message does not contain any timestamps in Discord's format"
+        "targetMessage": "Şu mesajda bulunan tüm zaman damgaları: {{url}}",
+        "noTimestamps": "Bu mesaj Discord'un formatında herhangi bir zaman damgası içermiyor"
       }
     }
   }
