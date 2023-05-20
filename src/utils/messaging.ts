@@ -8,7 +8,14 @@ import {
 } from 'discord.js';
 import { GlobalCommandOptionName } from '../types/localization.js';
 
-export const getUserIdentifier = (user: User): `${string}#${string} (${string})` => `${user.username}#${user.discriminator} (${user.id})`;
+type UserFriendCode = `@${string}` | `${string}#${string}`;
+export const getUserFriendCode = (user: User): UserFriendCode => {
+  return user.discriminator === '0' ? `@${user.username}` : `${user.username}#${user.discriminator}`;
+};
+
+export const getUserIdentifier = (user: User): `${UserFriendCode} (${string})` => {
+  return `${getUserFriendCode(user)} (${user.id})`;
+};
 
 export const stringifyChannelName = (channel: CommandInteraction['channel']): string => {
   if (channel) {
