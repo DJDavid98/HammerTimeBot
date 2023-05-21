@@ -8,7 +8,7 @@ import { ResponseColumnChoices } from '../types/localization.js';
 export const extractTimestampsCommand: BotMessageContextMenuCommand = {
   getDefinition: (t) => ({
     type: ApplicationCommandType.Message,
-    ...getLocalizedObject('name', (lng) => t('commands.Extract Timestamps.name', { lng })),
+    ...getLocalizedObject('name', (lng) => t('commands.Extract Timestamps.name', { lng }), true, false),
   }),
   async handle(interaction, t) {
     const messageTarget = t('commands.Extract Timestamps.responses.targetMessage', { replace: { url: interaction.targetMessage.url } });

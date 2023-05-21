@@ -7,7 +7,7 @@ import { ApplicationCommandType } from 'discord-api-types/v10';
 export const messageSentCommand: BotMessageContextMenuCommand = {
   getDefinition: (t) => ({
     type: ApplicationCommandType.Message,
-    ...getLocalizedObject('name', (lng) => t('commands.Message Sent.name', { lng })),
+    ...getLocalizedObject('name', (lng) => t('commands.Message Sent.name', { lng }), true, false),
   }),
   async handle(interaction, t) {
     const messageTarget = t('commands.Message Sent.responses.targetMessage', { replace: { url: interaction.targetMessage.url } });
