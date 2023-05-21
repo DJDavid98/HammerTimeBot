@@ -77,7 +77,7 @@ export const atCommand: BotChatInputCommand = {
         localMoment = moment.tz(timezone);
       }
       localMoment = localMoment.millisecond(0);
-      if (year !== null) localMoment.year(constrain(year, 0));
+      if (year !== null) localMoment.year(constrain(year, 0, 275759));
       if (month !== null) localMoment.month(constrain(month - 1, 0, 11));
       if (date !== null) localMoment.date(constrain(date, 1, 31));
       if (hour !== null) localMoment.hour(constrain(hour, 0, 23));
