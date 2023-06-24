@@ -53,6 +53,9 @@
       "credits": [
         {
           "crowdin": "klauny"
+        },
+        {
+          "crowdin": "Blurplix"
         }
       ]
     },
@@ -193,6 +196,10 @@
         {
           "crowdin": "Ajno",
           "displayName": "Artiom Boyko"
+        },
+        {
+          "crowdin": "bill876",
+          "displayName": "Vladimir"
         }
       ]
     },
@@ -204,6 +211,10 @@
           "crowdin": "shaulyareaj",
           "displayName": "Yareaj",
           "url": "https://github.com/Yareaj/"
+        },
+        {
+          "crowdin": "streetdog.arg",
+          "displayName": "Street Dog"
         }
       ]
     },
