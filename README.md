@@ -37,7 +37,9 @@ English and Hungarian translations have been included, so no translators will be
   - [CPYW_7226](https://crowdin.com/profile/CPYW_7226)
   - [User670](https://crowdin.com/profile/User670)
 - 🇭🇷 Croatian: [Volvone](https://github.com/volvone)
-- 🇨🇿 Czech: [klauny](https://crowdin.com/profile/klauny)
+- 🇨🇿 Czech
+  - [Blurplix](https://crowdin.com/profile/Blurplix)
+  - [klauny](https://crowdin.com/profile/klauny)
 - 🇳🇱 Dutch: [Jesse](https://crowdin.com/profile/Jessuh)
 - 🇫🇷 French: [Cookie Kiro](https://crowdin.com/profile/Cookikui)
 - 🇩🇪 German: [Fabian9799](https://crowdin.com/profile/Fabian9799)
@@ -56,7 +58,10 @@ English and Hungarian translations have been included, so no translators will be
   - [Artiom Boyko](https://crowdin.com/profile/Ajno)
   - [GameHacker](https://crowdin.com/profile/GameHacker)
   - [Nikita Sharikov](https://crowdin.com/profile/Aligatoor)
-- 🇪🇸 Spanish: [Yareaj](https://github.com/Yareaj/)
+  - [Vladimir](https://crowdin.com/profile/bill876)
+- 🇪🇸 Spanish
+  - [Street Dog](https://crowdin.com/profile/streetdog.arg)
+  - [Yareaj](https://github.com/Yareaj/)
 - 🇹🇭 Thai: [Rukchad Wongprayoon](https://crowdin.com/profile/unpredictable)
 - 🇹🇷 Turkish: [Baran Moroğan](https://crowdin.com/profile/okunamayanad)
 - 🇺🇦 Ukrainian
