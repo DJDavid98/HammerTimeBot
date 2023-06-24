@@ -183,8 +183,8 @@
     "global": {
       "responses": {
         "invalidDate": "Zadané datum je neplatné (například: daný den neexistuje)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
+        "noComponentsCurrentTime": "Musíte zadat alespoň jednu časovou jednotku, kterou chcete změnit. Pokud potřebujete aktuální čas, použijte `/{{atCommand}}` bez zadání argumentů",
+        "noComponentsUnix": "Musíte zadat alespoň jednu časovou jednotku, kterou chcete změnit. Pokud chcete získat syntaxe pro časové razítko systému UNIX, použijte `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -236,48 +236,48 @@
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "Zobrazení syntaxe pro časové razítko Snowflaku (většina ID je součástí Discordu)",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "Zadaný Snowflake je neplatný"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The Snowflake number"
+          "name": "hodnota",
+          "description": "Číslo Snowflaku"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "Zpráva odeslána",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "Časové razítko odeslání následující zprávy: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "Zpráva naposled upravena",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "Časové razítko poslední úpravy následující zprávy: {{url}}",
+        "notEdited": "Tato zpráva ještě nebyla upravena"
       }
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "Zobrazení syntaxe pro konkrétní časové razítko ISO 8601",
       "responses": {
-        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+        "invalidIsoFormat": "Poskytnutá hodnota neodpovídá normě ISO 8601"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The ISO 8601 standard timestamp"
+          "name": "hodnota",
+          "description": "Časové razítko normy ISO 8601"
         }
       }
     },
     "Extract Timestamps": {
-      "name": "Extract Timestamps",
+      "name": "Výpis časových razítek",
       "responses": {
-        "targetMessage": "All timestamps found in the following message: {{url}}",
-        "noTimestamps": "This message does not contain any timestamps in Discord's format"
+        "targetMessage": "Všechna časová razítka nalezená v následující zprávě: {{url}}",
+        "noTimestamps": "Tato zpráva neobsahuje žádná časová razítka ve formátu Discordu"
       }
     }
   }
