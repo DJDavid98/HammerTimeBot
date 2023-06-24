@@ -7,27 +7,27 @@
       "options": {
         "years": {
           "name": "roky",
-          "description": "Kolik let odečíst od aktuálního času"
+          "description": "Kolik let se má odečíst od aktuálního času"
         },
         "months": {
           "name": "měsíce",
-          "description": "Kolik měsíců odečíst od aktuálního času"
+          "description": "Kolik měsíců se má odečíst od aktuálního času"
         },
         "days": {
           "name": "dny",
-          "description": "Kolik dní odečíst od aktuálního času"
+          "description": "Kolik dní se má odečíst od aktuálního času"
         },
         "hours": {
           "name": "hodiny",
-          "description": "Kolik hodin odečíst od aktuálního času"
+          "description": "Kolik hodin se má odečíst od aktuálního času"
         },
         "minutes": {
           "name": "minuty",
-          "description": "Kolik minut odečíst od aktuálního času"
+          "description": "Kolik minut se má odečíst od aktuálního času"
         },
         "seconds": {
           "name": "vteřiny",
-          "description": "Kolik vteřin odečíst od aktuálního času"
+          "description": "Kolik vteřin se má odečíst od aktuálního času"
         }
       }
     },
@@ -38,27 +38,27 @@
       "options": {
         "years": {
           "name": "roky",
-          "description": "Kolik let přidat k aktuálnímu času"
+          "description": "Kolik let se má přičíst k aktuálnímu času"
         },
         "months": {
           "name": "měsíce",
-          "description": "Kolik měsíců přidat k aktuálnímu času"
+          "description": "Kolik měsíců se má přičíst k aktuálnímu času"
         },
         "days": {
           "name": "dny",
-          "description": "Kolik dní přidat k aktuálnímu času"
+          "description": "Kolik dní se má přičíst k aktuálnímu času"
         },
         "hours": {
           "name": "hodiny",
-          "description": "Kolik hodin přidat k aktuálnímu času"
+          "description": "Kolik hodin se má přičíst k aktuálnímu času"
         },
         "minutes": {
           "name": "minuty",
-          "description": "Kolik minut přidat k aktuálnímu času"
+          "description": "Kolik minut se má přičíst k aktuálnímu času"
         },
         "seconds": {
           "name": "vteřiny",
-          "description": "Kolik vteřin přidat k aktuálnímu času"
+          "description": "Kolik vteřin se má přičíst k aktuálnímu času"
         }
       }
     },
@@ -79,15 +79,15 @@
         },
         "day": {
           "name": "den",
-          "description": "Zadání dne (výchozí hodnota je aktuální den)"
+          "description": "Zadejte den (výchozí hodnota je aktuální den)"
         },
         "hour": {
           "name": "hodina",
-          "description": "Zadání hodiny (výchozí hodnota je aktuální hodina)"
+          "description": "Zadejte hodiny (výchozí hodnota je aktuální hodina)"
         },
         "minute": {
           "name": "minuta",
-          "description": "Zadejte minutu (výchozí hodnota je aktuální minuta)"
+          "description": "Zadejte minuty (výchozí hodnota je aktuální minuta)"
         },
         "second": {
           "name": "vteřina",
@@ -122,11 +122,11 @@
         },
         "hours": {
           "name": "hodiny",
-          "description": "Kolik hodin přidat k zadanému časovému razítku"
+          "description": "Kolik hodin se má přičíst k zadanému časovému razítku"
         },
         "minutes": {
           "name": "minuty",
-          "description": "Kolik minut přidat k zadanému časovému razítku"
+          "description": "Kolik minut se má přičíst k zadanému časovému razítku"
         },
         "seconds": {
           "name": "vteřiny",
@@ -145,7 +145,7 @@
         },
         "years": {
           "name": "roky",
-          "description": "Kolik let odečíst od zadaného časového razítka"
+          "description": "Kolik let se má odečíst od zadaného časového razítka"
         },
         "months": {
           "name": "měsíce",
@@ -153,7 +153,7 @@
         },
         "days": {
           "name": "dny",
-          "description": "Kolik dní odečíst od zadaného časového razítka"
+          "description": "Kolik dní se má odečíst od zadaného časového razítka"
         },
         "hours": {
           "name": "hodiny",
@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "minuty",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Kolik minut se má odečíst od zadaného časového razítka"
         },
         "seconds": {
           "name": "vteřiny",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Kolik vteřin se má odečíst od zadaného časového razítka"
         }
       }
     },
@@ -183,8 +183,8 @@
     "global": {
       "responses": {
         "invalidDate": "Zadané datum je neplatné (například: daný den neexistuje)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`"
+        "noComponentsCurrentTime": "Musíte zadat alespoň jednu časovou jednotku, kterou chcete změnit. Pokud potřebujete aktuální čas, použijte `/{{atCommand}}` bez zadání argumentů",
+        "noComponentsUnix": "Musíte zadat alespoň jednu časovou jednotku, kterou chcete změnit. Pokud chcete získat syntaxe pro časové razítko systému UNIX, použijte `/{{unixCommand}}`"
       },
       "options": {
         "format": {
@@ -228,56 +228,56 @@
         "shardServerCount": "Servery na tomto střepu:",
         "uptime": "Doba spuštění střepu:",
         "shardCount": "Počet střepů:",
-        "shardNumber": "(Tyto statistiky byly vygenerovány oddílem #{{shardId}})",
-        "noShards": "(Bot v současné době nepoužívá sharding)",
+        "shardNumber": "(Tyto statistiky byly vygenerovány střepem #{{shardId}})",
+        "noShards": "(Bot v současné době nepoužívá štěpení na střepy)",
         "serverInvite": "Adresa URL pro pozvání na server podpory:",
         "totalUserCount": "Celkový počet uživatelů na připojených serverech:"
       }
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "Zobrazení syntaxe pro časové razítko Snowflaku (většina ID je součástí Discordu)",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "Zadaný Snowflake je neplatný"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The Snowflake number"
+          "name": "hodnota",
+          "description": "Číslo Snowflaku"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "Zpráva odeslána",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "Časové razítko odeslání následující zprávy: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "Zpráva naposled upravena",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "Časové razítko poslední úpravy následující zprávy: {{url}}",
+        "notEdited": "Tato zpráva ještě nebyla upravena"
       }
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "Zobrazení syntaxe pro konkrétní časové razítko ISO 8601",
       "responses": {
-        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+        "invalidIsoFormat": "Poskytnutá hodnota neodpovídá normě ISO 8601"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The ISO 8601 standard timestamp"
+          "name": "hodnota",
+          "description": "Časové razítko normy ISO 8601"
         }
       }
     },
     "Extract Timestamps": {
-      "name": "Extract Timestamps",
+      "name": "Výpis časových razítek",
       "responses": {
-        "targetMessage": "All timestamps found in the following message: {{url}}",
-        "noTimestamps": "This message does not contain any timestamps in Discord's format"
+        "targetMessage": "Všechna časová razítka nalezená v následující zprávě: {{url}}",
+        "noTimestamps": "Tato zpráva neobsahuje žádná časová razítka ve formátu Discordu"
       }
     }
   }

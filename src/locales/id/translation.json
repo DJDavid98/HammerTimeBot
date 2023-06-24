@@ -262,22 +262,22 @@
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "Tampilkan sintaks untuk stempel waktu ISO 8601 tertentu",
       "responses": {
-        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+        "invalidIsoFormat": "Nilai yang diberikan tidak sesuai dengan standar ISO 8601"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The ISO 8601 standard timestamp"
+          "name": "nilai",
+          "description": "Stempel waktu standar ISO 8601"
         }
       }
     },
     "Extract Timestamps": {
-      "name": "Extract Timestamps",
+      "name": "Ekstrak Stempel Waktu",
       "responses": {
-        "targetMessage": "All timestamps found in the following message: {{url}}",
-        "noTimestamps": "This message does not contain any timestamps in Discord's format"
+        "targetMessage": "Semua stempel waktu ditemukan di pesan berikut: {{url}}",
+        "noTimestamps": "Pesan ini tidak berisi stempel waktu apa pun dalam format Perselisihan"
       }
     }
   }

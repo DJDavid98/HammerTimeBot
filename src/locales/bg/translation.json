@@ -1,115 +1,115 @@
 {
   "commands": {
     "ago": {
-      "name": "ago",
-      "description": "Specify a timestamp in the past relative to the current time",
+      "name": "преди",
+      "description": "Задава времева марка в миналото спрямо текущото време",
       "responses": {},
       "options": {
         "years": {
-          "name": "years",
-          "description": "How many years to subtract from the current time"
+          "name": "години",
+          "description": "Колко години да се извадят от текущото време"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to subtract from the current time"
+          "name": "месеци",
+          "description": "Колко месеца да се извадят от текущото време"
         },
         "days": {
-          "name": "days",
-          "description": "How many days to subtract from the current time"
+          "name": "дни",
+          "description": "Колко дни да се извадят от текущото време"
         },
         "hours": {
-          "name": "hours",
-          "description": "How many hours to subtract from the current time"
+          "name": "часове",
+          "description": "Колко часа да се извадят от текущото време"
         },
         "minutes": {
-          "name": "minutes",
-          "description": "How many minutes to subtract from the current time"
+          "name": "минути",
+          "description": "Колко минути да се извадят от текущото време"
         },
         "seconds": {
-          "name": "seconds",
-          "description": "How many seconds to subtract from the current time"
+          "name": "секунди",
+          "description": "Колко секунди да се извадят от текущото време"
         }
       }
     },
     "in": {
-      "name": "in",
-      "description": "Specify a timestamp in the future relative to the current time",
+      "name": "в",
+      "description": "Задава времева марка в бъдещето спрямо текущото време",
       "responses": {},
       "options": {
         "years": {
-          "name": "years",
-          "description": "How many years to add to the current time"
+          "name": "години",
+          "description": "Колко години да се добавят към текущото време"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to add to the current time"
+          "name": "месеци",
+          "description": "Колко месеца да се добавят към текущото време"
         },
         "days": {
-          "name": "days",
-          "description": "How many days to add to the current time"
+          "name": "дни",
+          "description": "Колко дни да се добавят към текущото време"
         },
         "hours": {
-          "name": "hours",
-          "description": "How many hours to add to the current time"
+          "name": "часове",
+          "description": "Колко часа да се добавят към текущото време"
         },
         "minutes": {
-          "name": "minutes",
-          "description": "How many minutes to add to the current time"
+          "name": "минути",
+          "description": "Колко минути да се добавят към текущото време"
         },
         "seconds": {
-          "name": "seconds",
-          "description": "How many seconds to add to the current time"
+          "name": "секунди",
+          "description": "Колко секунди да се добавят към текущото време"
         }
       }
     },
     "at": {
       "name": "at",
-      "description": "Specify the exact components of the timestamp (including the timezone)",
+      "description": "Посочете точните компоненти на времевата марка (включително часовата зона)",
       "responses": {
-        "timezoneNotFound": "The specified timezone cannot be found"
+        "timezoneNotFound": "Посочената часова зона не може да бъде намерена"
       },
       "options": {
         "year": {
-          "name": "year",
-          "description": "Specify the year (defaults to current year)"
+          "name": "година",
+          "description": "Посочете годината (по подразбиране е текущата година)"
         },
         "month": {
-          "name": "month",
-          "description": "Specify the month (defaults to current month)"
+          "name": "месец",
+          "description": "Посочете месеца (по подразбиране е текущият месец)"
         },
         "day": {
-          "name": "day",
-          "description": "Specify the day (defaults to current day)"
+          "name": "ден",
+          "description": "Посочете деня (по подразбиране е текущият ден)"
         },
         "hour": {
-          "name": "hour",
-          "description": "Specify the hour (defaults to current hour)"
+          "name": "час",
+          "description": "Посочете часа (по подразбиране е текущият час)"
         },
         "minute": {
-          "name": "minute",
-          "description": "Specify the minute (defaults to current minute)"
+          "name": "минута",
+          "description": "Посочете минутата (по подразбиране е текущата минута)"
         },
         "second": {
-          "name": "second",
-          "description": "Specify the second (defaults to 0)"
+          "name": "секунда",
+          "description": "Посочете секундата (по подразбиране е 0)"
         },
         "timezone": {
-          "name": "timezone",
-          "description": "Specify the timezone (defaults to GMT)"
+          "name": "часова зона",
+          "description": "Посочете часовата зона (по подразбиране е GMT)"
         }
       }
     },
     "add": {
       "name": "add",
-      "description": "Add some time to the specified UNIX timestamp",
+      "description": "Добавя време към зададена времева марка с UNIX формат",
       "responses": {},
       "options": {
         "to": {
-          "name": "to",
-          "description": "The UNIX timestamp in seconds"
+          "name": "към",
+          "description": "Времевата марка в UNIX формат в секунди"
         },
         "years": {
-          "name": "years",
+          "name": "години",
           "description": "How many years to add to the specified timestamp"
         },
         "months": {
@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "minutes",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "How many minutes to subtract from the specified timestamp"
         },
         "seconds": {
           "name": "seconds",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "How many seconds to subtract from the specified timestamp"
         }
       }
     },

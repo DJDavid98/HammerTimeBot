@@ -250,13 +250,13 @@
     "Message Sent": {
       "name": "Mesaj gönderildi",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "Şu mesaj için tüm zaman damgaları: {{url}}"
       }
     },
     "Message Last Edited": {
       "name": "Mesajın Son Düzenleme Tarihi",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
+        "targetMessage": "Şu mesaj için tüm son düzenleme zaman damgaları: {{url}}",
         "notEdited": "Bu mesaj henüz düzenlenmedi"
       }
     },
