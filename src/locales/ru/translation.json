@@ -262,22 +262,22 @@
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "Показать синтаксис для конкретной временной метки ISO 8601",
       "responses": {
-        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+        "invalidIsoFormat": "Указанное значение не соответствует стандарту ISO 8601"
       },
       "options": {
         "value": {
           "name": "value",
-          "description": "The ISO 8601 standard timestamp"
+          "description": "Временная метка стандарта ISO 8601"
         }
       }
     },
     "Extract Timestamps": {
-      "name": "Extract Timestamps",
+      "name": "Извлечь временные метки",
       "responses": {
-        "targetMessage": "All timestamps found in the following message: {{url}}",
-        "noTimestamps": "This message does not contain any timestamps in Discord's format"
+        "targetMessage": "Все временные метки, найденные в этом сообщении: {{url}}",
+        "noTimestamps": "Это сообщение не содержит временных меток в формате Discord"
       }
     }
   }
