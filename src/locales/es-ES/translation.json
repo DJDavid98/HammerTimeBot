@@ -215,13 +215,13 @@
         },
         "header": {
           "name": "encabezado",
-          "description": "Display the initial time (as interpreted by the bot) on top of the response"
+          "description": "Mostrar la hora inicial (como la interpreta el bot) encima de la respuesta"
         }
       }
     },
     "statistics": {
       "name": "estadísticas",
-      "description": "Displays various information about the bot",
+      "description": "Muestra infomación general sobre el bot",
       "options": {},
       "responses": {
         "totalServerCount": "Total de servidores unidos:",
