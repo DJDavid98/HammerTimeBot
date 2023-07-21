@@ -7,6 +7,7 @@ import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import snowflakeToUnix from '../utils/snowflake.js';
 import { SnowflakeError } from '../classes/snowflake-error.js';
 import { ApplicationCommandType } from 'discord-api-types/v10';
+import { getSettings } from '../utils/settings.js';
 
 export const snowflakeCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -15,7 +16,9 @@ export const snowflakeCommand: BotChatInputCommand = {
     ...getLocalizedObject('name', (lng) => t('commands.snowflake.name', { lng })),
     options: getSnowflakeCommandOptions(t),
   }),
-  async handle(interaction, t) {
+  async handle(interaction, context) {
+    const settings = await getSettings(context, interaction);
+    const { t } = context;
     const snowflake = interaction.options.getString(SnowflakeCommandOptionName.VALUE, true);
     let unixValue;
     try {
@@ -33,6 +36,6 @@ export const snowflakeCommand: BotChatInputCommand = {
     }
     const localMoment = moment.unix(unixValue).utc();
 
-    await replyWithSyntax(localMoment, interaction, t);
+    await replyWithSyntax({ localMoment, interaction, t, settings });
   },
 };

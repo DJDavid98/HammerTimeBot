@@ -10,7 +10,7 @@ export const extractTimestampsCommand: BotMessageContextMenuCommand = {
     type: ApplicationCommandType.Message,
     ...getLocalizedObject('name', (lng) => t('commands.Extract Timestamps.name', { lng }), true, false),
   }),
-  async handle(interaction, t) {
+  async handle(interaction, { t }) {
     const messageTarget = t('commands.Extract Timestamps.responses.targetMessage', { replace: { url: interaction.targetMessage.url } });
     const contentPrefix = `${messageTarget}\n\n`;
 

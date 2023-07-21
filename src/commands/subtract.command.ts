@@ -7,6 +7,7 @@ import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getSubtractOptions } from '../options/subtract.options.js';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
 import { ApplicationCommandType } from 'discord-api-types/v10';
+import { getSettings } from '../utils/settings.js';
 
 export const subtractCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -15,7 +16,9 @@ export const subtractCommand: BotChatInputCommand = {
     ...getLocalizedObject('name', (lng) => t('commands.subtract.name', { lng })),
     options: getSubtractOptions(t),
   }),
-  async handle(interaction, t) {
+  async handle(interaction, context) {
+    const settings = await getSettings(context, interaction);
+    const { t } = context;
     const from = interaction.options.getNumber(SubtractCommandOptionName.FROM, true);
     const now = moment.unix(from).utc();
     const options = {
@@ -41,6 +44,6 @@ export const subtractCommand: BotChatInputCommand = {
 
     const localMoment = adjustMoment(options, 'subtract', now);
 
-    await replyWithSyntax(localMoment, interaction, t);
+    await replyWithSyntax({ localMoment, interaction, t, settings });
   },
 };

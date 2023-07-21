@@ -2,10 +2,11 @@ import {
   AutocompleteInteraction,
   ButtonInteraction,
   ChatInputCommandInteraction,
-  CommandInteraction, ContextMenuCommandInteraction,
-  InteractionType, MessageContextMenuCommandInteraction,
+  CommandInteraction,
+  ContextMenuCommandInteraction,
+  InteractionType,
+  MessageContextMenuCommandInteraction,
 } from 'discord.js';
-import { i18n } from 'i18next';
 import { chatInputCommandMap, isKnownChatInputCommandInteraction } from './commands.js';
 import { EmojiCharacters } from '../constants/emoji-characters.js';
 import {
@@ -17,7 +18,9 @@ import {
 } from './messaging.js';
 import { ApplicationCommandType } from 'discord-api-types/v10';
 import { DEFAULT_LANGUAGE } from '../constants/locales.js';
-import { messageContextMenuCommandMap, isKnownMessageContextmenuInteraction } from './message-context-menu-commands.js';
+import { isKnownMessageContextmenuInteraction, messageContextMenuCommandMap } from './message-context-menu-commands.js';
+import { getSettings } from './settings.js';
+import { InteractionHandlerContext } from '../types/bot-interaction.js';
 
 const ellipsis = '…';
 
@@ -58,7 +61,10 @@ const isChatInputCommandInteraction = (interaction: CommandInteraction): interac
   return interaction.commandType === ApplicationCommandType.ChatInput;
 };
 
-export const handleContextMenuInteraction = async (interaction: MessageContextMenuCommandInteraction, i18next: i18n): Promise<void> => {
+export const handleContextMenuInteraction = async (interaction: MessageContextMenuCommandInteraction, {
+  i18next,
+  ...context
+}: InteractionHandlerContext): Promise<void> => {
   if (!isKnownMessageContextmenuInteraction(interaction)) {
     await interaction.reply({
       content: `Unsupported context menu interaction with name ${interaction.commandName}`,
@@ -74,7 +80,7 @@ export const handleContextMenuInteraction = async (interaction: MessageContextMe
   console.log(`${getUserIdentifier(user)} ran "${commandName}" in ${stringifyChannelName(channel)} of ${stringifyGuildName(guild)}`);
 
   try {
-    await command.handle(interaction, t);
+    await command.handle(interaction, { ...context, t });
   } catch (e) {
     console.error(`Error while responding to context menu command (commandName=${commandName})`, e);
     await handleInteractionError(interaction);
@@ -82,10 +88,10 @@ export const handleContextMenuInteraction = async (interaction: MessageContextMe
 };
 
 
-export const handleCommandInteraction = async (interaction: CommandInteraction, i18next: i18n): Promise<void> => {
+export const handleCommandInteraction = async (interaction: CommandInteraction, context: InteractionHandlerContext): Promise<void> => {
   if (!isChatInputCommandInteraction(interaction)) {
     if (interaction.isMessageContextMenuCommand()) {
-      return handleContextMenuInteraction(interaction, i18next);
+      return handleContextMenuInteraction(interaction, context);
     }
     await interaction.reply({
       content: `Unsupported command type ${interaction.commandType} when running ${interaction.commandName}`,
@@ -101,7 +107,8 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
 
   const { commandName, user, options, channel, guild, locale } = interaction;
   const command = chatInputCommandMap[commandName];
-  const ephemeral = isEphemeralResponse(interaction);
+  const ephemeral = isEphemeralResponse(interaction, await getSettings(context, interaction));
+  const { i18next, ...interactionContext } = context;
   // Always use user's locale for ephemeral responses, otherwise use server's preferred locale when available
   const t = i18next.getFixedT(
     ephemeral
@@ -119,14 +126,17 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
   console.log(`${getUserIdentifier(user)} ran /${commandName}${optionsString} in ${stringifyChannelName(channel)} of ${stringifyGuildName(guild)}`);
 
   try {
-    await command.handle(interaction, t);
+    await command.handle(interaction, { ...interactionContext, t });
   } catch (e) {
     console.error(`Error while responding to command interaction (commandName=${commandName})`, e);
     await handleInteractionError(interaction);
   }
 };
 
-export const handleCommandAutocomplete = async (interaction: AutocompleteInteraction, i18next: i18n): Promise<void> => {
+export const handleCommandAutocomplete = async (interaction: AutocompleteInteraction, {
+  i18next,
+  ...context
+}: InteractionHandlerContext): Promise<void> => {
   if (!isKnownChatInputCommandInteraction(interaction)) {
     return;
   }
@@ -136,7 +146,7 @@ export const handleCommandAutocomplete = async (interaction: AutocompleteInterac
   const t = i18next.getFixedT(locale);
 
   try {
-    await command.autocomplete?.(interaction, t);
+    await command.autocomplete?.(interaction, { ...context, t });
   } catch (e) {
     console.error(`Error while responding to command autocomplete (commandName=${commandName})`, e);
     await handleInteractionError(interaction);

@@ -6,6 +6,7 @@ import { getTotalServerCount, getTotalUserCount } from '../utils/usage-stats.js'
 import { getBareNumberFormatter, isEphemeralResponse } from '../utils/messaging.js';
 import { env } from '../env.js';
 import { ApplicationCommandType } from 'discord-api-types/v10';
+import { getSettings } from '../utils/settings.js';
 
 export const statisticsCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -14,7 +15,9 @@ export const statisticsCommand: BotChatInputCommand = {
     ...getLocalizedObject('name', (lng) => t('commands.statistics.name', { lng })),
     options: getStatisticsCommandOptions(t),
   }),
-  async handle(interaction, t) {
+  async handle(interaction, context) {
+    const settings = await getSettings(context, interaction);
+    const { t } = context;
     const { shard } = interaction.client;
     const uptimeInMilliseconds = Math.round(process.uptime() * 1000);
     const shardStartTs = new MessageTimestamp(new Date(Date.now() - uptimeInMilliseconds));
@@ -44,7 +47,7 @@ export const statisticsCommand: BotChatInputCommand = {
 
     await interaction.reply({
       content,
-      ephemeral: isEphemeralResponse(interaction),
+      ephemeral: isEphemeralResponse(interaction, settings),
     });
   },
 };

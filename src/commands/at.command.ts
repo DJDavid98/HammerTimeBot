@@ -7,6 +7,7 @@ import { TimezoneError } from '../classes/timezone-error.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getAtOptions } from '../options/at.options.js';
 import { ApplicationCommandType } from 'discord-api-types/v10';
+import { getSettings } from '../utils/settings.js';
 
 export const atCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -43,7 +44,9 @@ export const atCommand: BotChatInputCommand = {
         throw new Error(`Unknown autocomplete option ${focusedOption.name}`);
     }
   },
-  async handle(interaction, t) {
+  async handle(interaction, context) {
+    const settings = await getSettings(context, interaction);
+    const { t } = context;
     const year = interaction.options.getNumber(AtCommandOptionName.YEAR);
     const month = interaction.options.getNumber(AtCommandOptionName.MONTH);
     const date = interaction.options.getNumber(AtCommandOptionName.DATE);
@@ -52,7 +55,7 @@ export const atCommand: BotChatInputCommand = {
     const second = interaction.options.getNumber(AtCommandOptionName.SECOND);
 
     const timezoneInput = interaction.options.getString(AtCommandOptionName.TIMEZONE);
-    let timezone = 'GMT';
+    let timezone = settings.timezone ?? 'GMT';
     if (timezoneInput) {
       try {
         timezone = findTimezone(timezoneInput)[0];
@@ -95,6 +98,6 @@ export const atCommand: BotChatInputCommand = {
       throw e;
     }
 
-    await replyWithSyntax(localMoment, interaction, t, timezone);
+    await replyWithSyntax({ localMoment, interaction, t, timezone, settings });
   },
 };

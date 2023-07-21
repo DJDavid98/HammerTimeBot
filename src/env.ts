@@ -8,6 +8,9 @@ const {
   LOCAL,
   UA_STRING,
   DISCORD_INVITE_URL,
+  DATABASE_URL,
+  REDIS_URL,
+  REDIS_PREFIX,
 } = process.env;
 
 /**
@@ -20,6 +23,9 @@ export const env = (() => {
     LOCAL: typeof LOCAL !== 'undefined' && LOCAL === 'true',
     UA_STRING,
     DISCORD_INVITE_URL,
+    DATABASE_URL,
+    REDIS_URL,
+    REDIS_PREFIX,
   };
 
   type Values = typeof values;

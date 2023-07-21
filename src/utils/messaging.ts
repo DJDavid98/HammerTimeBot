@@ -7,6 +7,7 @@ import {
   User,
 } from 'discord.js';
 import { GlobalCommandOptionName } from '../types/localization.js';
+import { SettingsValue } from './settings.js';
 
 type UserFriendCode = `@${string}` | `${string}#${string}`;
 export const getUserFriendCode = (user: User): UserFriendCode => {
@@ -61,7 +62,7 @@ export const stringifyOptionsData = (data: readonly CommandInteractionOption[]):
   return `(${optionName}${optionValue !== null ? `:${optionValue}` : ''})`;
 }).join(' ');
 
-export const isEphemeralResponse = (interaction: ChatInputCommandInteraction): boolean => interaction.options.getBoolean(GlobalCommandOptionName.EPHEMERAL) ?? false;
+export const isEphemeralResponse = (interaction: ChatInputCommandInteraction, settings: Pick<SettingsValue, 'ephemeral'>): boolean => interaction.options.getBoolean(GlobalCommandOptionName.EPHEMERAL) ?? settings.ephemeral ?? false;
 
 
 type BareNumberFormatter = Pick<Intl.NumberFormat, 'format'>;

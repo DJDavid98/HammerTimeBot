@@ -7,6 +7,7 @@ import { getAgoOptions } from '../options/ago.options.js';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
 import moment from 'moment-timezone';
 import { ApplicationCommandType } from 'discord-api-types/v10';
+import { getSettings } from '../utils/settings.js';
 
 export const agoCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -15,7 +16,9 @@ export const agoCommand: BotChatInputCommand = {
     ...getLocalizedObject('name', (lng) => t('commands.ago.name', { lng })),
     options: getAgoOptions(t),
   }),
-  async handle(interaction, t) {
+  async handle(interaction, context) {
+    const settings = await getSettings(context, interaction);
+    const { t } = context;
     const options = {
       years: interaction.options.getNumber(AgoCommandOptionName.YEARS_AGO),
       months: interaction.options.getNumber(AgoCommandOptionName.MONTHS_AGO),
@@ -37,9 +40,10 @@ export const agoCommand: BotChatInputCommand = {
       return;
     }
 
+    // Fixed value for relative timestamps
     const timezone = 'UTC';
     const localMoment = adjustMoment(options, 'subtract', moment.tz(timezone));
 
-    await replyWithSyntax(localMoment, interaction, t, timezone);
+    await replyWithSyntax({ localMoment, interaction, t, timezone, settings });
   },
 };

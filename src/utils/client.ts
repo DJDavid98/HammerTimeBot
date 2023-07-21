@@ -10,6 +10,7 @@ import {
   updateGlobalCommands,
   updateGuildCommands,
 } from './update-guild-commands.js';
+import { InteractionHandlerContext } from '../types/bot-interaction.js';
 
 const updateCommands = async (i18next: i18n) => {
   const t = i18next.t.bind(i18next);
@@ -44,18 +45,18 @@ const handleReady = (i18next: i18n) => async (client: Client<true>) => {
   }
 };
 
-export const createClient = async (i18next: i18n): Promise<void> => {
+export const createClient = async (context: InteractionHandlerContext): Promise<void> => {
   const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-  client.on(Events.ClientReady, handleReady(i18next));
+  client.on(Events.ClientReady, handleReady(context.i18next));
 
   client.on(Events.InteractionCreate, async (interaction) => {
     switch (interaction.type) {
       case InteractionType.ApplicationCommand:
-        await handleCommandInteraction(interaction, i18next);
+        await handleCommandInteraction(interaction, context);
         return;
       case InteractionType.ApplicationCommandAutocomplete:
-        await handleCommandAutocomplete(interaction, i18next);
+        await handleCommandAutocomplete(interaction, context);
         return;
       default:
         throw new Error(`Unhandled interaction of type ${interaction.type}`);

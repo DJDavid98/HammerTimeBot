@@ -5,11 +5,12 @@ import { TFunction } from 'i18next';
 import { GlobalCommandOptionName, ResponseColumnChoices } from '../types/localization.js';
 import { isEphemeralResponse } from './messaging.js';
 import { getExactTimePrefix } from './get-exact-time-prefix.js';
-import { Moment } from 'moment/moment.js';
+import { SettingsValue } from './settings.js';
+import { Moment } from 'moment';
 
 type HandledInteractions = ChatInputCommandInteraction | ContextMenuCommandInteraction;
 
-export const mapCommandInteractionToSyntaxInteraction = (interaction: HandledInteractions): SyntaxInteraction => {
+export const mapCommandInteractionToSyntaxInteraction = (interaction: HandledInteractions, settings: Pick<SettingsValue, 'ephemeral'>): SyntaxInteraction => {
   if (interaction.isContextMenuCommand()) {
     return {
       columns: null,
@@ -23,7 +24,7 @@ export const mapCommandInteractionToSyntaxInteraction = (interaction: HandledInt
     columns: interaction.options.getString(GlobalCommandOptionName.COLUMNS) ?? ResponseColumnChoices.BOTH,
     format: interaction.options.getString(GlobalCommandOptionName.FORMAT),
     header: interaction.options.getBoolean(GlobalCommandOptionName.HEADER) ?? true,
-    ephemeral: isEphemeralResponse(interaction),
+    ephemeral: isEphemeralResponse(interaction, settings),
   });
 };
 
@@ -34,7 +35,21 @@ export interface SyntaxInteraction {
   ephemeral: boolean;
 }
 
-export const getSyntaxReplyOptions = (localMoment: Moment, interaction: HandledInteractions, t: TFunction, timezone = 'UTC'): InteractionReplyOptions => {
+interface SyntaxReplyOptions {
+  localMoment: Moment;
+  interaction: HandledInteractions;
+  t: TFunction;
+  timezone?: string;
+  settings: Pick<SettingsValue, 'ephemeral'>;
+}
+
+export const getSyntaxReplyOptions = ({
+  localMoment,
+  interaction,
+  t,
+  timezone = 'UTC',
+  settings,
+}: SyntaxReplyOptions): InteractionReplyOptions => {
   const localDate = localMoment.toDate();
   if (!localMoment.isValid()) {
     return {
@@ -43,7 +58,7 @@ export const getSyntaxReplyOptions = (localMoment: Moment, interaction: HandledI
     };
   }
 
-  const syntaxInteraction = mapCommandInteractionToSyntaxInteraction(interaction);
+  const syntaxInteraction = mapCommandInteractionToSyntaxInteraction(interaction, settings);
 
   const ts = new MessageTimestamp(localDate);
   const columns = syntaxInteraction.columns ?? ResponseColumnChoices.BOTH;
@@ -58,6 +73,26 @@ export const getSyntaxReplyOptions = (localMoment: Moment, interaction: HandledI
   };
 };
 
-export const replyWithSyntax = async (localMoment: Moment, interaction: ChatInputCommandInteraction | ContextMenuCommandInteraction, t: TFunction, timezone = 'UTC'): Promise<unknown> => {
-  return interaction.reply(getSyntaxReplyOptions(localMoment, interaction, t, timezone));
+interface ReplyWithSyntaxParams {
+  localMoment: Moment;
+  interaction: ChatInputCommandInteraction | ContextMenuCommandInteraction;
+  t: TFunction;
+  timezone?: string;
+  settings: Pick<SettingsValue, 'ephemeral'>;
+}
+
+export const replyWithSyntax = async ({
+  localMoment,
+  interaction,
+  t,
+  timezone = 'UTC',
+  settings,
+}: ReplyWithSyntaxParams): Promise<unknown> => {
+  return interaction.reply(getSyntaxReplyOptions({
+    localMoment,
+    interaction,
+    t,
+    timezone,
+    settings,
+  }));
 };

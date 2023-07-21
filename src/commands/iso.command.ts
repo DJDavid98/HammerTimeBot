@@ -5,6 +5,7 @@ import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { ApplicationCommandType } from 'discord-api-types/v10';
 import { getIsoCommandOptions } from '../options/iso.options.js';
+import { getSettings } from '../utils/settings.js';
 
 export const isoCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -13,7 +14,9 @@ export const isoCommand: BotChatInputCommand = {
     ...getLocalizedObject('name', (lng) => t('commands.iso.name', { lng })),
     options: getIsoCommandOptions(t),
   }),
-  async handle(interaction, t) {
+  async handle(interaction, context) {
+    const settings = await getSettings(context, interaction);
+    const { t } = context;
     const value = interaction.options.getString(IsoCommandOptionName.VALUE, true);
     const parsedValue = moment(value, moment.ISO_8601);
     if (!parsedValue.isValid()) {
@@ -25,6 +28,6 @@ export const isoCommand: BotChatInputCommand = {
     }
     const localMoment = parsedValue.utc();
 
-    await replyWithSyntax(localMoment, interaction, t);
+    await replyWithSyntax({ localMoment, interaction, t, settings });
   },
 };

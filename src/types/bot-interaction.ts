@@ -6,7 +6,9 @@ import type {
 } from 'discord.js';
 import { MessageContextMenuCommandInteraction } from 'discord.js';
 import type { RESTPostAPIChatInputApplicationCommandsJSONBody } from 'discord-api-types/v10';
-import { TFunction } from 'i18next';
+import { i18n, TFunction } from 'i18next';
+import { Client } from 'pg';
+import Redis from 'ioredis';
 
 export const enum BotChatInputCommandName {
   ADD = 'add',
@@ -26,7 +28,17 @@ export const enum BotMessageContextMenuCommandName {
   EXTRACT_TIMESTAMPS = 'Extract Timestamps',
 }
 
-export type InteractionHandler<T extends BaseInteraction> = (interaction: T, t: TFunction) => void | Promise<void>;
+export interface InteractionHandlerContext {
+  i18next: i18n;
+  db: Client;
+  redis: Redis;
+}
+
+export interface InteractionContext extends Omit<InteractionHandlerContext, 'i18next'> {
+  t: TFunction;
+}
+
+export type InteractionHandler<T extends BaseInteraction> = (interaction: T, context: InteractionContext) => void | Promise<void>;
 
 export interface BotChatInputCommand {
   getDefinition: (t: TFunction) => RESTPostAPIChatInputApplicationCommandsJSONBody;

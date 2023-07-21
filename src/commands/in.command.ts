@@ -7,6 +7,7 @@ import { getInOptions } from '../options/in.options.js';
 import moment from 'moment-timezone';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
 import { ApplicationCommandType } from 'discord-api-types/v10';
+import { getSettings } from '../utils/settings.js';
 
 export const inCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -15,7 +16,9 @@ export const inCommand: BotChatInputCommand = {
     ...getLocalizedObject('name', (lng) => t('commands.in.name', { lng })),
     options: getInOptions(t),
   }),
-  async handle(interaction, t) {
+  async handle(interaction, context) {
+    const settings = await getSettings(context, interaction);
+    const { t } = context;
     const options = {
       years: interaction.options.getNumber(InCommandOptionName.IN_YEARS),
       months: interaction.options.getNumber(InCommandOptionName.IN_MONTHS),
@@ -37,9 +40,10 @@ export const inCommand: BotChatInputCommand = {
       return;
     }
 
+    // Fixed value for relative timestamps
     const timezone = 'UTC';
     const localMoment = adjustMoment(options, 'add', moment.tz(timezone));
 
-    await replyWithSyntax(localMoment, interaction, t, timezone);
+    await replyWithSyntax({ localMoment, interaction, t, timezone, settings });
   },
 };
