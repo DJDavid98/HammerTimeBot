@@ -1,10 +1,10 @@
-import { APIApplicationCommandBasicOption, ApplicationCommandOptionType } from 'discord-api-types/v10';
+import { APIApplicationCommandOption, ApplicationCommandOptionType } from 'discord-api-types/v10';
 import { TFunction } from 'i18next';
 import { GlobalCommandOptionName, ResponseColumnChoices } from '../types/localization.js';
 import { MessageTimestampFormat } from '../classes/message-timestamp.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 
-const getFormatOption = (t: TFunction): APIApplicationCommandBasicOption => ({
+const getFormatOption = (t: TFunction): APIApplicationCommandOption => ({
   name: GlobalCommandOptionName.FORMAT,
   ...getLocalizedObject('name', (lng) => t('commands.global.options.format.name', { lng }), false),
   ...getLocalizedObject('description', (lng) => t('commands.global.options.format.description', { lng })),
@@ -41,14 +41,14 @@ const getFormatOption = (t: TFunction): APIApplicationCommandBasicOption => ({
   ],
 });
 
-const getHeaderOption = (t: TFunction): APIApplicationCommandBasicOption => ({
+const getHeaderOption = (t: TFunction): APIApplicationCommandOption => ({
   name: GlobalCommandOptionName.HEADER,
   ...getLocalizedObject('name', (lng) => t('commands.global.options.header.name', { lng }), false),
   ...getLocalizedObject('description', (lng) => t('commands.global.options.header.description', { lng })),
   type: ApplicationCommandOptionType.Boolean,
 });
 
-const getColumnsOption = (t: TFunction): APIApplicationCommandBasicOption => ({
+const getColumnsOption = (t: TFunction): APIApplicationCommandOption => ({
   name: GlobalCommandOptionName.COLUMNS,
   ...getLocalizedObject('name', (lng) => t('commands.global.options.columns.name', { lng }), false),
   ...getLocalizedObject('description', (lng) => t('commands.global.options.columns.description', { lng })),
@@ -69,14 +69,14 @@ const getColumnsOption = (t: TFunction): APIApplicationCommandBasicOption => ({
   ],
 });
 
-export const getEphemeralOption = (t: TFunction): APIApplicationCommandBasicOption => ({
+export const getEphemeralOption = (t: TFunction): APIApplicationCommandOption => ({
   name: GlobalCommandOptionName.EPHEMERAL,
   ...getLocalizedObject('name', (lng) => t('commands.global.options.ephemeral.name', { lng }), false),
   ...getLocalizedObject('description', (lng) => t('commands.global.options.ephemeral.description', { lng })),
   type: ApplicationCommandOptionType.Boolean,
 });
 
-export const getGlobalOptions = (t: TFunction): APIApplicationCommandBasicOption[] => [
+export const getGlobalOptions = (t: TFunction): APIApplicationCommandOption[] => [
   getFormatOption(t),
   getHeaderOption(t),
   getColumnsOption(t),

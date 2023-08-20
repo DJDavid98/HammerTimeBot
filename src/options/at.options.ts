@@ -1,10 +1,10 @@
-import { APIApplicationCommandBasicOption, ApplicationCommandOptionType } from 'discord-api-types/v10';
+import { APIApplicationCommandOption, ApplicationCommandOptionType } from 'discord-api-types/v10';
 import { TFunction } from 'i18next';
 import { AtCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { getGlobalOptions } from './global.options.js';
 
-export const getAtOptions = (t: TFunction): APIApplicationCommandBasicOption[] => [
+export const getAtOptions = (t: TFunction): APIApplicationCommandOption[] => [
   {
     name: AtCommandOptionName.YEAR,
     ...getLocalizedObject('name', (lng) => t('commands.at.options.year.name', { lng }), false),

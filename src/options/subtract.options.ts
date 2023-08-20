@@ -1,10 +1,10 @@
 import { TFunction } from 'i18next';
-import { APIApplicationCommandBasicOption, ApplicationCommandOptionType } from 'discord-api-types/v10';
+import { APIApplicationCommandOption, ApplicationCommandOptionType } from 'discord-api-types/v10';
 import { SubtractCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { getGlobalOptions } from './global.options.js';
 
-export const getSubtractOptions = (t: TFunction): APIApplicationCommandBasicOption[] => [
+export const getSubtractOptions = (t: TFunction): APIApplicationCommandOption[] => [
   {
     name: SubtractCommandOptionName.FROM,
     ...getLocalizedObject('name', (lng) => t('commands.subtract.options.from.name', { lng }), false),

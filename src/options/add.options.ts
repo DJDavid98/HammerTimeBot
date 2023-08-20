@@ -1,10 +1,10 @@
 import { TFunction } from 'i18next';
-import { APIApplicationCommandBasicOption, ApplicationCommandOptionType } from 'discord-api-types/v10';
+import { APIApplicationCommandOption, ApplicationCommandOptionType } from 'discord-api-types/v10';
 import { AddCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { getGlobalOptions } from './global.options.js';
 
-export const getAddOptions = (t: TFunction): APIApplicationCommandBasicOption[] => [
+export const getAddOptions = (t: TFunction): APIApplicationCommandOption[] => [
   {
     name: AddCommandOptionName.TO,
     ...getLocalizedObject('name', (lng) => t('commands.add.options.to.name', { lng }), false),

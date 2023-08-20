@@ -20,7 +20,8 @@
   "plugins": [
     "@typescript-eslint",
     "jest",
-    "i18n-validator"
+    "i18n-validator",
+    "import"
   ],
   "settings": {
     "import/parsers": {
@@ -53,7 +54,7 @@
       "ignorePackages"
     ],
     "no-console": "off",
-    "@typescript-eslint/no-duplicate-imports": "error",
+    "import/no-duplicates": "error",
     "quotes": [
       "error",
       "single",
