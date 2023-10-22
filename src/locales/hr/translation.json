@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "minute",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Koliko minuta treba oduzeti od navedene vremenske oznake"
         },
         "seconds": {
           "name": "sekunde",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Koliko sekundi treba oduzeti od navedene vremenske oznake"
         }
       }
     },
