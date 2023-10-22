@@ -184,7 +184,8 @@
       "responses": {
         "invalidDate": "Zadané datum je neplatné (například: daný den neexistuje)",
         "noComponentsCurrentTime": "Musíte zadat alespoň jednu časovou jednotku, kterou chcete změnit. Pokud potřebujete aktuální čas, použijte `/{{atCommand}}` bez zadání argumentů",
-        "noComponentsUnix": "Musíte zadat alespoň jednu časovou jednotku, kterou chcete změnit. Pokud chcete získat syntaxe pro časové razítko systému UNIX, použijte `/{{unixCommand}}`"
+        "noComponentsUnix": "Musíte zadat alespoň jednu časovou jednotku, kterou chcete změnit. Pokud chcete získat syntaxe pro časové razítko systému UNIX, použijte `/{{unixCommand}}`",
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
       },
       "options": {
         "format": {

@@ -184,7 +184,8 @@
       "responses": {
         "invalidDate": "Das angegebene Datum ist ungültig (zum Beispiel: der angegebene Tag existiert nicht)",
         "noComponentsCurrentTime": "Du musst mindestens einmal eine Zeitkomponente angeben, um sie zu ändern. Wenn du die aktuelle Zeit brauchst, benutze `/{{atCommand}}` ohne irgendwelche Argumente anzugeben",
-        "noComponentsUnix": "Du musst mindestens einmal eine Zeitkomponente angeben, um sie zu ändern. Wenn du die Syntax für einen UNIX Zeitstempel erhalten möchtest, benutze `/{{unixCommand}}`"
+        "noComponentsUnix": "Du musst mindestens einmal eine Zeitkomponente angeben, um sie zu ändern. Wenn du die Syntax für einen UNIX Zeitstempel erhalten möchtest, benutze `/{{unixCommand}}`",
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
       },
       "options": {
         "format": {

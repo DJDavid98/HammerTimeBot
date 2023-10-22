@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "minute",
-          "description": "Câte minute se scad de la marcajul de timp specificat"
+          "description": "Câte minute se scad din data și ora specificate"
         },
         "seconds": {
           "name": "secunde",
-          "description": "Câte secunde se scad de la marcajul de timp specificat"
+          "description": "Câte secunde se scad din data și ora specificate"
         }
       }
     },
@@ -184,7 +184,8 @@
       "responses": {
         "invalidDate": "Data specificată nu este valabilă (de exemplu: ziua dată nu există)",
         "noComponentsCurrentTime": "Trebuie să specificați cel puțin o componentă de timp care trebuie modificată. Dacă aveți nevoie de ora curentă, utilizați `/{{atCommand}}` fără să specificați niciun argument",
-        "noComponentsUnix": "Trebuie să specificați cel puțin o componentă de timp care trebuie modificată. Dacă doriți să obțineți sintaxa pentru un timestamp UNIX, utilizați `/{{unixCommand}}`"
+        "noComponentsUnix": "Trebuie să specificați cel puțin o componentă de timp care trebuie modificată. Dacă doriți să obțineți sintaxa pentru un timestamp UNIX, utilizați `/{{unixCommand}}`",
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
       },
       "options": {
         "format": {

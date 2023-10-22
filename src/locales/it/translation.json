@@ -184,7 +184,8 @@
       "responses": {
         "invalidDate": "La data specificata non è valida (per esempio: il giorno specificato non esiste)",
         "noComponentsCurrentTime": "Devi specificare almeno un componente da cambiare. Se hai bisogno dell'orario corrente use `/{{atCommand}}` senza specificare nessun parametro",
-        "noComponentsUnix": "Devi specificare almeno un componente da cambiare. Se vuoi ottenere la sintassi per lo UNIX timestamp, usa`/{{unixCommand}}`"
+        "noComponentsUnix": "Devi specificare almeno un componente da cambiare. Se vuoi ottenere la sintassi per lo UNIX timestamp, usa`/{{unixCommand}}`",
+        "ephemeralNotice": "Il valore predefinito dell'opzione `{{ephemeralOption}}` è cambiato e, poiché non l'hai fornito, questo messaggio è visibile solo a te.\nPer far funzionare i messaggi come prima (o per nascondere questo messaggio), c'è un'impostazione che puoi modificare tramite un altro bot. Le istruzioni su come farlo sono disponibili nel server di supporto di HammerTime in <{{supportServerUrl}}> a {{faqMessageLink}}"
       },
       "options": {
         "format": {

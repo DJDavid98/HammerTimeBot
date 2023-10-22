@@ -184,7 +184,8 @@
       "responses": {
         "invalidDate": "Η καθορισμένη ημερομηνία δεν είναι έγκυρη (για παράδειγμα: η δεδομένη ημέρα δεν υπάρχει)",
         "noComponentsCurrentTime": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν χρειάζεστε την τρέχουσα ώρα, χρησιμοποιήστε `/{{atCommand}}` χωρίς να καθορίσετε οποιαδήποτε παραμέτρους",
-        "noComponentsUnix": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν θέλετε να λάβετε την σύνταξη της εντολής UNIX χρονοσήμανσης, χρησιμοποιήστε `/{{unixCommand}}`"
+        "noComponentsUnix": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν θέλετε να λάβετε την σύνταξη της εντολής UNIX χρονοσήμανσης, χρησιμοποιήστε `/{{unixCommand}}`",
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
       },
       "options": {
         "format": {
@@ -262,22 +263,22 @@
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "Εμφάνιση της σύνταξης ISO 8601 για μια συγκεκριμένη χρονοσήμανση",
       "responses": {
-        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+        "invalidIsoFormat": "Η παρεχόμενη τιμή δεν αντιστοιχεί στο πρότυπο ISO 8601"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The ISO 8601 standard timestamp"
+          "name": "τιμή",
+          "description": "Τυποποιημένη χρονοσήμανση ISO 8601"
         }
       }
     },
     "Extract Timestamps": {
-      "name": "Extract Timestamps",
+      "name": "Εξαγωγή Χρονοσημάνσεων",
       "responses": {
-        "targetMessage": "All timestamps found in the following message: {{url}}",
-        "noTimestamps": "This message does not contain any timestamps in Discord's format"
+        "targetMessage": "Όλες οι χρονοσημάνσεις που βρέθηκαν στο ακόλουθο μήνυμα: {{url}}",
+        "noTimestamps": "Αυτό το μήνυμα δεν περιέχει χρονοσημάνσεις στη μορφή κειμένου του Discord"
       }
     }
   }
