@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "menit",
-          "description": "Berapa menit untuk dikurangi dari stempel waktu yang ditentukan"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "detik",
-          "description": "Berapa detik untuk dikurangi dari stempel waktu yang ditentukan"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
@@ -184,7 +184,8 @@
       "responses": {
         "invalidDate": "Tanggal yang ditentukan tidak valid (misalnya: hari yang diberikan tidak ada)",
         "noComponentsCurrentTime": "Anda harus menentukan setidaknya satu komponen waktu untuk diubah. Jika Anda membutuhkan waktu saat ini, gunakan `/{{atCommand}}` tanpa menentukan argumen apa pun",
-        "noComponentsUnix": "Anda harus menentukan setidaknya satu komponen waktu untuk diubah. Jika Anda ingin mendapatkan sintaks untuk stempel waktu UNIX, gunakan `/{{unixCommand}}`"
+        "noComponentsUnix": "Anda harus menentukan setidaknya satu komponen waktu untuk diubah. Jika Anda ingin mendapatkan sintaks untuk stempel waktu UNIX, gunakan `/{{unixCommand}}`",
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
       },
       "options": {
         "format": {
