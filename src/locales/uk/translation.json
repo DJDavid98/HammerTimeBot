@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "minutes",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Скільки хвилин відняти від вказаної мітки часу"
         },
         "seconds": {
           "name": "seconds",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Скільки секунд віднімається від зазначеної мітки часу"
         }
       }
     },
