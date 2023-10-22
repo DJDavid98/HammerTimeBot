@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "minutes",
-          "description": "Сколько минут вычесть из указанной метки времени"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "seconds",
-          "description": "Сколько секунд вычесть из указанной метки времени"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
@@ -184,7 +184,8 @@
       "responses": {
         "invalidDate": "Указанная дата недействительна (например: заданный день не существует)",
         "noComponentsCurrentTime": "Необходимо указать изменение как минимум одной величины. Если вас интересует нынешнее время, используйте `/{{atCommand}}` без каких либо аргументов",
-        "noComponentsUnix": "Необходимо указать изменение как минимум одной величины. Если вас интересует синтаксис временной метки UNIX, используйте `/{{unixCommand}}`"
+        "noComponentsUnix": "Необходимо указать изменение как минимум одной величины. Если вас интересует синтаксис временной метки UNIX, используйте `/{{unixCommand}}`",
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
       },
       "options": {
         "format": {
