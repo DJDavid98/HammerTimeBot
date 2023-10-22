@@ -3,7 +3,7 @@ import { formattedResponse, supportedFormats } from './time.js';
 import { ChatInputCommandInteraction, ContextMenuCommandInteraction, InteractionReplyOptions } from 'discord.js';
 import { TFunction } from 'i18next';
 import { GlobalCommandOptionName, ResponseColumnChoices } from '../types/localization.js';
-import { isEphemeralResponse } from './messaging.js';
+import { addEphemeralNotice, EPHEMERAL_OPTION_DEFAULT_VALUE, isEphemeralResponse } from './messaging.js';
 import { getExactTimePrefix } from './get-exact-time-prefix.js';
 import { SettingsValue } from './settings.js';
 import { Moment } from 'moment';
@@ -32,7 +32,7 @@ export interface SyntaxInteraction {
   columns: string | null;
   format: string | null;
   header: boolean | null;
-  ephemeral: boolean;
+  ephemeral: boolean | null;
 }
 
 interface SyntaxReplyOptions {
@@ -67,9 +67,10 @@ export const getSyntaxReplyOptions = ({
 
   const formats = (formatInput ? [formatInput as MessageTimestampFormat] : supportedFormats);
   const header = addHeader && getExactTimePrefix(localMoment, timezone);
+  const content = `${header ? `${header}\n` : ''}${formattedResponse(ts, formats, columns as ResponseColumnChoices)}`;
   return {
-    content: `${header ? `${header}\n` : ''}${formattedResponse(ts, formats, columns as ResponseColumnChoices)}`,
-    ephemeral: syntaxInteraction.ephemeral,
+    content: addEphemeralNotice(content, syntaxInteraction.ephemeral, t),
+    ephemeral: syntaxInteraction.ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE,
   };
 };
 

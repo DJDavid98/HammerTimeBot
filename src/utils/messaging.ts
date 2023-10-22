@@ -1,13 +1,9 @@
-import {
-  ApplicationCommandOptionType,
-  ChannelType,
-  ChatInputCommandInteraction,
-  CommandInteraction,
-  CommandInteractionOption,
-  User,
-} from 'discord.js';
+import { ApplicationCommandOptionType, ChannelType, ChatInputCommandInteraction, CommandInteraction, CommandInteractionOption, User } from 'discord.js';
 import { GlobalCommandOptionName } from '../types/localization.js';
 import { SettingsValue } from './settings.js';
+import { TFunction } from 'i18next';
+import { EmojiCharacters } from '../constants/emoji-characters.js';
+import { env } from '../env.js';
 
 type UserFriendCode = `@${string}` | `${string}#${string}`;
 export const getUserFriendCode = (user: User): UserFriendCode => {
@@ -62,8 +58,21 @@ export const stringifyOptionsData = (data: readonly CommandInteractionOption[]):
   return `(${optionName}${optionValue !== null ? `:${optionValue}` : ''})`;
 }).join(' ');
 
-export const isEphemeralResponse = (interaction: ChatInputCommandInteraction, settings: Pick<SettingsValue, 'ephemeral'>): boolean => interaction.options.getBoolean(GlobalCommandOptionName.EPHEMERAL) ?? settings.ephemeral ?? false;
+// TODO Remove and make fallback value of `isEphemeralResponse` after notice is removed
+export const EPHEMERAL_OPTION_DEFAULT_VALUE = true;
 
+export const isEphemeralResponse = (interaction: ChatInputCommandInteraction, settings: Pick<SettingsValue, 'ephemeral'>): boolean | null => interaction.options.getBoolean(GlobalCommandOptionName.EPHEMERAL) ?? settings.ephemeral ?? null;
+
+export const addEphemeralNotice = (message: string, ephemeralOption: boolean | null, t: TFunction): string =>
+  ephemeralOption !== null
+    ? message
+    : `${message}\n\n${EmojiCharacters.INFO} ${t('commands.global.responses.ephemeralNotice', {
+      replace: {
+        ephemeralOption: t('commands.global.options.ephemeral.name'),
+        supportServerUrl: env.DISCORD_INVITE_URL,
+        faqMessageLink: 'https://discord.com/channels/952258283882819595/995284060941336647/1006946901482029096',
+      },
+    })}`;
 
 type BareNumberFormatter = Pick<Intl.NumberFormat, 'format'>;
 const numberFormatterCache: Partial<Record<string, BareNumberFormatter>> = {};

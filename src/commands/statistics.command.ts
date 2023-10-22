@@ -3,7 +3,7 @@ import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
 import { getStatisticsCommandOptions } from '../options/statistics.options.js';
 import { getTotalServerCount, getTotalUserCount } from '../utils/usage-stats.js';
-import { getBareNumberFormatter, isEphemeralResponse } from '../utils/messaging.js';
+import { addEphemeralNotice, EPHEMERAL_OPTION_DEFAULT_VALUE, getBareNumberFormatter, isEphemeralResponse } from '../utils/messaging.js';
 import { env } from '../env.js';
 import { ApplicationCommandType } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
@@ -45,9 +45,10 @@ export const statisticsCommand: BotChatInputCommand = {
       serverInvite,
     ].filter(el => el !== null).join('\n');
 
+    const ephemeral = isEphemeralResponse(interaction, settings);
     await interaction.reply({
-      content,
-      ephemeral: isEphemeralResponse(interaction, settings),
+      content: addEphemeralNotice(content, ephemeral, t),
+      ephemeral: ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE,
     });
   },
 };
