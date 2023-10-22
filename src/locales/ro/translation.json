@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "minute",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Câte minute se scad din data și ora specificate"
         },
         "seconds": {
           "name": "secunde",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Câte secunde se scad din data și ora specificate"
         }
       }
     },
