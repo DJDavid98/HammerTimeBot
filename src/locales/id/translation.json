@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "menit",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Berapa menit untuk dikurangi dari stempel waktu yang ditentukan"
         },
         "seconds": {
           "name": "detik",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Berapa detik untuk dikurangi dari stempel waktu yang ditentukan"
         }
       }
     },
