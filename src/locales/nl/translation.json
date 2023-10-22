@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "minutes",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Het aantal minuten om van de opgegeven tijdstempel af te trekken"
         },
         "seconds": {
           "name": "seconds",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Het aantal seconden om van de opgegeven tijdstempel af te trekken"
         }
       }
     },
