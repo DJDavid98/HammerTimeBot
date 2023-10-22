@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "óra",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Hány percet kell kivonni a megadott időbélyegből"
         },
         "seconds": {
           "name": "perc",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Hány másodpercet kell kivonni a megadott időbélyegből"
         }
       }
     },
@@ -185,7 +185,7 @@
         "invalidDate": "A megadott dátum érvénytelen (például: az adott nap nem létezik)",
         "noComponentsCurrentTime": "Legalább egy időegységet meg kell adnod a módosításhoz. Ha az aktuális időre van szükséged, használd ezt a parancsot paraméterek nélkül: `/{{atCommand}}`",
         "noComponentsUnix": "Legalább egy időegységet meg kell adnod a módosításhoz. Ha egy UNIX időbélyegző kódját szeretnéd megkapni, használd ezt a parancsot: `/{{unixCommand}}`",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
+        "ephemeralNotice": "Az `{{ephemeralOption}}` paraméter alapértelmezett értéke megváltozott, és mivel nem adtad meg, ezt az üzenetet csak te látod.\nHa azt szeretnéd, hogy az üzeneteid úgy működjenek, mint korábban (vagy eltüntetnéd ezt az üzenetet), akkor van egy beállítás amit egy másik bottal megváltoztathatsz. Ennek a menetéről leírást a HammerTime hivatalos sámogatási szerverén (<{{supportServerUrl}}>) találsz, ebben az üzenetben: {{faqMessageLink}}"
       },
       "options": {
         "format": {
