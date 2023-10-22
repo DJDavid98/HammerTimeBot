@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "minuty",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "Kolik minut se má odečíst od zadaného časového razítka"
         },
         "seconds": {
           "name": "vteřiny",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "Kolik vteřin se má odečíst od zadaného časového razítka"
         }
       }
     },
