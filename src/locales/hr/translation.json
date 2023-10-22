@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "minute",
-          "description": "Koliko minuta se oduzima od navedene vremenske oznake"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "sekunde",
-          "description": "Koliko se sekundi oduzima od navedene vremenske oznake"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
@@ -184,7 +184,8 @@
       "responses": {
         "invalidDate": "Navedeni datum je nevažeći (na primjer: navedeni dan ne postoji)",
         "noComponentsCurrentTime": "Morate navesti barem jednu vremensku komponentu za promjenu. Ako vam je potrebno trenutno vrijeme, koristite `/{{atCommand}}` bez navođenja argumenata",
-        "noComponentsUnix": "Morate navesti barem jednu vremensku komponentu za promjenu. Ako želite dobiti sintaksu za UNIX vremensku oznaku, koristite `/{{unixCommand}}`"
+        "noComponentsUnix": "Morate navesti barem jednu vremensku komponentu za promjenu. Ako želite dobiti sintaksu za UNIX vremensku oznaku, koristite `/{{unixCommand}}`",
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
       },
       "options": {
         "format": {
