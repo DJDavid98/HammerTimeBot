@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "λεπτά",
-          "description": "Πόσα λεπτά να αφαιρεθούν από την καθορισμένη χρονοσήμανση"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "δευτερόλεπτα",
-          "description": "Πόσα δευτερόλεπτα να αφαιρεθούν από την καθορισμένη χρονοσήμανση"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
@@ -184,7 +184,8 @@
       "responses": {
         "invalidDate": "Η καθορισμένη ημερομηνία δεν είναι έγκυρη (για παράδειγμα: η δεδομένη ημέρα δεν υπάρχει)",
         "noComponentsCurrentTime": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν χρειάζεστε την τρέχουσα ώρα, χρησιμοποιήστε `/{{atCommand}}` χωρίς να καθορίσετε οποιαδήποτε παραμέτρους",
-        "noComponentsUnix": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν θέλετε να λάβετε την σύνταξη της εντολής UNIX χρονοσήμανσης, χρησιμοποιήστε `/{{unixCommand}}`"
+        "noComponentsUnix": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν θέλετε να λάβετε την σύνταξη της εντολής UNIX χρονοσήμανσης, χρησιμοποιήστε `/{{unixCommand}}`",
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
       },
       "options": {
         "format": {
