@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "分钟",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "要从指定时间戳减去多少分钟"
         },
         "seconds": {
           "name": "秒",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "要从指定时间戳减去多少秒"
         }
       }
     },
