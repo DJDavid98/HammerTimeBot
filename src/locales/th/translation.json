@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "นาที",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "ลบจำนวนนาทีจากเวลาที่ระบุ"
         },
         "seconds": {
           "name": "วินาที",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "ลบจำนวนวินาทีจากเวลาที่ระบุ"
         }
       }
     },
