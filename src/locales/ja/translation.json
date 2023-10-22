@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "minutes",
-          "description": "How many minutes subtract from to the specified timestamp"
+          "description": "指定されたタイムスタンプから引く分数"
         },
         "seconds": {
           "name": "seconds",
-          "description": "How many seconds subtract from to the specified timestamp"
+          "description": "指定されたタイムスタンプから引く秒数"
         }
       }
     },
