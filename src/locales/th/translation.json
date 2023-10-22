@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "นาที",
-          "description": "ลบจำนวนกี่นาทีจากเวลาที่ระบุ"
+          "description": "How many minutes subtract from to the specified timestamp"
         },
         "seconds": {
           "name": "วินาที",
-          "description": "ลบจำนวนกี่วินาทีจากเวลาที่ระบุ"
+          "description": "How many seconds subtract from to the specified timestamp"
         }
       }
     },
@@ -184,7 +184,8 @@
       "responses": {
         "invalidDate": "วันที่ที่ระบุไม่ถูกต้อง (เช่น วันที่ระบุไม่มีอยู่จริง)",
         "noComponentsCurrentTime": "คุณต้องระบุองค์ประกอบเวลาอย่างน้อยหนึ่งรายการเพื่อเปลี่ยนแปลง หากคุณต้องการเวลาปัจจุบัน ให้ใช้ `/{{atCommand}}` โดยไม่ต้องระบุข้อมูลใดๆ",
-        "noComponentsUnix": "คุณต้องระบุองค์ประกอบเวลาอย่างน้อยหนึ่งรายการเพื่อเปลี่ยนแปลง หากคุณต้องการรับไวยากรณ์สำหรับเวลา UNIX ให้ใช้ `/{{unixCommand}}`"
+        "noComponentsUnix": "คุณต้องระบุองค์ประกอบเวลาอย่างน้อยหนึ่งรายการเพื่อเปลี่ยนแปลง หากคุณต้องการรับไวยากรณ์สำหรับเวลา UNIX ให้ใช้ `/{{unixCommand}}`",
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
       },
       "options": {
         "format": {
