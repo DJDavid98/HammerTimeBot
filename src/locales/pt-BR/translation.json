@@ -161,11 +161,11 @@
         },
         "minutes": {
           "name": "minutos",
-          "description": "How many minutes to subtract from to the specified timestamp"
+          "description": "How many minutes to subtract from the specified timestamp"
         },
         "seconds": {
           "name": "segundos",
-          "description": "How many seconds to subtract from to the specified timestamp"
+          "description": "How many seconds to subtract from the specified timestamp"
         }
       }
     },
