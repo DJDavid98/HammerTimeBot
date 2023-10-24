@@ -185,7 +185,7 @@
         "invalidDate": "Data specificată nu este valabilă (de exemplu: ziua dată nu există)",
         "noComponentsCurrentTime": "Trebuie să specificați cel puțin o componentă de timp care trebuie modificată. Dacă aveți nevoie de ora curentă, utilizați `/{{atCommand}}` fără să specificați niciun argument",
         "noComponentsUnix": "Trebuie să specificați cel puțin o componentă de timp care trebuie modificată. Dacă doriți să obțineți sintaxa pentru un timestamp UNIX, utilizați `/{{unixCommand}}`",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
+        "ephemeralNotice": "Valoarea implicită pentru `{{ephemeralOption}}` s-a schimbat și, deoarece nu ați furnizat această opțiune, acest mesaj este vizibil doar pentru dumneavoastră.\nPentru ca mesajele dvs. să funcționeze la fel ca înainte (sau pentru a ascunde acest mesaj), există o setare pe care o puteți modifica prin intermediul unui alt bot. Instrucțiunile despre cum să faceți acest lucru pot fi găsite pe serverul de asistență al HammerTime în <{{supportServerUrl}}> la {{faqMessageLink}}"
       },
       "options": {
         "format": {

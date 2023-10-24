@@ -185,7 +185,7 @@
         "invalidDate": "De opgegeven datum is ongeldig (bijvoorbeeld: de opgegeven dag bestaat niet)",
         "noComponentsCurrentTime": "U moet minstens één argument opgeven om te wijzigen. Als u de huidige tijd nodig hebt, gebruikt u `/{{atCommand}}` zonder argumenten op te geven",
         "noComponentsUnix": "U moet minstens één argument opgeven om te wijzigen. Als u de syntaxis voor een UNIX-tijdstempel wilt krijgen, gebruik dan `/{{unixCommand}}`",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
+        "ephemeralNotice": "De standaardwaarde voor de `{{ephemeralOption}}` optie is veranderd, en omdat u deze niet hebt opgegeven, is dit bericht alleen voor u zichtbaar.\nOm uw berichten hetzelfde te laten werken als voorheen (of om dit bericht te verbergen), is er een instelling die u via een andere bot kunt veranderen. Instructies over hoe dat kunt doen, kunt u vinden in de HammerTime support server in <{{supportServerUrl}}> op {{faqMessageLink}}"
       },
       "options": {
         "format": {
