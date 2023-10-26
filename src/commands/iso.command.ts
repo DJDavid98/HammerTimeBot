@@ -19,7 +19,8 @@ export const isoCommand: BotChatInputCommand = {
     const { t } = context;
     const value = interaction.options.getString(IsoCommandOptionName.VALUE, true);
     // Apply user's timezone settings, if available
-    const parsedValue = moment.tz(value, moment.ISO_8601, settings.timezone ?? 'UTC');
+    const timezone = settings.timezone ?? 'UTC';
+    const parsedValue = moment.tz(value, moment.ISO_8601, timezone);
     if (!parsedValue.isValid()) {
       await interaction.reply({
         content: t('commands.iso.responses.invalidIsoFormat'),
@@ -29,6 +30,6 @@ export const isoCommand: BotChatInputCommand = {
     }
     const localMoment = parsedValue.utc();
 
-    await replyWithSyntax({ localMoment, interaction, t, settings });
+    await replyWithSyntax({ localMoment, interaction, t, settings, timezone });
   },
 };
