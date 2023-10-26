@@ -10,7 +10,7 @@ import { Moment } from 'moment';
 
 type HandledInteractions = ChatInputCommandInteraction | ContextMenuCommandInteraction;
 
-export const mapCommandInteractionToSyntaxInteraction = (interaction: HandledInteractions, settings: Pick<SettingsValue, 'ephemeral'>): SyntaxInteraction => {
+export const mapCommandInteractionToSyntaxInteraction = (interaction: HandledInteractions, settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header'>): SyntaxInteraction => {
   if (interaction.isContextMenuCommand()) {
     return {
       columns: null,
@@ -21,9 +21,9 @@ export const mapCommandInteractionToSyntaxInteraction = (interaction: HandledInt
   }
 
   return ({
-    columns: interaction.options.getString(GlobalCommandOptionName.COLUMNS) ?? ResponseColumnChoices.BOTH,
-    format: interaction.options.getString(GlobalCommandOptionName.FORMAT),
-    header: interaction.options.getBoolean(GlobalCommandOptionName.HEADER) ?? true,
+    columns: interaction.options.getString(GlobalCommandOptionName.COLUMNS) ?? settings.columns ?? ResponseColumnChoices.BOTH,
+    format: interaction.options.getString(GlobalCommandOptionName.FORMAT) ?? settings.format,
+    header: interaction.options.getBoolean(GlobalCommandOptionName.HEADER) ?? settings.header ?? true,
     ephemeral: isEphemeralResponse(interaction, settings),
   });
 };
@@ -40,7 +40,7 @@ interface SyntaxReplyOptions {
   interaction: HandledInteractions;
   t: TFunction;
   timezone?: string;
-  settings: Pick<SettingsValue, 'ephemeral'>;
+  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header'>;
 }
 
 export const getSyntaxReplyOptions = ({
@@ -79,7 +79,7 @@ interface ReplyWithSyntaxParams {
   interaction: ChatInputCommandInteraction | ContextMenuCommandInteraction;
   t: TFunction;
   timezone?: string;
-  settings: Pick<SettingsValue, 'ephemeral'>;
+  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header'>;
 }
 
 export const replyWithSyntax = async ({
