@@ -78,7 +78,7 @@ interface ReplyWithSyntaxParams {
   localMoment: Moment;
   interaction: ChatInputCommandInteraction | ContextMenuCommandInteraction;
   t: TFunction;
-  timezone?: string;
+  timezone: string | undefined;
   settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header'>;
 }
 

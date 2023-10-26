@@ -44,6 +44,6 @@ export const subtractCommand: BotChatInputCommand = {
 
     const localMoment = adjustMoment(options, 'subtract', now);
 
-    await replyWithSyntax({ localMoment, interaction, t, settings });
+    await replyWithSyntax({ localMoment, interaction, t, settings, timezone: undefined });
   },
 };

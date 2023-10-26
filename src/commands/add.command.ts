@@ -47,6 +47,7 @@ export const addCommand: BotChatInputCommand = {
       interaction,
       t,
       settings,
+      timezone: undefined,
     });
   },
 };

@@ -36,6 +36,6 @@ export const snowflakeCommand: BotChatInputCommand = {
     }
     const localMoment = moment.unix(unixValue).utc();
 
-    await replyWithSyntax({ localMoment, interaction, t, settings });
+    await replyWithSyntax({ localMoment, interaction, t, settings, timezone: undefined });
   },
 };
