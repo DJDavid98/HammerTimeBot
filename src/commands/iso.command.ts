@@ -18,7 +18,8 @@ export const isoCommand: BotChatInputCommand = {
     const settings = await getSettings(context, interaction);
     const { t } = context;
     const value = interaction.options.getString(IsoCommandOptionName.VALUE, true);
-    const parsedValue = moment(value, moment.ISO_8601);
+    // Apply user's timezone settings, if available
+    const parsedValue = moment.tz(value, moment.ISO_8601, settings.timezone ?? 'UTC');
     if (!parsedValue.isValid()) {
       await interaction.reply({
         content: t('commands.iso.responses.invalidIsoFormat'),
