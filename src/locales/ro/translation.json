@@ -65,9 +65,6 @@
     "at": {
       "name": "la",
       "description": "Specificați componentele exacte ale timestamp-ului (inclusiv fusul orar)",
-      "responses": {
-        "timezoneNotFound": "Fusul orar specificat nu poate fi găsit"
-      },
       "options": {
         "year": {
           "name": "ani",
@@ -92,10 +89,6 @@
         "second": {
           "name": "secunde",
           "description": "Specificați secunda (valoarea implicită este 0)"
-        },
-        "timezone": {
-          "name": "fus orar",
-          "description": "Specificați fusul orar (valoarea implicită este GMT)"
         }
       }
     },
@@ -185,7 +178,8 @@
         "invalidDate": "Data specificată nu este valabilă (de exemplu: ziua dată nu există)",
         "noComponentsCurrentTime": "Trebuie să specificați cel puțin o componentă de timp care trebuie modificată. Dacă aveți nevoie de ora curentă, utilizați `/{{atCommand}}` fără să specificați niciun argument",
         "noComponentsUnix": "Trebuie să specificați cel puțin o componentă de timp care trebuie modificată. Dacă doriți să obțineți sintaxa pentru un timestamp UNIX, utilizați `/{{unixCommand}}`",
-        "ephemeralNotice": "Valoarea implicită pentru `{{ephemeralOption}}` s-a schimbat și, deoarece nu ați furnizat această opțiune, acest mesaj este vizibil doar pentru dumneavoastră.\nPentru ca mesajele dvs. să funcționeze la fel ca înainte (sau pentru a ascunde acest mesaj), există o setare pe care o puteți modifica prin intermediul unui alt bot. Instrucțiunile despre cum să faceți acest lucru pot fi găsite pe serverul de asistență al HammerTime în <{{supportServerUrl}}> la {{faqMessageLink}}"
+        "ephemeralNotice": "Valoarea implicită pentru `{{ephemeralOption}}` s-a schimbat și, deoarece nu ați furnizat această opțiune, acest mesaj este vizibil doar pentru dumneavoastră.\nPentru ca mesajele dvs. să funcționeze la fel ca înainte (sau pentru a ascunde acest mesaj), există o setare pe care o puteți modifica prin intermediul unui alt bot. Instrucțiunile despre cum să faceți acest lucru pot fi găsite pe serverul de asistență al HammerTime în <{{supportServerUrl}}> la {{faqMessageLink}}",
+        "timezoneNotFound": "Fusul orar specificat nu poate fi găsit"
       },
       "options": {
         "format": {
@@ -217,6 +211,10 @@
         "header": {
           "name": "antet",
           "description": "Afișați ora inițială (așa cum este interpretată de bot) în partea de sus a răspunsului"
+        },
+        "timezone": {
+          "name": "fus orar",
+          "description": "Specificați fusul orar (valoarea implicită este GMT)"
         }
       }
     },
