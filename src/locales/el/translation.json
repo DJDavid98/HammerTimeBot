@@ -65,9 +65,6 @@
     "at": {
       "name": "στις",
       "description": "Καθορίστε τα ακριβή στοιχεία της χρονοσήμανσης (συμπεριλαμβανομένης της ζώνης ώρας)",
-      "responses": {
-        "timezoneNotFound": "Η καθορισμένη ζώνη ώρας δεν μπορεί να βρεθεί"
-      },
       "options": {
         "year": {
           "name": "έτος",
@@ -92,10 +89,6 @@
         "second": {
           "name": "δευτερόλεπτο",
           "description": "Καθορίστε το δευτερόλεπτο (προεπιλογή το 0)"
-        },
-        "timezone": {
-          "name": "ζώνη ώρας",
-          "description": "Καθορίστε τη ζώνη ώρας (προεπιλογή σε GMT)"
         }
       }
     },
@@ -185,7 +178,8 @@
         "invalidDate": "Η καθορισμένη ημερομηνία δεν είναι έγκυρη (για παράδειγμα: η δεδομένη ημέρα δεν υπάρχει)",
         "noComponentsCurrentTime": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν χρειάζεστε την τρέχουσα ώρα, χρησιμοποιήστε `/{{atCommand}}` χωρίς να καθορίσετε οποιαδήποτε παραμέτρους",
         "noComponentsUnix": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν θέλετε να λάβετε την σύνταξη της εντολής UNIX χρονοσήμανσης, χρησιμοποιήστε `/{{unixCommand}}`",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
+        "timezoneNotFound": "Η καθορισμένη ζώνη ώρας δεν μπορεί να βρεθεί"
       },
       "options": {
         "format": {
@@ -217,6 +211,10 @@
         "header": {
           "name": "επικεφαλίδα",
           "description": "Εμφάνιση του αρχικού χρόνου (όπως ερμηνεύεται από το bot) στην κορυφή της απάντησης"
+        },
+        "timezone": {
+          "name": "ζώνη ώρας",
+          "description": "Καθορίστε τη ζώνη ώρας (προεπιλογή σε GMT)"
         }
       }
     },
