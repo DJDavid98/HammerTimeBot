@@ -65,9 +65,6 @@
     "at": {
       "name": "pada",
       "description": "Tentukan komponen cap waktu yang tepat (termasuk zona waktu)",
-      "responses": {
-        "timezoneNotFound": "Zona waktu yang ditentukan tidak dapat ditemukan"
-      },
       "options": {
         "year": {
           "name": "tahun",
@@ -92,10 +89,6 @@
         "second": {
           "name": "detik",
           "description": "Tentukan detik (default ke 0)"
-        },
-        "timezone": {
-          "name": "zona waktu",
-          "description": "Tentukan zona waktu (default pada GMT)"
         }
       }
     },
@@ -185,7 +178,8 @@
         "invalidDate": "Tanggal yang ditentukan tidak valid (misalnya: hari yang diberikan tidak ada)",
         "noComponentsCurrentTime": "Anda harus menentukan setidaknya satu komponen waktu untuk diubah. Jika Anda membutuhkan waktu saat ini, gunakan `/{{atCommand}}` tanpa menentukan argumen apa pun",
         "noComponentsUnix": "Anda harus menentukan setidaknya satu komponen waktu untuk diubah. Jika Anda ingin mendapatkan sintaks untuk stempel waktu UNIX, gunakan `/{{unixCommand}}`",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
+        "timezoneNotFound": "Zona waktu yang ditentukan tidak dapat ditemukan"
       },
       "options": {
         "format": {
@@ -217,6 +211,10 @@
         "header": {
           "name": "tajuk",
           "description": "Tampilkan waktu awal (sebagaimana ditafsirkan oleh bot) di atas respons"
+        },
+        "timezone": {
+          "name": "zona waktu",
+          "description": "Tentukan zona waktu (default pada GMT)"
         }
       }
     },
