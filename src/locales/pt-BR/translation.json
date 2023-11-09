@@ -65,9 +65,6 @@
     "at": {
       "name": "como",
       "description": "Especifique os componentes exatos da timestamp (incluindo o fuso horário)",
-      "responses": {
-        "timezoneNotFound": "O fuso horário especificado não pôde ser encontrado"
-      },
       "options": {
         "year": {
           "name": "ano",
@@ -92,10 +89,6 @@
         "second": {
           "name": "segundo",
           "description": "Especifique o segundo (o padrão é 0)"
-        },
-        "timezone": {
-          "name": "fuso horário",
-          "description": "Especifique o fuso horário (o padrão é GMT)"
         }
       }
     },
@@ -185,7 +178,8 @@
         "invalidDate": "A data especificada é inválida (por exemplo: o dia fornecido não existe)",
         "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
         "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
+        "timezoneNotFound": "O fuso horário especificado não pôde ser encontrado"
       },
       "options": {
         "format": {
@@ -217,6 +211,10 @@
         "header": {
           "name": "cabeçalho",
           "description": "Mostra a hora inicial (conforme interpretado pelo bot) em cima da resposta"
+        },
+        "timezone": {
+          "name": "fuso horário",
+          "description": "Especifique o fuso horário (o padrão é GMT)"
         }
       }
     },
