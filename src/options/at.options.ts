@@ -2,7 +2,7 @@ import { APIApplicationCommandOption, ApplicationCommandOptionType } from 'disco
 import { TFunction } from 'i18next';
 import { AtCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
-import { getGlobalOptions } from './global.options.js';
+import { getGlobalOptions, getTimezoneOption } from './global.options.js';
 
 export const getAtOptions = (t: TFunction): APIApplicationCommandOption[] => [
   {
@@ -41,12 +41,6 @@ export const getAtOptions = (t: TFunction): APIApplicationCommandOption[] => [
     ...getLocalizedObject('description', (lng) => t('commands.at.options.second.description', { lng })),
     type: ApplicationCommandOptionType.Number,
   },
-  {
-    name: AtCommandOptionName.TIMEZONE,
-    ...getLocalizedObject('name', (lng) => t('commands.at.options.timezone.name', { lng }), false),
-    ...getLocalizedObject('description', (lng) => t('commands.at.options.timezone.description', { lng })),
-    type: ApplicationCommandOptionType.String,
-    autocomplete: true,
-  },
+  getTimezoneOption(t),
   ...getGlobalOptions(t),
 ];

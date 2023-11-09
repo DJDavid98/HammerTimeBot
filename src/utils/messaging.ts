@@ -1,9 +1,19 @@
-import { ApplicationCommandOptionType, ChannelType, ChatInputCommandInteraction, CommandInteraction, CommandInteractionOption, User } from 'discord.js';
+import {
+  ApplicationCommandOptionType,
+  AutocompleteInteraction,
+  ChannelType,
+  ChatInputCommandInteraction,
+  CommandInteraction,
+  CommandInteractionOption,
+  User,
+} from 'discord.js';
 import { GlobalCommandOptionName } from '../types/localization.js';
 import { SettingsValue } from './settings.js';
 import { TFunction } from 'i18next';
 import { EmojiCharacters } from '../constants/emoji-characters.js';
 import { env } from '../env.js';
+import { findTimezone, gmtTimezoneOptions } from './time.js';
+import { TimezoneError } from '../classes/timezone-error.js';
 
 type UserFriendCode = `@${string}` | `${string}#${string}`;
 export const getUserFriendCode = (user: User): UserFriendCode => {
@@ -89,4 +99,48 @@ export const getBareNumberFormatter = (interaction: Pick<CommandInteraction, 'lo
     numberFormatterCache[interaction.locale] = numberFormatter;
   }
   return numberFormatter;
+};
+
+/**
+ * Normally this is able to always return some kind of value, so if we get null the code flow should be terminated
+ */
+export const findTimezoneOptionValue = async (t: TFunction, interaction: ChatInputCommandInteraction, settings: SettingsValue): Promise<string | null> => {
+  const timezoneInput = interaction.options.getString(GlobalCommandOptionName.TIMEZONE);
+  // Apply user's timezone settings, if available
+  let timezone = settings.timezone ?? 'GMT';
+  if (timezoneInput) {
+    try {
+      timezone = findTimezone(timezoneInput)[0];
+    } catch (e) {
+      if (!(e instanceof TimezoneError)) {
+        throw e;
+      }
+      await interaction.reply({
+        content: t('commands.global.responses.timezoneNotFound'),
+        ephemeral: true,
+      });
+      return null;
+    }
+  }
+  return timezone;
+};
+
+export const handleTimezoneAutocomplete = async (interaction: AutocompleteInteraction) => {
+  const value = interaction.options.getString(GlobalCommandOptionName.TIMEZONE)?.trim();
+  let tzNames: string[];
+  if (typeof value !== 'string' || value.length === 0) {
+    tzNames = gmtTimezoneOptions;
+  } else {
+    try {
+      tzNames = findTimezone(value);
+    } catch (e) {
+      if (!(e instanceof TimezoneError)) {
+        throw e;
+      }
+      await interaction.respond([]);
+      return;
+    }
+  }
+
+  await interaction.respond(tzNames.slice(0, 25).map(name => ({ name, value: name })));
 };

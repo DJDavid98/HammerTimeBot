@@ -2,7 +2,7 @@ import { TFunction } from 'i18next';
 import { APIApplicationCommandOption, ApplicationCommandOptionType } from 'discord-api-types/v10';
 import { IsoCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
-import { getGlobalOptions } from './global.options.js';
+import { getGlobalOptions, getTimezoneOption } from './global.options.js';
 
 export const getIsoCommandOptions = (t: TFunction): APIApplicationCommandOption[] => [
   {
@@ -12,5 +12,6 @@ export const getIsoCommandOptions = (t: TFunction): APIApplicationCommandOption[
     type: ApplicationCommandOptionType.String,
     required: true,
   },
+  getTimezoneOption(t),
   ...getGlobalOptions(t),
 ];

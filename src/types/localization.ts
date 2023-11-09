@@ -7,6 +7,7 @@ export const enum GlobalCommandOptionName {
   EPHEMERAL = 'ephemeral',
   FORMAT = 'format',
   HEADER = 'header',
+  TIMEZONE = 'timezone',
 }
 
 export const enum AtCommandOptionName {
@@ -16,7 +17,6 @@ export const enum AtCommandOptionName {
   HOUR = 'hour',
   MINUTE = 'minute',
   SECOND = 'second',
-  TIMEZONE = 'timezone',
 }
 
 export const enum InCommandOptionName {
@@ -87,9 +87,6 @@ export const enum GlobalCommandResponse {
   NO_COMPONENTS_CURRENT_TIME = 'noComponentsCurrentTime',
   NO_COMPONENTS_UNIX = 'noComponentsUnix',
   EPHEMERAL_NOTICE = 'ephemeralNotice',
-}
-
-export const enum AtCommandResponse {
   TIMEZONE_NOT_FOUND = 'timezoneNotFound',
 }
 
@@ -119,7 +116,7 @@ interface CommandResponsesMap {
   global: GlobalCommandResponse,
   [BotChatInputCommandName.IN]: never,
   [BotChatInputCommandName.AGO]: never,
-  [BotChatInputCommandName.AT]: AtCommandResponse,
+  [BotChatInputCommandName.AT]: never,
   [BotChatInputCommandName.ADD]: never,
   [BotChatInputCommandName.SUBTRACT]: never,
   [BotChatInputCommandName.UNIX]: never,
@@ -148,7 +145,7 @@ export type OptionLocalization<OptionName extends string = string> =
     choices: Record<OptionChoicesMap[OptionName], string>
   } : { choices?: Record<string, never> });
 
-export type ResponsesLocalization<CommandKey extends keyof CommandResponsesMap> = {
+export type ResponsesLocalization<CommandKey extends keyof CommandResponsesMap> = CommandResponsesMap[CommandKey] extends never ? unknown : {
   responses: { [l in CommandResponsesMap[CommandKey]]: string };
 };
 

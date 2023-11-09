@@ -76,6 +76,14 @@ export const getEphemeralOption = (t: TFunction): APIApplicationCommandOption =>
   type: ApplicationCommandOptionType.Boolean,
 });
 
+export const getTimezoneOption = (t: TFunction): APIApplicationCommandOption => ({
+  name: GlobalCommandOptionName.TIMEZONE,
+  ...getLocalizedObject('name', (lng) => t('commands.global.options.timezone.name', { lng }), false),
+  ...getLocalizedObject('description', (lng) => t('commands.global.options.timezone.description', { lng })),
+  type: ApplicationCommandOptionType.String,
+  autocomplete: true,
+});
+
 export const getGlobalOptions = (t: TFunction): APIApplicationCommandOption[] => [
   getFormatOption(t),
   getHeaderOption(t),

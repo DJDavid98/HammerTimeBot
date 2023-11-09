@@ -1,13 +1,13 @@
 import moment, { Moment } from 'moment-timezone';
 import { BotChatInputCommand } from '../types/bot-interaction.js';
-import { constrain, findTimezone, getGmtTimezoneValue, gmtTimezoneOptions, gmtZoneRegex } from '../utils/time.js';
-import { AtCommandOptionName } from '../types/localization.js';
+import { constrain, getGmtTimezoneValue, gmtZoneRegex } from '../utils/time.js';
+import { AtCommandOptionName, GlobalCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
-import { TimezoneError } from '../classes/timezone-error.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getAtOptions } from '../options/at.options.js';
 import { ApplicationCommandType } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
+import { findTimezoneOptionValue, handleTimezoneAutocomplete } from '../utils/messaging.js';
 
 export const atCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -20,25 +20,8 @@ export const atCommand: BotChatInputCommand = {
     const focusedOption = interaction.options.getFocused(true);
 
     switch (focusedOption.name) {
-      case AtCommandOptionName.TIMEZONE: {
-        const value = interaction.options.getString(AtCommandOptionName.TIMEZONE)?.trim();
-        let tzNames: string[];
-        if (typeof value !== 'string' || value.length === 0) {
-          tzNames = gmtTimezoneOptions;
-        } else {
-          try {
-            tzNames = findTimezone(value);
-          } catch (e) {
-            if (!(e instanceof TimezoneError)) {
-              throw e;
-            }
-            await interaction.respond([]);
-            return;
-          }
-        }
-
-        await interaction.respond(tzNames.slice(0, 25).map(name => ({ name, value: name })));
-      }
+      case GlobalCommandOptionName.TIMEZONE:
+        await handleTimezoneAutocomplete(interaction);
         break;
       default:
         throw new Error(`Unknown autocomplete option ${focusedOption.name}`);
@@ -54,21 +37,9 @@ export const atCommand: BotChatInputCommand = {
     const minute = interaction.options.getNumber(AtCommandOptionName.MINUTE);
     const second = interaction.options.getNumber(AtCommandOptionName.SECOND);
 
-    const timezoneInput = interaction.options.getString(AtCommandOptionName.TIMEZONE);
-    let timezone = settings.timezone ?? 'GMT';
-    if (timezoneInput) {
-      try {
-        timezone = findTimezone(timezoneInput)[0];
-      } catch (e) {
-        if (!(e instanceof TimezoneError)) {
-          throw e;
-        }
-        await interaction.reply({
-          content: t('commands.at.responses.timezoneNotFound'),
-          ephemeral: true,
-        });
-        return;
-      }
+    const timezone = await findTimezoneOptionValue(t, interaction, settings);
+    if (timezone === null) {
+      return;
     }
 
     let localMoment: Moment;
