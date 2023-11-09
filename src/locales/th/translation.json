@@ -178,7 +178,7 @@
         "invalidDate": "วันที่ที่ระบุไม่ถูกต้อง (เช่น วันที่ระบุไม่มีอยู่จริง)",
         "noComponentsCurrentTime": "คุณต้องระบุองค์ประกอบเวลาอย่างน้อยหนึ่งรายการเพื่อเปลี่ยนแปลง หากคุณต้องการเวลาปัจจุบัน ให้ใช้ `/{{atCommand}}` โดยไม่ต้องระบุข้อมูลใดๆ",
         "noComponentsUnix": "คุณต้องระบุองค์ประกอบเวลาอย่างน้อยหนึ่งรายการเพื่อเปลี่ยนแปลง หากคุณต้องการรับไวยากรณ์สำหรับเวลา UNIX ให้ใช้ `/{{unixCommand}}`",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
+        "ephemeralNotice": "ค่าเริ่มต้นสำหรับตัวเลือก `{{ephemeralOption}}` ได้เปลี่ยนไป และเพราะว่าคุณไม่ได้ตั้งค่าไว้ ข้อความนี้จึงให้เห็นเพียงแค่คุณเท่านั้น\nการที่จะให้ข้อความของคุณกลับมาเหมือนปกติ (หรือซ่อนข้อความนี้) มันจะมีการตั้งค่าที่คุณสามรถเปลี่ยนได้ด้วยบอทอีกอันนึง วิธีการทำสามารถพบได้ที่ เซิร์ฟเวอร์สนับสนุน Hammertime ใน <{{supportServerUrl}}> ที่ {{faqMessageLink}}",
         "timezoneNotFound": "เขตเวลานั้นไม่มีอยู่"
       },
       "options": {
