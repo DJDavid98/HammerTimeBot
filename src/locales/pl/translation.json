@@ -65,9 +65,6 @@
     "at": {
       "name": "o",
       "description": "Określ dokładne składniki znacznika czasu (w tym strefę czasową)",
-      "responses": {
-        "timezoneNotFound": "Nie można znaleźć podanej strefy czasowej"
-      },
       "options": {
         "year": {
           "name": "rok",
@@ -92,10 +89,6 @@
         "second": {
           "name": "sekunda",
           "description": "Określ sekundę (domyślnie 0)"
-        },
-        "timezone": {
-          "name": "strefa czasowa",
-          "description": "Określ strefę czasową (domyślnie GMT)"
         }
       }
     },
@@ -185,7 +178,8 @@
         "invalidDate": "Podana data jest nieprawidłowa (na przykład: podany dzień nie istnieje)",
         "noComponentsCurrentTime": "Należy podać przynajmniej jeden składnik czasu do zmiany. Jeżeli potrzebny jest aktualny czas, należy użyć `/{{atCommand}}` bez podawania argumentów",
         "noComponentsUnix": "Musisz określić co najmniej jeden składnik czasu do zmiany. Jeśli chcesz uzyskać składnię dla UNIX-owego znacznika czasu, użyj `/{{unixCommand}}`",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
+        "timezoneNotFound": "Nie można znaleźć podanej strefy czasowej"
       },
       "options": {
         "format": {
@@ -217,6 +211,10 @@
         "header": {
           "name": "nagłówek",
           "description": "Wyświetla czas początku (zgodnie z interpretacją bota) na górze odpowiedzi"
+        },
+        "timezone": {
+          "name": "strefa czasowa",
+          "description": "Określ strefę czasową (domyślnie GMT)"
         }
       }
     },
