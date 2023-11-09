@@ -65,9 +65,6 @@
     "at": {
       "name": "ณ",
       "description": "ระบุเวลาที่แน่นอน (รวมถึงเขตเวลา)",
-      "responses": {
-        "timezoneNotFound": "เขตเวลานั้นไม่มีอยู่"
-      },
       "options": {
         "year": {
           "name": "ปี",
@@ -92,10 +89,6 @@
         "second": {
           "name": "วินาที",
           "description": "ระบุวินาที (ค่าเริ่มต้นคือ 0)"
-        },
-        "timezone": {
-          "name": "เขตเวลา",
-          "description": "ระบุเขตเวลา (ค่าเริ่มต้นคือ GMT)"
         }
       }
     },
@@ -185,7 +178,8 @@
         "invalidDate": "วันที่ที่ระบุไม่ถูกต้อง (เช่น วันที่ระบุไม่มีอยู่จริง)",
         "noComponentsCurrentTime": "คุณต้องระบุองค์ประกอบเวลาอย่างน้อยหนึ่งรายการเพื่อเปลี่ยนแปลง หากคุณต้องการเวลาปัจจุบัน ให้ใช้ `/{{atCommand}}` โดยไม่ต้องระบุข้อมูลใดๆ",
         "noComponentsUnix": "คุณต้องระบุองค์ประกอบเวลาอย่างน้อยหนึ่งรายการเพื่อเปลี่ยนแปลง หากคุณต้องการรับไวยากรณ์สำหรับเวลา UNIX ให้ใช้ `/{{unixCommand}}`",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
+        "timezoneNotFound": "เขตเวลานั้นไม่มีอยู่"
       },
       "options": {
         "format": {
@@ -217,6 +211,10 @@
         "header": {
           "name": "ส่วนหัว",
           "description": "แสดงเวลาเริ่มต้น (ตามที่บอทตีความ) ที่ด้านบนของการตอบกลับ"
+        },
+        "timezone": {
+          "name": "เขตเวลา",
+          "description": "ระบุเขตเวลา (ค่าเริ่มต้นคือ GMT)"
         }
       }
     },
