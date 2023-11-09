@@ -65,9 +65,6 @@
     "at": {
       "name": "şurada",
       "description": "Zaman damgasının tam bileşenlerini belirtin (saat dilimi dahil olmak üzere)",
-      "responses": {
-        "timezoneNotFound": "Belirtilen saat dilimi bulunamıyor"
-      },
       "options": {
         "year": {
           "name": "yıl",
@@ -92,10 +89,6 @@
         "second": {
           "name": "saniye",
           "description": "Saniyeyi belirtin (varsayılan olarak 0 kullanılır)"
-        },
-        "timezone": {
-          "name": "zaman-dilimi",
-          "description": "Saat dilimini belirtin (varsayılan olarak GMT kullanılır)"
         }
       }
     },
@@ -185,7 +178,8 @@
         "invalidDate": "Belirtilen tarih geçersizdir (örneğin: verilen gün mevcut değil)",
         "noComponentsCurrentTime": "Değiştirmek için en az bir zaman bileşeni belirtmelisiniz. Geçerli saate ihtiyacınız varsa, herhangi bir argüman belirtmeden `/{{atCommand}}` kullanın",
         "noComponentsUnix": "Değiştirmek için en az bir zaman bileşeni belirtmelisiniz. UNIX zaman damgası için sözdizimini almak istiyorsanız, `/{{unixCommand}}`",
-        "ephemeralNotice": "`{{ephemeralOption}}` seçeneğinin varsayılan değeri değişti ve bunu belirtmediğiniz için bu mesaj yalnızca sizin tarafınızdan görülebilir.\nMesajlarınızın eskisi gibi çalışmasını sağlamak için (veya bu mesajı gizlemek için), farklı bir bot aracılığıyla değiştirebileceğiniz bir ayar vardır. Bunun nasıl yapılacağına dair talimatlar HammerTime'ın destek sunucusunda <{{supportServerUrl}}>, {{faqMessageLink}} adresinde bulunmaktadır"
+        "ephemeralNotice": "`{{ephemeralOption}}` seçeneğinin varsayılan değeri değişti ve bunu belirtmediğiniz için bu mesaj yalnızca sizin tarafınızdan görülebilir.\nMesajlarınızın eskisi gibi çalışmasını sağlamak için (veya bu mesajı gizlemek için), farklı bir bot aracılığıyla değiştirebileceğiniz bir ayar vardır. Bunun nasıl yapılacağına dair talimatlar HammerTime'ın destek sunucusunda <{{supportServerUrl}}>, {{faqMessageLink}} adresinde bulunmaktadır",
+        "timezoneNotFound": "Belirtilen saat dilimi bulunamıyor"
       },
       "options": {
         "format": {
@@ -217,6 +211,10 @@
         "header": {
           "name": "başlık",
           "description": "Yanıtın üstünde ilk zamanı (bot tarafından yorumlandığı şekliyle) görüntüleyin"
+        },
+        "timezone": {
+          "name": "zaman-dilimi",
+          "description": "Saat dilimini belirtin (varsayılan olarak GMT kullanılır)"
         }
       }
     },
