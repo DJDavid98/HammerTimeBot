@@ -65,9 +65,6 @@
     "at": {
       "name": "na",
       "description": "Navedite točne komponente vremenske oznake (uključujući vremensku zonu)",
-      "responses": {
-        "timezoneNotFound": "Navedena vremenska zona ne može se pronaći"
-      },
       "options": {
         "year": {
           "name": "godina",
@@ -92,10 +89,6 @@
         "second": {
           "name": "sekunda",
           "description": "Navedite drugi (zadano je 0)"
-        },
-        "timezone": {
-          "name": "vremenska zona",
-          "description": "Navedite vremensku zonu (zadano GMT)"
         }
       }
     },
@@ -185,7 +178,8 @@
         "invalidDate": "Navedeni datum je nevažeći (na primjer: navedeni dan ne postoji)",
         "noComponentsCurrentTime": "Morate navesti barem jednu vremensku komponentu za promjenu. Ako vam je potrebno trenutno vrijeme, koristite `/{{atCommand}}` bez navođenja argumenata",
         "noComponentsUnix": "Morate navesti barem jednu vremensku komponentu za promjenu. Ako želite dobiti sintaksu za UNIX vremensku oznaku, koristite `/{{unixCommand}}`",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
+        "timezoneNotFound": "Navedena vremenska zona ne može se pronaći"
       },
       "options": {
         "format": {
@@ -217,6 +211,10 @@
         "header": {
           "name": "zaglavlje",
           "description": "Prikaži početno vrijeme (kako ga bot tumači) na vrhu odgovora"
+        },
+        "timezone": {
+          "name": "vremenska zona",
+          "description": "Navedite vremensku zonu (zadano GMT)"
         }
       }
     },
