@@ -65,9 +65,6 @@
     "at": {
       "name": "at",
       "description": "Посочете точните компоненти на времевата марка (включително часовата зона)",
-      "responses": {
-        "timezoneNotFound": "Посочената часова зона не може да бъде намерена"
-      },
       "options": {
         "year": {
           "name": "година",
@@ -92,10 +89,6 @@
         "second": {
           "name": "секунда",
           "description": "Посочете секундата (по подразбиране е 0)"
-        },
-        "timezone": {
-          "name": "часова зона",
-          "description": "Посочете часовата зона (по подразбиране е GMT)"
         }
       }
     },
@@ -185,7 +178,8 @@
         "invalidDate": "The specified date is invalid (for example: the given day does not exist)",
         "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
         "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}"
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
+        "timezoneNotFound": "Посочената часова зона не може да бъде намерена"
       },
       "options": {
         "format": {
@@ -217,6 +211,10 @@
         "header": {
           "name": "header",
           "description": "Display the initial time (as interpreted by the bot) on top of the response"
+        },
+        "timezone": {
+          "name": "часова зона",
+          "description": "Посочете часовата зона (по подразбиране е GMT)"
         }
       }
     },
