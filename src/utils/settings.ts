@@ -62,7 +62,7 @@ export const getSettings = async (context: Pick<InteractionContext, 'db' | 'redi
     }
     values = rows.reduce((fin, { setting, value }) => (setting in defaultSettings ? {
       ...fin,
-      [setting]: JSON.parse(value),
+      [setting]: value,
     } : fin), { ...defaultSettings });
     await cacheSettings(context, cacheKey, values);
     if (env.LOCAL) {

@@ -13,7 +13,7 @@ export const userSettingsTable = {
     return db.query<SettingModel>(
       `SELECT "setting", "value"
        FROM user_settings
-       WHERE "userId" = $${incr++}${settings ? ` AND "setting" IN (${settings.map(() => `$${incr++}`).join(', ')})` : ''}`,
+       WHERE "discord_user_id" = $${incr++}${settings ? ` AND "setting" IN (${settings.map(() => `$${incr++}`).join(', ')})` : ''}`,
       [discordUserId, ...(settings ?? [])],
     );
   },
