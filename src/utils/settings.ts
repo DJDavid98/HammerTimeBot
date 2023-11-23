@@ -1,4 +1,4 @@
-import { SettingModel, userSettingsTable } from '../database/user-settings-table.js';
+import { SettingModel, settingsTable } from '../database/settings-table.js';
 import { SettingName } from '../types/setting-name.js';
 import { env } from '../env.js';
 import { InteractionContext } from '../types/bot-interaction.js';
@@ -54,7 +54,7 @@ export const getSettings = async (context: Pick<InteractionContext, 'db' | 'redi
   if (!values) {
     let rows: SettingModel[];
     try {
-      ({ rows } = await userSettingsTable.select(context.db, userId));
+      ({ rows } = await settingsTable.select(context.db, userId));
     } catch (e) {
       console.error(e);
       console.warn('Falling back to default settings due to database error');

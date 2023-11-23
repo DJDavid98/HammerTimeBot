@@ -7,12 +7,12 @@ export interface SettingModel {
   value: string;
 }
 
-export const userSettingsTable = {
+export const settingsTable = {
   select: (db: Client, discordUserId: string, settings?: SettingName[]) => {
     let incr = 1;
     return db.query<SettingModel>(
       `SELECT "setting", "value"
-       FROM user_settings
+       FROM settings
        WHERE "discord_user_id" = $${incr++}${settings ? ` AND "setting" IN (${settings.map(() => `$${incr++}`).join(', ')})` : ''}`,
       [discordUserId, ...(settings ?? [])],
     );
