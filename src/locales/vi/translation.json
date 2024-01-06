@@ -2,43 +2,43 @@
   "commands": {
     "ago": {
       "name": "ago",
-      "description": "Specify a timestamp in the past relative to the current time",
+      "description": "Hiển thị định dạng thời gian cách thời điểm hiện tại một khoảng thời gian nhất định về quá khứ",
       "responses": {},
       "options": {
         "years": {
           "name": "years",
-          "description": "How many years to subtract from the current time"
+          "description": "Số năm để trừ đi kể từ thời điểm hiện tại"
         },
         "months": {
           "name": "months",
-          "description": "How many months to subtract from the current time"
+          "description": "Số tháng để trừ đi kể từ thời điểm hiện tại"
         },
         "days": {
           "name": "days",
-          "description": "How many days to subtract from the current time"
+          "description": "Số ngày để trừ đi kể từ thời điểm hiện tại"
         },
         "hours": {
           "name": "hours",
-          "description": "How many hours to subtract from the current time"
+          "description": "Số giờ để trừ đi kể từ thời điểm hiện tại"
         },
         "minutes": {
           "name": "minutes",
-          "description": "How many minutes to subtract from the current time"
+          "description": "Số phút để trừ đi kể từ thời điểm hiện tại"
         },
         "seconds": {
           "name": "seconds",
-          "description": "How many seconds to subtract from the current time"
+          "description": "Số giây để trừ đi kể từ thời điểm hiện tại"
         }
       }
     },
     "in": {
       "name": "in",
-      "description": "Specify a timestamp in the future relative to the current time",
+      "description": "Hiển thị định dạng thời gian cách thời điểm hiện tại một khoảng thời gian nhất định về tương lai",
       "responses": {},
       "options": {
         "years": {
           "name": "years",
-          "description": "How many years to add to the current time"
+          "description": "Số năm để cộng thêm vào thời điểm hiện tại"
         },
         "months": {
           "name": "months",
@@ -46,45 +46,45 @@
         },
         "days": {
           "name": "days",
-          "description": "How many days to add to the current time"
+          "description": "Số ngày để cộng thêm vào thời điểm hiện tại"
         },
         "hours": {
           "name": "hours",
-          "description": "How many hours to add to the current time"
+          "description": "Số giờ để cộng thêm vào thời điểm hiện tại"
         },
         "minutes": {
           "name": "minutes",
-          "description": "How many minutes to add to the current time"
+          "description": "Số phút để cộng thêm vào thời điểm hiện tại"
         },
         "seconds": {
           "name": "seconds",
-          "description": "How many seconds to add to the current time"
+          "description": "Số giây để cộng thêm vào thời điểm hiện tại"
         }
       }
     },
     "at": {
       "name": "at",
-      "description": "Specify the exact components of the timestamp (including the timezone)",
+      "description": "Điền vào từng phần của định dạng thời gian (bao gồm cả múi giờ)",
       "options": {
         "year": {
           "name": "year",
-          "description": "Specify the year (defaults to current year)"
+          "description": "Năm (mặc định vào năm hiện tại)"
         },
         "month": {
           "name": "month",
-          "description": "Specify the month (defaults to current month)"
+          "description": "Tháng (mặc định vào tháng hiện tại)"
         },
         "day": {
           "name": "day",
-          "description": "Specify the day (defaults to current day)"
+          "description": "Ngày (mặc định vào ngày hiện tại)"
         },
         "hour": {
           "name": "hour",
-          "description": "Specify the hour (defaults to current hour)"
+          "description": "Giờ (mặc định vào giờ hiện tại)"
         },
         "minute": {
           "name": "minute",
-          "description": "Specify the minute (defaults to current minute)"
+          "description": "Phút (mặc định vào tháng hiện tại)"
         },
         "second": {
           "name": "second",
@@ -94,20 +94,20 @@
     },
     "add": {
       "name": "add",
-      "description": "Add some time to the specified UNIX timestamp",
+      "description": "Thêm một số thời gian vào UNIX timestamp đã chỉ định",
       "responses": {},
       "options": {
         "to": {
           "name": "to",
-          "description": "The UNIX timestamp in seconds"
+          "description": "UNIX timestamp tính bằng giây"
         },
         "years": {
           "name": "years",
-          "description": "How many years to add to the specified timestamp"
+          "description": "Số năm để thêm vào timestamp đã chỉ định"
         },
         "months": {
           "name": "months",
-          "description": "How many months to add to the specified timestamp"
+          "description": "Số tháng để thêm vào timestamp đã chỉ định"
         },
         "days": {
           "name": "days",
@@ -206,7 +206,7 @@
         },
         "ephemeral": {
           "name": "ephemeral",
-          "description": "When true the response will only be visible to you (default: false)"
+          "description": "Khi đúng, phản hồi chỉ hiển thị cho bạn (mặc định: sai)"
         },
         "header": {
           "name": "header",
