@@ -67,3 +67,6 @@ English and Hungarian translations have been included, so no translators will be
 - 🇺🇦 Ukrainian
   - [enky](https://crowdin.com/profile/enky)
   - [GameHacker](https://crowdin.com/profile/GameHacker)
+- 🇻🇳 Vietnamese
+  - [Quan](https://crowdin.com/profile/quanonthecob)
+  - [ThatKev](https://crowdin.com/profile/thatkev)

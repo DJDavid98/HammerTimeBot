@@ -256,7 +256,17 @@
     },
     "vi": {
       "name": "Vietnamese",
-      "emoji": "\uD83C\uDDFB\uD83C\uDDF3"
+      "emoji": "\uD83C\uDDFB\uD83C\uDDF3",
+      "credits": [
+        {
+          "crowdin": "quanonthecob",
+          "displayName": "Quan"
+        },
+        {
+          "crowdin": "thatkev",
+          "displayName": "ThatKev"
+        }
+      ]
     }
   }
 }
