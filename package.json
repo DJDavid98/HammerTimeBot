@@ -21,12 +21,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@discordjs/rest": "^2.0.1",
-    "axios": "^0.21.1",
+    "@discordjs/rest": "^2.2.0",
+    "axios": "^1.6.8",
     "bufferutil": "^4.0.3",
     "concurrently": "^8.2.0",
-    "discord-api-types": "^0.37.54",
-    "discord.js": "^14.13.0",
+    "discord-api-types": "^0.37.79",
+    "discord.js": "^14.14.1",
     "dotenv": "^16.3.1",
     "i18next": "^23.4.4",
     "i18next-fs-backend": "^2.1.5",

@@ -218,6 +218,21 @@
         }
       ]
     },
+    "es-419": {
+      "name": "Spanish, Latin America",
+      "emoji": "\uD83C\uDDF2\uD83C\uDDFD",
+      "credits": [
+        {
+          "crowdin": "shaulyareaj",
+          "displayName": "Yareaj",
+          "url": "https://github.com/Yareaj/"
+        },
+        {
+          "crowdin": "streetdog.arg",
+          "displayName": "Street Dog"
+        }
+      ]
+    },
     "sv-SE": {
       "name": "Swedish",
       "emoji": "\uD83C\uDDF8\uD83C\uDDEA"

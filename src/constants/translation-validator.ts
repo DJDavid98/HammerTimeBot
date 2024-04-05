@@ -26,6 +26,7 @@ import type ptBR from '../locales/pt-BR/translation.json';
 import type ro from '../locales/ro/translation.json';
 import type ru from '../locales/ru/translation.json';
 import type esES from '../locales/es-ES/translation.json';
+import type es419 from '../locales/es-419/translation.json';
 import type svSE from '../locales/sv-SE/translation.json';
 import type th from '../locales/th/translation.json';
 import type tr from '../locales/tr/translation.json';
@@ -63,6 +64,7 @@ type ValidatedLocalizationMap = TypeValidator<{
   [Locale.Romanian]: typeof ro,
   [Locale.Russian]: typeof ru,
   [Locale.SpanishES]: typeof esES,
+  [Locale.SpanishLATAM]: typeof es419,
   [Locale.Swedish]: typeof svSE,
   [Locale.Thai]: typeof th,
   [Locale.Turkish]: typeof tr,
