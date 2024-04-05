@@ -1,0 +1,283 @@
+{
+  "commands": {
+    "ago": {
+      "name": "hace",
+      "description": "Especifique una marca de tiempo en el pasado relativo al tiempo actual",
+      "responses": {},
+      "options": {
+        "years": {
+          "name": "años",
+          "description": "Cuántos años restar al tiempo actual"
+        },
+        "months": {
+          "name": "meses",
+          "description": "Cuántos meses restar al tiempo actual"
+        },
+        "days": {
+          "name": "días",
+          "description": "Cuántos días restar al tiempo actual"
+        },
+        "hours": {
+          "name": "horas",
+          "description": "Cuántas horas restar al tiempo actual"
+        },
+        "minutes": {
+          "name": "minutos",
+          "description": "Cuántos minutos restar al tiempo actual"
+        },
+        "seconds": {
+          "name": "segundos",
+          "description": "Cuántos segundos restar al tiempo actual"
+        }
+      }
+    },
+    "in": {
+      "name": "en",
+      "description": "Especifique una marca de tiempo en el futuro relativo al tiempo actual",
+      "responses": {},
+      "options": {
+        "years": {
+          "name": "años",
+          "description": "Cuántos años añadir al tiempo actual"
+        },
+        "months": {
+          "name": "meses",
+          "description": "Cuántos meses añadir al tiempo actual"
+        },
+        "days": {
+          "name": "días",
+          "description": "Cuántos días añadir al tiempo actual"
+        },
+        "hours": {
+          "name": "horas",
+          "description": "Cuántas horas añadir al tiempo actual"
+        },
+        "minutes": {
+          "name": "minutos",
+          "description": "Cuántos minutos añadir al tiempo actual"
+        },
+        "seconds": {
+          "name": "segundos",
+          "description": "Cuántos segundos añadir al tiempo actual"
+        }
+      }
+    },
+    "at": {
+      "name": "en",
+      "description": "Especifique los componentes exactos de la marca de tiempo (incluyendo la zona horaria)",
+      "options": {
+        "year": {
+          "name": "año",
+          "description": "Especifique el año (por defecto será el año actual)"
+        },
+        "month": {
+          "name": "mes",
+          "description": "Especifique el mes (por defecto será el mes actual)"
+        },
+        "day": {
+          "name": "día",
+          "description": "Especifique el día (por defecto será el día actual)"
+        },
+        "hour": {
+          "name": "hora",
+          "description": "Especifique la hora (por defecto será la hora actual)"
+        },
+        "minute": {
+          "name": "minuto",
+          "description": "Especifique el minuto (por defecto será el minuto actual)"
+        },
+        "second": {
+          "name": "segundo",
+          "description": "Especifique el segundo (por defecto será 0)"
+        }
+      }
+    },
+    "add": {
+      "name": "añadir",
+      "description": "Añada tiempo a la marca de tiempo UNIX especificada",
+      "responses": {},
+      "options": {
+        "to": {
+          "name": "a",
+          "description": "La marca de tiempo UNIX en segundos"
+        },
+        "years": {
+          "name": "años",
+          "description": "Cuántos años añadir de la marca de tiempo especificada"
+        },
+        "months": {
+          "name": "meses",
+          "description": "Cuántos meses añadir de la marca de tiempo especificada"
+        },
+        "days": {
+          "name": "días",
+          "description": "Cuántos días añadir de la marca de tiempo especificada"
+        },
+        "hours": {
+          "name": "horas",
+          "description": "Cuántas horas añadir de la marca de tiempo especificada"
+        },
+        "minutes": {
+          "name": "minutos",
+          "description": "Cuántos minutos añadir de la marca de tiempo especificada"
+        },
+        "seconds": {
+          "name": "segundos",
+          "description": "Cuántos segundos añadir de la marca de tiempo especificada"
+        }
+      }
+    },
+    "subtract": {
+      "name": "restar",
+      "description": "Reste tiempo a la marca de tiempo UNIX especificada",
+      "responses": {},
+      "options": {
+        "from": {
+          "name": "de",
+          "description": "La marca de tiempo UNIX en segundos"
+        },
+        "years": {
+          "name": "años",
+          "description": "Cuántos años restar de la marca de tiempo especificada"
+        },
+        "months": {
+          "name": "meses",
+          "description": "Cuántos meses restar de la marca de tiempo especificada"
+        },
+        "days": {
+          "name": "días",
+          "description": "Cuántos días restar de la marca de tiempo especificada"
+        },
+        "hours": {
+          "name": "horas",
+          "description": "Cuántas horas restar de la marca de tiempo especificada"
+        },
+        "minutes": {
+          "name": "minutos",
+          "description": "Cuántos minutos restar de la marca de tiempo indicada"
+        },
+        "seconds": {
+          "name": "segundos",
+          "description": "Cuántos segundos restar de la marca de tiempo indicada"
+        }
+      }
+    },
+    "unix": {
+      "name": "unix",
+      "description": "Mostrar las sintaxis de una marca de tiempo UNIX específica",
+      "responses": {},
+      "options": {
+        "value": {
+          "name": "valor",
+          "description": "La marca de tiempo UNIX en segundos"
+        }
+      }
+    },
+    "global": {
+      "responses": {
+        "invalidDate": "La fecha indicada no es válida (por ejemplo: el día dado no existe)",
+        "noComponentsCurrentTime": "Debe especificar al menos un componente de tiempo a cambiar. Si necesita la hora actual, utilice `/{{atCommand}}` sin especificar ningún argumento",
+        "noComponentsUnix": "Debe especificar al menos un componente de tiempo a cambiar. Si desea obtener la sintaxis de una marca de tiempo UNIX, utilice `/{{unixCommand}}`",
+        "ephemeralNotice": "El valor por defecto para la opción `{{ephemeralOption}}` ha cambiado, y dado que no has indicado que valor debería tener, este mensaje es únicamente visible para ti.\nPara hacer que tus mensajes funcionen igual que antes (o remover este mensaje), hay un ajuste que puedes cambiar a travès de otro bot. Las instruccions como hacer eso pueden ser encontradas en el servidor de soporte de Hammertime en <{{supportServerUrl}}> en {{faqMessageLink}}",
+        "timezoneNotFound": "La zona horaria indicada no pudo ser encontrada"
+      },
+      "options": {
+        "format": {
+          "name": "formato",
+          "description": "Devuelve sólo el formato especificado en la respuesta",
+          "choices": {
+            "d": "fecha corta",
+            "D": "fecha larga",
+            "t": "tiempo corto",
+            "T": "hora larga",
+            "f": "fecha y hora",
+            "F": "día de la semana, fecha y hora",
+            "R": "relativa"
+          }
+        },
+        "columns": {
+          "name": "columnas",
+          "description": "Especifique qué columnas mostrar en la respuesta devuelta",
+          "choices": {
+            "both": "sintaxis y previsualización",
+            "preview": "solo previsualización",
+            "syntax": "solo sintaxis"
+          }
+        },
+        "ephemeral": {
+          "name": "efímero",
+          "description": "Si es verdadero, la respuesta sólo será visible para usted (por defecto: falso)"
+        },
+        "header": {
+          "name": "encabezado",
+          "description": "Mostrar la hora inicial (como la interpreta el bot) encima de la respuesta"
+        },
+        "timezone": {
+          "name": "zona horaria",
+          "description": "Especifique la zona horaria (por defecto será GMT)"
+        }
+      }
+    },
+    "statistics": {
+      "name": "estadísticas",
+      "description": "Muestra infomación general sobre el bot",
+      "options": {},
+      "responses": {
+        "totalServerCount": "Total de servidores unidos:",
+        "shardServerCount": "Servidores en este shard:",
+        "uptime": "Hora de inicio del Shard:",
+        "shardCount": "Número de Shards:",
+        "shardNumber": "(Estas estadísticas fueron generadas por el shard #{{shardId}})",
+        "noShards": "(El bot no utiliza actualmente sharding)",
+        "serverInvite": "Invitación al Servidor de Soporte:",
+        "totalUserCount": "Total de usuarios en los servidores unidos:"
+      }
+    },
+    "snowflake": {
+      "name": "snowflake",
+      "description": "Mostrar la sintaxis de la marca de tiempo de un \"Snowflake\" (la mayoría de los ID dentro de Discord)",
+      "responses": {
+        "invalidSnowflake": "El \"Snowflake\" especificado es inválido"
+      },
+      "options": {
+        "value": {
+          "name": "valor",
+          "description": "El \"Snowflake\" número"
+        }
+      }
+    },
+    "Message Sent": {
+      "name": "Mensaje enviado",
+      "responses": {
+        "targetMessage": "Enviar marca de tiempo para el siguiente mensaje: {{url}}"
+      }
+    },
+    "Message Last Edited": {
+      "name": "Mensaje editado por última vez",
+      "responses": {
+        "targetMessage": "Marca de tiempo de la última edición del siguiente mensaje: {{url}}",
+        "notEdited": "Este mensaje aún no ha sido editado"
+      }
+    },
+    "iso": {
+      "name": "iso",
+      "description": "Mostrar las sintaxis de una marca de tiempo ISO 8601 específica",
+      "responses": {
+        "invalidIsoFormat": "El valor proporcionado no coincide con la norma ISO 8601"
+      },
+      "options": {
+        "value": {
+          "name": "valor",
+          "description": "La marca de tiempo estándar ISO 8601"
+        }
+      }
+    },
+    "Extract Timestamps": {
+      "name": "Extraer marcas de tiempo",
+      "responses": {
+        "targetMessage": "Todas las marcas de tiempo encontradas en el siguiente mensaje: {{url}}",
+        "noTimestamps": "Este mensaje no contiene ninguna marca de tiempo en el formato de Discord"
+      }
+    }
+  }
+}
