@@ -62,6 +62,9 @@ English and Hungarian translations have been included, so no translators will be
 - 🇪🇸 Spanish
   - [Street Dog](https://crowdin.com/profile/streetdog.arg)
   - [Yareaj](https://github.com/Yareaj/)
+- 🇲🇽 Spanish, Latin America
+  - [Street Dog](https://crowdin.com/profile/streetdog.arg)
+  - [Yareaj](https://github.com/Yareaj/)
 - 🇹🇭 Thai: [Rukchad Wongprayoon](https://crowdin.com/profile/unpredictable)
 - 🇹🇷 Turkish: [Baran Moroğan](https://crowdin.com/profile/okunamayanad)
 - 🇺🇦 Ukrainian
