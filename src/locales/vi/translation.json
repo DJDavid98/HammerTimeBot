@@ -253,7 +253,7 @@
       }
     },
     "Message Last Edited": {
-      "name": "Thời gian chỉnh sửa cuối cùng của tin nhắn",
+      "name": "Message Last Edited",
       "responses": {
         "targetMessage": "Thời gian chỉnh sửa cuối cùng cho tin nhắn sau: {{url}}",
         "notEdited": "Tin nhắn này chưa được chỉnh sửa"
