@@ -278,6 +278,15 @@
         "targetMessage": "Az összes megtalált időbélyeg ehhez az üzenethez: {{url}}",
         "noTimestamps": "Ez az üzenet nem tartalmaz időbélyegeket a Discord formátumában"
       }
+    },
+    "settings": {
+      "name": "beállítások",
+      "description": "Készít egy linket, amivel a weboldalon keresztül kezelheted a beállításaidat",
+      "responses": {
+        "linkCreated": "Kérlek látogass el az alábbi linkre, mely automatikusan beléptet a bot weboldalára a beállításaid megváltoztatásához.\n<{{magicLink}}>\nEz a link {{expiresAt}} lejár, de bármikor generálhatsz új linket ezzel a paranccsal, vegy ellátogathatsz a <{{loginUrl}}> címre kézi belépéshez, ezután pedig a <{{settingsUrl}}> linken tudod módosítani a beállításaidat.",
+        "failedToCreateLink": "Nem sikerült automatikus beléptető linket generálni, kérlek látogass el a <{{loginUrl}}> linkre és lépj be kézzel, ezután pedig a <{{settingsUrl}}> linken tudod módosítani a beállításaidat."
+      },
+      "options": {}
     }
   }
 }

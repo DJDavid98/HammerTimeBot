@@ -278,6 +278,15 @@
         "targetMessage": "Toate marcajele de timp găsite în următorul mesaj: {{url}}",
         "noTimestamps": "Acest mesaj nu conține marcaje temporale în formatul Discord"
       }
+    },
+    "settings": {
+      "name": "settings",
+      "description": "Create a link to manage your settings via the website",
+      "responses": {
+        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "failedToCreateLink": "Could not generate a link to log you in automatically, please visit <{{loginUrl}}> and log in manually, then go to <{{settingsUrl}}> to change your settings."
+      },
+      "options": {}
     }
   }
 }
