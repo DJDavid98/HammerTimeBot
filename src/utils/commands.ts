@@ -9,6 +9,7 @@ import { subtractCommand } from '../commands/subtract.command.js';
 import { unixCommand } from '../commands/unix.command.js';
 import { snowflakeCommand } from '../commands/snowflake.command.js';
 import { isoCommand } from '../commands/iso.command.js';
+import { settingsCommand } from '../commands/settings.command.js';
 
 export const chatInputCommandMap: Record<BotChatInputCommandName, BotChatInputCommand> = {
   [BotChatInputCommandName.ADD]: addCommand,
@@ -20,6 +21,7 @@ export const chatInputCommandMap: Record<BotChatInputCommandName, BotChatInputCo
   [BotChatInputCommandName.UNIX]: unixCommand,
   [BotChatInputCommandName.SNOWFLAKE]: snowflakeCommand,
   [BotChatInputCommandName.ISO]: isoCommand,
+  [BotChatInputCommandName.SETTINGS]: settingsCommand,
 };
 
 export const chatInputCommandNames = (Object.keys(chatInputCommandMap) as BotChatInputCommandName[]);

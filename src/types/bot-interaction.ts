@@ -20,6 +20,7 @@ export const enum BotChatInputCommandName {
   STATISTICS = 'statistics',
   SUBTRACT = 'subtract',
   UNIX = 'unix',
+  SETTINGS = 'settings',
 }
 
 export const enum BotMessageContextMenuCommandName {

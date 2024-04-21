@@ -1,5 +1,6 @@
 export enum EmojiCharacters {
   OCTAGONAL_SIGN = '🛑',
+  WARNING_SIGN = '⚠️',
   CALENDAR = '📅',
   ONE_OCLOCK = '🕐',
   ONE_THIRTY = '🕜',
