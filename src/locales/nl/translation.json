@@ -280,11 +280,11 @@
       }
     },
     "settings": {
-      "name": "settings",
-      "description": "Create a link to manage your settings via the website",
+      "name": "instellingen",
+      "description": "Maak een link om uw instellingen via de website te beheren",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
-        "failedToCreateLink": "Could not generate a link to log you in automatically, please visit <{{loginUrl}}> and log in manually, then go to <{{settingsUrl}}> to change your settings."
+        "linkCreated": "Bezoek de onderstaande link om automatisch ingelogd te worden op de website van de bot om uw instellingen te wijzigen.\n<{{magicLink}}>\nDeze link zal verlopen {{expiresAt}} maar u kunt altijd dit commando opnieuw uitvoeren om een nieuwe link te genereren. Of bezoek <{{loginUrl}}> om handmatig in te loggen en ga dan naar <{{settingsUrl}}> om uw instellingen te wijzigen.",
+        "failedToCreateLink": "Er kon geen link geneerd worden om u automatisch aan te melden, bezoek <{{loginUrl}}> en log handmatig in, ga vervolgens naar <{{settingsUrl}}> om uw instellingen te wijzigen."
       },
       "options": {}
     }
