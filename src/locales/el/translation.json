@@ -280,11 +280,11 @@
       }
     },
     "settings": {
-      "name": "settings",
-      "description": "Create a link to manage your settings via the website",
+      "name": "ρυθμίσεις",
+      "description": "Δημιουργήστε έναν σύνδεσμο για τη διαχείριση των ρυθμίσεών σας μέσω του ιστότοπου",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
-        "failedToCreateLink": "Could not generate a link to log you in automatically, please visit <{{loginUrl}}> and log in manually, then go to <{{settingsUrl}}> to change your settings."
+        "linkCreated": "Παρακαλούμε επισκεφθείτε τον παρακάτω σύνδεσμο για να συνδεθείτε αυτόματα στον ιστότοπο του bot προκειμένου να αλλάξετε τις ρυθμίσεις σας.\n<{{magicLink}}>\nΑυτός ο σύνδεσμος θα λήξει {{expiresAt}} , αλλά μπορείτε πάντα να εκτελέσετε αυτή την εντολή για να δημιουργήσετε έναν νέο σύνδεσμο ή να επισκεφθείτε το <{{loginUrl}}> για να συνδεθείτε χειροκίνητα και στη συνέχεια να μεταβείτε στο <{{settingsUrl}}> για να αλλάξετε τις ρυθμίσεις σας.",
+        "failedToCreateLink": "Δεν ήταν δυνατή η δημιουργία συνδέσμου για να συνδεθείτε αυτόματα, παρακαλούμε επισκεφθείτε το <{{loginUrl}}> και συνδεθείτε χειροκίνητα, και στη συνέχεια μεταβείτε στο <{{settingsUrl}}> για να αλλάξετε τις ρυθμίσεις σας."
       },
       "options": {}
     }
