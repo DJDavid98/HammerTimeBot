@@ -280,11 +280,11 @@
       }
     },
     "settings": {
-      "name": "settings",
-      "description": "Create a link to manage your settings via the website",
+      "name": "设置",
+      "description": "创建网页端调整设置的链接",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
-        "failedToCreateLink": "Could not generate a link to log you in automatically, please visit <{{loginUrl}}> and log in manually, then go to <{{settingsUrl}}> to change your settings."
+        "linkCreated": "请使用下面的链接以自动登录机器人的网站并更改您的设置。\n<{{magicLink}}>\n该链接将于 {{expiresAt}} 过期，不过您可以随时使用本命令重新生成一个链接，或者访问 <{{loginUrl}}> 手动登录，然后访问 <{{settingsUrl}}> 更改您的设置。",
+        "failedToCreateLink": "无法为您创建自动登录的链接。请访问 <{{loginUrl}}> 手动登录，然后访问 <{{settingsUrl}}> 更改您的设置。"
       },
       "options": {}
     }
