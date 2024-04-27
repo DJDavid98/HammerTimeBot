@@ -280,11 +280,11 @@
       }
     },
     "settings": {
-      "name": "settings",
-      "description": "Create a link to manage your settings via the website",
+      "name": "setări",
+      "description": "Creați un link pentru a vă gestiona setările prin intermediul site-ului web",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
-        "failedToCreateLink": "Could not generate a link to log you in automatically, please visit <{{loginUrl}}> and log in manually, then go to <{{settingsUrl}}> to change your settings."
+        "linkCreated": "Vă rugăm să vizitați linkul de mai jos pentru a vă autentifica automat pe site-ul bot pentru a vă schimba setările.\n<{{magicLink}}>\nAcest link va expira {{expiresAt}} dar puteți rula oricând această comandă pentru a genera un nou link, sau puteți vizita <{{loginUrl}}> pentru a vă autentifica manual, apoi mergeți la <{{settingsUrl}}> pentru a vă modifica setările.",
+        "failedToCreateLink": "Nu s-a putut genera un link care să vă logheze automat, vă rugăm să vizitați <{{loginUrl}}> și conectați-vă manual, apoi mergeți la <{{settingsUrl}}> pentru a vă modifica setările."
       },
       "options": {}
     }
