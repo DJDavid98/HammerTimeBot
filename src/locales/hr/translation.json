@@ -178,7 +178,6 @@
         "invalidDate": "Navedeni datum je nevažeći (na primjer: navedeni dan ne postoji)",
         "noComponentsCurrentTime": "Morate navesti barem jednu vremensku komponentu za promjenu. Ako vam je potrebno trenutno vrijeme, koristite `/{{atCommand}}` bez navođenja argumenata",
         "noComponentsUnix": "Morate navesti barem jednu vremensku komponentu za promjenu. Ako želite dobiti sintaksu za UNIX vremensku oznaku, koristite `/{{unixCommand}}`",
-        "ephemeralNotice": "Zadana vrijednost za opciju `{{ephemeralOption}}` je promijenjena, a budući da je niste unijeli, ova poruka je vidljiva samo vama.\nDa bi vaše poruke radile isto kao prije (ili da biste sakrili ovu poruku), postoji postavka koju možete promijeniti putem drugog bota. Upute o tome kako to učiniti mogu se pronaći na HammerTime poslužitelju za podršku u <{{supportServerUrl}}> na {{faqMessageLink}}",
         "timezoneNotFound": "Navedena vremenska zona ne može se pronaći"
       },
       "options": {
