@@ -178,7 +178,6 @@
         "invalidDate": "Ngày đã chỉ định không hợp lệ (ví dụ: ngày đã cho không tồn tại)",
         "noComponentsCurrentTime": "Bạn phải chỉ định ít nhất một thành phần thời gian để thay đổi. Nếu bạn cần thời gian hiện tại, hãy sử dụng `/{{atCommand}}` mà không chỉ định bất kỳ đối số nào",
         "noComponentsUnix": "Bạn phải chỉ định ít nhất một thành phần thời gian để thay đổi. Nếu bạn muốn lấy cú pháp cho một UNIX timestamp, hãy sử dụng `/{{unixCommand}}`",
-        "ephemeralNotice": "Giá trị mặc định cho tùy chọn `{{ephemeralOption}}` đã thay đổi, và vì bạn không cung cấp nó, thông báo này chỉ hiển thị cho bạn.\nĐể làm cho tin nhắn của bạn hoạt động giống như trước đây (hoặc để ẩn thông báo này), có một cài đặt bạn có thể thay đổi thông qua một bot khác. Hướng dẫn về cách làm điều đó có thể được tìm thấy trong máy chủ hỗ trợ của HammerTime tại <{{supportServerUrl}}> tại {{faqMessageLink}}",
         "timezoneNotFound": "Múi giờ đã chỉ định không thể tìm thấy"
       },
       "options": {
