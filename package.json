@@ -18,7 +18,7 @@
     "watch:dev": "npm run build:clean && npm run build && npm run watch:dev:commands",
     "test": "jest --ci --randomize",
     "test:watch": "jest --watch --randomize",
-    "prepare": "husky install"
+    "prepare": "ts-patch install && typia patch && husky install"
   },
   "dependencies": {
     "@discordjs/rest": "^2.2.0",
@@ -30,15 +30,14 @@
     "dotenv": "^16.3.1",
     "i18next": "^23.4.4",
     "i18next-fs-backend": "^2.1.5",
-    "ioredis": "^5.3.2",
     "js-levenshtein": "^1.1.6",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.43",
-    "pg": "^8.11.3",
     "pm2": "^5.3.0",
     "rimraf": "^5.0.1",
     "shell-escape": "^0.2.0",
     "tslib": "^2.6.2",
+    "typia": "^6.0.3",
     "utf-8-validate": "^6.0.3",
     "zlib-sync": "^0.1.8"
   },
@@ -47,7 +46,6 @@
     "@types/jest": "^29.5.3",
     "@types/js-levenshtein": "^1.1.1",
     "@types/node": "^18.17.6",
-    "@types/pg": "^8.10.2",
     "@types/shell-escape": "^0.2.1",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@typescript-eslint/parser": "^6.4.0",
@@ -62,7 +60,9 @@
     "jest-ts-webcompat-resolver": "^1.0.0",
     "nodemon": "^3.0.1",
     "ts-jest": "^29.1.1",
-    "typescript": "^5.1.6"
+    "ts-node": "^10.9.2",
+    "ts-patch": "^3.1.2",
+    "typescript": "^5.4.2"
   },
   "nodemonConfig": {
     "delay": 1000

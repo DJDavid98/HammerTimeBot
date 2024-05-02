@@ -3,7 +3,7 @@ import { formattedResponse, supportedFormats } from './time.js';
 import { ChatInputCommandInteraction, ContextMenuCommandInteraction, InteractionReplyOptions } from 'discord.js';
 import { TFunction } from 'i18next';
 import { GlobalCommandOptionName, ResponseColumnChoices } from '../types/localization.js';
-import { addEphemeralNotice, EPHEMERAL_OPTION_DEFAULT_VALUE, isEphemeralResponse } from './messaging.js';
+import { EPHEMERAL_OPTION_DEFAULT_VALUE, isEphemeralResponse } from './messaging.js';
 import { getExactTimePrefix } from './get-exact-time-prefix.js';
 import { SettingsValue } from './settings.js';
 import { Moment } from 'moment';
@@ -69,7 +69,7 @@ export const getSyntaxReplyOptions = ({
   const header = addHeader && getExactTimePrefix(localMoment, timezone);
   const content = `${header ? `${header}\n` : ''}${formattedResponse(ts, formats, columns as ResponseColumnChoices)}`;
   return {
-    content: addEphemeralNotice(content, syntaxInteraction.ephemeral, t),
+    content: content,
     ephemeral: syntaxInteraction.ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE,
   };
 };

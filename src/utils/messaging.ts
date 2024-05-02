@@ -10,8 +10,6 @@ import {
 import { GlobalCommandOptionName } from '../types/localization.js';
 import { SettingsValue } from './settings.js';
 import { TFunction } from 'i18next';
-import { EmojiCharacters } from '../constants/emoji-characters.js';
-import { env } from '../env.js';
 import { findTimezone, gmtTimezoneOptions } from './time.js';
 import { TimezoneError } from '../classes/timezone-error.js';
 
@@ -24,7 +22,7 @@ export const getUserIdentifier = (user: User): `${UserFriendCode} (${string})` =
   return `${getUserFriendCode(user)} (${user.id})`;
 };
 
-export const stringifyChannelName = (channel: CommandInteraction['channel']): string => {
+export const stringifyChannelName = (channelId: string, channel?: CommandInteraction['channel']): string => {
   if (channel) {
     let stringName: string;
     if (channel.type === ChannelType.GuildText && 'name' in channel) {
@@ -36,12 +34,17 @@ export const stringifyChannelName = (channel: CommandInteraction['channel']): st
     return `${stringName} (${channel.id})`;
   }
 
-  return '(unknown channel)';
+  return `Channel#${channelId}`;
 };
 
-export const stringifyGuildName = (guild: CommandInteraction['guild']): string => {
-  if (guild) {
+export const stringifyGuildName = (guildId: string | null, guild: CommandInteraction['guild']): string => {
+  if (guild?.name) {
     return `${guild.name} (${guild.id})`;
+  }
+
+  const potentialGuildId = guild?.id ?? guildId;
+  if (potentialGuildId) {
+    return `Guild#${guildId}`;
   }
 
   return '(unknown guild)';
@@ -72,17 +75,6 @@ export const stringifyOptionsData = (data: readonly CommandInteractionOption[]):
 export const EPHEMERAL_OPTION_DEFAULT_VALUE = true;
 
 export const isEphemeralResponse = (interaction: ChatInputCommandInteraction, settings: Pick<SettingsValue, 'ephemeral'>): boolean | null => interaction.options.getBoolean(GlobalCommandOptionName.EPHEMERAL) ?? settings.ephemeral ?? null;
-
-export const addEphemeralNotice = (message: string, ephemeralOption: boolean | null, t: TFunction): string =>
-  ephemeralOption !== null
-    ? message
-    : `${message}\n\n${EmojiCharacters.INFO} ${t('commands.global.responses.ephemeralNotice', {
-      replace: {
-        ephemeralOption: t('commands.global.options.ephemeral.name'),
-        supportServerUrl: env.DISCORD_INVITE_URL,
-        faqMessageLink: 'https://discord.com/channels/952258283882819595/995284060941336647/1006946901482029096',
-      },
-    })}`;
 
 type BareNumberFormatter = Pick<Intl.NumberFormat, 'format'>;
 const numberFormatterCache: Partial<Record<string, BareNumberFormatter>> = {};

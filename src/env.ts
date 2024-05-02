@@ -6,13 +6,11 @@ const {
   DISCORD_BOT_TOKEN,
   DISCORD_CLIENT_ID,
   LOCAL,
+  DEBUG_I18N,
   UA_STRING,
   DISCORD_INVITE_URL,
   API_URL,
   API_TOKEN,
-  DATABASE_URL,
-  REDIS_URL,
-  REDIS_PREFIX,
 } = process.env;
 
 /**
@@ -23,13 +21,11 @@ export const env = (() => {
     DISCORD_BOT_TOKEN,
     DISCORD_CLIENT_ID,
     LOCAL: typeof LOCAL !== 'undefined' && LOCAL === 'true',
+    DEBUG_I18N: typeof DEBUG_I18N !== 'undefined' && DEBUG_I18N === 'true',
     UA_STRING,
     DISCORD_INVITE_URL,
     API_URL,
     API_TOKEN,
-    DATABASE_URL,
-    REDIS_URL,
-    REDIS_PREFIX,
   };
 
   type Values = typeof values;

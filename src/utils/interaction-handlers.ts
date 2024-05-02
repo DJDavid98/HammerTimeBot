@@ -73,11 +73,11 @@ export const handleContextMenuInteraction = async (interaction: MessageContextMe
     return;
   }
 
-  const { commandName, user, locale, channel, guild } = interaction;
+  const { commandName, user, locale, channel, channelId, guild, guildId } = interaction;
   const command = messageContextMenuCommandMap[commandName];
   const t = i18next.getFixedT(locale);
 
-  console.log(`${getUserIdentifier(user)} ran "${commandName}" in ${stringifyChannelName(channel)} of ${stringifyGuildName(guild)}`);
+  console.log(`${getUserIdentifier(user)} ran "${commandName}" in ${stringifyChannelName(channelId, channel)} of ${stringifyGuildName(guildId, guild)}`);
 
   try {
     await command.handle(interaction, { ...context, t });
@@ -105,7 +105,7 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
     return;
   }
 
-  const { commandName, user, options, channel, guild, locale } = interaction;
+  const { commandName, user, options, channel, channelId, guild, guildId, locale } = interaction;
   const command = chatInputCommandMap[commandName];
   const ephemeral = isEphemeralResponse(interaction, await getSettings(context, interaction));
   const { i18next, ...interactionContext } = context;
@@ -123,7 +123,7 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
   const optionsString = options.data.length > 0
     ? ` ${stringifyOptionsData(interaction.options.data)}`
     : '';
-  console.log(`${getUserIdentifier(user)} ran /${commandName}${optionsString} in ${stringifyChannelName(channel)} of ${stringifyGuildName(guild)}`);
+  console.log(`${getUserIdentifier(user)} ran /${commandName}${optionsString} in ${stringifyChannelName(channelId, channel)} of ${stringifyGuildName(guildId, guild)}`);
 
   try {
     await command.handle(interaction, { ...interactionContext, t });

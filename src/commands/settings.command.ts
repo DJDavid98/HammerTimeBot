@@ -4,13 +4,13 @@ import { ApplicationCommandType } from 'discord-api-types/v10';
 import { env } from '../env.js';
 import { EmojiCharacters } from '../constants/emoji-characters.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
+import { apiRequest } from '../utils/backend.js';
+import typia from 'typia';
 
 interface LoginLinkResponse {
   loginUrl: string;
   expiresAt: number;
 }
-
-const isLoginLinkResponse = (value: unknown): value is LoginLinkResponse => typeof value === 'object' && value !== null && 'loginUrl' in value && typeof value.loginUrl === 'string' && 'expiresAt' in value && typeof value.expiresAt === 'number' && !isNaN(value.expiresAt) && isFinite(value.expiresAt);
 
 export const settingsCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -25,40 +25,25 @@ export const settingsCommand: BotChatInputCommand = {
 
     const loginUrl = `${env.API_URL}/${locale}/login`;
     const settingsUrl = `${env.API_URL}/${locale}/settings`;
-    let responseText: string | undefined;
-    let r: Response | undefined;
-    try {
-      r = await fetch(`${env.API_URL}/api/login-link/${user.id}/${locale}`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${env.API_TOKEN}`,
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: user.username,
-          display_name: user.globalName,
-          discriminator: user.discriminator,
-          avatar: user.avatar,
-        }),
-      });
-      if (!r.ok) {
-        throw new Error(`fetch ${r.url}: ${r.status} ${r.statusText}`);
-      }
-      responseText = await r.text();
-    } catch (e) {
-      console.error(e);
-    }
-
-    const response = responseText && JSON.parse(responseText);
-    if (!isLoginLinkResponse(response)) {
+    const  { response, validation } = await apiRequest({
+      path: `/login-link/${user.id}/${locale}`,
+      method: 'POST',
+      body: {
+        name: user.username,
+        display_name: user.globalName,
+        discriminator: user.discriminator,
+        avatar: user.avatar,
+      },
+      validator: data => typia.validate<LoginLinkResponse>(data),
+      failOnInvalidResponse: false,
+    });
+    if (!validation.success) {
       await interaction.editReply({
         content: `${EmojiCharacters.WARNING_SIGN} ${t('commands.settings.responses.failedToCreateLink', {
           loginUrl,
           settingsUrl,
         })}`,
       });
-      console.warn(`Invalid API response while getting login link: ${r ? await r.text() : 'undefined'}`);
       return;
     }
 

@@ -14,7 +14,7 @@ export const initI18next = async (): Promise<i18n> => {
   await i18next.use(Backend).init({
     lng: DEFAULT_LANGUAGE,
     fallbackLng: DEFAULT_LANGUAGE,
-    debug: env.LOCAL,
+    debug: env.DEBUG_I18N,
     preload: SUPPORTED_LANGUAGES,
     backend: {
       loadPath: join(localesPath, '{{lng}}', '{{ns}}.json'),

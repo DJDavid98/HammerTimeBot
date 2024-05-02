@@ -7,8 +7,6 @@ import type {
 import { MessageContextMenuCommandInteraction } from 'discord.js';
 import type { RESTPostAPIChatInputApplicationCommandsJSONBody } from 'discord-api-types/v10';
 import { i18n, TFunction } from 'i18next';
-import { Client } from 'pg';
-import Redis from 'ioredis';
 
 export const enum BotChatInputCommandName {
   ADD = 'add',
@@ -31,8 +29,6 @@ export const enum BotMessageContextMenuCommandName {
 
 export interface InteractionHandlerContext {
   i18next: i18n;
-  db: Client;
-  redis: Redis;
 }
 
 export interface InteractionContext extends Omit<InteractionHandlerContext, 'i18next'> {

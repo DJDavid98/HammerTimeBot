@@ -3,7 +3,6 @@ import { i18n } from 'i18next';
 import { env } from '../env.js';
 import { getGitData } from './get-git-data.js';
 import { handleCommandAutocomplete, handleCommandInteraction } from './interaction-handlers.js';
-import { GatewayIntentBits } from 'discord-api-types/v10';
 import {
   cleanGlobalCommands,
   getAuthorizedServers,
@@ -46,7 +45,7 @@ const handleReady = (i18next: i18n) => async (client: Client<true>) => {
 };
 
 export const createClient = async (context: InteractionHandlerContext): Promise<void> => {
-  const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+  const client = new Client({ intents: [] });
 
   client.on(Events.ClientReady, handleReady(context.i18next));
 
