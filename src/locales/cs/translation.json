@@ -178,7 +178,6 @@
         "invalidDate": "Zadané datum je neplatné (například: daný den neexistuje)",
         "noComponentsCurrentTime": "Musíte zadat alespoň jednu časovou jednotku, kterou chcete změnit. Pokud potřebujete aktuální čas, použijte `/{{atCommand}}` bez zadání argumentů",
         "noComponentsUnix": "Musíte zadat alespoň jednu časovou jednotku, kterou chcete změnit. Pokud chcete získat syntaxe pro časové razítko systému UNIX, použijte `/{{unixCommand}}`",
-        "ephemeralNotice": "Výchozí hodnota možnosti `{{ephemeralOption}}` se změnila, a protože jste ji nezadali, tak tuto zprávu vidíte pouze vy.\nAby vaše zprávy fungovaly jako dříve (nebo abyste tuto zprávu skryli), existuje nastavení, které můžete změnit prostřednictvím jiného bota. Návod, jak toho dosáhnout, najdete na serveru podpory HammerTime na <{{supportServerUrl}}> v {{faqMessageLink}}",
         "timezoneNotFound": "Zadané časové pásmo nelze nalézt"
       },
       "options": {
