@@ -178,7 +178,6 @@
         "invalidDate": "Podana data jest nieprawidłowa (na przykład: podany dzień nie istnieje)",
         "noComponentsCurrentTime": "Należy podać przynajmniej jeden składnik czasu do zmiany. Jeżeli potrzebny jest aktualny czas, należy użyć `/{{atCommand}}` bez podawania argumentów",
         "noComponentsUnix": "Musisz określić co najmniej jeden składnik czasu do zmiany. Jeśli chcesz uzyskać składnię dla UNIX-owego znacznika czasu, użyj `/{{unixCommand}}`",
-        "ephemeralNotice": "Podstawowa wartość opcji `{{ephemeralOption}}` została zmieniona, a ponieważ jej nie podałeś, ta wiadomość jest widoczna tylko dla ciebie. \nAby wiadomości były wysyłane tak jak wcześniej (albo były ukryte) należy zmienić ustawienie z pomocą innego bota. Instrukcję jak to zrobić można znaleźć na serwerze wsparcia HammerTime w <{{supportServerUrl}}> pod adresem {{faqMessageLink}}",
         "timezoneNotFound": "Nie można znaleźć podanej strefy czasowej"
       },
       "options": {

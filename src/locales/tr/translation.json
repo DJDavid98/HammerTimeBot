@@ -178,7 +178,6 @@
         "invalidDate": "Belirtilen tarih geçersizdir (örneğin: verilen gün mevcut değil)",
         "noComponentsCurrentTime": "Değiştirmek için en az bir zaman bileşeni belirtmelisiniz. Geçerli saate ihtiyacınız varsa, herhangi bir argüman belirtmeden `/{{atCommand}}` kullanın",
         "noComponentsUnix": "Değiştirmek için en az bir zaman bileşeni belirtmelisiniz. UNIX zaman damgası için sözdizimini almak istiyorsanız, `/{{unixCommand}}`",
-        "ephemeralNotice": "`{{ephemeralOption}}` seçeneğinin varsayılan değeri değişti ve bunu belirtmediğiniz için bu mesaj yalnızca sizin tarafınızdan görülebilir.\nMesajlarınızın eskisi gibi çalışmasını sağlamak için (veya bu mesajı gizlemek için), farklı bir bot aracılığıyla değiştirebileceğiniz bir ayar vardır. Bunun nasıl yapılacağına dair talimatlar HammerTime'ın destek sunucusunda <{{supportServerUrl}}>, {{faqMessageLink}} adresinde bulunmaktadır",
         "timezoneNotFound": "Belirtilen saat dilimi bulunamıyor"
       },
       "options": {

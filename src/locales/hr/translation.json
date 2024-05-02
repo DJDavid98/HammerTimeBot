@@ -178,7 +178,6 @@
         "invalidDate": "Navedeni datum je nevažeći (na primjer: navedeni dan ne postoji)",
         "noComponentsCurrentTime": "Morate navesti barem jednu vremensku komponentu za promjenu. Ako vam je potrebno trenutno vrijeme, koristite `/{{atCommand}}` bez navođenja argumenata",
         "noComponentsUnix": "Morate navesti barem jednu vremensku komponentu za promjenu. Ako želite dobiti sintaksu za UNIX vremensku oznaku, koristite `/{{unixCommand}}`",
-        "ephemeralNotice": "Zadana vrijednost za opciju `{{ephemeralOption}}` je promijenjena, a budući da je niste unijeli, ova poruka je vidljiva samo vama.\nDa bi vaše poruke radile isto kao prije (ili da biste sakrili ovu poruku), postoji postavka koju možete promijeniti putem drugog bota. Upute o tome kako to učiniti mogu se pronaći na HammerTime poslužitelju za podršku u <{{supportServerUrl}}> na {{faqMessageLink}}",
         "timezoneNotFound": "Navedena vremenska zona ne može se pronaći"
       },
       "options": {
@@ -280,11 +279,11 @@
       }
     },
     "settings": {
-      "name": "settings",
-      "description": "Create a link to manage your settings via the website",
+      "name": "postavke",
+      "description": "Izradite vezu za upravljanje svojim postavkama putem web stranice",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
-        "failedToCreateLink": "Could not generate a link to log you in automatically, please visit <{{loginUrl}}> and log in manually, then go to <{{settingsUrl}}> to change your settings."
+        "linkCreated": "Posjetite donju poveznicu kako biste se automatski prijavili na web stranicu bota kako biste promijenili svoje postavke.\n<{{magicLink}}>\nOva veza će isteći {{expiresAt}}, ali uvijek možete pokrenuti ovu naredbu za generiranje nove veze ili posjetite <{{loginUrl}}> da se ručno prijavite, zatim idite na <{{settingsUrl}}> da promijenite svoje postavke.",
+        "failedToCreateLink": "Nije moguće generirati poveznicu za automatsku prijavu, posjetite <{{loginUrl}}> i prijavite se ručno, zatim idite na <{{settingsUrl}}> da biste promijenili svoje postavke."
       },
       "options": {}
     }
