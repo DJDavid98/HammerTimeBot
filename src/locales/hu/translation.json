@@ -178,7 +178,6 @@
         "invalidDate": "A megadott dátum érvénytelen (például: az adott nap nem létezik)",
         "noComponentsCurrentTime": "Legalább egy időegységet meg kell adnod a módosításhoz. Ha az aktuális időre van szükséged, használd ezt a parancsot paraméterek nélkül: `/{{atCommand}}`",
         "noComponentsUnix": "Legalább egy időegységet meg kell adnod a módosításhoz. Ha egy UNIX időbélyegző kódját szeretnéd megkapni, használd ezt a parancsot: `/{{unixCommand}}`",
-        "ephemeralNotice": "Az `{{ephemeralOption}}` paraméter alapértelmezett értéke megváltozott, és mivel nem adtad meg, ezt az üzenetet csak te látod.\nHa azt szeretnéd, hogy az üzeneteid úgy működjenek, mint korábban (vagy eltüntetnéd ezt az üzenetet), akkor van egy beállítás amit egy másik bottal megváltoztathatsz. Ennek a menetéről leírást a HammerTime hivatalos sámogatási szerverén (<{{supportServerUrl}}>) találsz, ebben az üzenetben: {{faqMessageLink}}",
         "timezoneNotFound": "A megadott időzóna nem található"
       },
       "options": {
