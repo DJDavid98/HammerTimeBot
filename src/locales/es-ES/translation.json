@@ -178,7 +178,6 @@
         "invalidDate": "La fecha indicada no es válida (por ejemplo: el día dado no existe)",
         "noComponentsCurrentTime": "Debe especificar al menos un componente de tiempo a cambiar. Si necesita la hora actual, utilice `/{{atCommand}}` sin especificar ningún argumento",
         "noComponentsUnix": "Debe especificar al menos un componente de tiempo a cambiar. Si desea obtener la sintaxis de una marca de tiempo UNIX, utilice `/{{unixCommand}}`",
-        "ephemeralNotice": "El valor por defecto para la opción `{{ephemeralOption}}` ha cambiado, y dado que no has indicado que valor debería tener, este mensaje es únicamente visible para ti.\nPara hacer que tus mensajes funcionen igual que antes (o remover este mensaje), hay un ajuste que puedes cambiar a travès de otro bot. Las instruccions como hacer eso pueden ser encontradas en el servidor de soporte de Hammertime en <{{supportServerUrl}}> en {{faqMessageLink}}",
         "timezoneNotFound": "La zona horaria indicada no pudo ser encontrada"
       },
       "options": {
