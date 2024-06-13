@@ -44,7 +44,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇫🇷 French: [Cookie Kiro](https://crowdin.com/profile/Cookikui)
 - 🇩🇪 German: [Fabian9799](https://crowdin.com/profile/Fabian9799)
 - 🇬🇷 Greek: [BelleBernice](https://crowdin.com/profile/BelleBernice)
-- 🇮🇩 Indonesian: [Jackie](https://crowdin.com/profile/jackiecr2911)
+- 🇮🇩 Indonesian: [Jackie](https://github.com/Jckcr)
 - 🇮🇹 Italian: [RVG|𝓵𝓸𝓻𝔂](https://top.gg/bot/1076200668810985634)
 - 🇰🇷 Korean
   - [Bin](https://crowdin.com/profile/cheesepickle12345678)
