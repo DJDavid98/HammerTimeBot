@@ -3,7 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "declaration": false,
     "lib": [
-      "ES2018",
+      "ES2023",
       "DOM"
     ],
     "incremental": true,
