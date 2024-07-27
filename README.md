@@ -49,6 +49,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇰🇷 Korean
   - [Bin](https://crowdin.com/profile/cheesepickle12345678)
   - [김카츄 (sjk)](https://github.com/sjkim04)
+- 🇳🇴 Norwegian: [Phillip Rodseth](https://crowdin.com/profile/philliphatrod)
 - 🇵🇱 Polish: [MinerPL](https://crowdin.com/profile/MinerPL)
 - 🇧🇷 Portuguese, Brazilian: [leo0six](https://crowdin.com/profile/leo0six)
 - 🇷🇴 Romanian

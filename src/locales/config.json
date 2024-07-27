@@ -149,7 +149,13 @@
     },
     "no": {
       "name": "Norwegian",
-      "emoji": "\uD83C\uDDF3\uD83C\uDDF4"
+      "emoji": "\uD83C\uDDF3\uD83C\uDDF4",
+      "credits": [
+        {
+          "crowdin": "philliphatrod",
+          "displayName": "Phillip Rodseth"
+        }
+      ]
     },
     "pl": {
       "name": "Polish",
