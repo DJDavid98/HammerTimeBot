@@ -1,44 +1,44 @@
 {
   "commands": {
     "ago": {
-      "name": "ago",
-      "description": "Specify a timestamp in the past relative to the current time",
+      "name": "siden",
+      "description": "Angi et tidsstempel i fortiden i forhold til gjeldende klokkeslett",
       "responses": {},
       "options": {
         "years": {
-          "name": "years",
-          "description": "How many years to subtract from the current time"
+          "name": "år",
+          "description": "Hvor mange år som skal trekkes fra den nåværende tiden"
         },
         "months": {
-          "name": "months",
-          "description": "How many months to subtract from the current time"
+          "name": "måneder",
+          "description": "Hvor mange måneder som skal trekkes fra den nåværende tiden"
         },
         "days": {
-          "name": "days",
-          "description": "How many days to subtract from the current time"
+          "name": "dager",
+          "description": "Hvor mange dager som skal trekkes fra den nåværende tiden"
         },
         "hours": {
-          "name": "hours",
-          "description": "How many hours to subtract from the current time"
+          "name": "timer",
+          "description": "Hvor mange timer som skal trekkes fra den nåværende tiden"
         },
         "minutes": {
-          "name": "minutes",
-          "description": "How many minutes to subtract from the current time"
+          "name": "minutter",
+          "description": "Hvor mange minutter som skal trekkes fra den nåværende tiden"
         },
         "seconds": {
-          "name": "seconds",
-          "description": "How many seconds to subtract from the current time"
+          "name": "sekunder",
+          "description": "Hvor mange sekunder som skal trekkes fra den nåværende tiden"
         }
       }
     },
     "in": {
-      "name": "in",
-      "description": "Specify a timestamp in the future relative to the current time",
+      "name": "i",
+      "description": "Angi et tidsstempel i fremtiden i forhold til gjeldende klokkeslett",
       "responses": {},
       "options": {
         "years": {
-          "name": "years",
-          "description": "How many years to add to the current time"
+          "name": "år",
+          "description": "Hvor mange år som skal legges til den nåværende tiden"
         },
         "months": {
           "name": "months",
