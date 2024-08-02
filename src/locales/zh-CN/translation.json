@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "仅自己可见",
-          "description": "如果设为 true，那么机器人的回应消息只有您可见（默认：false）"
+          "description": "如果设为 true，那么机器人的回应消息只有您可见"
         },
         "header": {
           "name": "表头",
