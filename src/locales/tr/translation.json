@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "geçici",
-          "description": "True olduğunda yanıt yalnızca size görünür (varsayılan: false)"
+          "description": "True olduğunda yanıt yalnızca size görünür"
         },
         "header": {
           "name": "başlık",

@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "ephemeral",
-          "description": "When true the response will only be visible to you (default: false)"
+          "description": "When true the response will only be visible to you"
         },
         "header": {
           "name": "header",

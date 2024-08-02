@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "flyktig",
-          "description": "Når true, vil svaret bare være synlig for deg (standard: false)"
+          "description": "Når true, vil svaret bare være synlig for deg"
         },
         "header": {
           "name": "overskrift",

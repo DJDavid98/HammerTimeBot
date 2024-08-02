@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "ephemeral",
-          "description": "true일 시, 결과는 당신에게만 보입니다 (기본: false)"
+          "description": "true일 시, 결과는 당신에게만 보입니다"
         },
         "header": {
           "name": "header",

@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "ephemeral",
-          "description": "Khi đúng, phản hồi chỉ hiển thị cho bạn (mặc định: sai)"
+          "description": "Khi đúng, phản hồi chỉ hiển thị cho bạn"
         },
         "header": {
           "name": "header",

@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "efemeran",
-          "description": "Kada je istinito, odgovor će biti vidljiv samo vama (zadano: lažno)"
+          "description": "Kada je istinito, odgovor će biti vidljiv samo vama"
         },
         "header": {
           "name": "zaglavlje",

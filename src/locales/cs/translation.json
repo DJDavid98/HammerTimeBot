@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "efemérní",
-          "description": "Pokud je hodnota pravdivá, bude odpověď viditelná pouze pro vás (výchozí: nepravdivá)"
+          "description": "Pokud je hodnota pravdivá, bude odpověď viditelná pouze pro vás"
         },
         "header": {
           "name": "záhlaví",

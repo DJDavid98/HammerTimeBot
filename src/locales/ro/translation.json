@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "efemer",
-          "description": "Când este adevărat, răspunsul va fi vizibil doar pentru dumneavoastră (implicit: false)"
+          "description": "Când este adevărat, răspunsul va fi vizibil doar pentru dumneavoastră"
         },
         "header": {
           "name": "antet",

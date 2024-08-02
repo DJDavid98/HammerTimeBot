@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "ideiglenes",
-          "description": "Igaz érték esetén az üzenet csak számodra lesz látható (alapértelemezett: hamis)"
+          "description": "Igaz érték esetén az üzenet csak számodra lesz látható"
         },
         "header": {
           "name": "fejléc",

@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "tidak kekal",
-          "description": "Jika benar, respons hanya akan terlihat oleh Anda (default: false)"
+          "description": "Jika benar, respons hanya akan terlihat oleh Anda"
         },
         "header": {
           "name": "tajuk",
