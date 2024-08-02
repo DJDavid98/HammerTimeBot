@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "ephemeral",
-          "description": "Kiedy true odpowiedź widoczna będzie tylko dla Ciebie (domyślnie: false)"
+          "description": "Kiedy true odpowiedź widoczna będzie tylko dla Ciebie"
         },
         "header": {
           "name": "nagłówek",
