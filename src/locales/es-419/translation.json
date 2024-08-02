@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "efímero",
-          "description": "Si es verdadero, la respuesta sólo será visible para usted (por defecto: falso)"
+          "description": "Si es verdadero, la respuesta solo será visible para usted"
         },
         "header": {
           "name": "encabezado",
