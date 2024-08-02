@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "ephemeral",
-          "description": "Indien true dan zal het antwoord alleen voor u zichtbaar zijn (standaard: false)"
+          "description": "Indien true dan zal het antwoord alleen voor u zichtbaar zijn"
         },
         "header": {
           "name": "header",
