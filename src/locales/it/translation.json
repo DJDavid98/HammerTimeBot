@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "effimero",
-          "description": "Quando vero la risposta sarà visibile solo a te (predefinito: falso)"
+          "description": "Quando vero la risposta sarà visibile solo a te"
         },
         "header": {
           "name": "intestazione",
