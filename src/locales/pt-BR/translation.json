@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "efêmero",
-          "description": "Quando ativado, a resposta só será visível para você (padrão: desativado)"
+          "description": "Quando ativado, a resposta só será visível para você"
         },
         "header": {
           "name": "cabeçalho",
