@@ -5,7 +5,7 @@ import type {
   RESTPostAPIContextMenuApplicationCommandsJSONBody,
 } from 'discord.js';
 import { MessageContextMenuCommandInteraction } from 'discord.js';
-import type { RESTPostAPIChatInputApplicationCommandsJSONBody } from 'discord-api-types/v10';
+import type { ApplicationCommandType, RESTPostAPIChatInputApplicationCommandsJSONBody } from 'discord-api-types/v10';
 import { i18n, TFunction } from 'i18next';
 
 export const enum BotChatInputCommandName {
@@ -44,6 +44,8 @@ export interface BotChatInputCommand {
 }
 
 export interface BotMessageContextMenuCommand {
-  getDefinition: (t: TFunction) => RESTPostAPIContextMenuApplicationCommandsJSONBody;
+  getDefinition: (t: TFunction) => Omit<RESTPostAPIContextMenuApplicationCommandsJSONBody, 'type'> & {
+    type: ApplicationCommandType.Message
+  };
   handle: InteractionHandler<MessageContextMenuCommandInteraction & { commandName: BotMessageContextMenuCommandName }>;
 }
