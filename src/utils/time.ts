@@ -4,6 +4,8 @@ import { unitOfTime } from 'moment';
 import { TimezoneError } from '../classes/timezone-error.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
 import { ResponseColumnChoices } from '../types/localization.js';
+import { UtcOffset } from '../classes/utc-offset.js';
+import { pad, PadDirection } from './numbers.js';
 
 export const gmtTimezoneOptions = [
   'GMT',
@@ -41,26 +43,28 @@ export const gmtTimezoneOptions = [
   'GMT+16',
 ];
 
-export const pad = (n: number, length: number): string => {
-  const nString = `${n}`;
-  if (nString.length >= length) return nString;
+export const gmtZoneRegex = /^(?:GMT|UTC)([+-]\d+)?(?::([0-5]\d?)?)?$/i;
 
-  return new Array(length).join('0') + nString;
-};
+export const getGmtTimezoneValue = (gmtTimezone: string, fallbackHours = NaN): UtcOffset => {
+  const match = gmtTimezone.match(gmtZoneRegex);
+  if (!match) {
+    return new UtcOffset(fallbackHours);
+  }
 
-export const gmtZoneRegex = /^GMT([+-]\d+)?$/i;
-
-export const getGmtTimezoneValue = (gmtTimezone: string, fallback = NaN): number => {
-  const offsetString = gmtTimezone.replace(gmtZoneRegex, '$1');
-  return offsetString.length === 0 ? fallback : parseInt(offsetString, 10);
+  const hours = parseInt(match[1], 10);
+  let minutes = 0;
+  if (match[2]) {
+    minutes = parseInt(pad(match[2], 2, PadDirection.RIGHT), 10);
+  }
+  return new UtcOffset(hours, minutes);
 };
 
 const compareGmtStrings = (a: string, b: string) => {
   const aValue = getGmtTimezoneValue(a);
   const bValue = getGmtTimezoneValue(b);
-  if (isNaN(aValue)) return -1;
-  if (isNaN(bValue)) return 1;
-  return Math.abs(aValue) - Math.abs(bValue);
+  if (isNaN(aValue.hours)) return -1;
+  if (isNaN(bValue.hours)) return 1;
+  return Math.abs(aValue.totalMinutes) - Math.abs(bValue.totalMinutes);
 };
 
 export const getSortedNormalizedTimezoneNames = (): string[] => [
@@ -91,9 +95,14 @@ export const timezoneIndex: Record<string, string> = timezoneNames.reduce((recor
 }, {});
 
 export const findTimezone = (value: string): string[] => {
-  if (gmtZoneRegex.test(value)) {
+  const utcOffset = getGmtTimezoneValue(value);
+  if (!isNaN(utcOffset.hours)) {
     const inputUppercase = value.toUpperCase();
-    return gmtTimezoneOptions.filter(option => option.startsWith(inputUppercase)).sort(compareGmtStrings);
+    const results = gmtTimezoneOptions.filter(option => option.startsWith(inputUppercase)).sort(compareGmtStrings);
+    if (results.length === 0) {
+      return [`GMT${utcOffset.toString(false)}`];
+    }
+    return results;
   }
 
   const lowerValue = value.toLowerCase().replace(/\s+/g, '_');

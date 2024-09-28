@@ -4,13 +4,14 @@ import {
   constrain,
   findTimezone,
   formattedResponse,
+  getGmtTimezoneValue,
   gmtTimezoneOptions,
-  pad,
   supportedFormats,
 } from './time.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
 import { TimezoneError } from '../classes/timezone-error.js';
 import { ResponseColumnChoices } from '../types/localization.js';
+import { pad } from './numbers';
 
 describe('time utils', () => {
   const nowInSeconds = 1650802953;
@@ -49,6 +50,7 @@ describe('time utils', () => {
       expect(findTimezone('gmt+2')).toEqual(['GMT+2']);
       expect(findTimezone('gmt-1')).toEqual(['GMT-1', 'GMT-10', 'GMT-11', 'GMT-12', 'GMT-13', 'GMT-14', 'GMT-15', 'GMT-16']);
       expect(findTimezone('gmt-12')).toEqual(['GMT-12']);
+      expect(findTimezone('gmt+5:30')).toEqual(['GMT+5:30']);
       expect(findTimezone('budapest')).toEqual(['Europe/Budapest']);
       expect(findTimezone('london')).toEqual(['Europe/London']);
       expect(findTimezone('los angeles')).toEqual(['America/Los_Angeles']);
@@ -127,5 +129,33 @@ describe('time utils', () => {
       expect(constrain(5, 0, 5)).toEqual(5);
       expect(constrain(10, 0, 5)).toEqual(5);
     });
+  });
+});
+
+describe('getGmtTimezoneValue', () => {
+  it('should work for simple hours input', () => {
+    expect(getGmtTimezoneValue('GMT+1')).toEqual({ hours: 1, minutes: 0 });
+    expect(getGmtTimezoneValue('GMT-1')).toEqual({ hours: -1, minutes: 0 });
+    expect(getGmtTimezoneValue('GMT+10')).toEqual({ hours: 10, minutes: 0 });
+    expect(getGmtTimezoneValue('GMT-10')).toEqual({ hours: -10, minutes: 0 });
+    expect(getGmtTimezoneValue('GMT+69')).toEqual({ hours: 69, minutes: 0 });
+    expect(getGmtTimezoneValue('GMT-420')).toEqual({ hours: -420, minutes: 0 });
+  });
+  it('should work for minute input', () => {
+    expect(getGmtTimezoneValue('GMT+1:00')).toEqual({ hours: 1, minutes: 0 });
+    expect(getGmtTimezoneValue('GMT-1:00')).toEqual({ hours: -1, minutes: 0 });
+    expect(getGmtTimezoneValue('GMT+5:05')).toEqual({ hours: 5, minutes: 5 });
+    expect(getGmtTimezoneValue('GMT-5:05')).toEqual({ hours: -5, minutes: 5 });
+    expect(getGmtTimezoneValue('GMT+10:59')).toEqual({ hours: 10, minutes: 59 });
+    expect(getGmtTimezoneValue('GMT-10:59')).toEqual({ hours: -10, minutes: 59 });
+    expect(getGmtTimezoneValue('GMT+69:30')).toEqual({ hours: 69, minutes: 30 });
+    expect(getGmtTimezoneValue('GMT-420:42')).toEqual({ hours: -420, minutes: 42 });
+  });
+  it('should work for partial input', () => {
+    expect(getGmtTimezoneValue('GMT+1:')).toEqual({ hours: 1, minutes: 0 });
+    expect(getGmtTimezoneValue('GMT+3:3')).toEqual({ hours: 3, minutes: 30 });
+    expect(getGmtTimezoneValue('GMT+5:5')).toEqual({ hours: 5, minutes: 50 });
+    expect(getGmtTimezoneValue('GMT+10:')).toEqual({ hours: 10, minutes: 0 });
+    expect(getGmtTimezoneValue('GMT+69:0')).toEqual({ hours: 69, minutes: 0 });
   });
 });

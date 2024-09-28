@@ -45,8 +45,8 @@ export const atCommand: BotChatInputCommand = {
     let localMoment: Moment;
     try {
       if (gmtZoneRegex.test(timezone)) {
-        const utcOffset = Math.round(constrain(getGmtTimezoneValue(timezone, 0), -16, 16));
-        localMoment = moment.tz('UTC').utcOffset(utcOffset);
+        const utcOffset = getGmtTimezoneValue(timezone, 0);
+        localMoment = moment.tz('UTC').utcOffset(utcOffset.toString());
       } else {
         localMoment = moment.tz(timezone);
       }
