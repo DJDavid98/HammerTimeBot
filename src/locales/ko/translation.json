@@ -176,8 +176,8 @@
     "global": {
       "responses": {
         "invalidDate": "입력하신 날짜가 유효하지 않습니다. (예: 년, 월, 일)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`",
+        "noComponentsCurrentTime": "변경할 시간 구성 요소를 하나 이상 지정해야 합니다. 현재 시간이 필요한 경우 인수를 지정하지 않고 `/{{atCommand}}`를 사용하세요.",
+        "noComponentsUnix": "변경할 시간 구성 요소를 하나 이상 지정해야 합니다. UNIX 타임스탬프의 구문을 가져오려면 `/{{unixCommand}}`를 사용하세요.",
         "timezoneNotFound": "입력하신 시간대를 찾을 수 없습니다."
       },
       "options": {
@@ -234,56 +234,56 @@
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "스노우플레이크 타임스탬프 구문을 표시합니다. (Discord 내 대부분의 ID)",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "지정한 스노우플레이크가 유효하지 않습니다."
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The Snowflake number"
+          "name": "값",
+          "description": "스노우플레이크 숫자"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "메시지 보내기",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "다음 메시지에 대한 타임스탬프를 보냅니다: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "메시지 마지막 수정",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "다음 메시지의 마지막 수정 타임스탬프입니다: {{url}}",
+        "notEdited": "이 메시지는 아직 편집되지 않았습니다"
       }
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "특정 ISO 8601 타임스탬프에 대한 구문 표시",
       "responses": {
-        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+        "invalidIsoFormat": "제공된 값이 ISO 8601의 표준과 일치하지 않습니다."
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The ISO 8601 standard timestamp"
+          "name": "값",
+          "description": "ISO 8601 표준 타임스탬프"
         }
       }
     },
     "Extract Timestamps": {
-      "name": "Extract Timestamps",
+      "name": "타임스탬프 추출하기",
       "responses": {
-        "targetMessage": "All timestamps found in the following message: {{url}}",
-        "noTimestamps": "This message does not contain any timestamps in Discord's format"
+        "targetMessage": "다음 메시지에서 모든 타임스탬프를 찾았습니다: {{url}}",
+        "noTimestamps": "이 메시지에는 Discord 형식의 타임스탬프가 포함되어 있지 않습니다."
       }
     },
     "settings": {
-      "name": "settings",
-      "description": "Create a link to manage your settings via the website",
+      "name": "설정",
+      "description": "웹사이트를 통해 설정을 관리할 수 있는 링크를 만듭니다",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
-        "failedToCreateLink": "Could not generate a link to log you in automatically, please visit <{{loginUrl}}> and log in manually, then go to <{{settingsUrl}}> to change your settings."
+        "linkCreated": "설정을 변경하려면 아래 링크를 방문해 봇 웹사이트에 자동으로 로그인하세요.\n<{{magicLink}}>\n이 링크는 {{expiresAt}} 에 만료되지만 언제든지 이 명령을 실행하여 새 링크를 생성하거나 <{{loginUrl}}>을 방문해 수동으로 로그인한 다음 <{{settingsUrl}}>(으)로 이동하여 설정을 변경할 수 있습니다.",
+        "failedToCreateLink": "자동 로그인 링크를 생성할 수 없습니다. <{{loginUrl}}>(으)로 이동해 수동으로 로그인한 후 <{{settingsUrl}}>(으)로 이동해 설정을 변경하세요."
       },
       "options": {}
     }
