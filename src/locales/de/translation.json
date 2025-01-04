@@ -178,6 +178,7 @@
         "invalidDate": "Das angegebene Datum ist ungültig (zum Beispiel: der angegebene Tag existiert nicht)",
         "noComponentsCurrentTime": "Du musst mindestens einmal eine Zeitkomponente angeben, um sie zu ändern. Wenn du die aktuelle Zeit brauchst, benutze `/{{atCommand}}` ohne irgendwelche Argumente anzugeben",
         "noComponentsUnix": "Du musst mindestens einmal eine Zeitkomponente angeben, um sie zu ändern. Wenn du die Syntax für einen UNIX Zeitstempel erhalten möchtest, benutze `/{{unixCommand}}`",
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
         "timezoneNotFound": "Die angegebene Zeitzone kann nicht gefunden werden"
       },
       "options": {
@@ -205,7 +206,7 @@
         },
         "ephemeral": {
           "name": "kurzlebige Antwort",
-          "description": "Wenn ja wird die Antwort nur für dich sichtbar sein"
+          "description": "When true the response will only be visible to you (default: false)"
         },
         "header": {
           "name": "kopfzeile",
@@ -282,7 +283,7 @@
       "name": "einstellungen",
       "description": "Erstelle einen Link zur Verwaltung der Einstellungen über die Website",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order ot change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
         "failedToCreateLink": "Es konnte kein Link zur automatischen Anmeldung generiert werden. Bitte besuchen Sie <{{loginUrl}}> und melden Sie sich manuell an, gehen Sie dann zu <{{settingsUrl}}>, um Ihre Einstellungen zu ändern."
       },
       "options": {}
