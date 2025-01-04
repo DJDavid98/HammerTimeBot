@@ -178,6 +178,7 @@
         "invalidDate": "Η καθορισμένη ημερομηνία δεν είναι έγκυρη (για παράδειγμα: η δεδομένη ημέρα δεν υπάρχει)",
         "noComponentsCurrentTime": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν χρειάζεστε την τρέχουσα ώρα, χρησιμοποιήστε `/{{atCommand}}` χωρίς να καθορίσετε οποιαδήποτε παραμέτρους",
         "noComponentsUnix": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν θέλετε να λάβετε την σύνταξη της εντολής UNIX χρονοσήμανσης, χρησιμοποιήστε `/{{unixCommand}}`",
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
         "timezoneNotFound": "Η καθορισμένη ζώνη ώρας δεν μπορεί να βρεθεί"
       },
       "options": {
@@ -205,7 +206,7 @@
         },
         "ephemeral": {
           "name": "ορατότητα",
-          "description": "Όταν είναι αληθές, η απάντηση θα είναι ορατή μόνο σε εσάς"
+          "description": "When true the response will only be visible to you (default: false)"
         },
         "header": {
           "name": "επικεφαλίδα",
@@ -282,7 +283,7 @@
       "name": "ρυθμίσεις",
       "description": "Δημιουργήστε έναν σύνδεσμο για τη διαχείριση των ρυθμίσεών σας μέσω του ιστότοπου",
       "responses": {
-        "linkCreated": "Παρακαλούμε επισκεφθείτε τον παρακάτω σύνδεσμο για να συνδεθείτε αυτόματα στον ιστότοπο του bot προκειμένου να αλλάξετε τις ρυθμίσεις σας.\n<{{magicLink}}>\nΑυτός ο σύνδεσμος θα λήξει {{expiresAt}} , αλλά μπορείτε πάντα να εκτελέσετε αυτή την εντολή για να δημιουργήσετε έναν νέο σύνδεσμο ή να επισκεφθείτε το <{{loginUrl}}> για να συνδεθείτε χειροκίνητα και στη συνέχεια να μεταβείτε στο <{{settingsUrl}}> για να αλλάξετε τις ρυθμίσεις σας.",
+        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order ot change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
         "failedToCreateLink": "Δεν ήταν δυνατή η δημιουργία συνδέσμου για να συνδεθείτε αυτόματα, παρακαλούμε επισκεφθείτε το <{{loginUrl}}> και συνδεθείτε χειροκίνητα, και στη συνέχεια μεταβείτε στο <{{settingsUrl}}> για να αλλάξετε τις ρυθμίσεις σας."
       },
       "options": {}
