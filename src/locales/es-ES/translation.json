@@ -178,6 +178,7 @@
         "invalidDate": "La fecha indicada no es válida (por ejemplo: el día dado no existe)",
         "noComponentsCurrentTime": "Debe especificar al menos un componente de tiempo a cambiar. Si necesita la hora actual, utilice `/{{atCommand}}` sin especificar ningún argumento",
         "noComponentsUnix": "Debe especificar al menos un componente de tiempo a cambiar. Si desea obtener la sintaxis de una marca de tiempo UNIX, utilice `/{{unixCommand}}`",
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
         "timezoneNotFound": "La zona horaria indicada no pudo ser encontrada"
       },
       "options": {
@@ -205,7 +206,7 @@
         },
         "ephemeral": {
           "name": "efímero",
-          "description": "Si es verdadero, la respuesta solo será visible para usted"
+          "description": "When true the response will only be visible to you (default: false)"
         },
         "header": {
           "name": "encabezado",
@@ -282,7 +283,7 @@
       "name": "ajustes",
       "description": "Crea un enlace para gestionar tus ajustes a través de la página web",
       "responses": {
-        "linkCreated": "Por favor usa el siguiente enlace para iniciar sesión automáticamente y cambiar tus ajustes.\n<{{magicLink}}>\nEste enlace expira {{expiresAt}} pero siempre puedes ejecutar este comando para generar un nuevo enlace, o visita <{{loginUrl}}> para iniciar sesión manualmente, luego ve a <{{settingsUrl}}> para cambiar tus ajustes.",
+        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order ot change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
         "failedToCreateLink": "No se pudo generar un enlace para iniciar sesión automáticamente, por favor visita <{{loginUrl}}> e inicia sesión manualmente, luego ve a <{{settingsUrl}}> para cambiar tus ajustes."
       },
       "options": {}
