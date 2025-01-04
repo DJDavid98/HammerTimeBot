@@ -178,6 +178,7 @@
         "invalidDate": "The specified date is invalid (for example: the given day does not exist)",
         "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
         "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`",
+        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
         "timezoneNotFound": "Посочената часова зона не може да бъде намерена"
       },
       "options": {
@@ -205,7 +206,7 @@
         },
         "ephemeral": {
           "name": "ephemeral",
-          "description": "When true the response will only be visible to you"
+          "description": "When true the response will only be visible to you (default: false)"
         },
         "header": {
           "name": "header",
@@ -282,7 +283,7 @@
       "name": "settings",
       "description": "Create a link to manage your settings via the website",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order ot change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
         "failedToCreateLink": "Could not generate a link to log you in automatically, please visit <{{loginUrl}}> and log in manually, then go to <{{settingsUrl}}> to change your settings."
       },
       "options": {}
