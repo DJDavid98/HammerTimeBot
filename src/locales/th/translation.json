@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "ชั่วคราว",
-          "description": "When true the response will only be visible to you (default: false)"
+          "description": "เมื่อเป็นจริง การตอบกลับจะปรากฏให้คุณเห็นเท่านั้น"
         },
         "header": {
           "name": "ส่วนหัว",
@@ -282,7 +282,7 @@
       "name": "การตั้งค่า",
       "description": "สร้างลิงก์เพื่อจัดการการตั้งค่าของคุณผ่านเว็บไซต์",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "linkCreated": "โปรดไปที่ลิงค์ด้านล่างเพื่อเข้าสู่ระบบเว็บไซต์ของบอทเพื่อเปลี่ยนการตั้งค่าของคุณโดยอัตโนมัติ\n<{{magicLink}}>\nลิงค์นี้จะหมดอายุ ณ {{expiresAt}} แต่คุณสามารถที่จะรันคำสั่งนี้เพื่อสร้างลิงค์ใหม่เสมอ หรือไปที่ลิงค์ <{{loginUrl}}> เพื่อเข้าสู่ระบบด้วยตนเอง แล้วไปที่ <{{settingsUrl}}> เพื่อเปลี่ยนการตั้งค่าของคุณ",
         "failedToCreateLink": "ไม่สามารถสร้างลิงค์เพื่อเข้าสู่ระบบอัตโนมัติได้ คุณต้องไปที่ <{{loginUrl}}> และเข้าสู่ระบบโดยตนเอง และไปที่ <{{settingsUrl}}> เพื่อเปลี่ยนการตั้งค่าของคุณ"
       },
       "options": {}
