@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "efemeran",
-          "description": "When true the response will only be visible to you (default: false)"
+          "description": "Kada je istinito, odgovor će biti vidljiv samo vama"
         },
         "header": {
           "name": "zaglavlje",
@@ -282,7 +282,7 @@
       "name": "postavke",
       "description": "Izradite vezu za upravljanje svojim postavkama putem web stranice",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "linkCreated": "Posjetite donju poveznicu kako biste se automatski prijavili na web stranicu bota kako biste promijenili svoje postavke.\n<{{magicLink}}>\nOva veza će isteći {{expiresAt}}, ali uvijek možete pokrenuti ovu naredbu za generiranje nove veze ili posjetite <{{loginUrl}}> da se ručno prijavite, zatim idite na <{{settingsUrl}}> da promijenite svoje postavke.",
         "failedToCreateLink": "Nije moguće generirati poveznicu za automatsku prijavu, posjetite <{{loginUrl}}> i prijavite se ručno, zatim idite na <{{settingsUrl}}> da biste promijenili svoje postavke."
       },
       "options": {}
