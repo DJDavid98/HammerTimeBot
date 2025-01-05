@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "efemérní",
-          "description": "When true the response will only be visible to you (default: false)"
+          "description": "Pokud je hodnota pravdivá, bude odpověď viditelná pouze pro vás"
         },
         "header": {
           "name": "záhlaví",
@@ -282,7 +282,7 @@
       "name": "nastavení",
       "description": "Vytvořte odkaz pro správu nastavení prostřednictvím webu",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "linkCreated": "Navštivte prosím níže uvedený odkaz, abyste byli automaticky přihlášeni na webové stránky bota a mohli změnit svá nastavení.\n<{{magicLink}}>\nTento odkaz vyprší {{expiresAt}}, avšak vždy můžete spustit tento příkaz znovu pro vygenerování nového odkazu nebo navštívit <{{loginUrl}}> přihlásit se ručně, poté přejít na <{{settingsUrl}}> a změnit svá nastavení tam.",
         "failedToCreateLink": "Nepodařilo se vygenerovat odkaz, který by vás automaticky přihlásil, navštivte prosím <{{loginUrl}}> a přihlaste se ručně, poté přejděte na <{{settingsUrl}}> a změňte nastavení tam."
       },
       "options": {}
