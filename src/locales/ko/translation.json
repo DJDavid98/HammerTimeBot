@@ -178,7 +178,6 @@
         "invalidDate": "입력하신 날짜가 유효하지 않습니다. (예: 년, 월, 일)",
         "noComponentsCurrentTime": "변경할 시간 구성 요소를 하나 이상 지정해야 합니다. 현재 시간이 필요한 경우 인수를 지정하지 않고 `/{{atCommand}}`를 사용하세요.",
         "noComponentsUnix": "변경할 시간 구성 요소를 하나 이상 지정해야 합니다. UNIX 타임스탬프의 구문을 가져오려면 `/{{unixCommand}}`를 사용하세요.",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
         "timezoneNotFound": "입력하신 시간대를 찾을 수 없습니다."
       },
       "options": {
@@ -283,7 +282,7 @@
       "name": "설정",
       "description": "웹사이트를 통해 설정을 관리할 수 있는 링크를 만듭니다",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order ot change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
         "failedToCreateLink": "자동 로그인 링크를 생성할 수 없습니다. <{{loginUrl}}>(으)로 이동해 수동으로 로그인한 후 <{{settingsUrl}}>(으)로 이동해 설정을 변경하세요."
       },
       "options": {}
