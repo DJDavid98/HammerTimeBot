@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "efímero",
-          "description": "When true the response will only be visible to you (default: false)"
+          "description": "Si es verdadero, la respuesta solo será visible para usted"
         },
         "header": {
           "name": "encabezado",
@@ -282,7 +282,7 @@
       "name": "ajustes",
       "description": "Crea un enlace para gestionar tus ajustes a través de la página web",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "linkCreated": "Por favor usa el siguiente enlace para iniciar sesión automáticamente y cambiar tus ajustes.\n<{{magicLink}}>\nEste enlace expira {{expiresAt}} pero siempre puedes ejecutar este comando para generar un nuevo enlace, o visita <{{loginUrl}}> para iniciar sesión manualmente, luego ve a <{{settingsUrl}}> para cambiar tus ajustes.",
         "failedToCreateLink": "No se pudo generar un enlace para iniciar sesión automáticamente, por favor visita <{{loginUrl}}> e inicia sesión manualmente, luego ve a <{{settingsUrl}}> para cambiar tus ajustes."
       },
       "options": {}
