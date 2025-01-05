@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "ideiglenes",
-          "description": "When true the response will only be visible to you (default: false)"
+          "description": "Igaz érték esetén az üzenet csak számodra lesz látható"
         },
         "header": {
           "name": "fejléc",
@@ -282,7 +282,7 @@
       "name": "beállítások",
       "description": "Készít egy linket, amivel a weboldalon keresztül kezelheted a beállításaidat",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "linkCreated": "Kérlek látogass el az alábbi linkre, mely automatikusan beléptet a bot weboldalára a beállításaid megváltoztatásához.\n<{{magicLink}}>\nEz a link {{expiresAt}} lejár, de bármikor generálhatsz új linket ezzel a paranccsal, vegy ellátogathatsz a <{{loginUrl}}> címre kézi belépéshez, ezután pedig a <{{settingsUrl}}> linken tudod módosítani a beállításaidat.",
         "failedToCreateLink": "Nem sikerült automatikus beléptető linket generálni, kérlek látogass el a <{{loginUrl}}> linkre és lépj be kézzel, ezután pedig a <{{settingsUrl}}> linken tudod módosítani a beállításaidat."
       },
       "options": {}
