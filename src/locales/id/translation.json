@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "tidak kekal",
-          "description": "When true the response will only be visible to you (default: false)"
+          "description": "Jika benar, respons hanya akan terlihat oleh Anda"
         },
         "header": {
           "name": "tajuk",
@@ -282,7 +282,7 @@
       "name": "Pengaturan",
       "description": "Buat tautan untuk mengelola pengaturan Anda melalui situs web",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "linkCreated": "Silakan kunjungi tautan di bawah untuk masuk ke situs web bot secara otomatis untuk mengubah pengaturan Anda.\n<{{MagicLink}}>\nTautan ini akan kedaluwarsa {{expiresAt}} tetapi Anda selalu dapat menjalankan perintah ini untuk membuat tautan baru, atau kunjungi <{{loginUrl}}> untuk masuk secara manual, lalu buka <{{settingsUrl}}> untuk mengubah pengaturan Anda.",
         "failedToCreateLink": "Tidak dapat membuat tautan untuk memasukkan Anda secara otomatis, kunjungi <{{loginUrl}}> dan masuk secara manual, lalu buka <{{settingsUrl}}> untuk mengubah pengaturan Anda."
       },
       "options": {}
