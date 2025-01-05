@@ -86,7 +86,6 @@ export const enum GlobalCommandResponse {
   INVALID_DATE = 'invalidDate',
   NO_COMPONENTS_CURRENT_TIME = 'noComponentsCurrentTime',
   NO_COMPONENTS_UNIX = 'noComponentsUnix',
-  EPHEMERAL_NOTICE = 'ephemeralNotice',
   TIMEZONE_NOT_FOUND = 'timezoneNotFound',
 }
 
