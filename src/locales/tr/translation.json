@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "geçici",
-          "description": "When true the response will only be visible to you (default: false)"
+          "description": "True olduğunda yanıt yalnızca size görünür"
         },
         "header": {
           "name": "başlık",
@@ -282,7 +282,7 @@
       "name": "ayarlar",
       "description": "Ayarlarınızı site üzerinden yönetmek için bir link oluşturun",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "linkCreated": "Ayarlarınızı değiştirmek ve otomatik olarak botun sitesinde oturum açmak için lütfen aşağıdaki linki ziyaret edin.\n<{{magicLink}}>\nBu link {{expiresAt}} 'te geçerliliğini yitirecek ama bu komutu her zaman yeni bir link oluşturmak için çalıştırabilirsin, ya da <{{loginUrl}}> 'i ziyaret ederek manuel olarak oturum açın, sonra da <{{settingsUrl}}> ile ayarlarınızı değiştirin.",
         "failedToCreateLink": "Oturum açabilmeniz için bir link oluşturulamadı, lütfen <{{loginUrl}}> 'i ziyaret ederek manuel oturum açın, sonra <{{settingsUrl}}> 'e giderek ayarlarınızı değiştirin."
       },
       "options": {}
