@@ -205,7 +205,7 @@
         },
         "ephemeral": {
           "name": "kurzlebige Antwort",
-          "description": "When true the response will only be visible to you (default: false)"
+          "description": "Wenn ja wird die Antwort nur für dich sichtbar sein"
         },
         "header": {
           "name": "kopfzeile",
