@@ -178,7 +178,6 @@
         "invalidDate": "Den angitte datoen er ugyldig (for eksempel: den angitte dagen finnes ikke)",
         "noComponentsCurrentTime": "Du må angi minst én tidskomponent som skal endres. Hvis du trenger gjeldende klokkeslett, bruker du `/{{atCommand}}` uten å spesifisere noen argumenter",
         "noComponentsUnix": "Du må angi minst én tidskomponent som skal endres. Hvis du vil ha syntaksen for et UNIX-tidsstempel, bruker du `/{{unixCommand}}`",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
         "timezoneNotFound": "Den angitte tidssonen ble ikke funnet"
       },
       "options": {
@@ -283,7 +282,7 @@
       "name": "innstillinger",
       "description": "Opprett en lenke for å administrere innstillingene dine via nettstedet",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order ot change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
         "failedToCreateLink": "Kunne ikke generere en lenke for å logge deg inn automatisk, vennligst gå til <{{loginUrl}}> og logg inn manuelt, og gå deretter til <{{settingsUrl}}> for å endre innstillingene dine."
       },
       "options": {}
