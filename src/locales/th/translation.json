@@ -178,7 +178,6 @@
         "invalidDate": "วันที่ที่ระบุไม่ถูกต้อง (เช่น วันที่ระบุไม่มีอยู่จริง)",
         "noComponentsCurrentTime": "คุณต้องระบุองค์ประกอบเวลาอย่างน้อยหนึ่งรายการเพื่อเปลี่ยนแปลง หากคุณต้องการเวลาปัจจุบัน ให้ใช้ `/{{atCommand}}` โดยไม่ต้องระบุข้อมูลใดๆ",
         "noComponentsUnix": "คุณต้องระบุองค์ประกอบเวลาอย่างน้อยหนึ่งรายการเพื่อเปลี่ยนแปลง หากคุณต้องการรับไวยากรณ์สำหรับเวลา UNIX ให้ใช้ `/{{unixCommand}}`",
-        "ephemeralNotice": "The default value for the `{{ephemeralOption}}` option has changed, and because you did not provide it, this message is only visible to you.\nTo make your messages work the same as before (or to hide this message), there is a setting you can change via a different bot. Instructions on how to do that can be found in HammerTime's support server in <{{supportServerUrl}}> at {{faqMessageLink}}",
         "timezoneNotFound": "เขตเวลานั้นไม่มีอยู่"
       },
       "options": {
@@ -283,7 +282,7 @@
       "name": "การตั้งค่า",
       "description": "สร้างลิงก์เพื่อจัดการการตั้งค่าของคุณผ่านเว็บไซต์",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order ot change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
         "failedToCreateLink": "ไม่สามารถสร้างลิงค์เพื่อเข้าสู่ระบบอัตโนมัติได้ คุณต้องไปที่ <{{loginUrl}}> และเข้าสู่ระบบโดยตนเอง และไปที่ <{{settingsUrl}}> เพื่อเปลี่ยนการตั้งค่าของคุณ"
       },
       "options": {}
