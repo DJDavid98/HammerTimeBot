@@ -48,8 +48,8 @@ English and Hungarian translations have been included, so no translators will be
 - 🇮🇹 Italian: [RVG|𝓵𝓸𝓻𝔂](https://top.gg/bot/1076200668810985634)
 - 🇰🇷 Korean
   - [Bin](https://crowdin.com/profile/cheesepickle12345678)
+  - [Phrygia / sjk](https://github.com/sjkim04)
   - [SkyStorage_](https://crowdin.com/profile/SkyStorage_)
-  - [김카츄 (sjk)](https://github.com/sjkim04)
   - [미르냥](https://crowdin.com/profile/Mirnyang)
 - 🇳🇴 Norwegian: [Phillip Rodseth](https://crowdin.com/profile/philliphatrod)
 - 🇵🇱 Polish: [MinerPL](https://crowdin.com/profile/MinerPL)
