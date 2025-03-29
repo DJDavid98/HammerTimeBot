@@ -11,14 +11,20 @@ export interface SettingsValue {
   [SettingName.header]: boolean | null,
   [SettingName.columns]: ResponseColumnChoices | null,
   [SettingName.format]: MessageTimestampFormat | null,
+  [SettingName.defaultAtHour]: number | null,
+  [SettingName.defaultAtMinute]: number | null,
+  [SettingName.defaultAtSecond]: number | null,
 }
 
-const defaultSettings: Record<SettingName, null> = {
+const defaultSettings: { [k in SettingName]: SettingsValue[k] } = {
   [SettingName.ephemeral]: null,
   [SettingName.timezone]: null,
   [SettingName.header]: null,
   [SettingName.columns]: null,
   [SettingName.format]: null,
+  [SettingName.defaultAtHour]: null,
+  [SettingName.defaultAtMinute]: null,
+  [SettingName.defaultAtSecond]: 0,
 };
 
 export const getSettings = async (_context: unknown, interaction: {

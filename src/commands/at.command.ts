@@ -33,9 +33,9 @@ export const atCommand: BotChatInputCommand = {
     const year = interaction.options.getNumber(AtCommandOptionName.YEAR);
     const month = interaction.options.getNumber(AtCommandOptionName.MONTH);
     const date = interaction.options.getNumber(AtCommandOptionName.DATE);
-    const hour = interaction.options.getNumber(AtCommandOptionName.HOUR);
-    const minute = interaction.options.getNumber(AtCommandOptionName.MINUTE);
-    const second = interaction.options.getNumber(AtCommandOptionName.SECOND);
+    const hour = interaction.options.getNumber(AtCommandOptionName.HOUR) ?? settings.defaultAtHour;
+    const minute = interaction.options.getNumber(AtCommandOptionName.MINUTE) ?? settings.defaultAtMinute;
+    const second = interaction.options.getNumber(AtCommandOptionName.SECOND) ?? settings.defaultAtSecond;
 
     const timezone = await findTimezoneOptionValue(t, interaction, settings);
     if (timezone === null) {
@@ -56,7 +56,7 @@ export const atCommand: BotChatInputCommand = {
       if (date !== null) localMoment.date(constrain(date, 1, 31));
       if (hour !== null) localMoment.hour(constrain(hour, 0, 23));
       if (minute !== null) localMoment.minute(constrain(minute, 0, 59));
-      localMoment.second(second !== null ? constrain(second, 0, 59) : 0);
+      if (second !== null) localMoment.second(constrain(second, 0, 59));
     } catch (e) {
       if (e instanceof RangeError && e.message === 'Invalid date') {
         await interaction.reply({
