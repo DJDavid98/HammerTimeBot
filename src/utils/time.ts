@@ -133,16 +133,17 @@ export const findTimezone = (value: string): string[] => {
 
 export const supportedFormats = Object.values(MessageTimestampFormat);
 
-export const RESPONSE_FORMATTERS: Record<ResponseColumnChoices, (formatted: string) => string> = {
-  [ResponseColumnChoices.PREVIEW_ONLY]: (formatted) => `**${formatted}**`,
+export const RESPONSE_FORMATTERS: Record<ResponseColumnChoices, (formatted: string, boldPreview?: boolean) => string> = {
+  [ResponseColumnChoices.PREVIEW_ONLY]: (formatted, boldPreview?: boolean) => boldPreview ? `**${formatted}**` : formatted,
   [ResponseColumnChoices.SYNTAX_ONLY]: (formatted) => `\`${formatted}\``,
-  [ResponseColumnChoices.BOTH]: (formatted) => `${RESPONSE_FORMATTERS[ResponseColumnChoices.SYNTAX_ONLY](formatted)} → ${RESPONSE_FORMATTERS[ResponseColumnChoices.PREVIEW_ONLY](formatted)}`,
+  [ResponseColumnChoices.BOTH]: (formatted, boldPreview?: boolean) =>
+    `${RESPONSE_FORMATTERS[ResponseColumnChoices.SYNTAX_ONLY](formatted)} → ${RESPONSE_FORMATTERS[ResponseColumnChoices.PREVIEW_ONLY](formatted, boldPreview)}`,
 };
 
-export const formattedResponse = (ts: MessageTimestamp, formats: MessageTimestampFormat[], columns: ResponseColumnChoices): string => {
+export const formattedResponse = (ts: MessageTimestamp, formats: MessageTimestampFormat[], columns: ResponseColumnChoices, boldPreview: boolean | null): string => {
   const strings = formats.map((format) => {
     const formatted = ts.toString(format);
-    return RESPONSE_FORMATTERS[columns](formatted);
+    return RESPONSE_FORMATTERS[columns](formatted, boldPreview ?? true);
   });
   return strings.join('\n');
 };

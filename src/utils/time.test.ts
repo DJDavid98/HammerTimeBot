@@ -68,27 +68,42 @@ describe('time utils', () => {
 
   describe('formattedResponse', () => {
     it('should return all supported formats', () => {
-      const actual = formattedResponse(ts, supportedFormats, ResponseColumnChoices.BOTH);
+      const actual = formattedResponse(ts, supportedFormats, ResponseColumnChoices.BOTH, null);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should return all supported formats without bold formatting', () => {
+      const actual = formattedResponse(ts, supportedFormats, ResponseColumnChoices.BOTH, false);
       expect(actual).toMatchSnapshot();
     });
 
     it('should return only requested format', () => {
-      const actual = formattedResponse(ts, [MessageTimestampFormat.RELATIVE], ResponseColumnChoices.BOTH);
+      const actual = formattedResponse(ts, [MessageTimestampFormat.RELATIVE], ResponseColumnChoices.BOTH, null);
       expect(actual).toMatchSnapshot();
     });
 
     it('should return only previews', () => {
-      const actual = formattedResponse(ts, supportedFormats, ResponseColumnChoices.PREVIEW_ONLY);
+      const actual = formattedResponse(ts, supportedFormats, ResponseColumnChoices.PREVIEW_ONLY, null);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should return only previews without bold formatting', () => {
+      const actual = formattedResponse(ts, supportedFormats, ResponseColumnChoices.PREVIEW_ONLY, false);
       expect(actual).toMatchSnapshot();
     });
 
     it('should return only syntaxes', () => {
-      const actual = formattedResponse(ts, supportedFormats, ResponseColumnChoices.SYNTAX_ONLY);
+      const actual = formattedResponse(ts, supportedFormats, ResponseColumnChoices.SYNTAX_ONLY, null);
       expect(actual).toMatchSnapshot();
     });
 
     it('should return preview only in requested format', () => {
-      const actual = formattedResponse(ts, [MessageTimestampFormat.RELATIVE], ResponseColumnChoices.PREVIEW_ONLY);
+      const actual = formattedResponse(ts, [MessageTimestampFormat.RELATIVE], ResponseColumnChoices.PREVIEW_ONLY, null);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should return preview only in requested format without bold formatting', () => {
+      const actual = formattedResponse(ts, [MessageTimestampFormat.RELATIVE], ResponseColumnChoices.PREVIEW_ONLY, false);
       expect(actual).toMatchSnapshot();
     });
   });

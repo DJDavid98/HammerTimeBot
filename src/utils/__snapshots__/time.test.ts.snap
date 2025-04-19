@@ -10,6 +10,16 @@ exports[`time utils formattedResponse should return all supported formats 1`] = 
 \`<t:1650802953:T>\` → **<t:1650802953:T>**"
 `;
 
+exports[`time utils formattedResponse should return all supported formats without bold formatting 1`] = `
+"\`<t:1650802953:d>\` → <t:1650802953:d>
+\`<t:1650802953:f>\` → <t:1650802953:f>
+\`<t:1650802953:t>\` → <t:1650802953:t>
+\`<t:1650802953:D>\` → <t:1650802953:D>
+\`<t:1650802953:F>\` → <t:1650802953:F>
+\`<t:1650802953:R>\` → <t:1650802953:R>
+\`<t:1650802953:T>\` → <t:1650802953:T>"
+`;
+
 exports[`time utils formattedResponse should return only previews 1`] = `
 "**<t:1650802953:d>**
 **<t:1650802953:f>**
@@ -18,6 +28,16 @@ exports[`time utils formattedResponse should return only previews 1`] = `
 **<t:1650802953:F>**
 **<t:1650802953:R>**
 **<t:1650802953:T>**"
+`;
+
+exports[`time utils formattedResponse should return only previews without bold formatting 1`] = `
+"<t:1650802953:d>
+<t:1650802953:f>
+<t:1650802953:t>
+<t:1650802953:D>
+<t:1650802953:F>
+<t:1650802953:R>
+<t:1650802953:T>"
 `;
 
 exports[`time utils formattedResponse should return only requested format 1`] = `"\`<t:1650802953:R>\` → **<t:1650802953:R>**"`;
@@ -33,3 +53,5 @@ exports[`time utils formattedResponse should return only syntaxes 1`] = `
 `;
 
 exports[`time utils formattedResponse should return preview only in requested format 1`] = `"**<t:1650802953:R>**"`;
+
+exports[`time utils formattedResponse should return preview only in requested format without bold formatting 1`] = `"<t:1650802953:R>"`;

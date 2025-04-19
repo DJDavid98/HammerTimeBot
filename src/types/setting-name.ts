@@ -2,6 +2,7 @@ export const SettingName = {
   ephemeral: 'ephemeral',
   timezone: 'timezone',
   header: 'header',
+  boldPreview: 'boldPreview',
   columns: 'columns',
   format: 'format',
   defaultAtHour: 'defaultAtHour',

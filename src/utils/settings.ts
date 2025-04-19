@@ -9,6 +9,7 @@ export interface SettingsValue {
   [SettingName.ephemeral]: boolean | null;
   [SettingName.timezone]: string | null;
   [SettingName.header]: boolean | null,
+  [SettingName.boldPreview]: boolean | null,
   [SettingName.columns]: ResponseColumnChoices | null,
   [SettingName.format]: MessageTimestampFormat | null,
   [SettingName.defaultAtHour]: number | null,
@@ -20,6 +21,7 @@ const defaultSettings: { [k in SettingName]: SettingsValue[k] } = {
   [SettingName.ephemeral]: null,
   [SettingName.timezone]: null,
   [SettingName.header]: null,
+  [SettingName.boldPreview]: null,
   [SettingName.columns]: null,
   [SettingName.format]: null,
   [SettingName.defaultAtHour]: null,

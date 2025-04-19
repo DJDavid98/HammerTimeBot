@@ -40,7 +40,7 @@ interface SyntaxReplyOptions {
   interaction: HandledInteractions;
   t: TFunction;
   timezone?: string;
-  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header'>;
+  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview'>;
 }
 
 export const getSyntaxReplyOptions = ({
@@ -67,7 +67,8 @@ export const getSyntaxReplyOptions = ({
 
   const formats = (formatInput ? [formatInput as MessageTimestampFormat] : supportedFormats);
   const header = addHeader && getExactTimePrefix(localMoment, timezone);
-  const content = `${header ? `${header}\n` : ''}${formattedResponse(ts, formats, columns as ResponseColumnChoices)}`;
+  const table = formattedResponse(ts, formats, columns as ResponseColumnChoices, settings.boldPreview);
+  const content = `${header ? `${header}\n` : ''}${table}`;
   return {
     content: content,
     ephemeral: syntaxInteraction.ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE,
@@ -79,7 +80,7 @@ interface ReplyWithSyntaxParams {
   interaction: ChatInputCommandInteraction | ContextMenuCommandInteraction;
   t: TFunction;
   timezone: string | undefined;
-  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header'>;
+  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview'>;
 }
 
 export const replyWithSyntax = async ({
