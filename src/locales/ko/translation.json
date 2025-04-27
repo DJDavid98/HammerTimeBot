@@ -178,7 +178,8 @@
         "invalidDate": "입력하신 날짜가 유효하지 않습니다. (예: 년, 월, 일)",
         "noComponentsCurrentTime": "변경할 시간 구성 요소를 하나 이상 지정해야 합니다. 현재 시간이 필요한 경우 인수를 지정하지 않고 `/{{atCommand}}`를 사용하세요.",
         "noComponentsUnix": "변경할 시간 구성 요소를 하나 이상 지정해야 합니다. UNIX 타임스탬프의 구문을 가져오려면 `/{{unixCommand}}`를 사용하세요.",
-        "timezoneNotFound": "입력하신 시간대를 찾을 수 없습니다."
+        "timezoneNotFound": "입력하신 시간대를 찾을 수 없습니다.",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "timezone",
           "description": "시간대를 입력해주세요 (GMT 기준)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {
