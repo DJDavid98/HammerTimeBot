@@ -178,7 +178,8 @@
         "invalidDate": "Zadané datum je neplatné (například: daný den neexistuje)",
         "noComponentsCurrentTime": "Musíte zadat alespoň jednu časovou jednotku, kterou chcete změnit. Pokud potřebujete aktuální čas, použijte `/{{atCommand}}` bez zadání argumentů",
         "noComponentsUnix": "Musíte zadat alespoň jednu časovou jednotku, kterou chcete změnit. Pokud chcete získat syntaxe pro časové razítko systému UNIX, použijte `/{{unixCommand}}`",
-        "timezoneNotFound": "Zadané časové pásmo nelze nalézt"
+        "timezoneNotFound": "Zadané časové pásmo nelze nalézt",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "časové pásmo",
           "description": "Zadejte časové pásmo (výchozí hodnota je GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {
