@@ -41,7 +41,7 @@ export const getSettings = async (_context: unknown, interaction: {
   try {
     const { response, responseText } = await apiRequest({
       path: `/settings/${userId}`,
-      validator: data => typia.validate<SettingsValue>(data),
+      validator: typia.createValidate<SettingsValue>(),
     });
 
     if (env.LOCAL) {

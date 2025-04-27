@@ -34,7 +34,7 @@ export const settingsCommand: BotChatInputCommand = {
         discriminator: user.discriminator,
         avatar: user.avatar,
       },
-      validator: data => typia.validate<LoginLinkResponse>(data),
+      validator: typia.createValidate<LoginLinkResponse>(),
       failOnInvalidResponse: false,
     });
     if (!validation.success) {
