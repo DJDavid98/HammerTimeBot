@@ -178,7 +178,8 @@
         "invalidDate": "La data specificata non è valida (per esempio: il giorno specificato non esiste)",
         "noComponentsCurrentTime": "Devi specificare almeno un componente da cambiare. Se hai bisogno dell'orario corrente use `/{{atCommand}}` senza specificare nessun parametro",
         "noComponentsUnix": "Devi specificare almeno un componente da cambiare. Se vuoi ottenere la sintassi per lo UNIX timestamp, usa`/{{unixCommand}}`",
-        "timezoneNotFound": "Impossibile trovare il fuso orario specificato"
+        "timezoneNotFound": "Impossibile trovare il fuso orario specificato",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "fuso orario",
           "description": "Specifica il fuso orario (predefinito a GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {
