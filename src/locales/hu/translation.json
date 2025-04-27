@@ -178,7 +178,8 @@
         "invalidDate": "A megadott dátum érvénytelen (például: az adott nap nem létezik)",
         "noComponentsCurrentTime": "Legalább egy időegységet meg kell adnod a módosításhoz. Ha az aktuális időre van szükséged, használd ezt a parancsot paraméterek nélkül: `/{{atCommand}}`",
         "noComponentsUnix": "Legalább egy időegységet meg kell adnod a módosításhoz. Ha egy UNIX időbélyegző kódját szeretnéd megkapni, használd ezt a parancsot: `/{{unixCommand}}`",
-        "timezoneNotFound": "A megadott időzóna nem található"
+        "timezoneNotFound": "A megadott időzóna nem található",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "időzóna",
           "description": "Add meg az időzónát (alapértelmezett: GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {
