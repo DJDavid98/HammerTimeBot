@@ -179,7 +179,7 @@
         "noComponentsCurrentTime": "Debe especificar al menos un componente de tiempo a cambiar. Si necesita la hora actual, utilice `/{{atCommand}}` sin especificar ningún argumento",
         "noComponentsUnix": "Debe especificar al menos un componente de tiempo a cambiar. Si desea obtener la sintaxis de una marca de tiempo UNIX, utilice `/{{unixCommand}}`",
         "timezoneNotFound": "La zona horaria indicada no pudo ser encontrada",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "Hubo un error inesperado al procesar esta interacción"
       },
       "options": {
         "format": {
@@ -218,7 +218,7 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Seleccione un formato debajo para recibirlo en una respuesta (para copiar en dispositivos táctiles)"
       }
     },
     "statistics": {
