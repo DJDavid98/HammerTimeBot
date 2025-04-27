@@ -16,7 +16,7 @@ import {
   stringifyGuildName,
   stringifyOptionsData,
 } from './messaging.js';
-import { ApplicationCommandType } from 'discord-api-types/v10';
+import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { DEFAULT_LANGUAGE } from '../constants/locales.js';
 import { isKnownMessageContextmenuInteraction, messageContextMenuCommandMap } from './message-context-menu-commands.js';
 import { getSettings } from './settings.js';
@@ -40,7 +40,7 @@ const handleInteractionError = async (interaction: ChatInputCommandInteraction |
   if (!interaction.replied) {
     await interaction.reply({
       content: processingErrorMessageFactory(),
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
     return;
   }
@@ -68,7 +68,7 @@ export const handleContextMenuInteraction = async (interaction: MessageContextMe
   if (!isKnownMessageContextmenuInteraction(interaction)) {
     await interaction.reply({
       content: `Unsupported context menu interaction with name ${interaction.commandName}`,
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
     return;
   }
@@ -95,7 +95,7 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
     }
     await interaction.reply({
       content: `Unsupported command type ${interaction.commandType} when running ${interaction.commandName}`,
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
     return;
   }

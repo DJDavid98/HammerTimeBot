@@ -3,7 +3,7 @@ import { BotChatInputCommand } from '../types/bot-interaction.js';
 import { GlobalCommandOptionName, IsoCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
-import { ApplicationCommandType } from 'discord-api-types/v10';
+import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getIsoCommandOptions } from '../options/iso.options.js';
 import { getSettings } from '../utils/settings.js';
 import { findTimezoneOptionValue, handleTimezoneAutocomplete } from '../utils/messaging.js';
@@ -39,7 +39,7 @@ export const isoCommand: BotChatInputCommand = {
     if (!localMoment.isValid()) {
       await interaction.reply({
         content: t('commands.iso.responses.invalidIsoFormat'),
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
       return;
     }

@@ -4,7 +4,7 @@ import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-tim
 import { getStatisticsCommandOptions } from '../options/statistics.options.js';
 import { EPHEMERAL_OPTION_DEFAULT_VALUE, getBareNumberFormatter, isEphemeralResponse } from '../utils/messaging.js';
 import { env } from '../env.js';
-import { ApplicationCommandType } from 'discord-api-types/v10';
+import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
 
 export const statisticsCommand: BotChatInputCommand = {
@@ -17,7 +17,7 @@ export const statisticsCommand: BotChatInputCommand = {
   async handle(interaction, context) {
     const settings = await getSettings(context, interaction);
     const ephemeral = isEphemeralResponse(interaction, settings);
-    await interaction.deferReply({ ephemeral: ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE });
+    await interaction.deferReply({ flags: ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE ? MessageFlags.Ephemeral : undefined });
 
     const { t } = context;
     const { shard } = interaction.client;

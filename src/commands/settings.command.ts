@@ -1,6 +1,6 @@
 import { BotChatInputCommand } from '../types/bot-interaction.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
-import { ApplicationCommandType } from 'discord-api-types/v10';
+import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { env } from '../env.js';
 import { EmojiCharacters } from '../constants/emoji-characters.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
@@ -19,7 +19,7 @@ export const settingsCommand: BotChatInputCommand = {
     ...getLocalizedObject('name', (lng) => t('commands.settings.name', { lng })),
   }),
   async handle(interaction, context) {
-    await interaction.deferReply({ ephemeral: true });
+    await interaction.deferReply({ flags: MessageFlags.Ephemeral });
     const { t } = context;
     const { locale, user } = interaction;
 

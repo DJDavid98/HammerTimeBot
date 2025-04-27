@@ -6,7 +6,7 @@ import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getSubtractOptions } from '../options/subtract.options.js';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
-import { ApplicationCommandType } from 'discord-api-types/v10';
+import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
 
 export const subtractCommand: BotChatInputCommand = {
@@ -37,7 +37,7 @@ export const subtractCommand: BotChatInputCommand = {
             unixCommand: t('commands.unix.name'),
           },
         }),
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
       return;
     }

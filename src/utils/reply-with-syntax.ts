@@ -7,6 +7,7 @@ import { EPHEMERAL_OPTION_DEFAULT_VALUE, isEphemeralResponse } from './messaging
 import { getExactTimePrefix } from './get-exact-time-prefix.js';
 import { SettingsValue } from './settings.js';
 import { Moment } from 'moment';
+import { MessageFlags } from 'discord-api-types/v10';
 
 type HandledInteractions = ChatInputCommandInteraction | ContextMenuCommandInteraction;
 
@@ -54,7 +55,7 @@ export const getSyntaxReplyOptions = ({
   if (!localMoment.isValid()) {
     return {
       content: t('commands.global.responses.invalidDate'),
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     };
   }
 
@@ -71,7 +72,7 @@ export const getSyntaxReplyOptions = ({
   const content = `${header ? `${header}\n` : ''}${table}`;
   return {
     content: content,
-    ephemeral: syntaxInteraction.ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE,
+    flags: syntaxInteraction.ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE ? MessageFlags.Ephemeral : undefined,
   };
 };
 

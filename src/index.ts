@@ -12,7 +12,6 @@ import { env } from './env.js';
   console.log(`Starting recommended number of shards with path ${botScriptPath}`);
   const manager = new ShardingManager(botScriptPath, { token: env.DISCORD_BOT_TOKEN });
 
-  manager.spawn();
   manager.on('shardCreate', shard => {
     console.log(`Shard ${shard.id} created`);
 
@@ -32,4 +31,5 @@ import { env } from './env.js';
       console.log(`Shard ${shard.id} died`);
     });
   });
+  await manager.spawn();
 })();

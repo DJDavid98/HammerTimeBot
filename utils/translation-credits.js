@@ -1,7 +1,7 @@
-import { join, dirname } from 'node:path';
+import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { promises as fs } from 'node:fs';
-import configData from '../src/locales/config.json' assert { type: 'json' };
+import configData from '../src/locales/config.json' with {type: 'json'};
 
 const markerString = '### Credits';
 const readmePath = join(dirname(fileURLToPath(import.meta.url)), '..', 'README.md');
@@ -14,7 +14,7 @@ const mapCreditToString = (credit) => `[${credit.displayName}](${credit.url})`;
 
 (async () => {
   console.info('Reading README file…');
-  const readmeText = await fs.readFile(readmePath, 'utf8');
+  const readmeText = (await fs.readFile(readmePath, 'utf8')).toString();
 
   console.info('Finding marker text…');
   const markerIndex = readmeText.indexOf(markerString);

@@ -6,7 +6,7 @@ import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import snowflakeToUnix from '../utils/snowflake.js';
 import { SnowflakeError } from '../classes/snowflake-error.js';
-import { ApplicationCommandType } from 'discord-api-types/v10';
+import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
 
 export const snowflakeCommand: BotChatInputCommand = {
@@ -27,7 +27,7 @@ export const snowflakeCommand: BotChatInputCommand = {
       if (e instanceof SnowflakeError) {
         await interaction.reply({
           content: t('commands.snowflake.responses.invalidSnowflake'),
-          ephemeral: true,
+          flags: MessageFlags.Ephemeral,
         });
         return;
       }

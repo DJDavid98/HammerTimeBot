@@ -7,6 +7,7 @@ import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getAddOptions } from '../options/add.options.js';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
 import { getSettings } from '../utils/settings.js';
+import { MessageFlags } from 'discord-api-types/v10';
 
 export const addCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -35,7 +36,7 @@ export const addCommand: BotChatInputCommand = {
             unixCommand: t('commands.unix.name'),
           },
         }),
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
       return;
     }

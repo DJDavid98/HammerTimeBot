@@ -35,7 +35,7 @@ const handleReady = (i18next: i18n) => async (client: Client<true>) => {
 
   const shardIds = client.shard?.ids;
   if (shardIds) {
-    console.log(`# Shard ${shardIds.join(', ')}`);
+    console.log(`Hello from shard ${shardIds.join(', ')}!`);
 
     if (shardIds.includes(0)) {
       console.log('Shard 0 is updating commands');

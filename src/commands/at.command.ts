@@ -5,7 +5,7 @@ import { AtCommandOptionName, GlobalCommandOptionName } from '../types/localizat
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getAtOptions } from '../options/at.options.js';
-import { ApplicationCommandType } from 'discord-api-types/v10';
+import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
 import { findTimezoneOptionValue, handleTimezoneAutocomplete } from '../utils/messaging.js';
 
@@ -61,7 +61,7 @@ export const atCommand: BotChatInputCommand = {
       if (e instanceof RangeError && e.message === 'Invalid date') {
         await interaction.reply({
           content: t('commands.global.responses.invalidDate'),
-          ephemeral: true,
+          flags: MessageFlags.Ephemeral,
         });
         return;
       }

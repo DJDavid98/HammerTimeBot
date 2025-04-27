@@ -1,6 +1,6 @@
 import { BotMessageContextMenuCommand } from '../types/bot-interaction.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
-import { ApplicationCommandType } from 'discord-api-types/v10';
+import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { extractTimestampsFromStrings } from '../utils/extract-timestamps-from-strings.js';
 import { RESPONSE_FORMATTERS } from '../utils/time.js';
 import { ResponseColumnChoices } from '../types/localization.js';
@@ -42,14 +42,14 @@ export const extractTimestampsCommand: BotMessageContextMenuCommand = {
     if (timestamps.length === 0) {
       await interaction.reply({
         content: contentPrefix + t('commands.Extract Timestamps.responses.noTimestamps'),
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
       return;
     }
 
     await interaction.reply({
       content: contentPrefix + timestamps.map(ts => `• ${RESPONSE_FORMATTERS[ResponseColumnChoices.BOTH](ts)}`).join('\n'),
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
   },
 };

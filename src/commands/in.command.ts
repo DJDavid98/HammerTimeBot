@@ -6,7 +6,7 @@ import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getInOptions } from '../options/in.options.js';
 import moment from 'moment-timezone';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
-import { ApplicationCommandType } from 'discord-api-types/v10';
+import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
 
 export const inCommand: BotChatInputCommand = {
@@ -35,7 +35,7 @@ export const inCommand: BotChatInputCommand = {
             atCommand: t('commands.at.name'),
           },
         }),
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
       return;
     }

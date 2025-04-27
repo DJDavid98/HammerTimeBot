@@ -27,5 +27,4 @@ export enum EmojiCharacters {
   TWELVE_OCLOCK = '🕛',
   TWELVE_THIRTY = '🕧',
   GLOBE = '🌐',
-  INFO = 'ℹ️',
 }

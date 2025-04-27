@@ -19,10 +19,6 @@ export class MessageTimestamp {
   constructor(private date: Date) {
   }
 
-  getDate(): Date {
-    return this.date;
-  }
-
   toString<F extends MessageTimestampFormat>(tsFormat: F): `<t:${string}:${F}>`;
   toString(tsFormat?: undefined): `<t:${string}:${MessageTimestampFormat.LONG_FULL}>`;
 

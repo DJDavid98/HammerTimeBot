@@ -26,7 +26,7 @@
     "bufferutil": "^4.0.3",
     "concurrently": "^8.2.0",
     "discord-api-types": "^0.37.104",
-    "discord.js": "^14.16.3",
+    "discord.js": "^14.19.1",
     "dotenv": "^16.3.1",
     "i18next": "^23.4.4",
     "i18next-fs-backend": "^2.1.5",

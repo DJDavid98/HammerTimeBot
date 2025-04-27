@@ -12,6 +12,7 @@ import { SettingsValue } from './settings.js';
 import { TFunction } from 'i18next';
 import { findTimezone, gmtTimezoneOptions } from './time.js';
 import { TimezoneError } from '../classes/timezone-error.js';
+import { MessageFlags } from 'discord-api-types/v10';
 
 type UserFriendCode = `@${string}` | `${string}#${string}`;
 export const getUserFriendCode = (user: User): UserFriendCode => {
@@ -109,7 +110,7 @@ export const findTimezoneOptionValue = async (t: TFunction, interaction: ChatInp
       }
       await interaction.reply({
         content: t('commands.global.responses.timezoneNotFound'),
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
       return null;
     }

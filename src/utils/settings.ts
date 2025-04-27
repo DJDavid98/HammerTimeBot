@@ -33,6 +33,11 @@ export const getSettings = async (_context: unknown, interaction: {
   user: { id: string }
 }): Promise<SettingsValue> => {
   const userId = interaction.user.id;
+  if (env.DISABLE_SETTINGS) {
+    console.debug(`Settings are disabled, falling back to default settings for user ${userId}`);
+    return defaultSettings;
+  }
+
   try {
     const { response, responseText } = await apiRequest({
       path: `/settings/${userId}`,
