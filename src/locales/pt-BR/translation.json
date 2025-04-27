@@ -178,7 +178,8 @@
         "invalidDate": "A data especificada é inválida (por exemplo: o dia fornecido não existe)",
         "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
         "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`",
-        "timezoneNotFound": "O fuso horário especificado não pôde ser encontrado"
+        "timezoneNotFound": "O fuso horário especificado não pôde ser encontrado",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "fuso horário",
           "description": "Especifique o fuso horário (o padrão é GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {
