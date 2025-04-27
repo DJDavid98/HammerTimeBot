@@ -178,7 +178,8 @@
         "invalidDate": "Belirtilen tarih geçersizdir (örneğin: verilen gün mevcut değil)",
         "noComponentsCurrentTime": "Değiştirmek için en az bir zaman bileşeni belirtmelisiniz. Geçerli saate ihtiyacınız varsa, herhangi bir argüman belirtmeden `/{{atCommand}}` kullanın",
         "noComponentsUnix": "Değiştirmek için en az bir zaman bileşeni belirtmelisiniz. UNIX zaman damgası için sözdizimini almak istiyorsanız, `/{{unixCommand}}`",
-        "timezoneNotFound": "Belirtilen saat dilimi bulunamıyor"
+        "timezoneNotFound": "Belirtilen saat dilimi bulunamıyor",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "zaman-dilimi",
           "description": "Saat dilimini belirtin (varsayılan olarak GMT kullanılır)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {
