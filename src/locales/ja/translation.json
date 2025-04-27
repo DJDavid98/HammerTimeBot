@@ -178,7 +178,8 @@
         "invalidDate": "指定された日付が無効です（例：指定された日が存在しない）",
         "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
         "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`",
-        "timezoneNotFound": "指定された時間帯が見つかりませんでした"
+        "timezoneNotFound": "指定された時間帯が見つかりませんでした",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "timezone",
           "description": "時間帯を指定（デフォルト：GMT（ロンドン））"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {
