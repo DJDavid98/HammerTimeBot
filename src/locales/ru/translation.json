@@ -206,7 +206,7 @@
         },
         "ephemeral": {
           "name": "ephemeral",
-          "description": "When true the response will only be visible to you"
+          "description": "Если значение true, ответ будет виден только Вам"
         },
         "header": {
           "name": "header",
