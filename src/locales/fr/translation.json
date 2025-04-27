@@ -178,7 +178,8 @@
         "invalidDate": "La date spécifié est invalide (exemple : le jour n'existe pas)",
         "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
         "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`",
-        "timezoneNotFound": "Le fuseau horaire spécifié est introuvable"
+        "timezoneNotFound": "Le fuseau horaire spécifié est introuvable",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "timezone",
           "description": "Specify the timezone (defaults to GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {
