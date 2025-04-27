@@ -178,7 +178,8 @@
         "invalidDate": "Ngày đã chỉ định không hợp lệ (ví dụ: ngày đã cho không tồn tại)",
         "noComponentsCurrentTime": "Bạn phải chỉ định ít nhất một thành phần thời gian để thay đổi. Nếu bạn cần thời gian hiện tại, hãy sử dụng `/{{atCommand}}` mà không chỉ định bất kỳ đối số nào",
         "noComponentsUnix": "Bạn phải chỉ định ít nhất một thành phần thời gian để thay đổi. Nếu bạn muốn lấy cú pháp cho một UNIX timestamp, hãy sử dụng `/{{unixCommand}}`",
-        "timezoneNotFound": "Múi giờ đã chỉ định không thể tìm thấy"
+        "timezoneNotFound": "Múi giờ đã chỉ định không thể tìm thấy",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "timezone",
           "description": "Chỉ định múi giờ (mặc định là GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {
