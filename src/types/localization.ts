@@ -1,5 +1,9 @@
 import { APIApplicationCommand, APIApplicationCommandOption } from 'discord-api-types/v10';
-import { BotChatInputCommandName, BotMessageContextMenuCommandName } from './bot-interaction.js';
+import {
+  BotChatInputCommandName,
+  BotMessageComponentCustomId,
+  BotMessageContextMenuCommandName,
+} from './bot-interaction.js';
 import { MessageTimestampFormat } from '../classes/message-timestamp.js';
 
 export const enum GlobalCommandOptionName {
@@ -87,6 +91,7 @@ export const enum GlobalCommandResponse {
   NO_COMPONENTS_CURRENT_TIME = 'noComponentsCurrentTime',
   NO_COMPONENTS_UNIX = 'noComponentsUnix',
   TIMEZONE_NOT_FOUND = 'timezoneNotFound',
+  UNEXPECTED_ERROR = 'unexpectedError',
 }
 
 export const enum SnowflakeCommandResponse {
@@ -127,6 +132,10 @@ interface CommandResponsesMap {
   [BotMessageContextMenuCommandName.EXTRACT_TIMESTAMPS]: ExtractTimestampsCommandResponse,
 }
 
+interface ComponentsMap {
+  global: [BotMessageComponentCustomId.FORMAT_SELECT],
+}
+
 export const enum ResponseColumnChoices {
   SYNTAX_ONLY = 'syntax',
   PREVIEW_ONLY = 'preview',
@@ -156,6 +165,11 @@ export type CommandLocalization<CommandKey extends keyof CommandOptionsMap & key
       : ({
         options: { [l in CommandOptionsMap[CommandKey]]: OptionLocalization<l> };
       } & ResponsesLocalization<CommandKey>)
+  )
+  & (
+    CommandKey extends keyof ComponentsMap
+      ? { components: Record<ComponentsMap[CommandKey], string> }
+      : { components?: undefined }
   );
 
 export type Localization = {

@@ -1,14 +1,9 @@
 import { RESTGetAPICurrentUserGuildsResult, Routes } from 'discord-api-types/v10';
-import { REST } from '@discordjs/rest';
 import { Snowflake } from 'discord-api-types/globals';
 import { TFunction } from 'i18next';
 import { env } from '../env.js';
 import { getApplicationCommands } from './get-application-commands.js';
-
-const rest = new REST({
-  version: '10',
-  userAgentAppendix: env.UA_STRING,
-}).setToken(env.DISCORD_BOT_TOKEN);
+import { rest } from './rest.js';
 
 export const getAuthorizedServers = async (): Promise<string[]> => {
   console.log('Getting authorized servers…');

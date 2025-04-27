@@ -46,7 +46,7 @@ export const addCommand: BotChatInputCommand = {
     await replyWithSyntax({
       localMoment,
       interaction,
-      t,
+      context,
       settings,
       timezone: undefined,
     });

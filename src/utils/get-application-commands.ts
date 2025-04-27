@@ -6,8 +6,11 @@ import {
   RESTPostAPIApplicationGuildCommandsJSONBody as ApplicationGuildCommand,
   type RESTPostAPIChatInputApplicationCommandsJSONBody,
 } from 'discord-api-types/v10';
-import { chatInputCommandMap, chatInputCommandNames } from './commands.js';
-import { messageContextMenuCommandMap, messageContextMenuCommands } from './message-context-menu-commands.js';
+import { chatInputCommandMap, chatInputCommandNames } from './interactions/chat-input-commands.js';
+import {
+  messageContextMenuCommandMap,
+  messageContextMenuCommands,
+} from './interactions/message-context-menu-commands.js';
 
 const commonCommandOptions: Pick<RESTPostAPIChatInputApplicationCommandsJSONBody, 'integration_types' | 'contexts'> = {
   integration_types: [ApplicationIntegrationType.UserInstall, ApplicationIntegrationType.GuildInstall],

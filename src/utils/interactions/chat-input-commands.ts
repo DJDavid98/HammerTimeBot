@@ -1,15 +1,15 @@
 import { AutocompleteInteraction, ChatInputCommandInteraction } from 'discord.js';
-import { BotChatInputCommand, BotChatInputCommandName } from '../types/bot-interaction.js';
-import { addCommand } from '../commands/add.command.js';
-import { agoCommand } from '../commands/ago.command.js';
-import { atCommand } from '../commands/at.command.js';
-import { inCommand } from '../commands/in.command.js';
-import { statisticsCommand } from '../commands/statistics.command.js';
-import { subtractCommand } from '../commands/subtract.command.js';
-import { unixCommand } from '../commands/unix.command.js';
-import { snowflakeCommand } from '../commands/snowflake.command.js';
-import { isoCommand } from '../commands/iso.command.js';
-import { settingsCommand } from '../commands/settings.command.js';
+import { BotChatInputCommand, BotChatInputCommandName } from '../../types/bot-interaction.js';
+import { addCommand } from '../../commands/add.command.js';
+import { agoCommand } from '../../commands/ago.command.js';
+import { atCommand } from '../../commands/at.command.js';
+import { inCommand } from '../../commands/in.command.js';
+import { statisticsCommand } from '../../commands/statistics.command.js';
+import { subtractCommand } from '../../commands/subtract.command.js';
+import { unixCommand } from '../../commands/unix.command.js';
+import { snowflakeCommand } from '../../commands/snowflake.command.js';
+import { isoCommand } from '../../commands/iso.command.js';
+import { settingsCommand } from '../../commands/settings.command.js';
 
 export const chatInputCommandMap: Record<BotChatInputCommandName, BotChatInputCommand> = {
   [BotChatInputCommandName.ADD]: addCommand,

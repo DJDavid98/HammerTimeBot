@@ -25,7 +25,7 @@ export const messageLastEditedCommand: BotMessageContextMenuCommand = {
       return;
     }
     const localMoment = moment(interaction.targetMessage.editedAt).utc();
-    const replyOptions = getSyntaxReplyOptions({ localMoment, interaction, t, settings });
+    const replyOptions = getSyntaxReplyOptions({ localMoment, interaction, context, settings });
     await interaction.reply({
       content: contentPrefix + replyOptions.content,
       flags: MessageFlags.Ephemeral,

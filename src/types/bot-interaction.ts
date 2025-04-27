@@ -1,7 +1,9 @@
 import type {
+  APIMessageComponent,
   AutocompleteInteraction,
   BaseInteraction,
   ChatInputCommandInteraction,
+  MessageComponentInteraction,
   RESTPostAPIContextMenuApplicationCommandsJSONBody,
 } from 'discord.js';
 import { MessageContextMenuCommandInteraction } from 'discord.js';
@@ -27,8 +29,13 @@ export const enum BotMessageContextMenuCommandName {
   EXTRACT_TIMESTAMPS = 'Extract Timestamps',
 }
 
+export const enum BotMessageComponentCustomId {
+  FORMAT_SELECT = 'format-select',
+}
+
 export interface InteractionHandlerContext {
   i18next: i18n;
+  emojiIdMap: Record<string, string>;
 }
 
 export interface InteractionContext extends Omit<InteractionHandlerContext, 'i18next'> {
@@ -48,4 +55,9 @@ export interface BotMessageContextMenuCommand {
     type: ApplicationCommandType.Message
   };
   handle: InteractionHandler<MessageContextMenuCommandInteraction & { commandName: BotMessageContextMenuCommandName }>;
+}
+
+export interface BotMessageComponent {
+  getDefinition: (t: TFunction, emojiIdMap: Record<string, string>) => APIMessageComponent;
+  handle: InteractionHandler<MessageComponentInteraction & { customId: BotMessageComponentCustomId }>;
 }

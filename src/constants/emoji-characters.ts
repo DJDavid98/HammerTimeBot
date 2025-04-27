@@ -27,4 +27,8 @@ export enum EmojiCharacters {
   TWELVE_OCLOCK = '🕛',
   TWELVE_THIRTY = '🕧',
   GLOBE = '🌐',
+  NEW = '🆕',
+  STOPWATCH = '⏱️',
+  PERSON = '👤',
+  SPIRAL_CALENDAR = '🗓️',
 }

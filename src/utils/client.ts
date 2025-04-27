@@ -2,7 +2,11 @@ import { Client, Events, InteractionType } from 'discord.js';
 import { i18n } from 'i18next';
 import { env } from '../env.js';
 import { getGitData } from './get-git-data.js';
-import { handleCommandAutocomplete, handleCommandInteraction } from './interaction-handlers.js';
+import {
+  handleCommandAutocomplete,
+  handleCommandInteraction,
+  handleComponentInteraction,
+} from './interaction-handlers.js';
 import {
   cleanGlobalCommands,
   getAuthorizedServers,
@@ -56,6 +60,9 @@ export const createClient = async (context: InteractionHandlerContext): Promise<
         return;
       case InteractionType.ApplicationCommandAutocomplete:
         await handleCommandAutocomplete(interaction, context);
+        return;
+      case InteractionType.MessageComponent:
+        await handleComponentInteraction(interaction, context);
         return;
       default:
         throw new Error(`Unhandled interaction of type ${interaction.type}`);

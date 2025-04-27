@@ -44,6 +44,6 @@ export const isoCommand: BotChatInputCommand = {
       return;
     }
 
-    await replyWithSyntax({ localMoment, interaction, t, settings, timezone });
+    await replyWithSyntax({ localMoment, interaction, context, settings, timezone });
   },
 };

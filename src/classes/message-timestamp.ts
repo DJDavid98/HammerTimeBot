@@ -23,7 +23,11 @@ export class MessageTimestamp {
   toString(tsFormat?: undefined): `<t:${string}:${MessageTimestampFormat.LONG_FULL}>`;
 
   toString<F extends MessageTimestampFormat>(tsFormat?: F): `<t:${string}:${F | MessageTimestampFormat.LONG_FULL}>` {
-    return MessageTimestamp.fromTimestamp(Math.floor(this.date.getTime() / 1000), tsFormat);
+    return MessageTimestamp.fromTimestamp(this.getUnixSeconds(), tsFormat);
+  }
+
+  getUnixSeconds(): number {
+    return Math.floor(this.date.getTime() / 1000);
   }
 
   static fromTimestamp<F extends MessageTimestampFormat>(unixTimestamp: string | number, tsFormat?: F): `<t:${string}:${F | MessageTimestampFormat.LONG_FULL}>` {

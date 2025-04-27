@@ -17,7 +17,7 @@ export const messageSentCommand: BotMessageContextMenuCommand = {
     const contentPrefix = `${messageTarget}\n\n`;
 
     const localMoment = moment(interaction.targetMessage.createdAt).utc();
-    const replyOptions = getSyntaxReplyOptions({ localMoment, interaction, t, settings });
+    const replyOptions = getSyntaxReplyOptions({ localMoment, interaction, context, settings });
     await interaction.reply({
       content: contentPrefix + replyOptions.content,
       flags: MessageFlags.Ephemeral,

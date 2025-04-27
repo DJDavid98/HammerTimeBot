@@ -1,8 +1,8 @@
 import { ContextMenuCommandInteraction } from 'discord.js';
-import { BotMessageContextMenuCommand, BotMessageContextMenuCommandName } from '../types/bot-interaction.js';
-import { messageSentCommand } from '../commands/message-sent.command.js';
-import { messageLastEditedCommand } from '../commands/message-last-edited.command.js';
-import { extractTimestampsCommand } from '../commands/extract-timestamps.command.js';
+import { BotMessageContextMenuCommand, BotMessageContextMenuCommandName } from '../../types/bot-interaction.js';
+import { messageSentCommand } from '../../commands/message-sent.command.js';
+import { messageLastEditedCommand } from '../../commands/message-last-edited.command.js';
+import { extractTimestampsCommand } from '../../commands/extract-timestamps.command.js';
 
 export const messageContextMenuCommandMap: Record<BotMessageContextMenuCommandName, BotMessageContextMenuCommand> = {
   [BotMessageContextMenuCommandName.MESSAGE_SENT]: messageSentCommand,

@@ -16,10 +16,9 @@ export const unixCommand: BotChatInputCommand = {
   }),
   async handle(interaction, context) {
     const settings = await getSettings(context, interaction);
-    const { t } = context;
     const value = interaction.options.getNumber(UnixCommandOptionName.VALUE, true);
     const localMoment = moment.unix(value).utc();
 
-    await replyWithSyntax({ localMoment, interaction, t, settings, timezone: undefined });
+    await replyWithSyntax({ localMoment, interaction, context, settings, timezone: undefined });
   },
 };

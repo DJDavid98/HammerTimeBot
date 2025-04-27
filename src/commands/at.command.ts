@@ -69,6 +69,6 @@ export const atCommand: BotChatInputCommand = {
       throw e;
     }
 
-    await replyWithSyntax({ localMoment, interaction, t, timezone, settings });
+    await replyWithSyntax({ localMoment, interaction, context, timezone, settings });
   },
 };

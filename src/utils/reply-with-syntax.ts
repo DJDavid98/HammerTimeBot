@@ -1,13 +1,21 @@
 import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
 import { formattedResponse, supportedFormats } from './time.js';
-import { ChatInputCommandInteraction, ContextMenuCommandInteraction, InteractionReplyOptions } from 'discord.js';
-import { TFunction } from 'i18next';
+import {
+  ChatInputCommandInteraction,
+  ComponentType,
+  ContextMenuCommandInteraction,
+  InteractionReplyOptions,
+  MessageFlags,
+  SeparatorSpacingSize,
+} from 'discord.js';
 import { GlobalCommandOptionName, ResponseColumnChoices } from '../types/localization.js';
 import { EPHEMERAL_OPTION_DEFAULT_VALUE, isEphemeralResponse } from './messaging.js';
 import { getExactTimePrefix } from './get-exact-time-prefix.js';
 import { SettingsValue } from './settings.js';
 import { Moment } from 'moment';
-import { MessageFlags } from 'discord-api-types/v10';
+import { formatSelectComponent } from '../components/format-select.component.js';
+import { EmojiCharacters } from '../constants/emoji-characters.js';
+import { InteractionContext } from '../types/bot-interaction.js';
 
 type HandledInteractions = ChatInputCommandInteraction | ContextMenuCommandInteraction;
 
@@ -39,7 +47,7 @@ export interface SyntaxInteraction {
 interface SyntaxReplyOptions {
   localMoment: Moment;
   interaction: HandledInteractions;
-  t: TFunction;
+  context: InteractionContext;
   timezone?: string;
   settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview'>;
 }
@@ -47,7 +55,7 @@ interface SyntaxReplyOptions {
 export const getSyntaxReplyOptions = ({
   localMoment,
   interaction,
-  t,
+  context: { t, emojiIdMap },
   timezone = 'UTC',
   settings,
 }: SyntaxReplyOptions): InteractionReplyOptions => {
@@ -62,24 +70,53 @@ export const getSyntaxReplyOptions = ({
   const syntaxInteraction = mapCommandInteractionToSyntaxInteraction(interaction, settings);
 
   const ts = new MessageTimestamp(localDate);
-  const columns = syntaxInteraction.columns ?? ResponseColumnChoices.BOTH;
   const formatInput = syntaxInteraction.format;
-  const addHeader = syntaxInteraction.header ?? true;
-
   const formats = (formatInput ? [formatInput as MessageTimestampFormat] : supportedFormats);
+
+  const columns = !formatInput ? (syntaxInteraction.columns ?? ResponseColumnChoices.BOTH) : ResponseColumnChoices.PREVIEW_ONLY;
+  const addHeader = !formatInput && (syntaxInteraction.header ?? true);
   const header = addHeader && getExactTimePrefix(localMoment, timezone);
-  const table = formattedResponse(ts, formats, columns as ResponseColumnChoices, settings.boldPreview);
-  const content = `${header ? `${header}\n` : ''}${table}`;
+  const table = formattedResponse(ts, formats, columns as ResponseColumnChoices, !formatInput && settings.boldPreview);
+  let content: string | undefined = `${header ? `${header}\n` : ''}${table}`;
+  const ephemeralFlag = syntaxInteraction.ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE ? MessageFlags.Ephemeral : 0;
+
+  let components: InteractionReplyOptions['components'] = undefined;
+  if (!formatInput) {
+    components = [
+      {
+        type: ComponentType.TextDisplay,
+        content,
+      },
+      {
+        type: ComponentType.Separator,
+        divider: true,
+        spacing: SeparatorSpacingSize.Small,
+      },
+      {
+        type: ComponentType.TextDisplay,
+        content: `${EmojiCharacters.NEW} ${t('commands.global.components.replyWithSpecificFormat')}`,
+      },
+      {
+        type: ComponentType.ActionRow,
+        components: [
+          formatSelectComponent.getDefinition(t, emojiIdMap),
+        ],
+      },
+    ];
+    content = undefined;
+  }
+  const componentsV2Flag = components ? MessageFlags.IsComponentsV2 : 0;
   return {
-    content: content,
-    flags: syntaxInteraction.ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE ? MessageFlags.Ephemeral : undefined,
+    flags: componentsV2Flag | ephemeralFlag,
+    content,
+    components,
   };
 };
 
 interface ReplyWithSyntaxParams {
   localMoment: Moment;
   interaction: ChatInputCommandInteraction | ContextMenuCommandInteraction;
-  t: TFunction;
+  context: InteractionContext;
   timezone: string | undefined;
   settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview'>;
 }
@@ -87,14 +124,14 @@ interface ReplyWithSyntaxParams {
 export const replyWithSyntax = async ({
   localMoment,
   interaction,
-  t,
+  context,
   timezone = 'UTC',
   settings,
 }: ReplyWithSyntaxParams): Promise<unknown> => {
   return interaction.reply(getSyntaxReplyOptions({
     localMoment,
     interaction,
-    t,
+    context,
     timezone,
     settings,
   }));

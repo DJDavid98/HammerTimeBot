@@ -44,6 +44,6 @@ export const inCommand: BotChatInputCommand = {
     const timezone = 'UTC';
     const localMoment = adjustMoment(options, 'add', moment.tz(timezone));
 
-    await replyWithSyntax({ localMoment, interaction, t, timezone, settings });
+    await replyWithSyntax({ localMoment, interaction, context, timezone, settings });
   },
 };
