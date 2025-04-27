@@ -178,7 +178,8 @@
         "invalidDate": "Podana data jest nieprawidłowa (na przykład: podany dzień nie istnieje)",
         "noComponentsCurrentTime": "Należy podać przynajmniej jeden składnik czasu do zmiany. Jeżeli potrzebny jest aktualny czas, należy użyć `/{{atCommand}}` bez podawania argumentów",
         "noComponentsUnix": "Musisz określić co najmniej jeden składnik czasu do zmiany. Jeśli chcesz uzyskać składnię dla UNIX-owego znacznika czasu, użyj `/{{unixCommand}}`",
-        "timezoneNotFound": "Nie można znaleźć podanej strefy czasowej"
+        "timezoneNotFound": "Nie można znaleźć podanej strefy czasowej",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "strefa czasowa",
           "description": "Określ strefę czasową (domyślnie GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {
