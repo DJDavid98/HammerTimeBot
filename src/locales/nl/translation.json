@@ -178,7 +178,8 @@
         "invalidDate": "De opgegeven datum is ongeldig (bijvoorbeeld: de opgegeven dag bestaat niet)",
         "noComponentsCurrentTime": "U moet minstens één argument opgeven om te wijzigen. Als u de huidige tijd nodig hebt, gebruikt u `/{{atCommand}}` zonder argumenten op te geven",
         "noComponentsUnix": "U moet minstens één argument opgeven om te wijzigen. Als u de syntaxis voor een UNIX-tijdstempel wilt krijgen, gebruik dan `/{{unixCommand}}`",
-        "timezoneNotFound": "De opgegeven tijdzone kan niet worden gevonden"
+        "timezoneNotFound": "De opgegeven tijdzone kan niet worden gevonden",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "timezone",
           "description": "De tijdzone van de tijdstempel (standaard is GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {
