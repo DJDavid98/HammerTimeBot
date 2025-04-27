@@ -179,7 +179,7 @@
         "noComponentsCurrentTime": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν χρειάζεστε την τρέχουσα ώρα, χρησιμοποιήστε `/{{atCommand}}` χωρίς να καθορίσετε οποιαδήποτε παραμέτρους",
         "noComponentsUnix": "Πρέπει να καθορίσετε τουλάχιστον ένα στοιχείο χρόνου προς αλλαγή. Αν θέλετε να λάβετε την σύνταξη της εντολής UNIX χρονοσήμανσης, χρησιμοποιήστε `/{{unixCommand}}`",
         "timezoneNotFound": "Η καθορισμένη ζώνη ώρας δεν μπορεί να βρεθεί",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "Παρουσιάστηκε ένα απρόσμενο σφάλμα κατά την επεξεργασία αυτής της αλληλεπίδρασης"
       },
       "options": {
         "format": {
@@ -218,7 +218,7 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Επιλέξτε μια μορφή κειμένου παρακάτω για να την λάβετε ως απάντηση (για αντιγραφή σε συσκευές αφής)"
       }
     },
     "statistics": {
