@@ -178,7 +178,8 @@
         "invalidDate": "Зазначена дата недійсна (наприклад, даного дня не існує)",
         "noComponentsCurrentTime": "Ви повинні вказати принаймні один часовий компонент для зміни. Якщо вам потрібен поточний час, використовуйте `/{{atCommand}}` без зазначення аргументів",
         "noComponentsUnix": "Ви повинні вказати принаймні один компонент часу для зміни. Якщо ви хочете отримати синтаксис мітки часу UNIX, скористайтеся `/{{unixCommand}}`",
-        "timezoneNotFound": "Неможливо знайти вказаний часовий пояс"
+        "timezoneNotFound": "Неможливо знайти вказаний часовий пояс",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "timezone",
           "description": "Вкажіть часовий пояс (за замовчуванням GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {

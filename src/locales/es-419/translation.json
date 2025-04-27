@@ -178,7 +178,8 @@
         "invalidDate": "La fecha indicada no es válida (por ejemplo: el día dado no existe)",
         "noComponentsCurrentTime": "Debe especificar al menos un componente de tiempo a cambiar. Si necesita la hora actual, utilice `/{{atCommand}}` sin especificar ningún argumento",
         "noComponentsUnix": "Debe especificar al menos un componente de tiempo a cambiar. Si desea obtener la sintaxis de una marca de tiempo UNIX, utilice `/{{unixCommand}}`",
-        "timezoneNotFound": "La zona horaria indicada no pudo ser encontrada"
+        "timezoneNotFound": "La zona horaria indicada no pudo ser encontrada",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "zona horaria",
           "description": "Especifique la zona horaria (por defecto será GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {

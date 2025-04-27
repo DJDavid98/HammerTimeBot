@@ -178,7 +178,8 @@
         "invalidDate": "Указанная дата недействительна (например: заданный день не существует)",
         "noComponentsCurrentTime": "Необходимо указать изменение как минимум одной величины. Если вас интересует нынешнее время, используйте `/{{atCommand}}` без каких либо аргументов",
         "noComponentsUnix": "Необходимо указать изменение как минимум одной величины. Если вас интересует синтаксис временной метки UNIX, используйте `/{{unixCommand}}`",
-        "timezoneNotFound": "Указанный часовой пояс не может быть найден"
+        "timezoneNotFound": "Указанный часовой пояс не может быть найден",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "timezone",
           "description": "Укажите часовой пояс (по умолчанию GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {

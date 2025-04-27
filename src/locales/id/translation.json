@@ -178,7 +178,8 @@
         "invalidDate": "Tanggal yang ditentukan tidak valid (misalnya: hari yang diberikan tidak ada)",
         "noComponentsCurrentTime": "Anda harus menentukan setidaknya satu komponen waktu untuk diubah. Jika Anda membutuhkan waktu saat ini, gunakan `/{{atCommand}}` tanpa menentukan argumen apa pun",
         "noComponentsUnix": "Anda harus menentukan setidaknya satu komponen waktu untuk diubah. Jika Anda ingin mendapatkan sintaks untuk stempel waktu UNIX, gunakan `/{{unixCommand}}`",
-        "timezoneNotFound": "Zona waktu yang ditentukan tidak dapat ditemukan"
+        "timezoneNotFound": "Zona waktu yang ditentukan tidak dapat ditemukan",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "zona waktu",
           "description": "Tentukan zona waktu (default pada GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {

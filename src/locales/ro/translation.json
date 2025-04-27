@@ -178,7 +178,8 @@
         "invalidDate": "Data specificată nu este valabilă (de exemplu: ziua dată nu există)",
         "noComponentsCurrentTime": "Trebuie să specificați cel puțin o componentă de timp care trebuie modificată. Dacă aveți nevoie de ora curentă, utilizați `/{{atCommand}}` fără să specificați niciun argument",
         "noComponentsUnix": "Trebuie să specificați cel puțin o componentă de timp care trebuie modificată. Dacă doriți să obțineți sintaxa pentru un timestamp UNIX, utilizați `/{{unixCommand}}`",
-        "timezoneNotFound": "Fusul orar specificat nu poate fi găsit"
+        "timezoneNotFound": "Fusul orar specificat nu poate fi găsit",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "fus orar",
           "description": "Specificați fusul orar (valoarea implicită este GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {

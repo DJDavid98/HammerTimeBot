@@ -178,7 +178,8 @@
         "invalidDate": "Den angitte datoen er ugyldig (for eksempel: den angitte dagen finnes ikke)",
         "noComponentsCurrentTime": "Du må angi minst én tidskomponent som skal endres. Hvis du trenger gjeldende klokkeslett, bruker du `/{{atCommand}}` uten å spesifisere noen argumenter",
         "noComponentsUnix": "Du må angi minst én tidskomponent som skal endres. Hvis du vil ha syntaksen for et UNIX-tidsstempel, bruker du `/{{unixCommand}}`",
-        "timezoneNotFound": "Den angitte tidssonen ble ikke funnet"
+        "timezoneNotFound": "Den angitte tidssonen ble ikke funnet",
+        "unexpectedError": "There was an unexpected error while processing this interaction"
       },
       "options": {
         "format": {
@@ -215,6 +216,9 @@
           "name": "tidssone",
           "description": "Angi tidssone (standard er GMT)"
         }
+      },
+      "components": {
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
       }
     },
     "statistics": {
