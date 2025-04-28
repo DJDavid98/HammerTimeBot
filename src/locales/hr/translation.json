@@ -289,7 +289,10 @@
         "linkCreated": "Posjetite donju poveznicu kako biste se automatski prijavili na web stranicu bota kako biste promijenili svoje postavke.\n<{{magicLink}}>\nOva veza će isteći {{expiresAt}}, ali uvijek možete pokrenuti ovu naredbu za generiranje nove veze ili posjetite <{{loginUrl}}> da se ručno prijavite, zatim idite na <{{settingsUrl}}> da promijenite svoje postavke.",
         "failedToCreateLink": "Nije moguće generirati poveznicu za automatsku prijavu, posjetite <{{loginUrl}}> i prijavite se ručno, zatim idite na <{{settingsUrl}}> da biste promijenili svoje postavke."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }
