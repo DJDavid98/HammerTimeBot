@@ -289,7 +289,10 @@
         "linkCreated": "Vă rugăm să vizitați linkul de mai jos pentru a vă autentifica automat pe site-ul bot pentru a vă schimba setările.\n<{{magicLink}}>\nAcest link va expira {{expiresAt}} dar puteți rula oricând această comandă pentru a genera un nou link, sau puteți vizita <{{loginUrl}}> pentru a vă autentifica manual, apoi mergeți la <{{settingsUrl}}> pentru a vă modifica setările.",
         "failedToCreateLink": "Nu s-a putut genera un link care să vă logheze automat, vă rugăm să vizitați <{{loginUrl}}> și conectați-vă manual, apoi mergeți la <{{settingsUrl}}> pentru a vă modifica setările."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }
