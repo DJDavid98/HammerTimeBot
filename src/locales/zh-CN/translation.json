@@ -289,7 +289,10 @@
         "linkCreated": "请使用下面的链接以自动登录机器人的网站并更改您的设置。\n<{{magicLink}}>\n该链接将于 {{expiresAt}} 过期，不过您可以随时使用本命令重新生成一个链接，或者访问 <{{loginUrl}}> 手动登录，然后访问 <{{settingsUrl}}> 更改您的设置。",
         "failedToCreateLink": "无法为您创建自动登录的链接。请访问 <{{loginUrl}}> 手动登录，然后访问 <{{settingsUrl}}> 更改您的设置。"
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }
