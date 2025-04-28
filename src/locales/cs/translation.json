@@ -289,7 +289,10 @@
         "linkCreated": "Navštivte prosím níže uvedený odkaz, abyste byli automaticky přihlášeni na webové stránky bota a mohli změnit svá nastavení.\n<{{magicLink}}>\nTento odkaz vyprší {{expiresAt}}, avšak vždy můžete spustit tento příkaz znovu pro vygenerování nového odkazu nebo navštívit <{{loginUrl}}> přihlásit se ručně, poté přejít na <{{settingsUrl}}> a změnit svá nastavení tam.",
         "failedToCreateLink": "Nepodařilo se vygenerovat odkaz, který by vás automaticky přihlásil, navštivte prosím <{{loginUrl}}> a přihlaste se ručně, poté přejděte na <{{settingsUrl}}> a změňte nastavení tam."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }
