@@ -11,7 +11,7 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "outDir": "build",
-    "rootDir": "src",
+    "rootDir": ".",
     "sourceMap": true,
     "strict": true,
     "target": "ES2020",
@@ -24,6 +24,10 @@
     ],
     "strictNullChecks": true
   },
+  "include": [
+    "src/**/*.ts",
+    "utils/**/*.ts"
+  ],
   "exclude": [
     "tests"
   ]

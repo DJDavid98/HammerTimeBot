@@ -1,15 +1,15 @@
 {
+  "version": 2,
   "languages": {
     "id": {
       "name": "Indonesian",
-      "emoji": "\uD83C\uDDEE\uD83C\uDDE9",
-      "credits": [
-        {
-          "crowdin": "jckcr",
+      "emoji": "🇮🇩",
+      "creditOverrides": {
+        "15258052": {
           "displayName": "Jackie",
           "url": "https://github.com/Jckcr"
         }
-      ]
+      }
     },
     "en-US": {
       "name": "English, United States"
@@ -19,284 +19,213 @@
     },
     "bg": {
       "name": "Bulgarian",
-      "emoji": "\uD83C\uDDE7\uD83C\uDDEC"
+      "emoji": "🇧🇬"
     },
     "zh-CN": {
       "name": "Chinese Simplified",
-      "emoji": "\uD83C\uDDE8\uD83C\uDDF3",
-      "credits": [
-        {
-          "crowdin": "CPYW_7226"
-        },
-        {
-          "crowdin": "User670"
-        }
-      ]
+      "emoji": "🇨🇳"
     },
     "zh-TW": {
       "name": "ChineseTW",
-      "emoji": "\uD83C\uDDF9\uD83C\uDDFC"
+      "emoji": "🇹🇼"
     },
     "hr": {
       "name": "Croatian",
-      "emoji": "\uD83C\uDDED\uD83C\uDDF7",
-      "credits": [
-        {
-          "crowdin": "stjepanmih13x",
+      "emoji": "🇭🇷",
+      "creditOverrides": {
+        "15734961": {
           "displayName": "Volvone",
           "url": "https://github.com/volvone"
         }
-      ]
+      }
     },
     "cs": {
       "name": "Czech",
-      "emoji": "\uD83C\uDDE8\uD83C\uDDFF",
-      "credits": [
-        {
-          "crowdin": "klauny"
-        },
-        {
-          "crowdin": "Blurplix"
-        }
-      ]
+      "emoji": "🇨🇿"
     },
     "da": {
       "name": "Danish",
-      "emoji": "\uD83C\uDDE9\uD83C\uDDF0"
+      "emoji": "🇩🇰"
     },
     "nl": {
       "name": "Dutch",
-      "emoji": "\uD83C\uDDF3\uD83C\uDDF1",
-      "credits": [
-        {
-          "crowdin": "Jessuh",
+      "emoji": "🇳🇱",
+      "creditOverrides": {
+        "14730100": {
           "displayName": "Jesse"
         }
-      ]
+      }
     },
     "fi": {
       "name": "Finnish",
-      "emoji": "\uD83C\uDDEB\uD83C\uDDEE"
+      "emoji": "🇫🇮"
     },
     "fr": {
       "name": "French",
-      "emoji": "\uD83C\uDDEB\uD83C\uDDF7",
-      "credits": [
-        {
-          "crowdin": "Cookikui",
+      "emoji": "🇫🇷",
+      "creditOverrides": {
+        "14840926": {
           "displayName": "Cookie Kiro"
         }
-      ]
+      }
     },
     "de": {
       "name": "German",
-      "emoji": "\uD83C\uDDE9\uD83C\uDDEA",
-      "credits": [
-        {
-          "crowdin": "Fabian9799"
-        }
-      ]
+      "emoji": "🇩🇪"
     },
     "el": {
       "name": "Greek",
-      "emoji": "\uD83C\uDDEC\uD83C\uDDF7",
-      "credits": [
-        {
-          "crowdin": "BelleBernice"
-        }
-      ]
+      "emoji": "🇬🇷"
     },
     "hi": {
       "name": "Hindi",
-      "emoji": "\uD83C\uDDEE\uD83C\uDDF3"
+      "emoji": "🇮🇳"
     },
     "hu": {
       "name": "Hungarian"
     },
     "it": {
       "name": "Italian",
-      "emoji": "\uD83C\uDDEE\uD83C\uDDF9",
-      "credits": [
-        {
-          "crowdin": "pellilory126",
-          "displayName": "RVG|\uD835\uDCF5\uD835\uDCF8\uD835\uDCFB\uD835\uDD02",
+      "emoji": "🇮🇹",
+      "creditOverrides": {
+        "15096881": {
+          "displayName": "RVG|𝓵𝓸𝓻𝔂",
           "url": "https://top.gg/bot/1076200668810985634"
         }
-      ]
+      }
     },
     "ja": {
       "name": "Japanese",
-      "emoji": "\uD83C\uDDEF\uD83C\uDDF5"
+      "emoji": "🇯🇵"
     },
     "ko": {
       "name": "Korean",
-      "emoji": "\uD83C\uDDF0\uD83C\uDDF7",
-      "credits": [
-        {
-          "crowdin": "cheesepickle12345678",
-          "displayName": "Bin"
+      "emoji": "🇰🇷",
+      "creditOverrides": {
+        "14153733": {
+          "displayName": "미르냥"
         },
-        {
-          "crowdin": "sjkim04",
+        "14469636": {
           "displayName": "Phrygia / sjk",
           "url": "https://github.com/sjkim04"
         },
-        {
-          "crowdin": "SkyStorage_"
-        },
-        {
-          "crowdin": "Mirnyang",
-          "displayName": "미르냥"
+        "15404404": {
+          "displayName": "Bin"
         }
-      ]
+      }
     },
     "lt": {
       "name": "Lithuanian",
-      "emoji": "\uD83C\uDDF1\uD83C\uDDF9"
+      "emoji": "🇱🇹"
     },
     "no": {
       "name": "Norwegian",
-      "emoji": "\uD83C\uDDF3\uD83C\uDDF4",
-      "credits": [
-        {
-          "crowdin": "philliphatrod",
+      "emoji": "🇳🇴",
+      "creditOverrides": {
+        "16406120": {
           "displayName": "Phillip Rodseth"
         }
-      ]
+      }
     },
     "pl": {
       "name": "Polish",
-      "emoji": "\uD83C\uDDF5\uD83C\uDDF1",
-      "credits": [
-        {
-          "crowdin": "MinerPL"
-        }
-      ]
+      "emoji": "🇵🇱"
     },
     "pt-BR": {
       "name": "Portuguese, Brazilian",
-      "emoji": "\uD83C\uDDE7\uD83C\uDDF7",
-      "credits": [
-        {
-          "crowdin": "leo0six"
-        }
-      ]
+      "emoji": "🇧🇷"
     },
     "ro": {
       "name": "Romanian",
-      "emoji": "\uD83C\uDDF7\uD83C\uDDF4",
-      "credits": [
-        {
-          "crowdin": "Iepurooy",
-          "displayName": "Ant. Rares"
-        },
-        {
-          "crowdin": "mihaiofficialRO",
+      "emoji": "🇷🇴",
+      "creditOverrides": {
+        "14999657": {
           "displayName": "mihai"
+        },
+        "15627125": {
+          "displayName": "Ant. Rares"
         }
-      ]
+      }
     },
     "ru": {
       "name": "Russian",
-      "emoji": "\uD83C\uDDF7\uD83C\uDDFA",
-      "credits": [
-        {
-          "crowdin": "GameHacker"
+      "emoji": "🇷🇺",
+      "creditOverrides": {
+        "12500432": {
+          "displayName": "Vladimir"
         },
-        {
-          "crowdin": "Aligatoor",
-          "displayName": "Nikita Sharikov"
-        },
-        {
-          "crowdin": "Ajno",
+        "13911943": {
           "displayName": "Artiom Boyko"
         },
-        {
-          "crowdin": "bill876",
-          "displayName": "Vladimir"
+        "15276232": {
+          "displayName": "Nikita Sharikov"
         }
-      ]
+      }
     },
     "es-ES": {
       "name": "Spanish",
-      "emoji": "\uD83C\uDDEA\uD83C\uDDF8",
-      "credits": [
-        {
-          "crowdin": "shaulyareaj",
+      "emoji": "🇪🇸",
+      "creditOverrides": {
+        "13524864": {
+          "displayName": "Street Dog"
+        },
+        "14524626": {
           "displayName": "Yareaj",
           "url": "https://github.com/Yareaj/"
-        },
-        {
-          "crowdin": "streetdog.arg",
-          "displayName": "Street Dog"
         }
-      ]
+      }
     },
     "es-419": {
       "name": "Spanish, Latin America",
-      "emoji": "\uD83C\uDDF2\uD83C\uDDFD",
-      "credits": [
-        {
-          "crowdin": "shaulyareaj",
+      "emoji": "🇲🇽",
+      "creditOverrides": {
+        "13524864": {
+          "displayName": "Street Dog"
+        },
+        "14524626": {
           "displayName": "Yareaj",
           "url": "https://github.com/Yareaj/"
-        },
-        {
-          "crowdin": "streetdog.arg",
-          "displayName": "Street Dog"
         }
-      ]
+      }
     },
     "sv-SE": {
       "name": "Swedish",
-      "emoji": "\uD83C\uDDF8\uD83C\uDDEA"
+      "emoji": "🇸🇪"
     },
     "th": {
       "name": "Thai",
-      "emoji": "\uD83C\uDDF9\uD83C\uDDED",
-      "credits": [
-        {
-          "crowdin": "unpredictable",
+      "emoji": "🇹🇭",
+      "creditOverrides": {
+        "15514192": {
           "displayName": "timelessnesses",
           "url": "https://github.com/timelessnesses"
         }
-      ]
+      }
     },
     "tr": {
       "name": "Turkish",
-      "emoji": "\uD83C\uDDF9\uD83C\uDDF7",
-      "credits": [
-        {
-          "crowdin": "okunamayanad",
+      "emoji": "🇹🇷",
+      "creditOverrides": {
+        "14744332": {
           "displayName": "Baran Moroğan"
         }
-      ]
+      }
     },
     "uk": {
       "name": "Ukrainian",
-      "emoji": "\uD83C\uDDFA\uD83C\uDDE6",
-      "credits": [
-        {
-          "crowdin": "GameHacker"
-        },
-        {
-          "crowdin": "enky"
-        }
-      ]
+      "emoji": "🇺🇦"
     },
     "vi": {
       "name": "Vietnamese",
-      "emoji": "\uD83C\uDDFB\uD83C\uDDF3",
-      "credits": [
-        {
-          "crowdin": "quanonthecob",
+      "emoji": "🇻🇳",
+      "creditOverrides": {
+        "16061216": {
           "displayName": "Quan"
         },
-        {
-          "crowdin": "thatkev",
+        "16148056": {
           "displayName": "ThatKev"
         }
-      ]
+      }
     }
   }
 }

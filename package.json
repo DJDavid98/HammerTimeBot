@@ -6,16 +6,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint": "eslint \"src/**/*.ts\"",
+    "lint": "eslint \"{src,utils}/**/*.ts\"",
     "build": "tsc",
     "build:clean": "rimraf build",
-    "start": "node ./build/index.js",
-    "prestart:dev": "node ./utils/translation-credits.js",
+    "start": "node ./build/src/index.js",
+    "prestart:dev": "tsx ./utils/translation-credits",
     "start:dev": "npm run build:clean && npm run build && npm run start",
-    "watch:dev:tsc": "tsc --watch --preserveWatchOutput",
-    "watch:dev:nodemon": "nodemon ./build/index.js",
-    "watch:dev:commands": "concurrently --names TSC,Nodemon -c \"blue,green\" \"npm run watch:dev:tsc\" \"npm run watch:dev:nodemon\"",
-    "watch:dev": "npm run build:clean && npm run build && npm run watch:dev:commands",
     "test": "jest --ci --randomize",
     "test:watch": "jest --watch --randomize",
     "prepare": "ts-patch install && husky install"
@@ -59,7 +55,7 @@
     "jest-ts-webcompat-resolver": "^1.0.0",
     "nodemon": "^3.0.1",
     "ts-jest": "^29.1.1",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
     "ts-patch": "^3.3.0",
     "typescript": "~5.8.3",
     "typia": "^9.1.1"

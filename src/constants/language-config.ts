@@ -1,11 +1,9 @@
 import { Locale } from 'discord-api-types/rest/common.js';
-import { LanguageConfig } from '../types/language-config.js';
 import localeConfig from '../locales/config.json';
+import { LanguageConfigV1 } from '../types/legacy.js';
 
-type LanguagesConfig = Record<Locale, LanguageConfig>;
+type LanguagesConfig = Record<Locale, LanguageConfigV1>;
 
-/* eslint-disable @typescript-eslint/no-unused-vars -- This type validates the config for all locales at build time */
-// noinspection JSUnusedGlobalSymbols
 export const LANGUAGES: LanguagesConfig = localeConfig.languages;
-/* eslint-enable @typescript-eslint/no-unused-vars */
 
+export const isAvailableLanguage = (value: unknown): value is Locale => typeof value === 'string' && value in LANGUAGES;

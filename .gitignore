@@ -3,3 +3,4 @@ config.js
 *.env
 /build
 /coverage
+/crowdin_report.json5

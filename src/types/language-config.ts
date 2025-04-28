@@ -1,18 +1,13 @@
-export interface TranslationCredit {
-  /**
-   * Crowdin username, will be used as a fallback for display name as well as
-   * generating the fallback Crowdin profile URL if no link is set
-   */
-  crowdin: string;
-  displayName?: string;
-  url?: string;
-}
+import { TranslationCreditOverride } from './translation-credit-override.js';
 
-export interface LanguageConfig {
+export interface LanguageConfigV2 {
   /**
    * Language name in English
    */
   name: string;
   emoji?: string;
-  credits?: TranslationCredit[];
+  creditOverrides?: Record<string | number, TranslationCreditOverride | null>;
 }
+
+
+export type LatestLanguageConfigType = LanguageConfigV2;
