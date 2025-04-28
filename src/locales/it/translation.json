@@ -289,7 +289,10 @@
         "linkCreated": "Visiti il link sottostante per accedere automaticamente al sito web del bot e modificare le sue impostazioni.\n<{{magicLink}}>\nQuesto link scadrà tra {{expiresAt}} ma può sempre eseguire questo comando per generare un nuovo link, oppure visitare <{{loginUrl}}> per accedere manualmente, quindi andare a <{{settingsUrl}}> per modificare le sue impostazioni.",
         "failedToCreateLink": "Impossibile generare un link per effettuare il login automaticamente, visita <{{loginUrl}}> e accedi manualmente, quindi vai a <{{settingsUrl}}> per modificare le impostazioni."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }
