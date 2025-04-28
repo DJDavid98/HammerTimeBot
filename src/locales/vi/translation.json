@@ -289,7 +289,10 @@
         "linkCreated": "Vui lòng truy cập đường dẫn dưới đây để được tự động đăng nhập vào trang web và chỉnh sửa các cài đặt.\n<{{magicLink}}>\nĐường dẫn sẽ hết hạn vào {{expiresAt}} nhưng bạn có thể chạy lại câu lệnh để tạo đường dẫn mới, hoặc truy cập <{{loginUrl}}> để đăng nhập thủ công, sau đó đi đến <{{settingsUrl}}> để thay đổi các cài đặt.",
         "failedToCreateLink": "Không thể khởi tạo đường dẫn để thực hiện đăng nhập tự động, vui lòng truy cập <{{loginUrl}}> và thực hiện đăng nhập thủ công, sau đó đi đến <{{settingsUrl}}> để thay đổi các cài đặt."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }
