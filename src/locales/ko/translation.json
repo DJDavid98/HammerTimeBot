@@ -289,7 +289,10 @@
         "linkCreated": "설정을 변경하려면 아래 링크를 방문해 봇 웹사이트에 자동으로 로그인하세요.\n<{{magicLink}}>\n이 링크는 {{expiresAt}} 에 만료되지만 언제든지 이 명령을 실행하여 새 링크를 생성하거나 <{{loginUrl}}>을 방문해 수동으로 로그인한 다음 <{{settingsUrl}}>(으)로 이동하여 설정을 변경할 수 있습니다.",
         "failedToCreateLink": "자동 로그인 링크를 생성할 수 없습니다. <{{loginUrl}}>(으)로 이동해 수동으로 로그인한 후 <{{settingsUrl}}>(으)로 이동해 설정을 변경하세요."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }
