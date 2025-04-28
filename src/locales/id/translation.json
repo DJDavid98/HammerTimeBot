@@ -289,7 +289,10 @@
         "linkCreated": "Silakan kunjungi tautan di bawah untuk masuk ke situs web bot secara otomatis untuk mengubah pengaturan Anda.\n<{{MagicLink}}>\nTautan ini akan kedaluwarsa {{expiresAt}} tetapi Anda selalu dapat menjalankan perintah ini untuk membuat tautan baru, atau kunjungi <{{loginUrl}}> untuk masuk secara manual, lalu buka <{{settingsUrl}}> untuk mengubah pengaturan Anda.",
         "failedToCreateLink": "Tidak dapat membuat tautan untuk memasukkan Anda secara otomatis, kunjungi <{{loginUrl}}> dan masuk secara manual, lalu buka <{{settingsUrl}}> untuk mengubah pengaturan Anda."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }
