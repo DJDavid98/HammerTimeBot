@@ -289,7 +289,10 @@
         "linkCreated": "Bezoek de onderstaande link om automatisch ingelogd te worden op de website van de bot om uw instellingen te wijzigen.\n<{{magicLink}}>\nDeze link zal verlopen {{expiresAt}} maar u kunt altijd dit commando opnieuw uitvoeren om een nieuwe link te genereren. Of bezoek <{{loginUrl}}> om handmatig in te loggen en ga dan naar <{{settingsUrl}}> om uw instellingen te wijzigen.",
         "failedToCreateLink": "Er kon geen link geneerd worden om u automatisch aan te melden, bezoek <{{loginUrl}}> en log handmatig in, ga vervolgens naar <{{settingsUrl}}> om uw instellingen te wijzigen."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }
