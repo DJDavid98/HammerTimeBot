@@ -289,7 +289,10 @@
         "linkCreated": "Proszę odwiedzić poniższy link, aby zalogować się automatycznie na stronie bota w celu zmiany ustawień.\n<{{magicLink}}>\nTen link wygaśnie {{expiresAt}}, ale zawsze można uruchomić polecenie ponownie, aby wygenerować nowy link, lub odwiedzić <{{loginUrl}}>, aby zalogować się ręcznie, a następnie przejść do <{{settingsUrl}}>, aby zmienić ustawienia.",
         "failedToCreateLink": "Nie można wygenerować linku do automatycznego logowania, proszę odwiedzić <{{loginUrl}}> i zalogować się ręcznie, a następnie przejść do <{{settingsUrl}}>, aby zmienić ustawienia."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }
