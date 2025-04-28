@@ -291,7 +291,7 @@
       },
       "options": {},
       "components": {
-        "openSettingsButton": "Bot Settings"
+        "openSettingsButton": "Bot Beállítások"
       }
     }
   }
