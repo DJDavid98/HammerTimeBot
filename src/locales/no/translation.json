@@ -289,7 +289,10 @@
         "linkCreated": "Gå til lenken nedenfor for å bli logget inn på bottens nettsted automatisk for å endre innstillingene dine.\n<{{magicLink}}>\nDenne lenken utløper {{expiresAt}}, men du kan alltid kjøre denne kommandoen for å generere en ny lenke, eller gå til <{{loginUrl}}> for å logge inn manuelt, og deretter gå til <{{settingsUrl}}> for å endre innstillingene dine.",
         "failedToCreateLink": "Kunne ikke generere en lenke for å logge deg inn automatisk, vennligst gå til <{{loginUrl}}> og logg inn manuelt, og gå deretter til <{{settingsUrl}}> for å endre innstillingene dine."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }
