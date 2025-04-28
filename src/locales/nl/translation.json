@@ -179,7 +179,7 @@
         "noComponentsCurrentTime": "U moet minstens één argument opgeven om te wijzigen. Als u de huidige tijd nodig hebt, gebruikt u `/{{atCommand}}` zonder argumenten op te geven",
         "noComponentsUnix": "U moet minstens één argument opgeven om te wijzigen. Als u de syntaxis voor een UNIX-tijdstempel wilt krijgen, gebruik dan `/{{unixCommand}}`",
         "timezoneNotFound": "De opgegeven tijdzone kan niet worden gevonden",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "Er is een onverwachte fout opgetreden bij het verwerken van deze interactie"
       },
       "options": {
         "format": {
@@ -218,7 +218,7 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Selecteer hieronder een formaat om het in een losstaand antwoord te ontvangen (makkelijker kopiëren op touchscreen apparaten)"
       }
     },
     "statistics": {
