@@ -179,7 +179,7 @@
         "noComponentsCurrentTime": "Değiştirmek için en az bir zaman bileşeni belirtmelisiniz. Geçerli saate ihtiyacınız varsa, herhangi bir argüman belirtmeden `/{{atCommand}}` kullanın",
         "noComponentsUnix": "Değiştirmek için en az bir zaman bileşeni belirtmelisiniz. UNIX zaman damgası için sözdizimini almak istiyorsanız, `/{{unixCommand}}`",
         "timezoneNotFound": "Belirtilen saat dilimi bulunamıyor",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "Bu etkileşimi işlerken beklenmeyen bir hata oluştu"
       },
       "options": {
         "format": {
@@ -218,7 +218,7 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Yanıt olarak almak için aşağıdaki biçimlerden birini seçin (mobil cihazlarda kopyalamak için)"
       }
     },
     "statistics": {
