@@ -134,6 +134,7 @@ interface CommandResponsesMap {
 
 interface ComponentsMap {
   global: [BotMessageComponentCustomId.FORMAT_SELECT],
+  [BotChatInputCommandName.SETTINGS]: ['openSettingsButton'],
 }
 
 export const enum ResponseColumnChoices {
@@ -168,7 +169,7 @@ export type CommandLocalization<CommandKey extends keyof CommandOptionsMap & key
   )
   & (
     CommandKey extends keyof ComponentsMap
-      ? { components: Record<ComponentsMap[CommandKey], string> }
+      ? { components: Record<ComponentsMap[CommandKey][number], string> }
       : { components?: undefined }
   );
 

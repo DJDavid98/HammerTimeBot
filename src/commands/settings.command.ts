@@ -1,11 +1,12 @@
 import { BotChatInputCommand } from '../types/bot-interaction.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
-import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
+import { ApplicationCommandType, ButtonStyle, ComponentType, MessageFlags } from 'discord-api-types/v10';
 import { env } from '../env.js';
 import { EmojiCharacters } from '../constants/emoji-characters.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
 import { apiRequest } from '../utils/backend.js';
 import typia from 'typia';
+import { APIMessageTopLevelComponent } from 'discord-api-types/payloads/v10/channel.js';
 
 interface LoginLinkResponse {
   loginUrl: string;
@@ -19,7 +20,8 @@ export const settingsCommand: BotChatInputCommand = {
     ...getLocalizedObject('name', (lng) => t('commands.settings.name', { lng })),
   }),
   async handle(interaction, context) {
-    await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+    const messageFlags = MessageFlags.Ephemeral | MessageFlags.IsComponentsV2;
+    await interaction.deferReply({ flags: messageFlags });
     const { t } = context;
     const { locale, user } = interaction;
 
@@ -39,19 +41,45 @@ export const settingsCommand: BotChatInputCommand = {
     });
     if (!validation.success) {
       await interaction.editReply({
-        content: `${EmojiCharacters.WARNING_SIGN} ${t('commands.settings.responses.failedToCreateLink', {
-          loginUrl,
-          settingsUrl,
-        })}`,
+        flags: messageFlags,
+        components: [
+          {
+            type: ComponentType.TextDisplay,
+            content: `${EmojiCharacters.WARNING_SIGN} ${t('commands.settings.responses.failedToCreateLink', {
+              loginUrl,
+              settingsUrl,
+            })}`,
+          },
+        ],
       });
       return;
     }
 
     const magicLink = response.loginUrl;
-    const expiresAt = new MessageTimestamp(new Date(response.expiresAt * 1e3)).toString(MessageTimestampFormat.RELATIVE);
+    const expiresAt = MessageTimestamp.fromTimestamp(response.expiresAt, MessageTimestampFormat.RELATIVE);
+
+    const contentLines = t('commands.settings.responses.linkCreated', { expiresAt, magicLink, loginUrl, settingsUrl }).split(/\n/g);
 
     await interaction.editReply({
-      content: t('commands.settings.responses.linkCreated', { expiresAt, magicLink, loginUrl, settingsUrl }),
+      flags: messageFlags,
+      components: contentLines.map((line): APIMessageTopLevelComponent => (
+        line.includes(magicLink)
+          ? {
+            type: ComponentType.ActionRow,
+            components: [
+              {
+                type: ComponentType.Button,
+                url: magicLink,
+                label: t('commands.settings.components.openSettingsButton'),
+                style: ButtonStyle.Link,
+              },
+            ],
+          }
+          : {
+            type: ComponentType.TextDisplay,
+            content: line,
+          }
+      )),
     });
   },
 };
