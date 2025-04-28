@@ -289,7 +289,10 @@
         "linkCreated": "Ayarlarınızı değiştirmek ve otomatik olarak botun sitesinde oturum açmak için lütfen aşağıdaki linki ziyaret edin.\n<{{magicLink}}>\nBu link {{expiresAt}} 'te geçerliliğini yitirecek ama bu komutu her zaman yeni bir link oluşturmak için çalıştırabilirsin, ya da <{{loginUrl}}> 'i ziyaret ederek manuel olarak oturum açın, sonra da <{{settingsUrl}}> ile ayarlarınızı değiştirin.",
         "failedToCreateLink": "Oturum açabilmeniz için bir link oluşturulamadı, lütfen <{{loginUrl}}> 'i ziyaret ederek manuel oturum açın, sonra <{{settingsUrl}}> 'e giderek ayarlarınızı değiştirin."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }
