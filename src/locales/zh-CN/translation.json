@@ -192,7 +192,8 @@
             "T": "长时间",
             "f": "日期与时间",
             "F": "星期几，日期与时间",
-            "R": "相对"
+            "R": "相对",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "（这些数据由 {{shardId}} 号分机生成。）",
         "noShards": "（本机器人当前未使用分机。）",
         "serverInvite": "客服 Discord 服务器：",
-        "totalUserCount": "已加入的服务器总计的用户数："
+        "totalUserCount": "已加入的服务器总计的用户数：",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
