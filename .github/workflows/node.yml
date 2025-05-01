@@ -2,6 +2,14 @@ name: Build
 
 on: [ push, pull_request ]
 
+env:
+  DISCORD_BOT_TOKEN: MOCK_DISCORD_BOT_TOKEN
+  DISCORD_CLIENT_ID: MOCK_DISCORD_CLIENT_ID
+  UA_STRING: MOCK_UA_STRING
+  DISCORD_INVITE_URL: MOCK_DISCORD_INVITE_URL
+  API_URL: MOCK_API_URL
+  API_TOKEN: MOCK_API_TOKEN
+
 jobs:
   lint-and-test:
     name: 'Building, Linting and Unit Tests'
