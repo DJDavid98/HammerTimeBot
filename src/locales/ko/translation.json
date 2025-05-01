@@ -192,7 +192,8 @@
             "T": "긴 시간",
             "f": "날짜 및 시간",
             "F": "평일, 날짜 그리고 시간",
-            "R": "상대적"
+            "R": "상대적",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "답장으로 받을 형식을 선택하세요(터치 기기의 복사를 위함)"
+        "replyWithSpecificFormat": "답장으로 받을 형식을 선택하세요(터치 기기의 복사를 위함)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(이 통계들은 {{shardId}}번 shard가 생생하였습니다)",
         "noShards": "(이 봇은 현재 shard를 사용하고 있지 않습니다)",
         "serverInvite": "지원 서버 링크:",
-        "totalUserCount": "참가한 서버의 사용자 합계:"
+        "totalUserCount": "참가한 서버의 사용자 합계:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
