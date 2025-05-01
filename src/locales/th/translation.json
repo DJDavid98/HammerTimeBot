@@ -192,7 +192,8 @@
             "T": "ระยะเวลารูปแบบยาว",
             "f": "วันและเวลา",
             "F": "วันธรรมดา วันที่และเวลา",
-            "R": "อิงเวลา"
+            "R": "อิงเวลา",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(สถิติเหล่านี้สร้างขึ้นโดย Shard ไอดี #{{shardId}})",
         "noShards": "(บอทไม่ได้ใช้งาน Sharding)",
         "serverInvite": "ลิ้งค์เซิร์ฟเวอร์สำหรับช่วยเหลือ:",
-        "totalUserCount": "จำนวนคนที่อยู่ในเซิร์ฟเวอร์ที่บอทอยู่:"
+        "totalUserCount": "จำนวนคนที่อยู่ในเซิร์ฟเวอร์ที่บอทอยู่:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
