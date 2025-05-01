@@ -179,7 +179,7 @@
         "noComponentsCurrentTime": "Devi specificare almeno un componente da cambiare. Se hai bisogno dell'orario corrente use `/{{atCommand}}` senza specificare nessun parametro",
         "noComponentsUnix": "Devi specificare almeno un componente da cambiare. Se vuoi ottenere la sintassi per lo UNIX timestamp, usa`/{{unixCommand}}`",
         "timezoneNotFound": "Impossibile trovare il fuso orario specificato",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "Si è verificato un errore imprevisto durante l'elaborazione di questa interazione"
       },
       "options": {
         "format": {
@@ -218,7 +218,7 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Selezioni un formato qui sotto per riceverlo in una risposta (per la copia su dispositivi touch)"
       }
     },
     "statistics": {
@@ -291,7 +291,7 @@
       },
       "options": {},
       "components": {
-        "openSettingsButton": "Bot Settings"
+        "openSettingsButton": "Impostazioni del Bot"
       }
     }
   }
