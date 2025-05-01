@@ -1,9 +1,35 @@
-import { RESTGetAPICurrentUserGuildsResult, Routes } from 'discord-api-types/v10';
+import {
+  RESTGetAPICurrentUserGuildsResult,
+  RESTPutAPIApplicationCommandsResult,
+  RESTPutAPIApplicationGuildCommandsResult,
+  Routes,
+} from 'discord-api-types/v10';
 import { Snowflake } from 'discord-api-types/globals';
 import { TFunction } from 'i18next';
 import { env } from '../env.js';
 import { getApplicationCommands } from './get-application-commands.js';
 import { rest } from './rest.js';
+import { apiRequest } from './backend.js';
+import typia from 'typia';
+
+export const updateBotCommandsInApi = async (result: RESTPutAPIApplicationGuildCommandsResult | RESTPutAPIApplicationCommandsResult | undefined): Promise<void> => {
+  if (!result) return;
+
+  console.log('Sending bot commands to the API…');
+  try {
+    await apiRequest({
+      path: '/bot-commands',
+      method: 'PUT',
+      validator: typia.createValidate<unknown>(),
+      body: result,
+    });
+
+    console.log('Successfully sent bot commands to the API');
+  } catch (error) {
+    console.log('Failed to send bot commands to the API');
+    console.warn(error);
+  }
+};
 
 export const getAuthorizedServers = async (): Promise<string[]> => {
   console.log('Getting authorized servers…');
@@ -16,13 +42,14 @@ export const getAuthorizedServers = async (): Promise<string[]> => {
 
 export const updateGuildCommands = async (guildId: Snowflake, t: TFunction): Promise<void> => {
   const guildIdString = `guildId:${guildId}`;
+  let result: RESTPutAPIApplicationGuildCommandsResult | undefined;
   try {
     console.log(`Started reloading guild (/) commands (${guildIdString})`);
 
-    await rest.put(
+    result = await rest.put(
       Routes.applicationGuildCommands(env.DISCORD_CLIENT_ID, guildId),
       { body: getApplicationCommands(t) },
-    );
+    ) as RESTPutAPIApplicationGuildCommandsResult;
 
     console.log(`Successfully reloaded guild (/) commands (${guildIdString})`);
   } catch (error) {
@@ -30,6 +57,8 @@ export const updateGuildCommands = async (guildId: Snowflake, t: TFunction): Pro
     console.error(error);
     process.exit(1);
   }
+
+  await updateBotCommandsInApi(result);
 };
 
 export const cleanGuildCommands = async (guildId: Snowflake): Promise<void> => {
@@ -51,13 +80,14 @@ export const cleanGuildCommands = async (guildId: Snowflake): Promise<void> => {
 };
 
 export const updateGlobalCommands = async (t: TFunction): Promise<void> => {
+  let result: RESTPutAPIApplicationCommandsResult | undefined;
   try {
     console.log('Started refreshing application (/) commands');
 
-    await rest.put(
+    result = await rest.put(
       Routes.applicationCommands(env.DISCORD_CLIENT_ID),
       { body: getApplicationCommands(t) },
-    );
+    ) as RESTPutAPIApplicationCommandsResult;
 
     console.log('Successfully reloaded application (/) commands');
   } catch (error) {
@@ -65,6 +95,8 @@ export const updateGlobalCommands = async (t: TFunction): Promise<void> => {
     console.error(error);
     process.exit(1);
   }
+
+  await updateBotCommandsInApi(result);
 };
 
 export const cleanGlobalCommands = async (): Promise<void> => {
