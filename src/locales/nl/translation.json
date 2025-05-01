@@ -192,7 +192,8 @@
             "T": "uren, minuten en seconden",
             "f": "datum en tijd",
             "F": "dag, datum en tijd",
-            "R": "relatief"
+            "R": "relatief",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Selecteer hieronder een formaat om het in een losstaand antwoord te ontvangen (makkelijker kopiëren op touchscreen apparaten)"
+        "replyWithSpecificFormat": "Selecteer hieronder een formaat om het in een losstaand antwoord te ontvangen (makkelijker kopiëren op touchscreen apparaten)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(Deze statistieken zijn gegenereerd door shard #{{shardId}})",
         "noShards": "(De bot maakt momenteel geen gebruik van sharding)",
         "serverInvite": "Support server uitnodiging:",
-        "totalUserCount": "Totaal aantal gebruikers in gejoinde servers:"
+        "totalUserCount": "Totaal aantal gebruikers in gejoinde servers:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
