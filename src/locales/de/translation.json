@@ -193,7 +193,7 @@
             "f": "Datum und Uhrzeit",
             "F": "Wochentag, Datum und Uhrzeit",
             "R": "relativ",
-            "all": "all (default)"
+            "all": "Alle (Standard)"
           }
         },
         "columns": {
@@ -220,8 +220,8 @@
       },
       "components": {
         "replyWithSpecificFormat": "Wähle unten ein Format aus, um es in einer Antwort zu erhalten (zum Kopieren auf Touch-Geräten)",
-        "incompleteTranslations": "Translations are incomplete",
-        "contributeTranslations": "Contribute"
+        "incompleteTranslations": "Übersetzungen sind unvollständig",
+        "contributeTranslations": "Mitwirken"
       }
     },
     "statistics": {
@@ -237,8 +237,8 @@
         "noShards": "(Der Bot verwendet derzeit kein Sharding)",
         "serverInvite": "Einladungs-URL des Support-Servers:",
         "totalUserCount": "Gesamtzahl der Mitglieder auf verbundenen Servern:",
-        "supportedLanguages": "Supported languages:",
-        "crowdinProject": "Crowdin project URL:"
+        "supportedLanguages": "Unterstützte Sprachen:",
+        "crowdinProject": "Crowdin Projekt URL:"
       }
     },
     "snowflake": {
@@ -296,7 +296,7 @@
       },
       "options": {},
       "components": {
-        "openSettingsButton": "Bot Settings"
+        "openSettingsButton": "Bot Einstellungen"
       }
     }
   }
