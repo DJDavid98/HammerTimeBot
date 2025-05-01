@@ -192,7 +192,8 @@
             "T": "uzun zaman",
             "f": "tarih ve zaman",
             "F": "haftanın günü, tarih ve saat",
-            "R": "göreceli"
+            "R": "göreceli",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Yanıt olarak almak için aşağıdaki biçimlerden birini seçin (mobil cihazlarda kopyalamak için)"
+        "replyWithSpecificFormat": "Yanıt olarak almak için aşağıdaki biçimlerden birini seçin (mobil cihazlarda kopyalamak için)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(Bu istatistikler shard #{{shardId}} tarafından oluşturulmuştur)",
         "noShards": "(Bot şu anda parçalama methodunu kullanmıyor)",
         "serverInvite": "Destek sunucusu davet URL'si:",
-        "totalUserCount": "Botun hizmet verdiği toplam kişi sayısı:"
+        "totalUserCount": "Botun hizmet verdiği toplam kişi sayısı:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
