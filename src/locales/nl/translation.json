@@ -179,7 +179,7 @@
         "noComponentsCurrentTime": "U moet minstens één argument opgeven om te wijzigen. Als u de huidige tijd nodig hebt, gebruikt u `/{{atCommand}}` zonder argumenten op te geven",
         "noComponentsUnix": "U moet minstens één argument opgeven om te wijzigen. Als u de syntaxis voor een UNIX-tijdstempel wilt krijgen, gebruik dan `/{{unixCommand}}`",
         "timezoneNotFound": "De opgegeven tijdzone kan niet worden gevonden",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "Er is een onverwachte fout opgetreden bij het verwerken van deze interactie"
       },
       "options": {
         "format": {
@@ -192,7 +192,8 @@
             "T": "uren, minuten en seconden",
             "f": "datum en tijd",
             "F": "dag, datum en tijd",
-            "R": "relatief"
+            "R": "relatief",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Selecteer hieronder een formaat om het in een losstaand antwoord te ontvangen (makkelijker kopiëren op touchscreen apparaten)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(Deze statistieken zijn gegenereerd door shard #{{shardId}})",
         "noShards": "(De bot maakt momenteel geen gebruik van sharding)",
         "serverInvite": "Support server uitnodiging:",
-        "totalUserCount": "Totaal aantal gebruikers in gejoinde servers:"
+        "totalUserCount": "Totaal aantal gebruikers in gejoinde servers:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
@@ -289,7 +294,10 @@
         "linkCreated": "Bezoek de onderstaande link om automatisch ingelogd te worden op de website van de bot om uw instellingen te wijzigen.\n<{{magicLink}}>\nDeze link zal verlopen {{expiresAt}} maar u kunt altijd dit commando opnieuw uitvoeren om een nieuwe link te genereren. Of bezoek <{{loginUrl}}> om handmatig in te loggen en ga dan naar <{{settingsUrl}}> om uw instellingen te wijzigen.",
         "failedToCreateLink": "Er kon geen link geneerd worden om u automatisch aan te melden, bezoek <{{loginUrl}}> en log handmatig in, ga vervolgens naar <{{settingsUrl}}> om uw instellingen te wijzigen."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }

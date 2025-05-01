@@ -179,7 +179,7 @@
         "noComponentsCurrentTime": "Değiştirmek için en az bir zaman bileşeni belirtmelisiniz. Geçerli saate ihtiyacınız varsa, herhangi bir argüman belirtmeden `/{{atCommand}}` kullanın",
         "noComponentsUnix": "Değiştirmek için en az bir zaman bileşeni belirtmelisiniz. UNIX zaman damgası için sözdizimini almak istiyorsanız, `/{{unixCommand}}`",
         "timezoneNotFound": "Belirtilen saat dilimi bulunamıyor",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "Bu etkileşimi işlerken beklenmeyen bir hata oluştu"
       },
       "options": {
         "format": {
@@ -192,7 +192,8 @@
             "T": "uzun zaman",
             "f": "tarih ve zaman",
             "F": "haftanın günü, tarih ve saat",
-            "R": "göreceli"
+            "R": "göreceli",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Yanıt olarak almak için aşağıdaki biçimlerden birini seçin (mobil cihazlarda kopyalamak için)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(Bu istatistikler shard #{{shardId}} tarafından oluşturulmuştur)",
         "noShards": "(Bot şu anda parçalama methodunu kullanmıyor)",
         "serverInvite": "Destek sunucusu davet URL'si:",
-        "totalUserCount": "Botun hizmet verdiği toplam kişi sayısı:"
+        "totalUserCount": "Botun hizmet verdiği toplam kişi sayısı:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
@@ -289,7 +294,10 @@
         "linkCreated": "Ayarlarınızı değiştirmek ve otomatik olarak botun sitesinde oturum açmak için lütfen aşağıdaki linki ziyaret edin.\n<{{magicLink}}>\nBu link {{expiresAt}} 'te geçerliliğini yitirecek ama bu komutu her zaman yeni bir link oluşturmak için çalıştırabilirsin, ya da <{{loginUrl}}> 'i ziyaret ederek manuel olarak oturum açın, sonra da <{{settingsUrl}}> ile ayarlarınızı değiştirin.",
         "failedToCreateLink": "Oturum açabilmeniz için bir link oluşturulamadı, lütfen <{{loginUrl}}> 'i ziyaret ederek manuel oturum açın, sonra <{{settingsUrl}}> 'e giderek ayarlarınızı değiştirin."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }

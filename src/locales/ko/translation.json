@@ -192,7 +192,8 @@
             "T": "긴 시간",
             "f": "날짜 및 시간",
             "F": "평일, 날짜 그리고 시간",
-            "R": "상대적"
+            "R": "상대적",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "답장으로 받을 형식을 선택하세요(터치 기기의 복사를 위함)"
+        "replyWithSpecificFormat": "답장으로 받을 형식을 선택하세요(터치 기기의 복사를 위함)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(이 통계들은 {{shardId}}번 shard가 생생하였습니다)",
         "noShards": "(이 봇은 현재 shard를 사용하고 있지 않습니다)",
         "serverInvite": "지원 서버 링크:",
-        "totalUserCount": "참가한 서버의 사용자 합계:"
+        "totalUserCount": "참가한 서버의 사용자 합계:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
@@ -289,7 +294,10 @@
         "linkCreated": "설정을 변경하려면 아래 링크를 방문해 봇 웹사이트에 자동으로 로그인하세요.\n<{{magicLink}}>\n이 링크는 {{expiresAt}} 에 만료되지만 언제든지 이 명령을 실행하여 새 링크를 생성하거나 <{{loginUrl}}>을 방문해 수동으로 로그인한 다음 <{{settingsUrl}}>(으)로 이동하여 설정을 변경할 수 있습니다.",
         "failedToCreateLink": "자동 로그인 링크를 생성할 수 없습니다. <{{loginUrl}}>(으)로 이동해 수동으로 로그인한 후 <{{settingsUrl}}>(으)로 이동해 설정을 변경하세요."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }

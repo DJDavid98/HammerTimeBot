@@ -192,7 +192,8 @@
             "T": "lang tid",
             "f": "dato og klokkeslett",
             "F": "hverdag, dato og klokkeslett",
-            "R": "relativ"
+            "R": "relativ",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(Disse statistikkene ble generert av skjær #{{shardId}})",
         "noShards": "(Boten bruker for øyeblikket ikke skjær)",
         "serverInvite": "URL for invitasjon til support server:",
-        "totalUserCount": "Totalt antall brukere på tilkoblede servere:"
+        "totalUserCount": "Totalt antall brukere på tilkoblede servere:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
@@ -289,7 +294,10 @@
         "linkCreated": "Gå til lenken nedenfor for å bli logget inn på bottens nettsted automatisk for å endre innstillingene dine.\n<{{magicLink}}>\nDenne lenken utløper {{expiresAt}}, men du kan alltid kjøre denne kommandoen for å generere en ny lenke, eller gå til <{{loginUrl}}> for å logge inn manuelt, og deretter gå til <{{settingsUrl}}> for å endre innstillingene dine.",
         "failedToCreateLink": "Kunne ikke generere en lenke for å logge deg inn automatisk, vennligst gå til <{{loginUrl}}> og logg inn manuelt, og gå deretter til <{{settingsUrl}}> for å endre innstillingene dine."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }

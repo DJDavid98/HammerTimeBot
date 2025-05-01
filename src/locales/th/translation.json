@@ -192,7 +192,8 @@
             "T": "ระยะเวลารูปแบบยาว",
             "f": "วันและเวลา",
             "F": "วันธรรมดา วันที่และเวลา",
-            "R": "อิงเวลา"
+            "R": "อิงเวลา",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(สถิติเหล่านี้สร้างขึ้นโดย Shard ไอดี #{{shardId}})",
         "noShards": "(บอทไม่ได้ใช้งาน Sharding)",
         "serverInvite": "ลิ้งค์เซิร์ฟเวอร์สำหรับช่วยเหลือ:",
-        "totalUserCount": "จำนวนคนที่อยู่ในเซิร์ฟเวอร์ที่บอทอยู่:"
+        "totalUserCount": "จำนวนคนที่อยู่ในเซิร์ฟเวอร์ที่บอทอยู่:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
@@ -289,7 +294,10 @@
         "linkCreated": "โปรดไปที่ลิงค์ด้านล่างเพื่อเข้าสู่ระบบเว็บไซต์ของบอทเพื่อเปลี่ยนการตั้งค่าของคุณโดยอัตโนมัติ\n<{{magicLink}}>\nลิงค์นี้จะหมดอายุ ณ {{expiresAt}} แต่คุณสามารถที่จะรันคำสั่งนี้เพื่อสร้างลิงค์ใหม่เสมอ หรือไปที่ลิงค์ <{{loginUrl}}> เพื่อเข้าสู่ระบบด้วยตนเอง แล้วไปที่ <{{settingsUrl}}> เพื่อเปลี่ยนการตั้งค่าของคุณ",
         "failedToCreateLink": "ไม่สามารถสร้างลิงค์เพื่อเข้าสู่ระบบอัตโนมัติได้ คุณต้องไปที่ <{{loginUrl}}> และเข้าสู่ระบบโดยตนเอง และไปที่ <{{settingsUrl}}> เพื่อเปลี่ยนการตั้งค่าของคุณ"
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }

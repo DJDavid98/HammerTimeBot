@@ -192,7 +192,8 @@
             "T": "timp lung",
             "f": "data și simpu",
             "F": "ziua săptămânii, data și ora",
-            "R": "relativ"
+            "R": "relativ",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(Aceste statistici au fost generate de către shard #{{shardId}})",
         "noShards": "(Bot-ul nu folosește în prezent sharding)",
         "serverInvite": "URL de invitație a serverului de suport:",
-        "totalUserCount": "Numărul total de utilizatori în serverele alăturate:"
+        "totalUserCount": "Numărul total de utilizatori în serverele alăturate:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
@@ -289,7 +294,10 @@
         "linkCreated": "Vă rugăm să vizitați linkul de mai jos pentru a vă autentifica automat pe site-ul bot pentru a vă schimba setările.\n<{{magicLink}}>\nAcest link va expira {{expiresAt}} dar puteți rula oricând această comandă pentru a genera un nou link, sau puteți vizita <{{loginUrl}}> pentru a vă autentifica manual, apoi mergeți la <{{settingsUrl}}> pentru a vă modifica setările.",
         "failedToCreateLink": "Nu s-a putut genera un link care să vă logheze automat, vă rugăm să vizitați <{{loginUrl}}> și conectați-vă manual, apoi mergeți la <{{settingsUrl}}> pentru a vă modifica setările."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }

@@ -192,7 +192,8 @@
             "T": "thời gian dài",
             "f": "ngày và thời gian",
             "F": "thứ trong tuần, ngày và thời gian",
-            "R": "tương đối"
+            "R": "tương đối",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(Các thống kê này được tạo bởi shard #{{shardId}})",
         "noShards": "(Bot hiện không sử dụng sharding)",
         "serverInvite": "URL mời máy chủ hỗ trợ:",
-        "totalUserCount": "Tổng số người dùng trong các máy chủ đã tham gia:"
+        "totalUserCount": "Tổng số người dùng trong các máy chủ đã tham gia:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
@@ -289,7 +294,10 @@
         "linkCreated": "Vui lòng truy cập đường dẫn dưới đây để được tự động đăng nhập vào trang web và chỉnh sửa các cài đặt.\n<{{magicLink}}>\nĐường dẫn sẽ hết hạn vào {{expiresAt}} nhưng bạn có thể chạy lại câu lệnh để tạo đường dẫn mới, hoặc truy cập <{{loginUrl}}> để đăng nhập thủ công, sau đó đi đến <{{settingsUrl}}> để thay đổi các cài đặt.",
         "failedToCreateLink": "Không thể khởi tạo đường dẫn để thực hiện đăng nhập tự động, vui lòng truy cập <{{loginUrl}}> và thực hiện đăng nhập thủ công, sau đó đi đến <{{settingsUrl}}> để thay đổi các cài đặt."
       },
-      "options": {}
+      "options": {},
+      "components": {
+        "openSettingsButton": "Bot Settings"
+      }
     }
   }
 }
