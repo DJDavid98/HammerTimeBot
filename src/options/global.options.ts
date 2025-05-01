@@ -1,7 +1,7 @@
 import { APIApplicationCommandOption, ApplicationCommandOptionType } from 'discord-api-types/v10';
 import { TFunction } from 'i18next';
 import { GlobalCommandOptionName, ResponseColumnChoices } from '../types/localization.js';
-import { MessageTimestampFormat } from '../classes/message-timestamp.js';
+import { validFormatsSet } from '../classes/message-timestamp.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 
 const getFormatOption = (t: TFunction): APIApplicationCommandOption => ({
@@ -9,36 +9,10 @@ const getFormatOption = (t: TFunction): APIApplicationCommandOption => ({
   ...getLocalizedObject('name', (lng) => t('commands.global.options.format.name', { lng }), false),
   ...getLocalizedObject('description', (lng) => t('commands.global.options.format.description', { lng })),
   type: ApplicationCommandOptionType.String,
-  choices: [
-    {
-      value: MessageTimestampFormat.SHORT_DATE,
-      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.d', { lng }), true, false),
-    },
-    {
-      value: MessageTimestampFormat.LONG_DATE,
-      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.D', { lng }), true, false),
-    },
-    {
-      value: MessageTimestampFormat.SHORT_TIME,
-      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.t', { lng }), true, false),
-    },
-    {
-      value: MessageTimestampFormat.LONG_TIME,
-      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.T', { lng }), true, false),
-    },
-    {
-      value: MessageTimestampFormat.SHORT_FULL,
-      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.f', { lng }), true, false),
-    },
-    {
-      value: MessageTimestampFormat.LONG_FULL,
-      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.F', { lng }), true, false),
-    },
-    {
-      value: MessageTimestampFormat.RELATIVE,
-      ...getLocalizedObject('name', (lng) => t('commands.global.options.format.choices.R', { lng }), true, false),
-    },
-  ],
+  choices: Array.from<string>(validFormatsSet).concat('all').map(format => ({
+    value: format,
+    ...getLocalizedObject('name', (lng) => t(`commands.global.options.format.choices.${format}`, { lng }), true, false),
+  })),
 });
 
 const getHeaderOption = (t: TFunction): APIApplicationCommandOption => ({

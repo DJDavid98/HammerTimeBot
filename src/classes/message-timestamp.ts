@@ -15,6 +15,16 @@ export enum MessageTimestampFormat {
   LONG_TIME = 'T',
 }
 
+export const validFormatsSet = new Set<MessageTimestampFormat>([
+  MessageTimestampFormat.SHORT_DATE,
+  MessageTimestampFormat.SHORT_FULL,
+  MessageTimestampFormat.SHORT_TIME,
+  MessageTimestampFormat.LONG_DATE,
+  MessageTimestampFormat.LONG_FULL,
+  MessageTimestampFormat.RELATIVE,
+  MessageTimestampFormat.LONG_TIME,
+]);
+
 export class MessageTimestamp {
   constructor(private date: Date) {
   }
@@ -32,5 +42,10 @@ export class MessageTimestamp {
 
   static fromTimestamp<F extends MessageTimestampFormat>(unixTimestamp: string | number, tsFormat?: F): `<t:${string}:${F | MessageTimestampFormat.LONG_FULL}>` {
     return `<t:${unixTimestamp}:${tsFormat || MessageTimestampFormat.LONG_FULL}>`;
+  }
+
+  static isValidFormat(input: string | null): input is MessageTimestampFormat {
+    if (typeof input !== 'string') return false;
+    return validFormatsSet.has(input as unknown as MessageTimestampFormat);
   }
 }

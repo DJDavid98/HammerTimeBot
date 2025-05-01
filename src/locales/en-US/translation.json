@@ -192,7 +192,8 @@
             "T": "long time",
             "f": "date and time",
             "F": "weekday, date and time",
-            "R": "relative"
+            "R": "relative",
+            "all": "all (default)"
           }
         },
         "columns": {

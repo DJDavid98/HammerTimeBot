@@ -1,4 +1,4 @@
-import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
+import { MessageTimestamp } from '../classes/message-timestamp.js';
 import { formattedResponse, supportedFormats } from './time.js';
 import {
   ChatInputCommandInteraction,
@@ -71,8 +71,8 @@ export const getSyntaxReplyOptions = ({
   const syntaxInteraction = mapCommandInteractionToSyntaxInteraction(interaction, settings);
 
   const ts = new MessageTimestamp(localDate);
-  const formatInput = syntaxInteraction.format;
-  const formats = (formatInput ? [formatInput as MessageTimestampFormat] : supportedFormats);
+  const formatInput = MessageTimestamp.isValidFormat(syntaxInteraction.format) ? syntaxInteraction.format : null;
+  const formats = formatInput ? [formatInput] : supportedFormats;
 
   const columns = !formatInput ? (syntaxInteraction.columns ?? ResponseColumnChoices.BOTH) : ResponseColumnChoices.PREVIEW_ONLY;
   const addHeader = !formatInput && (syntaxInteraction.header ?? true);
