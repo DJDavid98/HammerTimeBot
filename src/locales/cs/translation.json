@@ -192,7 +192,8 @@
             "T": "dlouhá doba",
             "f": "datum a čas",
             "F": "den v týdnu, datum a čas",
-            "R": "relativní"
+            "R": "relativní",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(Tyto statistiky byly vygenerovány střepem #{{shardId}})",
         "noShards": "(Bot v současné době nepoužívá štěpení na střepy)",
         "serverInvite": "Adresa URL pro pozvání na server podpory:",
-        "totalUserCount": "Celkový počet uživatelů na připojených serverech:"
+        "totalUserCount": "Celkový počet uživatelů na připojených serverech:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
