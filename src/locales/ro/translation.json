@@ -192,7 +192,8 @@
             "T": "timp lung",
             "f": "data și simpu",
             "F": "ziua săptămânii, data și ora",
-            "R": "relativ"
+            "R": "relativ",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(Aceste statistici au fost generate de către shard #{{shardId}})",
         "noShards": "(Bot-ul nu folosește în prezent sharding)",
         "serverInvite": "URL de invitație a serverului de suport:",
-        "totalUserCount": "Numărul total de utilizatori în serverele alăturate:"
+        "totalUserCount": "Numărul total de utilizatori în serverele alăturate:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
