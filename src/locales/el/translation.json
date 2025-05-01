@@ -192,7 +192,8 @@
             "T": "πλήρης ώρα",
             "f": "ημερομηνία και ώρα",
             "F": "ημέρα, ημερομηνία και ώρα",
-            "R": "σχετική"
+            "R": "σχετική",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Επιλέξτε μια μορφή κειμένου παρακάτω για να την λάβετε ως απάντηση (για αντιγραφή σε συσκευές αφής)"
+        "replyWithSpecificFormat": "Επιλέξτε μια μορφή κειμένου παρακάτω για να την λάβετε ως απάντηση (για αντιγραφή σε συσκευές αφής)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(Αυτά τα στατιστικά δημιουργήθηκαν από το τεμάχιο #{{shardId}})",
         "noShards": "(Το bot δεν χρησιμοποιεί επί του παρόντος τεμάχια)",
         "serverInvite": "Σύνδεσμος Διακομιστή Υποστήριξης:",
-        "totalUserCount": "Σύνολο χρηστών σε συνδεδεμένους διακομιστές:"
+        "totalUserCount": "Σύνολο χρηστών σε συνδεδεμένους διακομιστές:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
