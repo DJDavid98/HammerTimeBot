@@ -1,6 +1,7 @@
 import { getExactTimePrefix } from './get-exact-time-prefix.js';
 import moment from 'moment-timezone';
 import { EmojiCharacters } from '../constants/emoji-characters.js';
+import { describe, expect, it } from 'vitest';
 
 describe('getExactTimePrefix', () => {
   it('should format the input correctly', () => {

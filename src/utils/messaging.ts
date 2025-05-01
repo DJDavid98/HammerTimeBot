@@ -5,6 +5,8 @@ import {
   ChatInputCommandInteraction,
   CommandInteraction,
   CommandInteractionOption,
+  Embed,
+  TopLevelComponent,
   User,
 } from 'discord.js';
 import { GlobalCommandOptionName } from '../types/localization.js';
@@ -138,3 +140,43 @@ export const handleTimezoneAutocomplete = async (interaction: AutocompleteIntera
 
   await interaction.respond(tzNames.slice(0, 25).map(name => ({ name, value: name })));
 };
+
+export type EmbedTextData = Partial<Pick<Embed, 'title' | 'description' | 'footer' | 'fields'>>;
+
+export const findEmbedsTextFields = (embeds: EmbedTextData[]) =>
+  embeds.reduce((acc, embed) => {
+    if (embed.title) {
+      acc.push(embed.title);
+    }
+    if (embed.description) {
+      acc.push(embed.description);
+    }
+    if (embed.footer?.text) {
+      acc.push(embed.footer.text);
+    }
+    if (embed.fields) {
+      embed.fields.forEach(field => {
+        if (field.name) {
+          acc.push(field.name);
+        }
+        if (field.value) {
+          acc.push(field.value);
+        }
+      });
+    }
+    return acc;
+  }, [] as string[]);
+
+export const findTextComponentContentsRecursively = (components: TopLevelComponent[]): string[] =>
+  components.reduce((contents, component) => {
+    if ('content' in component) {
+      contents.push(component.content);
+    }
+    if ('components' in component) {
+      return [
+        ...contents,
+        ...findTextComponentContentsRecursively(component.components as TopLevelComponent[]),
+      ];
+    }
+    return contents;
+  }, [] as string[]);

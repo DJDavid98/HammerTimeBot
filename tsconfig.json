@@ -9,6 +9,7 @@
     "incremental": true,
     "tsBuildInfoFile": "./build/.tsbuildinfo",
     "moduleResolution": "Node",
+    "esModuleInterop": true,
     "resolveJsonModule": true,
     "outDir": "build",
     "rootDir": ".",
@@ -22,13 +23,14 @@
         "transform": "typia/lib/transform"
       }
     ],
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "rollup/parseAst": ["./node_modules/rollup/dist/parseAst"]
+    }
   },
   "include": [
     "src/**/*.ts",
     "utils/**/*.ts"
-  ],
-  "exclude": [
-    "tests"
   ]
 }

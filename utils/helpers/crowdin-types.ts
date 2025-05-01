@@ -1,3 +1,4 @@
+// @ts-ignore Jest tests
 import reportDataJson from '../../src/locales/crowdin.json' with {type: 'json'};
 
 export interface ReportUserData {

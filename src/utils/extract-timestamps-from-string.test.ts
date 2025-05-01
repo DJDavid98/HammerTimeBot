@@ -1,4 +1,5 @@
 import { extractTimestampsFromStrings } from './extract-timestamps-from-strings.js';
+import { describe, expect, it } from 'vitest';
 
 describe('extractTimestampsFromString', () => {
   const mockFullTimestamp = '<t:0:F>';

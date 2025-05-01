@@ -1,4 +1,5 @@
 import { pad, PadDirection } from './numbers.js';
+import { describe, expect, it } from 'vitest';
 
 describe('pad', () => {
   it('should pad from the left by default', () => {

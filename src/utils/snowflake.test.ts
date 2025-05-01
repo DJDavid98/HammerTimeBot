@@ -1,5 +1,6 @@
 import snowflakeToUnix from './snowflake.js';
 import { SnowflakeError } from '../classes/snowflake-error.js';
+import { describe, expect, it } from 'vitest';
 
 describe('snowflakeToUnix', () => {
   it('should convert a snowflake to a unix timestamp', () => {

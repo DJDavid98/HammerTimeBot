@@ -1,4 +1,4 @@
-import { CrowdinLanguage } from './crowdin-api-types';
+import { CrowdinLanguage } from './crowdin-api-types.js';
 import { Locale } from 'discord-api-types/rest/common.js';
 import { isAvailableLanguage } from '../../src/constants/language-config.js';
 

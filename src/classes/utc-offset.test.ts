@@ -1,4 +1,5 @@
 import { UtcOffset } from './utc-offset';
+import { describe, expect, it } from 'vitest';
 
 describe('UtcOffset', () => {
   describe('totalMinutes', () => {

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`time utils formattedResponse should return all supported formats 1`] = `
+exports[`time utils > formattedResponse > should return all supported formats 1`] = `
 "\`<t:1650802953:d>\` → **<t:1650802953:d>**
 \`<t:1650802953:f>\` → **<t:1650802953:f>**
 \`<t:1650802953:t>\` → **<t:1650802953:t>**
@@ -10,7 +10,7 @@ exports[`time utils formattedResponse should return all supported formats 1`] = 
 \`<t:1650802953:T>\` → **<t:1650802953:T>**"
 `;
 
-exports[`time utils formattedResponse should return all supported formats without bold formatting 1`] = `
+exports[`time utils > formattedResponse > should return all supported formats without bold formatting 1`] = `
 "\`<t:1650802953:d>\` → <t:1650802953:d>
 \`<t:1650802953:f>\` → <t:1650802953:f>
 \`<t:1650802953:t>\` → <t:1650802953:t>
@@ -20,7 +20,7 @@ exports[`time utils formattedResponse should return all supported formats withou
 \`<t:1650802953:T>\` → <t:1650802953:T>"
 `;
 
-exports[`time utils formattedResponse should return only previews 1`] = `
+exports[`time utils > formattedResponse > should return only previews 1`] = `
 "**<t:1650802953:d>**
 **<t:1650802953:f>**
 **<t:1650802953:t>**
@@ -30,7 +30,7 @@ exports[`time utils formattedResponse should return only previews 1`] = `
 **<t:1650802953:T>**"
 `;
 
-exports[`time utils formattedResponse should return only previews without bold formatting 1`] = `
+exports[`time utils > formattedResponse > should return only previews without bold formatting 1`] = `
 "<t:1650802953:d>
 <t:1650802953:f>
 <t:1650802953:t>
@@ -40,9 +40,9 @@ exports[`time utils formattedResponse should return only previews without bold f
 <t:1650802953:T>"
 `;
 
-exports[`time utils formattedResponse should return only requested format 1`] = `"\`<t:1650802953:R>\` → **<t:1650802953:R>**"`;
+exports[`time utils > formattedResponse > should return only requested format 1`] = `"\`<t:1650802953:R>\` → **<t:1650802953:R>**"`;
 
-exports[`time utils formattedResponse should return only syntaxes 1`] = `
+exports[`time utils > formattedResponse > should return only syntaxes 1`] = `
 "\`<t:1650802953:d>\`
 \`<t:1650802953:f>\`
 \`<t:1650802953:t>\`
@@ -52,6 +52,6 @@ exports[`time utils formattedResponse should return only syntaxes 1`] = `
 \`<t:1650802953:T>\`"
 `;
 
-exports[`time utils formattedResponse should return preview only in requested format 1`] = `"**<t:1650802953:R>**"`;
+exports[`time utils > formattedResponse > should return preview only in requested format 1`] = `"**<t:1650802953:R>**"`;
 
-exports[`time utils formattedResponse should return preview only in requested format without bold formatting 1`] = `"<t:1650802953:R>"`;
+exports[`time utils > formattedResponse > should return preview only in requested format without bold formatting 1`] = `"<t:1650802953:R>"`;

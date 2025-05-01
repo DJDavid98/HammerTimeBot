@@ -5,6 +5,7 @@ import { extractTimestampsFromStrings } from '../utils/extract-timestamps-from-s
 import { RESPONSE_FORMATTERS } from '../utils/time.js';
 import { ResponseColumnChoices } from '../types/localization.js';
 import { interactionReply } from '../utils/interaction-reply.js';
+import { findEmbedsTextFields, findTextComponentContentsRecursively } from '../utils/messaging.js';
 
 export const extractTimestampsCommand: BotMessageContextMenuCommand = {
   getDefinition: (t) => ({
@@ -17,28 +18,8 @@ export const extractTimestampsCommand: BotMessageContextMenuCommand = {
 
     const timestamps = extractTimestampsFromStrings([
       interaction.targetMessage.content,
-      ...interaction.targetMessage.embeds.reduce((acc, embed) => {
-        if (embed.title) {
-          acc.push(embed.title);
-        }
-        if (embed.description) {
-          acc.push(embed.description);
-        }
-        if (embed.footer?.text) {
-          acc.push(embed.footer.text);
-        }
-        if (embed.fields) {
-          embed.fields.forEach(field => {
-            if (field.name) {
-              acc.push(field.name);
-            }
-            if (field.value) {
-              acc.push(field.value);
-            }
-          });
-        }
-        return acc;
-      }, [] as string[]),
+      ...findTextComponentContentsRecursively(interaction.targetMessage.components),
+      ...findEmbedsTextFields(interaction.targetMessage.embeds),
     ]);
     if (timestamps.length === 0) {
       await interactionReply(t, interaction, {

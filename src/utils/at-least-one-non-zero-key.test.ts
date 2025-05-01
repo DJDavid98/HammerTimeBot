@@ -1,4 +1,5 @@
 import { atLeastOneNonZeroKey } from './at-least-one-non-zero-key.js';
+import { describe, expect, it } from 'vitest';
 
 describe('atLeastOneNonzeroKey', () => {
   it('should return true when all keys have a nonzero value', () => {

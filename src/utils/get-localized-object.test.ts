@@ -6,6 +6,7 @@ import {
   TranslatorFunction,
 } from './get-localized-object.js';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from '../constants/locales.js';
+import { describe, expect, it } from 'vitest';
 
 describe('getLocalizedObject', () => {
   const mockTranslator: TranslatorFunction = (lng) => `mock.key.${lng}`;
