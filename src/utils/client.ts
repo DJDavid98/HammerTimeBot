@@ -14,6 +14,11 @@ import {
   updateGuildCommands,
 } from './update-guild-commands.js';
 import { InteractionHandlerContext } from '../types/bot-interaction.js';
+import { getProcessStartTs } from './get-process-start-ts.js';
+import { apiRequest } from './backend.js';
+import typia from 'typia';
+
+const ONE_HOUR_MS = 60 * 60 * 1e3;
 
 const updateCommands = async (i18next: i18n) => {
   const t = i18next.t.bind(i18next);
@@ -27,6 +32,32 @@ const updateCommands = async (i18next: i18n) => {
   }
 };
 
+const updateShardStats = async (client: Client, shardId: number) => {
+  const serverCount = client.guilds.cache.size;
+  const memberCount = client.guilds.cache.reduce((members, guild) => {
+    if (members === null) return null;
+    const count = guild.approximateMemberCount ?? guild.memberCount;
+    return typeof count === 'number' && !isNaN(count) ? members + count : null;
+  }, 0 as number | null);
+  const startedAt = getProcessStartTs().toISOString();
+
+  const body = {
+    id: shardId,
+    server_count: serverCount,
+    member_count: memberCount,
+    started_at: startedAt,
+  };
+  console.debug(`Shard ${shardId} statistics collected:`, body);
+  await apiRequest({
+    path: '/shard-statistics',
+    method: 'POST',
+    body,
+    validator: typia.createValidate<Record<string, unknown>>(),
+    failOnInvalidResponse: false,
+  });
+  console.log(`Successfully updated shard ${shardId} statistics`);
+};
+
 const handleReady = (i18next: i18n) => async (client: Client<true>) => {
   const clientUser = client.user;
   if (!clientUser) throw new Error('Expected `client.user` to be defined');
@@ -37,7 +68,8 @@ const handleReady = (i18next: i18n) => async (client: Client<true>) => {
     .catch(() => 'an unknown version');
   clientUser.setActivity(versionString);
 
-  const shardIds = client.shard?.ids;
+  const shardUtils = client.shard;
+  const shardIds = shardUtils?.ids;
   if (shardIds) {
     console.log(`Hello from shard ${shardIds.join(', ')}!`);
 
@@ -46,6 +78,25 @@ const handleReady = (i18next: i18n) => async (client: Client<true>) => {
       await updateCommands(i18next);
     }
   }
+
+  const statsUpdate = async () => {
+    const currentShardIds = client.shard?.ids ?? [];
+    if (currentShardIds.length === 0) return;
+
+    try {
+      await Promise.all(currentShardIds.map(async (shardId) => {
+        console.log(`Shard ${shardId} is updating statistics`);
+        await updateShardStats(client, shardId);
+      }));
+    } catch (e) {
+      console.error('Failed to update shard statistics:');
+      console.error(e);
+    }
+  };
+  await statsUpdate();
+  setInterval(() => {
+    void statsUpdate();
+  }, ONE_HOUR_MS);
 };
 
 export const createClient = async (context: InteractionHandlerContext): Promise<void> => {

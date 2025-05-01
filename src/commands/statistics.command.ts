@@ -7,6 +7,7 @@ import { env } from '../env.js';
 import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
 import { CROWDIN_PROJECT_URL, SUPPORTED_LANGUAGES } from '../constants/locales.js';
+import { getProcessStartTs } from '../utils/get-process-start-ts.js';
 
 export const statisticsCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -22,8 +23,7 @@ export const statisticsCommand: BotChatInputCommand = {
 
     const { t } = context;
     const { shard } = interaction.client;
-    const uptimeInMilliseconds = Math.round(process.uptime() * 1000);
-    const shardStartTs = new MessageTimestamp(new Date(Date.now() - uptimeInMilliseconds));
+    const shardStartTs = new MessageTimestamp(getProcessStartTs());
     const numberFormatter = getBareNumberFormatter(interaction);
 
     const shardServerCount = shard ? `**${t('commands.statistics.responses.shardServerCount')}** ${numberFormatter.format(interaction.client.guilds.cache.size)}` : null;
