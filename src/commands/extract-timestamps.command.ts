@@ -1,9 +1,10 @@
 import { BotMessageContextMenuCommand } from '../types/bot-interaction.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
-import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
+import { ApplicationCommandType, ComponentType, MessageFlags } from 'discord-api-types/v10';
 import { extractTimestampsFromStrings } from '../utils/extract-timestamps-from-strings.js';
 import { RESPONSE_FORMATTERS } from '../utils/time.js';
 import { ResponseColumnChoices } from '../types/localization.js';
+import { interactionReply } from '../utils/interaction-reply.js';
 
 export const extractTimestampsCommand: BotMessageContextMenuCommand = {
   getDefinition: (t) => ({
@@ -40,16 +41,26 @@ export const extractTimestampsCommand: BotMessageContextMenuCommand = {
       }, [] as string[]),
     ]);
     if (timestamps.length === 0) {
-      await interaction.reply({
-        content: contentPrefix + t('commands.Extract Timestamps.responses.noTimestamps'),
-        flags: MessageFlags.Ephemeral,
+      await interactionReply(t, interaction, {
+        flags: MessageFlags.Ephemeral | MessageFlags.IsComponentsV2,
+        components: [
+          {
+            type: ComponentType.TextDisplay,
+            content: contentPrefix + t('commands.Extract Timestamps.responses.noTimestamps'),
+          },
+        ],
       });
       return;
     }
 
-    await interaction.reply({
-      content: contentPrefix + timestamps.map(ts => `• ${RESPONSE_FORMATTERS[ResponseColumnChoices.BOTH](ts)}`).join('\n'),
-      flags: MessageFlags.Ephemeral,
+    await interactionReply(t, interaction, {
+      flags: MessageFlags.Ephemeral | MessageFlags.IsComponentsV2,
+      components: [
+        {
+          type: ComponentType.TextDisplay,
+          content: contentPrefix + timestamps.map(ts => `* ${RESPONSE_FORMATTERS[ResponseColumnChoices.BOTH](ts)}`).join('\n'),
+        },
+      ],
     });
   },
 };

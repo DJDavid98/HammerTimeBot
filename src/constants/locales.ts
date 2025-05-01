@@ -2,11 +2,12 @@ import { join } from 'path';
 import i18next, { i18n } from 'i18next';
 import Backend from 'i18next-fs-backend';
 import { env } from '../env.js';
-import { Locale, LocaleString } from 'discord-api-types/v10';
+import { Locale } from 'discord-api-types/v10';
 
 // Type-safe language constants
-export const SUPPORTED_LANGUAGES = Object.values(Locale) as LocaleString[];
+export const SUPPORTED_LANGUAGES = Object.values(Locale) as Locale[];
 export const DEFAULT_LANGUAGE = Locale.EnglishUS;
+export const CROWDIN_PROJECT_URL = `https://crowdin.com/project/${env.CROWDIN_PROJECT_IDENTIFIER}`;
 
 const localesPath = join('.', 'src', 'locales');
 

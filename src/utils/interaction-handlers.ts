@@ -27,6 +27,7 @@ import { getSettings } from './settings.js';
 import { InteractionHandlerContext } from '../types/bot-interaction.js';
 import { TFunction } from 'i18next';
 import { isKnownMessageComponentInteraction, messageComponentMap } from './interactions/message-components.js';
+import { interactionReply } from './interaction-reply.js';
 
 const ellipsis = '…';
 
@@ -44,7 +45,7 @@ const handleInteractionError = async (interaction: ChatInputCommandInteraction |
   }
 
   if (!interaction.replied) {
-    await interaction.reply({
+    await interactionReply(t, interaction, {
       content: processingErrorMessageFactory(t),
       flags: MessageFlags.Ephemeral,
     });
@@ -91,22 +92,22 @@ export const handleContextMenuInteraction = async (interaction: MessageContextMe
   i18next,
   ...context
 }: InteractionHandlerContext): Promise<void> => {
+  const t = createTFunction({
+    i18next,
+    ephemeral: true,
+    locale: interaction.locale,
+    guild: interaction.guild,
+  });
   if (!isKnownMessageContextmenuInteraction(interaction)) {
-    await interaction.reply({
+    await interactionReply(t, interaction, {
       content: `Unsupported context menu interaction with name ${interaction.commandName}`,
       flags: MessageFlags.Ephemeral,
     });
     return;
   }
 
-  const { commandName, user, locale, channel, channelId, guild, guildId } = interaction;
+  const { commandName, user, channel, channelId, guild, guildId } = interaction;
   const command = messageContextMenuCommandMap[commandName];
-  const t = createTFunction({
-    i18next,
-    ephemeral: true,
-    locale,
-    guild,
-  });
 
   console.log(`${getUserIdentifier(user)} ran "${commandName}" in ${stringifyChannelName(channelId, channel)} of ${stringifyGuildName(guildId, guild)}`);
 
@@ -119,32 +120,39 @@ export const handleContextMenuInteraction = async (interaction: MessageContextMe
 };
 
 export const handleCommandInteraction = async (interaction: CommandInteraction, context: InteractionHandlerContext): Promise<void> => {
+  let t = createTFunction({
+    i18next: context.i18next,
+    ephemeral: true,
+    locale: interaction.locale,
+    guild: interaction.guild,
+  });
   if (!isChatInputCommandInteraction(interaction)) {
     if (interaction.isMessageContextMenuCommand()) {
       return handleContextMenuInteraction(interaction, context);
     }
-    await interaction.reply({
+    await interactionReply(t, interaction, {
       content: `Unsupported command type ${interaction.commandType} when running ${interaction.commandName}`,
       flags: MessageFlags.Ephemeral,
     });
     return;
   }
+  const ephemeral = isEphemeralResponse(interaction, await getSettings(context, interaction));
+  const { i18next, ...interactionContext } = context;
+  t = createTFunction({
+    i18next,
+    ephemeral,
+    locale: interaction.locale,
+    guild: interaction.guild,
+  });
 
   if (!isKnownChatInputCommandInteraction(interaction)) {
-    await interaction.reply(`Unknown command ${interaction.commandName}`);
+    await interactionReply(t, interaction, { content: `Unknown command ${interaction.commandName}` });
     return;
   }
 
-  const { commandName, user, options, channel, channelId, guild, guildId, locale } = interaction;
+  const { commandName, user, options, channel, channelId, guild, guildId } = interaction;
   const command = chatInputCommandMap[commandName];
-  const ephemeral = isEphemeralResponse(interaction, await getSettings(context, interaction));
-  const { i18next, ...interactionContext } = context;
-  const t = createTFunction({
-    i18next,
-    ephemeral,
-    locale,
-    guild,
-  });
+
 
   const optionsString = options.data.length > 0
     ? ` ${stringifyOptionsData(interaction.options.data)}`
@@ -188,22 +196,23 @@ export const handleComponentInteraction = async (interaction: MessageComponentIn
   i18next,
   ...context
 }: InteractionHandlerContext): Promise<void> => {
+  const t = createTFunction({
+    i18next,
+    ephemeral: true,
+    locale: interaction.locale,
+    guild: interaction.guild,
+  });
   if (!isKnownMessageComponentInteraction(interaction)) {
-    await interaction.reply({
+    await interactionReply(t, interaction, {
       content: `Unsupported component interaction with customId ${interaction.customId}`,
       flags: MessageFlags.Ephemeral,
     });
     return;
   }
 
-  const { customId, user, locale, channel, channelId, guild, guildId } = interaction;
+  const { customId, user, channel, channelId, guild, guildId } = interaction;
   const command = messageComponentMap[customId];
-  const t = createTFunction({
-    i18next,
-    ephemeral: true,
-    locale,
-    guild,
-  });
+
 
   console.log(`${getUserIdentifier(user)} interacted with component "${customId}" in ${stringifyChannelName(channelId, channel)} of ${stringifyGuildName(guildId, guild)}`);
 

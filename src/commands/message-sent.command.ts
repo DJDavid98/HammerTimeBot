@@ -4,6 +4,7 @@ import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { getSyntaxReplyOptions } from '../utils/reply-with-syntax.js';
 import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
+import { interactionReply } from '../utils/interaction-reply.js';
 
 export const messageSentCommand: BotMessageContextMenuCommand = {
   getDefinition: (t) => ({
@@ -18,7 +19,7 @@ export const messageSentCommand: BotMessageContextMenuCommand = {
 
     const localMoment = moment(interaction.targetMessage.createdAt).utc();
     const replyOptions = getSyntaxReplyOptions({ localMoment, interaction, context, settings });
-    await interaction.reply({
+    await interactionReply(t, interaction, {
       content: contentPrefix + replyOptions.content,
       flags: MessageFlags.Ephemeral,
     });

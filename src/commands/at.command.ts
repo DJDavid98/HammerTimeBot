@@ -8,6 +8,7 @@ import { getAtOptions } from '../options/at.options.js';
 import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
 import { findTimezoneOptionValue, handleTimezoneAutocomplete } from '../utils/messaging.js';
+import { interactionReply } from '../utils/interaction-reply.js';
 
 export const atCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -59,7 +60,7 @@ export const atCommand: BotChatInputCommand = {
       if (second !== null) localMoment.second(constrain(second, 0, 59));
     } catch (e) {
       if (e instanceof RangeError && e.message === 'Invalid date') {
-        await interaction.reply({
+        await interactionReply(t, interaction, {
           content: t('commands.global.responses.invalidDate'),
           flags: MessageFlags.Ephemeral,
         });

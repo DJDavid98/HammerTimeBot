@@ -1,8 +1,8 @@
 import { Locale } from 'discord-api-types/rest/common.js';
-import localeConfig from '../locales/config.json';
-import { LanguageConfigV1 } from '../types/legacy.js';
+import localeConfig from '../locales/config.json' with {type: 'json'};
+import { LatestLanguageConfigType } from '../types/language-config.js';
 
-type LanguagesConfig = Record<Locale, LanguageConfigV1>;
+type LanguagesConfig = Record<Locale, LatestLanguageConfigType>;
 
 export const LANGUAGES: LanguagesConfig = localeConfig.languages;
 

@@ -6,6 +6,7 @@ export interface LanguageConfigV2 {
    */
   name: string;
   emoji?: string;
+  crowdinLocale?: string;
   creditOverrides?: Record<string | number, TranslationCreditOverride | null>;
 }
 

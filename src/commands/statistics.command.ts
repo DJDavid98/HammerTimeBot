@@ -6,6 +6,7 @@ import { EPHEMERAL_OPTION_DEFAULT_VALUE, getBareNumberFormatter, isEphemeralResp
 import { env } from '../env.js';
 import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
+import { CROWDIN_PROJECT_URL, SUPPORTED_LANGUAGES } from '../constants/locales.js';
 
 export const statisticsCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -30,6 +31,8 @@ export const statisticsCommand: BotChatInputCommand = {
     const shardCount = shard ? `**${t('commands.statistics.responses.shardCount')}** ${numberFormatter.format(shard.count)}` : null;
     const footer = `*${shard ? t('commands.statistics.responses.shardNumber', { replace: { shardId: shard?.ids.join(', ') } }) : t('commands.statistics.responses.noShards')}*`;
     const serverInvite = `**${t('commands.statistics.responses.serverInvite')}** ${env.DISCORD_INVITE_URL}`;
+    const supportedLanguages = `**${t('commands.statistics.responses.supportedLanguages')}** ${SUPPORTED_LANGUAGES.length}`;
+    const crowdinProject = `**${t('commands.statistics.responses.crowdinProject')}** <${CROWDIN_PROJECT_URL}>`;
 
     const content = [
       shardServerCount,
@@ -39,6 +42,8 @@ export const statisticsCommand: BotChatInputCommand = {
       footer,
       // Keep these last to align with the invite embed shown below the message
       '',
+      supportedLanguages,
+      crowdinProject,
       serverInvite,
     ].filter(el => el !== null).join('\n');
 

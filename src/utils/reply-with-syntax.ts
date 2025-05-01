@@ -16,6 +16,7 @@ import { Moment } from 'moment';
 import { formatSelectComponent } from '../components/format-select.component.js';
 import { EmojiCharacters } from '../constants/emoji-characters.js';
 import { InteractionContext } from '../types/bot-interaction.js';
+import { addIncompleteTranslationsFooter } from './interaction-reply.js';
 
 type HandledInteractions = ChatInputCommandInteraction | ContextMenuCommandInteraction;
 
@@ -77,40 +78,45 @@ export const getSyntaxReplyOptions = ({
   const addHeader = !formatInput && (syntaxInteraction.header ?? true);
   const header = addHeader && getExactTimePrefix(localMoment, timezone);
   const table = formattedResponse(ts, formats, columns as ResponseColumnChoices, !formatInput && settings.boldPreview);
-  let content: string | undefined = `${header ? `${header}\n` : ''}${table}`;
+  const content: string | undefined = `${header ? `${header}\n` : ''}${table}`;
   const ephemeralFlag = syntaxInteraction.ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE ? MessageFlags.Ephemeral : 0;
 
-  let components: InteractionReplyOptions['components'] = undefined;
-  if (!formatInput) {
-    components = [
+  let replyOptions: InteractionReplyOptions = {
+    flags: MessageFlags.IsComponentsV2 | ephemeralFlag,
+    components: [
       {
         type: ComponentType.TextDisplay,
         content,
       },
-      {
-        type: ComponentType.Separator,
-        divider: true,
-        spacing: SeparatorSpacingSize.Small,
-      },
-      {
-        type: ComponentType.TextDisplay,
-        content: `${EmojiCharacters.NEW} ${t('commands.global.components.replyWithSpecificFormat')}`,
-      },
-      {
-        type: ComponentType.ActionRow,
-        components: [
-          formatSelectComponent.getDefinition(t, emojiIdMap),
-        ],
-      },
-    ];
-    content = undefined;
-  }
-  const componentsV2Flag = components ? MessageFlags.IsComponentsV2 : 0;
-  return {
-    flags: componentsV2Flag | ephemeralFlag,
-    content,
-    components,
+    ],
   };
+  if (!formatInput) {
+    replyOptions = addIncompleteTranslationsFooter(t, interaction, {
+      ...replyOptions,
+      components: [
+        {
+          type: ComponentType.TextDisplay,
+          content,
+        },
+        {
+          type: ComponentType.Separator,
+          divider: true,
+          spacing: SeparatorSpacingSize.Small,
+        },
+        {
+          type: ComponentType.TextDisplay,
+          content: `${EmojiCharacters.NEW} ${t('commands.global.components.replyWithSpecificFormat')}`,
+        },
+        {
+          type: ComponentType.ActionRow,
+          components: [
+            formatSelectComponent.getDefinition(t, emojiIdMap),
+          ],
+        },
+      ],
+    });
+  }
+  return replyOptions;
 };
 
 interface ReplyWithSyntaxParams {

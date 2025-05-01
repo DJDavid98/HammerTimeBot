@@ -8,6 +8,7 @@ import { getAddOptions } from '../options/add.options.js';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
 import { getSettings } from '../utils/settings.js';
 import { MessageFlags } from 'discord-api-types/v10';
+import { interactionReply } from '../utils/interaction-reply.js';
 
 export const addCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -30,7 +31,7 @@ export const addCommand: BotChatInputCommand = {
     };
 
     if (!atLeastOneNonZeroKey(options)) {
-      await interaction.reply({
+      await interactionReply(t, interaction, {
         content: t('commands.global.responses.noComponentsUnix', {
           replace: {
             unixCommand: t('commands.unix.name'),

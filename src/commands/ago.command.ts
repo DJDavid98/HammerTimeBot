@@ -8,6 +8,7 @@ import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
 import moment from 'moment-timezone';
 import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
+import { interactionReply } from '../utils/interaction-reply.js';
 
 export const agoCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -29,7 +30,7 @@ export const agoCommand: BotChatInputCommand = {
     };
 
     if (!atLeastOneNonZeroKey(options)) {
-      await interaction.reply({
+      await interactionReply(t, interaction, {
         content: t('commands.global.responses.noComponentsCurrentTime', {
           replace: {
             atCommand: t('commands.at.name'),

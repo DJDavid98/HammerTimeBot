@@ -1,7 +1,7 @@
 import { config as dotenvConfig } from 'dotenv';
 import { promises as fs } from 'fs';
 import path from 'path';
-import localeConfig from '../src/locales/config.json';
+import localeConfig from '../src/locales/config.json' with {type: 'json'};
 import { LANGUAGES } from '../src/constants/language-config.js';
 import { LatestLanguageConfigType } from '../src/types/language-config.js';
 import { IndexedReportData, ReportUserData } from './helpers/crowdin-types.js';

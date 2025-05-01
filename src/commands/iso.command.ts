@@ -7,6 +7,7 @@ import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getIsoCommandOptions } from '../options/iso.options.js';
 import { getSettings } from '../utils/settings.js';
 import { findTimezoneOptionValue, handleTimezoneAutocomplete } from '../utils/messaging.js';
+import { interactionReply } from '../utils/interaction-reply.js';
 
 export const isoCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -37,7 +38,7 @@ export const isoCommand: BotChatInputCommand = {
 
     const localMoment = moment.tz(value, moment.ISO_8601, timezone);
     if (!localMoment.isValid()) {
-      await interaction.reply({
+      await interactionReply(t, interaction, {
         content: t('commands.iso.responses.invalidIsoFormat'),
         flags: MessageFlags.Ephemeral,
       });
