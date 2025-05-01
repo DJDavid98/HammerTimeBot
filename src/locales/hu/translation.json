@@ -192,7 +192,8 @@
             "T": "hosszú idő",
             "f": "dátum és idő",
             "F": "hét napja, dátum és idő",
-            "R": "viszonylagos"
+            "R": "viszonylagos",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Válassz egy formátumot, és megkapod válaszként (mobil eszközök számára)"
+        "replyWithSpecificFormat": "Válassz egy formátumot, és megkapod válaszként (mobil eszközök számára)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(Ezeket a statisztikákat a(z) {{shardId}}. szilánk generálta)",
         "noShards": "(A bot jelenleg nem használ szilánkokat)",
         "serverInvite": "Támogatási szerver meghívó URL:",
-        "totalUserCount": "A szerverek összes felhasználója:"
+        "totalUserCount": "A szerverek összes felhasználója:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
