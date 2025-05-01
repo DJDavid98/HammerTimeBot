@@ -192,7 +192,8 @@
             "T": "waktu yang lama",
             "f": "tanggal dan waktu",
             "F": "hari kerja, tanggal dan waktu",
-            "R": "relatif"
+            "R": "relatif",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)"
+        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(Statistik ini dihasilkan oleh pecahan #{{shardId}})",
         "noShards": "(Bot saat ini tidak menggunakan sharding)",
         "serverInvite": "Mendukung URL undangan server:",
-        "totalUserCount": "Total pengguna di server yang bergabung:"
+        "totalUserCount": "Total pengguna di server yang bergabung:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
