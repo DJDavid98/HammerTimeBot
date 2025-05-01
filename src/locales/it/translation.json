@@ -192,7 +192,8 @@
             "T": "ora estesa",
             "f": "data e ora",
             "F": "giorno della settimana, data e ora",
-            "R": "relativo"
+            "R": "relativo",
+            "all": "all (default)"
           }
         },
         "columns": {
@@ -218,7 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Selezioni un formato qui sotto per riceverlo in una risposta (per la copia su dispositivi touch)"
+        "replyWithSpecificFormat": "Selezioni un formato qui sotto per riceverlo in una risposta (per la copia su dispositivi touch)",
+        "incompleteTranslations": "Translations are incomplete",
+        "contributeTranslations": "Contribute"
       }
     },
     "statistics": {
@@ -233,7 +236,9 @@
         "shardNumber": "(Queste statistiche sono state generate dal frammento #{{shardId}})",
         "noShards": "(Il bot non sta attualmente usando frammenti)",
         "serverInvite": "URL di invito del server di supporto:",
-        "totalUserCount": "Numeri totale utenti nei server in cui il bot si trova:"
+        "totalUserCount": "Numeri totale utenti nei server in cui il bot si trova:",
+        "supportedLanguages": "Supported languages:",
+        "crowdinProject": "Crowdin project URL:"
       }
     },
     "snowflake": {
