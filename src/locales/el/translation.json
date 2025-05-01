@@ -193,7 +193,7 @@
             "f": "ημερομηνία και ώρα",
             "F": "ημέρα, ημερομηνία και ώρα",
             "R": "σχετική",
-            "all": "all (default)"
+            "all": "όλα (προεπιλογή)"
           }
         },
         "columns": {
@@ -220,8 +220,8 @@
       },
       "components": {
         "replyWithSpecificFormat": "Επιλέξτε μια μορφή κειμένου παρακάτω για να την λάβετε ως απάντηση (για αντιγραφή σε συσκευές αφής)",
-        "incompleteTranslations": "Translations are incomplete",
-        "contributeTranslations": "Contribute"
+        "incompleteTranslations": "Οι μεταφράσεις είναι ελλιπείς",
+        "contributeTranslations": "Συνεισφέρετε"
       }
     },
     "statistics": {
@@ -237,8 +237,8 @@
         "noShards": "(Το bot δεν χρησιμοποιεί επί του παρόντος τεμάχια)",
         "serverInvite": "Σύνδεσμος Διακομιστή Υποστήριξης:",
         "totalUserCount": "Σύνολο χρηστών σε συνδεδεμένους διακομιστές:",
-        "supportedLanguages": "Supported languages:",
-        "crowdinProject": "Crowdin project URL:"
+        "supportedLanguages": "Υποστηριζόμενες γλώσσες:",
+        "crowdinProject": "URL στο Crowdin:"
       }
     },
     "snowflake": {
@@ -296,7 +296,7 @@
       },
       "options": {},
       "components": {
-        "openSettingsButton": "Bot Settings"
+        "openSettingsButton": "Ρυθμίσεις Bot"
       }
     }
   }
