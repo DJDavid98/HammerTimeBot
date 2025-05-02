@@ -26,6 +26,9 @@ export const statisticsCommand: BotChatInputCommand = {
     const shardStartTs = new MessageTimestamp(getProcessStartTs());
     const numberFormatter = getBareNumberFormatter(interaction);
 
+    const totalServersJoined = shard ? (await shard.fetchClientValues('guilds.cache.size')).reduce((acc: number, guildCount) => typeof guildCount === 'number' ? acc + guildCount : acc, 0) : 0;
+
+    const totalServerCount = shard ? `**${t('commands.statistics.responses.totalServerCount')}** ${numberFormatter.format(totalServersJoined)}` : null;
     const shardServerCount = shard ? `**${t('commands.statistics.responses.shardServerCount')}** ${numberFormatter.format(interaction.client.guilds.cache.size)}` : null;
     const uptime = `**${t('commands.statistics.responses.uptime')}** ${shardStartTs.toString(MessageTimestampFormat.RELATIVE)}`;
     const shardCount = shard ? `**${t('commands.statistics.responses.shardCount')}** ${numberFormatter.format(shard.count)}` : null;
@@ -35,6 +38,7 @@ export const statisticsCommand: BotChatInputCommand = {
     const crowdinProject = `**${t('commands.statistics.responses.crowdinProject')}** <${CROWDIN_PROJECT_URL}>`;
 
     const content = [
+      totalServerCount,
       shardServerCount,
       uptime,
       shardCount,
