@@ -24,7 +24,7 @@ export const statisticsCommand: BotChatInputCommand = {
     const { t } = context;
     const { shard } = interaction.client;
     const shardStartTs = new MessageTimestamp(getProcessStartTs());
-    const numberFormatter = getBareNumberFormatter(interaction);
+    const numberFormatter = getBareNumberFormatter(interaction, context);
 
     const totalServersJoined = shard ? (await shard.fetchClientValues('guilds.cache.size')).reduce((acc: number, guildCount) => typeof guildCount === 'number' ? acc + guildCount : acc, 0) : 0;
 

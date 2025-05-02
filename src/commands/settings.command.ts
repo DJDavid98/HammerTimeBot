@@ -27,7 +27,7 @@ export const settingsCommand: BotChatInputCommand = {
 
     const loginUrl = `${env.API_URL}/${locale}/login`;
     const settingsUrl = `${env.API_URL}/${locale}/settings`;
-    const  { response, validation } = await apiRequest({
+    const  { response, validation } = await apiRequest(context, {
       path: `/login-link/${user.id}/${locale}`,
       method: 'POST',
       body: {

@@ -1,5 +1,4 @@
 import { Client, Events, InteractionType } from 'discord.js';
-import { i18n } from 'i18next';
 import { env } from '../env.js';
 import { getGitData } from './get-git-data.js';
 import {
@@ -13,26 +12,30 @@ import {
   updateGlobalCommands,
   updateGuildCommands,
 } from './update-guild-commands.js';
-import { InteractionHandlerContext } from '../types/bot-interaction.js';
+import { InteractionContext, InteractionHandlerContext, LoggerContext } from '../types/bot-interaction.js';
 import { getProcessStartTs } from './get-process-start-ts.js';
 import { apiRequest } from './backend.js';
 import typia from 'typia';
 
 const ONE_HOUR_MS = 60 * 60 * 1e3;
 
-const updateCommands = async (i18next: i18n) => {
+const updateCommands = async (context: InteractionHandlerContext) => {
+  const { i18next, ...restContext } = context;
+  const { logger } = context;
   const t = i18next.t.bind(i18next);
-  console.log(`Application ${env.LOCAL ? 'is' : 'is NOT'} in local mode`);
+  const interactionContext: InteractionContext = { ...restContext, t };
+  logger.log(`Application ${env.LOCAL ? 'is' : 'is NOT'} in local mode`);
   if (env.LOCAL) {
-    const serverIds = await getAuthorizedServers();
-    await cleanGlobalCommands();
-    await Promise.all(serverIds.map((serverId) => updateGuildCommands(serverId, t)));
+    const serverIds = await getAuthorizedServers(interactionContext);
+    await cleanGlobalCommands(interactionContext);
+    await Promise.all(serverIds.map((serverId) => updateGuildCommands(interactionContext, serverId)));
   } else {
-    await updateGlobalCommands(t);
+    await updateGlobalCommands(interactionContext);
   }
 };
 
-const updateShardStats = async (client: Client, shardId: number) => {
+const updateShardStats = async (context: LoggerContext, client: Client, shardId: number) => {
+  const { logger } = context;
   const serverCount = client.guilds.cache.size;
   const memberCount = client.guilds.cache.reduce((members, guild) => {
     if (members === null) return null;
@@ -47,36 +50,33 @@ const updateShardStats = async (client: Client, shardId: number) => {
     member_count: memberCount,
     started_at: startedAt,
   };
-  console.debug(`Shard ${shardId} statistics collected:`, body);
-  await apiRequest({
+  logger.debug('Shard statistics collected:', body);
+  await apiRequest(context, {
     path: '/shard-statistics',
     method: 'POST',
     body,
     validator: typia.createValidate<Record<string, unknown>>(),
     failOnInvalidResponse: false,
   });
-  console.log(`Successfully updated shard ${shardId} statistics`);
+  logger.log('Successfully updated shard statistics');
 };
 
-const handleReady = (i18next: i18n) => async (client: Client<true>) => {
+const handleReady = (context: InteractionHandlerContext) => async (client: Client<true>) => {
+  const { logger } = context;
   const clientUser = client.user;
   if (!clientUser) throw new Error('Expected `client.user` to be defined');
-  console.log(`Logged in as ${clientUser.tag}!`);
+  logger.log(`Logged in as ${clientUser.tag}!`);
 
-  const versionString = env.LOCAL ? 'a local version' : await getGitData()
+  const versionString = env.LOCAL ? 'a local version' : await getGitData(context)
     .then(({ hash }) => `version ${hash}`)
     .catch(() => 'an unknown version');
   clientUser.setActivity(versionString);
 
   const shardUtils = client.shard;
   const shardIds = shardUtils?.ids;
-  if (shardIds) {
-    console.log(`Hello from shard ${shardIds.join(', ')}!`);
-
-    if (shardIds.includes(0)) {
-      console.log('Shard 0 is updating commands');
-      await updateCommands(i18next);
-    }
+  if (shardIds && shardIds.includes(0)) {
+    logger.log('Updating commands');
+    await updateCommands(context);
   }
 
   const statsUpdate = async () => {
@@ -85,12 +85,10 @@ const handleReady = (i18next: i18n) => async (client: Client<true>) => {
 
     try {
       await Promise.all(currentShardIds.map(async (shardId) => {
-        console.log(`Shard ${shardId} is updating statistics`);
-        await updateShardStats(client, shardId);
+        await updateShardStats(context, client, shardId);
       }));
     } catch (e) {
-      console.error('Failed to update shard statistics:');
-      console.error(e);
+      logger.error('Failed to update shard statistics:', e);
     }
   };
   await statsUpdate();
@@ -102,7 +100,7 @@ const handleReady = (i18next: i18n) => async (client: Client<true>) => {
 export const createClient = async (context: InteractionHandlerContext): Promise<void> => {
   const client = new Client({ intents: [] });
 
-  client.on(Events.ClientReady, handleReady(context.i18next));
+  client.on(Events.ClientReady, handleReady(context));
 
   client.on(Events.InteractionCreate, async (interaction) => {
     switch (interaction.type) {

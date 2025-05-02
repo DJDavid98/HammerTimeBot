@@ -10,6 +10,8 @@ import { MessageContextMenuCommandInteraction } from 'discord.js';
 import type { ApplicationCommandType, RESTPostAPIChatInputApplicationCommandsJSONBody } from 'discord-api-types/v10';
 import { i18n, TFunction } from 'i18next';
 
+import { PrefixedLogger } from './prefixed-logger.js';
+
 export const enum BotChatInputCommandName {
   ADD = 'add',
   AGO = 'ago',
@@ -33,7 +35,11 @@ export const enum BotMessageComponentCustomId {
   FORMAT_SELECT = 'format-select',
 }
 
-export interface InteractionHandlerContext {
+export interface LoggerContext {
+  logger: PrefixedLogger;
+}
+
+export interface InteractionHandlerContext extends LoggerContext {
   i18next: i18n;
   emojiIdMap: Record<string, string>;
 }

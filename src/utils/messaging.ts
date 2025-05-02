@@ -16,6 +16,7 @@ import { findTimezone, gmtTimezoneOptions } from './time.js';
 import { TimezoneError } from '../classes/timezone-error.js';
 import { MessageFlags } from 'discord-api-types/v10';
 import { interactionReply } from './interaction-reply.js';
+import { LoggerContext } from '../types/bot-interaction.js';
 
 type UserFriendCode = `@${string}` | `${string}#${string}`;
 export const getUserFriendCode = (user: User): UserFriendCode => {
@@ -82,15 +83,15 @@ export const isEphemeralResponse = (interaction: ChatInputCommandInteraction, se
 
 type BareNumberFormatter = Pick<Intl.NumberFormat, 'format'>;
 const numberFormatterCache: Partial<Record<string, BareNumberFormatter>> = {};
-export const getBareNumberFormatter = (interaction: Pick<CommandInteraction, 'locale'>) => {
+export const getBareNumberFormatter = (interaction: Pick<CommandInteraction, 'locale'>, { logger }: LoggerContext) => {
   let numberFormatter: BareNumberFormatter | undefined = numberFormatterCache[interaction.locale];
   if (!numberFormatter) {
     numberFormatter = { format: (value: number): string => value.toString() };
     try {
       numberFormatter = new Intl.NumberFormat(interaction.locale);
     } catch (e) {
-      console.error(`Failed to create number formatter with locale ${interaction.locale}`);
-      console.error(e);
+      logger.error(`Failed to create number formatter with locale ${interaction.locale}`);
+      logger.error(e);
     }
     numberFormatterCache[interaction.locale] = numberFormatter;
   }

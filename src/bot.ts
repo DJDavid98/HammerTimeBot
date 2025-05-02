@@ -4,25 +4,27 @@ import { join } from 'path';
 import { createClient } from './utils/client.js';
 import { initI18next } from './constants/locales.js';
 import { getApplicationEmojis } from './utils/get-application-emojis.js';
+import { Logger } from './classes/logger.js';
 
 (async () => {
+  const logger = Logger.fromShardInfo(process.env.SHARDS, process.env.SHARD_COUNT);
   const [, i18next, emojiIdMap] = await Promise.all([
     (async () => {
       const tzDataPath = join('.', 'node_modules', 'moment-timezone', 'data', 'packed', 'latest.json');
-      console.log(`Loading timezone data from ${tzDataPath}`);
+      logger.log(`Loading timezone data from ${tzDataPath}`);
       const data = await fs.readFile(tzDataPath).then((contents) => JSON.parse(contents.toString()));
       moment.tz.load(data);
     })(),
     (async () => {
-      console.log('Initializing i18n');
+      logger.log('Initializing i18n');
       return initI18next();
     })(),
     (async () => {
-      console.log('Getting application emoji data');
-      return getApplicationEmojis();
+      logger.log('Getting application emoji data');
+      return getApplicationEmojis(logger);
     })(),
   ]);
 
-  console.log('Creating client');
-  await createClient({ i18next, emojiIdMap });
+  logger.log('Creating client');
+  await createClient({ i18next, emojiIdMap, logger });
 })();

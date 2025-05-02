@@ -1,5 +1,6 @@
 import { env } from '../env.js';
 import { IValidation } from 'typia';
+import { LoggerContext } from '../types/bot-interaction.js';
 
 export interface BackendApiRequest<T> {
   path: string;
@@ -19,7 +20,7 @@ export interface BackendApiResponse<T> {
   validation: IValidation<T>
 }
 
-export const apiRequest = async <T>(params: BackendApiRequest<T>): Promise<BackendApiResponse<T>> => {
+export const apiRequest = async <T>({ logger }: LoggerContext, params: BackendApiRequest<T>): Promise<BackendApiResponse<T>> => {
   let responseText: string | undefined;
   let r: Response | undefined;
   const requestUrl = `${env.API_URL}/api${params.path}`;
@@ -41,9 +42,8 @@ export const apiRequest = async <T>(params: BackendApiRequest<T>): Promise<Backe
     if (!r.ok) {
       throw new Error(`fetch ${requestUrl}: ${r.status} ${r.statusText}\n${responseText}`);
     }
-
   } catch (e) {
-    console.error(e);
+    logger.error('Failed API request:', e);
   }
 
   const response = responseText && JSON.parse(responseText);
@@ -53,7 +53,7 @@ export const apiRequest = async <T>(params: BackendApiRequest<T>): Promise<Backe
     if (failOnInvalidResponse) {
       throw new Error(errorMessage);
     }
-    console.warn(errorMessage);
+    logger.warn(errorMessage);
   }
 
   return { responseText, response, validation };

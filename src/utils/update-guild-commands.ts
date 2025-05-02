@@ -6,12 +6,12 @@ import {
   Routes,
 } from 'discord-api-types/v10';
 import { Snowflake } from 'discord-api-types/globals';
-import { TFunction } from 'i18next';
 import { env } from '../env.js';
 import { BotCommandItem, BotCommands, getApplicationCommands } from './get-application-commands.js';
 import { rest } from './rest.js';
 import { apiRequest } from './backend.js';
 import typia from 'typia';
+import { InteractionContext } from '../types/bot-interaction.js';
 
 
 type MinimalAPIApplicationCommand =
@@ -36,41 +36,42 @@ const augmentResultWithOptions = <T extends MinimalAPIApplicationCommand[] | und
   }) as T;
 };
 
-export const updateBotCommandsInApi = async (input: BotCommands | undefined, result: MinimalAPIApplicationCommand[] | undefined): Promise<void> => {
+export const updateBotCommandsInApi = async (context: InteractionContext, input: BotCommands | undefined, result: MinimalAPIApplicationCommand[] | undefined): Promise<void> => {
   if (!result) return;
 
-  console.log('Sending bot commands to the API…');
+  const { logger } = context;
+  logger.log('Sending bot commands to the API…');
   const resultWithOptions = augmentResultWithOptions(input, result);
   try {
-    await apiRequest({
+    await apiRequest(context, {
       path: '/bot-commands',
       method: 'PUT',
       validator: typia.createValidate<unknown[]>(),
       body: resultWithOptions,
     });
 
-    console.log('Successfully sent bot commands to the API');
+    logger.log('Successfully sent bot commands to the API');
   } catch (error) {
-    console.log('Failed to send bot commands to the API');
-    console.warn(error);
+    logger.warn('Failed to send bot commands to the API', error);
   }
 };
 
-export const getAuthorizedServers = async (): Promise<string[]> => {
-  console.log('Getting authorized servers…');
+export const getAuthorizedServers = async ({ logger }: InteractionContext): Promise<string[]> => {
+  logger.log('Getting authorized servers…');
   const guilds = await rest.get(
     Routes.userGuilds(),
   ) as RESTGetAPICurrentUserGuildsResult;
-  console.log(`Found ${guilds.length} authorized server${guilds.length === 1 ? '' : 's'}`);
+  logger.log(`Found ${guilds.length} authorized server${guilds.length === 1 ? '' : 's'}`);
   return guilds.map((guild) => guild.id);
 };
 
-export const updateGuildCommands = async (guildId: Snowflake, t: TFunction): Promise<void> => {
+export const updateGuildCommands = async (context: InteractionContext, guildId: Snowflake): Promise<void> => {
+  const { logger, t } = context;
   const guildIdString = `guildId:${guildId}`;
   let result: RESTPutAPIApplicationGuildCommandsResult | undefined;
   let body: BotCommands | undefined;
   try {
-    console.log(`Started reloading guild (/) commands (${guildIdString})`);
+    logger.log(`Started reloading guild (/) commands (${guildIdString})`);
 
     body = getApplicationCommands(t);
     result = await rest.put(
@@ -78,39 +79,21 @@ export const updateGuildCommands = async (guildId: Snowflake, t: TFunction): Pro
       { body },
     ) as RESTPutAPIApplicationGuildCommandsResult;
 
-    console.log(`Successfully reloaded guild (/) commands (${guildIdString})`);
+    logger.log(`Successfully reloaded guild (/) commands (${guildIdString})`);
   } catch (error) {
-    console.log(`Failed to reload guild (/) commands (${guildIdString})`);
-    console.error(error);
+    logger.error(`Failed to reload guild (/) commands (${guildIdString})`, error);
     process.exit(1);
   }
 
-  await updateBotCommandsInApi(body, result);
+  await updateBotCommandsInApi(context, body, result);
 };
 
-export const cleanGuildCommands = async (guildId: Snowflake): Promise<void> => {
-  const guildIdString = `guildId:${guildId}`;
-  try {
-    console.log(`Started cleaning guild (/) commands (${guildIdString})`);
-
-    await rest.put(
-      Routes.applicationGuildCommands(env.DISCORD_CLIENT_ID, guildId),
-      { body: [] },
-    );
-
-    console.log(`Successfully cleaned guild (/) commands (${guildIdString})`);
-  } catch (error) {
-    console.log(`Failed to clean guild (/) commands (${guildIdString})`);
-    console.error(error);
-    process.exit(1);
-  }
-};
-
-export const updateGlobalCommands = async (t: TFunction): Promise<void> => {
+export const updateGlobalCommands = async (context: InteractionContext): Promise<void> => {
+  const { logger, t } = context;
   let result: RESTPutAPIApplicationCommandsResult | undefined;
   let body: BotCommands | undefined;
   try {
-    console.log('Started refreshing application (/) commands');
+    logger.log('Started refreshing application (/) commands');
 
     body = getApplicationCommands(t);
     result = await rest.put(
@@ -118,29 +101,27 @@ export const updateGlobalCommands = async (t: TFunction): Promise<void> => {
       { body },
     ) as RESTPutAPIApplicationCommandsResult;
 
-    console.log('Successfully reloaded application (/) commands');
+    logger.log('Successfully reloaded application (/) commands');
   } catch (error) {
-    console.log('Failed to reload application (/) commands');
-    console.error(error);
+    logger.error('Failed to reload application (/) commands', error);
     process.exit(1);
   }
 
-  await updateBotCommandsInApi(body, result);
+  await updateBotCommandsInApi(context, body, result);
 };
 
-export const cleanGlobalCommands = async (): Promise<void> => {
+export const cleanGlobalCommands = async ({ logger }: InteractionContext): Promise<void> => {
   try {
-    console.log('Started cleaning application (/) commands');
+    logger.log('Started cleaning application (/) commands');
 
     await rest.put(
       Routes.applicationCommands(env.DISCORD_CLIENT_ID),
       { body: [] },
     );
 
-    console.log('Successfully cleaned application (/) commands');
+    logger.log('Successfully cleaned application (/) commands');
   } catch (error) {
-    console.log('Failed to clean application (/) commands');
-    console.error(error);
+    logger.error('Failed to clean application (/) commands', error);
     process.exit(1);
   }
 };

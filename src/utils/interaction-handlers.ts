@@ -24,7 +24,7 @@ import {
   messageContextMenuCommandMap,
 } from './interactions/message-context-menu-commands.js';
 import { getSettings } from './settings.js';
-import { InteractionHandlerContext } from '../types/bot-interaction.js';
+import { InteractionContext, InteractionHandlerContext } from '../types/bot-interaction.js';
 import { TFunction } from 'i18next';
 import { isKnownMessageComponentInteraction, messageComponentMap } from './interactions/message-components.js';
 import { interactionReply } from './interaction-reply.js';
@@ -92,6 +92,7 @@ export const handleContextMenuInteraction = async (interaction: MessageContextMe
   i18next,
   ...context
 }: InteractionHandlerContext): Promise<void> => {
+  const { logger } = context;
   const t = createTFunction({
     i18next,
     ephemeral: true,
@@ -109,18 +110,18 @@ export const handleContextMenuInteraction = async (interaction: MessageContextMe
   const { commandName, user, channel, channelId, guild, guildId } = interaction;
   const command = messageContextMenuCommandMap[commandName];
 
-  console.log(`${getUserIdentifier(user)} ran "${commandName}" in ${stringifyChannelName(channelId, channel)} of ${stringifyGuildName(guildId, guild)}`);
+  logger.log(`${getUserIdentifier(user)} ran "${commandName}" in ${stringifyChannelName(channelId, channel)} of ${stringifyGuildName(guildId, guild)}`);
 
   try {
     await command.handle(interaction, { ...context, t });
   } catch (e) {
-    console.error(`Error while responding to context menu command (commandName=${commandName})`, e);
+    logger.error(`Error while responding to context menu command (commandName=${commandName})`, e);
     await handleInteractionError(interaction, t);
   }
 };
 
 export const handleCommandInteraction = async (interaction: CommandInteraction, context: InteractionHandlerContext): Promise<void> => {
-  let t = createTFunction({
+  const t = createTFunction({
     i18next: context.i18next,
     ephemeral: true,
     locale: interaction.locale,
@@ -136,9 +137,11 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
     });
     return;
   }
-  const ephemeral = isEphemeralResponse(interaction, await getSettings(context, interaction));
-  const { i18next, ...interactionContext } = context;
-  t = createTFunction({
+  const { i18next, ...restContext } = context;
+  const interactionContext: InteractionContext = { ...restContext, t };
+  const ephemeral = isEphemeralResponse(interaction, await getSettings(interactionContext, interaction));
+  const { logger } = context;
+  interactionContext.t = createTFunction({
     i18next,
     ephemeral,
     locale: interaction.locale,
@@ -153,16 +156,15 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
   const { commandName, user, options, channel, channelId, guild, guildId } = interaction;
   const command = chatInputCommandMap[commandName];
 
-
   const optionsString = options.data.length > 0
     ? ` ${stringifyOptionsData(interaction.options.data)}`
     : '';
-  console.log(`${getUserIdentifier(user)} ran /${commandName}${optionsString} in ${stringifyChannelName(channelId, channel)} of ${stringifyGuildName(guildId, guild)}`);
+  logger.log(`${getUserIdentifier(user)} ran /${commandName}${optionsString} in ${stringifyChannelName(channelId, channel)} of ${stringifyGuildName(guildId, guild)}`);
 
   try {
-    await command.handle(interaction, { ...interactionContext, t });
+    await command.handle(interaction, interactionContext);
   } catch (e) {
-    console.error(`Error while responding to command interaction (commandName=${commandName})`, e);
+    logger.error(`Error while responding to command interaction (commandName=${commandName})`, e);
     await handleInteractionError(interaction, t);
   }
 };
@@ -171,6 +173,7 @@ export const handleCommandAutocomplete = async (interaction: AutocompleteInterac
   i18next,
   ...context
 }: InteractionHandlerContext): Promise<void> => {
+  const { logger } = context;
   if (!isKnownChatInputCommandInteraction(interaction)) {
     return;
   }
@@ -187,7 +190,7 @@ export const handleCommandAutocomplete = async (interaction: AutocompleteInterac
   try {
     await command.autocomplete?.(interaction, { ...context, t });
   } catch (e) {
-    console.error(`Error while responding to command autocomplete (commandName=${commandName})`, e);
+    logger.error(`Error while responding to command autocomplete (commandName=${commandName})`, e);
     await handleInteractionError(interaction, t);
   }
 };
@@ -196,6 +199,7 @@ export const handleComponentInteraction = async (interaction: MessageComponentIn
   i18next,
   ...context
 }: InteractionHandlerContext): Promise<void> => {
+  const { logger } = context;
   const t = createTFunction({
     i18next,
     ephemeral: true,
@@ -214,12 +218,12 @@ export const handleComponentInteraction = async (interaction: MessageComponentIn
   const command = messageComponentMap[customId];
 
 
-  console.log(`${getUserIdentifier(user)} interacted with component "${customId}" in ${stringifyChannelName(channelId, channel)} of ${stringifyGuildName(guildId, guild)}`);
+  logger.log(`${getUserIdentifier(user)} interacted with component "${customId}" in ${stringifyChannelName(channelId, channel)} of ${stringifyGuildName(guildId, guild)}`);
 
   try {
     await command.handle(interaction, { ...context, t });
   } catch (e) {
-    console.error(`Error while responding to component interaction (customId=${customId})`, e);
+    logger.error(`Error while responding to component interaction (customId=${customId})`, e);
     await handleInteractionError(interaction, t);
   }
 };
