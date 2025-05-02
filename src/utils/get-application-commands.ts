@@ -17,7 +17,9 @@ const commonCommandOptions: Pick<RESTPostAPIChatInputApplicationCommandsJSONBody
   contexts: [InteractionContextType.Guild, InteractionContextType.BotDM, InteractionContextType.PrivateChannel],
 };
 
-export const getApplicationCommands = (t: TFunction): (ApplicationGuildCommand & ApplicationCommand)[] => [
+export type BotCommandItem = (ApplicationGuildCommand & ApplicationCommand);
+export type BotCommands = BotCommandItem[];
+export const getApplicationCommands = (t: TFunction): BotCommands => [
   ...chatInputCommandNames.map((commandName) => ({
     ...commonCommandOptions,
     ...chatInputCommandMap[commandName].getDefinition(t),

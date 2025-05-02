@@ -1,3 +1,4 @@
+import type { APIApplicationCommand, APIApplicationCommandOption } from 'discord-api-types/v10';
 import {
   RESTGetAPICurrentUserGuildsResult,
   RESTPutAPIApplicationCommandsResult,
@@ -7,21 +8,45 @@ import {
 import { Snowflake } from 'discord-api-types/globals';
 import { TFunction } from 'i18next';
 import { env } from '../env.js';
-import { getApplicationCommands } from './get-application-commands.js';
+import { BotCommandItem, BotCommands, getApplicationCommands } from './get-application-commands.js';
 import { rest } from './rest.js';
 import { apiRequest } from './backend.js';
 import typia from 'typia';
 
-export const updateBotCommandsInApi = async (result: RESTPutAPIApplicationGuildCommandsResult | RESTPutAPIApplicationCommandsResult | undefined): Promise<void> => {
+
+type MinimalAPIApplicationCommand =
+  Pick<APIApplicationCommand, 'id' | 'name' | 'name_localizations' | 'description' | 'description_localizations' | 'type'>
+  & {
+    options?: Array<Pick<APIApplicationCommandOption, 'name' | 'name_localizations' | 'description' | 'description_localizations' | 'type'>>
+  };
+
+const augmentResultWithOptions = <T extends MinimalAPIApplicationCommand[] | undefined>(input: BotCommands | undefined, result: T): T => {
+  const indexedOptions = input?.reduce((acc, item) => ({
+    ...acc,
+    [item.name]: item.options,
+  }), {} as Record<string, BotCommandItem['options']>);
+  return result?.map(item => {
+    if (indexedOptions?.[item.name]) {
+      return {
+        ...item,
+        options: indexedOptions[item.name],
+      };
+    }
+    return item;
+  }) as T;
+};
+
+export const updateBotCommandsInApi = async (input: BotCommands | undefined, result: MinimalAPIApplicationCommand[] | undefined): Promise<void> => {
   if (!result) return;
 
   console.log('Sending bot commands to the API…');
+  const resultWithOptions = augmentResultWithOptions(input, result);
   try {
     await apiRequest({
       path: '/bot-commands',
       method: 'PUT',
-      validator: typia.createValidate<unknown>(),
-      body: result,
+      validator: typia.createValidate<unknown[]>(),
+      body: resultWithOptions,
     });
 
     console.log('Successfully sent bot commands to the API');
@@ -43,12 +68,14 @@ export const getAuthorizedServers = async (): Promise<string[]> => {
 export const updateGuildCommands = async (guildId: Snowflake, t: TFunction): Promise<void> => {
   const guildIdString = `guildId:${guildId}`;
   let result: RESTPutAPIApplicationGuildCommandsResult | undefined;
+  let body: BotCommands | undefined;
   try {
     console.log(`Started reloading guild (/) commands (${guildIdString})`);
 
+    body = getApplicationCommands(t);
     result = await rest.put(
       Routes.applicationGuildCommands(env.DISCORD_CLIENT_ID, guildId),
-      { body: getApplicationCommands(t) },
+      { body },
     ) as RESTPutAPIApplicationGuildCommandsResult;
 
     console.log(`Successfully reloaded guild (/) commands (${guildIdString})`);
@@ -58,7 +85,7 @@ export const updateGuildCommands = async (guildId: Snowflake, t: TFunction): Pro
     process.exit(1);
   }
 
-  await updateBotCommandsInApi(result);
+  await updateBotCommandsInApi(body, result);
 };
 
 export const cleanGuildCommands = async (guildId: Snowflake): Promise<void> => {
@@ -81,12 +108,14 @@ export const cleanGuildCommands = async (guildId: Snowflake): Promise<void> => {
 
 export const updateGlobalCommands = async (t: TFunction): Promise<void> => {
   let result: RESTPutAPIApplicationCommandsResult | undefined;
+  let body: BotCommands | undefined;
   try {
     console.log('Started refreshing application (/) commands');
 
+    body = getApplicationCommands(t);
     result = await rest.put(
       Routes.applicationCommands(env.DISCORD_CLIENT_ID),
-      { body: getApplicationCommands(t) },
+      { body },
     ) as RESTPutAPIApplicationCommandsResult;
 
     console.log('Successfully reloaded application (/) commands');
@@ -96,7 +125,7 @@ export const updateGlobalCommands = async (t: TFunction): Promise<void> => {
     process.exit(1);
   }
 
-  await updateBotCommandsInApi(result);
+  await updateBotCommandsInApi(body, result);
 };
 
 export const cleanGlobalCommands = async (): Promise<void> => {
