@@ -17,22 +17,22 @@ import typia from 'typia';
 type MinimalAPIApplicationCommand =
   Pick<APIApplicationCommand, 'id' | 'name' | 'name_localizations' | 'description' | 'description_localizations' | 'type'>
   & {
-    options?: Array<Pick<APIApplicationCommandOption, 'name' | 'name_localizations' | 'description' | 'description_localizations' | 'type'>>
+    options?: Array<Pick<APIApplicationCommandOption, 'name' | 'name_localizations' | 'description' | 'description_localizations' | 'type' | 'required'>>
   };
 
 const augmentResultWithOptions = <T extends MinimalAPIApplicationCommand[] | undefined>(input: BotCommands | undefined, result: T): T => {
-  const indexedOptions = input?.reduce((acc, item) => ({
+  const indexedOptions = input?.reduce((acc, command) => ({
     ...acc,
-    [item.name]: item.options,
+    [command.name]: command.options,
   }), {} as Record<string, BotCommandItem['options']>);
-  return result?.map(item => {
-    if (indexedOptions?.[item.name]) {
+  return result?.map(command => {
+    if (indexedOptions?.[command.name]) {
       return {
-        ...item,
-        options: indexedOptions[item.name],
+        ...command,
+        options: indexedOptions[command.name],
       };
     }
-    return item;
+    return command;
   }) as T;
 };
 
