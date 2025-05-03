@@ -2,7 +2,7 @@ import moment from 'moment-timezone';
 import { BotMessageContextMenuCommand } from '../types/bot-interaction.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { getSyntaxReplyOptions } from '../utils/reply-with-syntax.js';
-import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
+import { ApplicationCommandType, ComponentType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
 import { interactionReply } from '../utils/interaction-reply.js';
 
@@ -19,7 +19,16 @@ export const messageSentCommand: BotMessageContextMenuCommand = {
 
     const localMoment = moment(interaction.targetMessage.createdAt).utc();
     const replyOptions = getSyntaxReplyOptions({ localMoment, interaction, context, settings });
-    await interactionReply(t, interaction, {
+    await interactionReply(t, interaction, replyOptions.components ? {
+      ...replyOptions,
+      components: [
+        {
+          type: ComponentType.TextDisplay,
+          content: contentPrefix,
+        },
+        ...replyOptions.components,
+      ],
+    } : {
       content: contentPrefix + replyOptions.content,
       flags: MessageFlags.Ephemeral,
     });

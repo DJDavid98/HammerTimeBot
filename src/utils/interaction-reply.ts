@@ -40,7 +40,7 @@ const upgradeToComponentsV2 = (options: InteractionReplyOptions): InteractionRep
   };
 };
 
-export const addIncompleteTranslationsFooter = (t: TFunction, interaction: CommandInteraction | ChatInputCommandInteraction | ContextMenuCommandInteraction | MessageComponentInteraction, options: InteractionReplyOptionsWithComponents) => {
+export const addIncompleteTranslationsFooter = (t: TFunction, interaction: CommandInteraction | ChatInputCommandInteraction | ContextMenuCommandInteraction | MessageComponentInteraction, options: InteractionReplyOptionsWithComponents): InteractionReplyOptionsWithComponents => {
   const translationCompletionData = getTranslationCompletionData(interaction.locale);
   if (typeof translationCompletionData?.approval === 'number' && translationCompletionData.approval < 100 && env.CROWDIN_PROJECT_IDENTIFIER) {
     const crowdinLocale = LANGUAGES[interaction.locale].crowdinLocale ?? interaction.locale;
@@ -78,6 +78,6 @@ export const addIncompleteTranslationsFooter = (t: TFunction, interaction: Comma
 
 export const interactionReply = (t: TFunction, interaction: CommandInteraction | ChatInputCommandInteraction | ContextMenuCommandInteraction | MessageComponentInteraction, options: InteractionReplyOptions) => {
   const upgradedOptions = upgradeToComponentsV2(options);
-  addIncompleteTranslationsFooter(t, interaction, upgradedOptions);
-  return interaction.reply(upgradedOptions);
+  const optionsWithFooter = addIncompleteTranslationsFooter(t, interaction, upgradedOptions);
+  return interaction.reply(optionsWithFooter);
 };
