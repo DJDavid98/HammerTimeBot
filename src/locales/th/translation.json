@@ -179,7 +179,7 @@
         "noComponentsCurrentTime": "คุณต้องระบุองค์ประกอบเวลาอย่างน้อยหนึ่งรายการเพื่อเปลี่ยนแปลง หากคุณต้องการเวลาปัจจุบัน ให้ใช้ `/{{atCommand}}` โดยไม่ต้องระบุข้อมูลใดๆ",
         "noComponentsUnix": "คุณต้องระบุองค์ประกอบเวลาอย่างน้อยหนึ่งรายการเพื่อเปลี่ยนแปลง หากคุณต้องการรับไวยากรณ์สำหรับเวลา UNIX ให้ใช้ `/{{unixCommand}}`",
         "timezoneNotFound": "เขตเวลานั้นไม่มีอยู่",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "เกิดข้อผิดพลาดที่ไม่คาดคิดระหว่างดำเนินการ"
       },
       "options": {
         "format": {
@@ -193,7 +193,7 @@
             "f": "วันและเวลา",
             "F": "วันธรรมดา วันที่และเวลา",
             "R": "อิงเวลา",
-            "all": "all (default)"
+            "all": "ทั้งหมด (ค่าเริ่มต้น)"
           }
         },
         "columns": {
@@ -219,9 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
-        "incompleteTranslations": "Translations are incomplete",
-        "contributeTranslations": "Contribute"
+        "replyWithSpecificFormat": "เลือกฟอร์แมตด้านล่างเพื่อรับข้อความตอบกลับ (สำหรับคัดลอกบนอุปกรณ์สัมผัส)",
+        "incompleteTranslations": "การแปลยังไม่สมบูรณ์",
+        "contributeTranslations": "การสนับสนุน"
       }
     },
     "statistics": {
@@ -237,8 +237,8 @@
         "noShards": "(บอทไม่ได้ใช้งาน Sharding)",
         "serverInvite": "ลิ้งค์เซิร์ฟเวอร์สำหรับช่วยเหลือ:",
         "totalUserCount": "จำนวนคนที่อยู่ในเซิร์ฟเวอร์ที่บอทอยู่:",
-        "supportedLanguages": "Supported languages:",
-        "crowdinProject": "Crowdin project URL:"
+        "supportedLanguages": "ภาษาที่รองรับ",
+        "crowdinProject": "ลิงก์ URL ของโปรเจกต์ใน Crowdin:"
       }
     },
     "snowflake": {
@@ -296,7 +296,7 @@
       },
       "options": {},
       "components": {
-        "openSettingsButton": "Bot Settings"
+        "openSettingsButton": "การตั้งค่าบอท"
       }
     }
   }
