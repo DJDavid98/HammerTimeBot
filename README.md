@@ -75,7 +75,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Street Dog](https://crowdin.com/profile/streetdog.arg)
   - [Yareaj](https://github.com/Yareaj/)
 - 🇹🇭 Thai
-  - [Suthipong Masopmao](https://crowdin.com/profile/Wiselord911)
+  - [Suthipong Masopmao](https://crowdin.com/profile/Windsor_911)
   - [timelessnesses](https://github.com/timelessnesses)
 - 🇹🇷 Turkish
   - [Baran Moroğan](https://crowdin.com/profile/okunamayanad)
