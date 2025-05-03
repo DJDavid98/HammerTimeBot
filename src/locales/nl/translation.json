@@ -193,7 +193,7 @@
             "f": "datum en tijd",
             "F": "dag, datum en tijd",
             "R": "relatief",
-            "all": "all (default)"
+            "all": "alles (standaard)"
           }
         },
         "columns": {
@@ -220,8 +220,8 @@
       },
       "components": {
         "replyWithSpecificFormat": "Selecteer hieronder een formaat om het in een losstaand antwoord te ontvangen (makkelijker kopiëren op touchscreen apparaten)",
-        "incompleteTranslations": "Translations are incomplete",
-        "contributeTranslations": "Contribute"
+        "incompleteTranslations": "Vertalingen zijn onvolledig",
+        "contributeTranslations": "Help mee"
       }
     },
     "statistics": {
@@ -237,7 +237,7 @@
         "noShards": "(De bot maakt momenteel geen gebruik van sharding)",
         "serverInvite": "Support server uitnodiging:",
         "totalUserCount": "Totaal aantal gebruikers in gejoinde servers:",
-        "supportedLanguages": "Supported languages:",
+        "supportedLanguages": "Ondersteunde talen:",
         "crowdinProject": "Crowdin project URL:"
       }
     },
@@ -296,7 +296,7 @@
       },
       "options": {},
       "components": {
-        "openSettingsButton": "Bot Settings"
+        "openSettingsButton": "Bot instellingen"
       }
     }
   }
