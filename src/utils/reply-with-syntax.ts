@@ -50,7 +50,7 @@ interface SyntaxReplyOptions {
   interaction: HandledInteractions;
   context: InteractionContext;
   timezone?: string;
-  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview'>;
+  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview' | 'formatMinimalReply'>;
 }
 
 export const getSyntaxReplyOptions = ({
@@ -74,8 +74,8 @@ export const getSyntaxReplyOptions = ({
   const formatInput = MessageTimestamp.isValidFormat(syntaxInteraction.format) ? syntaxInteraction.format : null;
   const formats = formatInput ? [formatInput] : supportedFormats;
 
-  const columns = !formatInput ? (syntaxInteraction.columns ?? ResponseColumnChoices.BOTH) : ResponseColumnChoices.PREVIEW_ONLY;
-  const addHeader = !formatInput && (syntaxInteraction.header ?? true);
+  const columns = formatInput && settings.formatMinimalReply ? ResponseColumnChoices.PREVIEW_ONLY : (syntaxInteraction.columns ?? ResponseColumnChoices.BOTH);
+  const addHeader = !(formatInput && settings.formatMinimalReply) && (syntaxInteraction.header ?? true);
   const header = addHeader && getExactTimePrefix(localMoment, timezone);
   const table = formattedResponse(ts, formats, columns as ResponseColumnChoices, !formatInput && settings.boldPreview);
   const content: string | undefined = `${header ? `${header}\n` : ''}${table}`;
@@ -124,7 +124,7 @@ interface ReplyWithSyntaxParams {
   interaction: ChatInputCommandInteraction | ContextMenuCommandInteraction;
   context: InteractionContext;
   timezone: string | undefined;
-  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview'>;
+  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview' | 'formatMinimalReply'>;
 }
 
 export const replyWithSyntax = async ({

@@ -5,6 +5,7 @@ export const SettingName = {
   boldPreview: 'boldPreview',
   columns: 'columns',
   format: 'format',
+  formatMinimalReply: 'formatMinimalReply',
   defaultAtHour: 'defaultAtHour',
   defaultAtMinute: 'defaultAtMinute',
   defaultAtSecond: 'defaultAtSecond',
