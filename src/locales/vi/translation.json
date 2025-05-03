@@ -179,7 +179,7 @@
         "noComponentsCurrentTime": "Bạn phải chỉ định ít nhất một thành phần thời gian để thay đổi. Nếu bạn cần thời gian hiện tại, hãy sử dụng `/{{atCommand}}` mà không chỉ định bất kỳ đối số nào",
         "noComponentsUnix": "Bạn phải chỉ định ít nhất một thành phần thời gian để thay đổi. Nếu bạn muốn lấy cú pháp cho một UNIX timestamp, hãy sử dụng `/{{unixCommand}}`",
         "timezoneNotFound": "Múi giờ đã chỉ định không thể tìm thấy",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "Đã xảy ra lỗi hiếm gặp trong quá trình xử lý câu lệnh"
       },
       "options": {
         "format": {
@@ -193,7 +193,7 @@
             "f": "ngày và thời gian",
             "F": "thứ trong tuần, ngày và thời gian",
             "R": "tương đối",
-            "all": "all (default)"
+            "all": "tất cả (mặc định)"
           }
         },
         "columns": {
@@ -219,9 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
-        "incompleteTranslations": "Translations are incomplete",
-        "contributeTranslations": "Contribute"
+        "replyWithSpecificFormat": "Chọn một định dạng để được trả về trong một tin nhắn trả lời (để sao chép dễ dàng trên các thiết bị cảm ứng)",
+        "incompleteTranslations": "Các bản dịch chưa được hoàn thiện",
+        "contributeTranslations": "Đóng góp"
       }
     },
     "statistics": {
@@ -237,8 +237,8 @@
         "noShards": "(Bot hiện không sử dụng sharding)",
         "serverInvite": "URL mời máy chủ hỗ trợ:",
         "totalUserCount": "Tổng số người dùng trong các máy chủ đã tham gia:",
-        "supportedLanguages": "Supported languages:",
-        "crowdinProject": "Crowdin project URL:"
+        "supportedLanguages": "Các ngôn ngữ được hỗ trợ:",
+        "crowdinProject": "Đường dẫn đến dự án trên Crowdin:"
       }
     },
     "snowflake": {
@@ -296,7 +296,7 @@
       },
       "options": {},
       "components": {
-        "openSettingsButton": "Bot Settings"
+        "openSettingsButton": "Cài đặt phần mềm"
       }
     }
   }
