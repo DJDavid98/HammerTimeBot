@@ -154,11 +154,11 @@
         },
         "minutes": {
           "name": "minutos",
-          "description": "How many minutes to subtract from the specified timestamp"
+          "description": "Quantos minutos devem ser subtraídos do registro de data e hora especificado"
         },
         "seconds": {
           "name": "segundos",
-          "description": "How many seconds to subtract from the specified timestamp"
+          "description": "Quantos segundos devem ser subtraídos do registro de data e hora especificado"
         }
       }
     },
@@ -176,10 +176,10 @@
     "global": {
       "responses": {
         "invalidDate": "A data especificada é inválida (por exemplo: o dia fornecido não existe)",
-        "noComponentsCurrentTime": "You must specify at least one time component to change. If you need the current time, use `/{{atCommand}}` without specifying any arguments",
-        "noComponentsUnix": "You must specify at least one time component to change. If you want to get the syntax for a UNIX timestamp, use `/{{unixCommand}}`",
+        "noComponentsCurrentTime": "Você deve especificar pelo menos um componente de tempo para mudar. Se você precisa da hora atual, use `/{{atCommand}}` sem especificar nenhum argumento",
+        "noComponentsUnix": "Você deve especificar pelo menos um componente de tempo para mudar. Se você quiser obter a sintaxe de um registro de data e hora UNIX, use `/{{unixCommand}}`",
         "timezoneNotFound": "O fuso horário especificado não pôde ser encontrado",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "Ocorreu um erro inesperado ao processar essa interação"
       },
       "options": {
         "format": {
@@ -193,7 +193,7 @@
             "f": "data e hora",
             "F": "dia da semana, data e hora",
             "R": "relativo",
-            "all": "all (default)"
+            "all": "todos (padrão)"
           }
         },
         "columns": {
@@ -219,9 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
-        "incompleteTranslations": "Translations are incomplete",
-        "contributeTranslations": "Contribute"
+        "replyWithSpecificFormat": "Selecione um formato abaixo para recebê-lo em uma resposta (para copiar em dispositivos de toque)",
+        "incompleteTranslations": "As traduções estão incompletas",
+        "contributeTranslations": "Contribuir"
       }
     },
     "statistics": {
@@ -237,66 +237,66 @@
         "noShards": "(O bot não está usando fragmentação no momento)",
         "serverInvite": "Link do servidor de suporte:",
         "totalUserCount": "Total de usuários em servidores entrados:",
-        "supportedLanguages": "Supported languages:",
-        "crowdinProject": "Crowdin project URL:"
+        "supportedLanguages": "Idiomas compatíveis:",
+        "crowdinProject": "URL do projeto Crowdin:"
       }
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Display the syntax for the timestamp of a Snowflake (most IDs within Discord)",
+      "description": "Exibir a sintaxe do registro de data e hora de um Snowflake (a maioria das IDs no Discord)",
       "responses": {
-        "invalidSnowflake": "The specified Snowflake is invalid"
+        "invalidSnowflake": "O Snowflake especificado é inválido"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The Snowflake number"
+          "name": "valor",
+          "description": "O número do Snowflake"
         }
       }
     },
     "Message Sent": {
-      "name": "Message Sent",
+      "name": "Mensagem Enviada",
       "responses": {
-        "targetMessage": "Send timestamp for the following message: {{url}}"
+        "targetMessage": "Enviar registro de data e hora para a seguinte mensagem: {{url}}"
       }
     },
     "Message Last Edited": {
-      "name": "Message Last Edited",
+      "name": "Última Edição da Mensagem",
       "responses": {
-        "targetMessage": "Last edit timestamp for the following message: {{url}}",
-        "notEdited": "This message has not been edited yet"
+        "targetMessage": "Registro de data e hora da última edição da mensagem a seguir: {{url}}",
+        "notEdited": "Esta mensagem não foi editada ainda"
       }
     },
     "iso": {
       "name": "iso",
-      "description": "Display the syntaxes for a specific ISO 8601 timestamp",
+      "description": "Exibir as sintaxes para um registro de data e horar ISO 8601 específico",
       "responses": {
-        "invalidIsoFormat": "The provided value does not match the ISO 8601 standard"
+        "invalidIsoFormat": "O valor fornecido não corresponde com o padrão ISO 8601"
       },
       "options": {
         "value": {
-          "name": "value",
-          "description": "The ISO 8601 standard timestamp"
+          "name": "valor",
+          "description": "O carimbo de data e hora padrão ISO 8601"
         }
       }
     },
     "Extract Timestamps": {
-      "name": "Extract Timestamps",
+      "name": "Extrair registros de data e hora",
       "responses": {
-        "targetMessage": "All timestamps found in the following message: {{url}}",
-        "noTimestamps": "This message does not contain any timestamps in Discord's format"
+        "targetMessage": "Todos os registros de data e hora encontrados na mensagem a seguir: {{url}}",
+        "noTimestamps": "Esta mensagem não contém nenhum registro de data e hora no formato do Discord"
       }
     },
     "settings": {
-      "name": "settings",
-      "description": "Create a link to manage your settings via the website",
+      "name": "configurações",
+      "description": "Criar um link para gerenciar suas configurações através do site",
       "responses": {
         "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
-        "failedToCreateLink": "Could not generate a link to log you in automatically, please visit <{{loginUrl}}> and log in manually, then go to <{{settingsUrl}}> to change your settings."
+        "failedToCreateLink": "Não foi possível gerar um link para autenticá-lo automaticamente, visite <{{loginUrl}}> e faça o login manualmente, depois vá para <{{settingsUrl}}> para alterar suas configurações."
       },
       "options": {},
       "components": {
-        "openSettingsButton": "Bot Settings"
+        "openSettingsButton": "Configurações do Bot"
       }
     }
   }
