@@ -179,7 +179,7 @@
         "noComponentsCurrentTime": "Ви повинні вказати принаймні один часовий компонент для зміни. Якщо вам потрібен поточний час, використовуйте `/{{atCommand}}` без зазначення аргументів",
         "noComponentsUnix": "Ви повинні вказати принаймні один компонент часу для зміни. Якщо ви хочете отримати синтаксис мітки часу UNIX, скористайтеся `/{{unixCommand}}`",
         "timezoneNotFound": "Неможливо знайти вказаний часовий пояс",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "Неочікувана помилка під час дії"
       },
       "options": {
         "format": {
@@ -292,11 +292,11 @@
       "description": "Create a link to manage your settings via the website",
       "responses": {
         "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
-        "failedToCreateLink": "Could not generate a link to log you in automatically, please visit <{{loginUrl}}> and log in manually, then go to <{{settingsUrl}}> to change your settings."
+        "failedToCreateLink": "Не вдалося згенерувати посилання для автоматичного входу. Будь ласка, відвідайте <{{loginUrl}}> і увійдіть вручну, потім перейдіть до <{{settingsUrl}}> для зміни налаштувань."
       },
       "options": {},
       "components": {
-        "openSettingsButton": "Bot Settings"
+        "openSettingsButton": "Налаштування бота"
       }
     }
   }
