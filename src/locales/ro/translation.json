@@ -179,7 +179,7 @@
         "noComponentsCurrentTime": "Trebuie să specificați cel puțin o componentă de timp care trebuie modificată. Dacă aveți nevoie de ora curentă, utilizați `/{{atCommand}}` fără să specificați niciun argument",
         "noComponentsUnix": "Trebuie să specificați cel puțin o componentă de timp care trebuie modificată. Dacă doriți să obțineți sintaxa pentru un timestamp UNIX, utilizați `/{{unixCommand}}`",
         "timezoneNotFound": "Fusul orar specificat nu poate fi găsit",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "A apărut o eroare neașteptată în timpul procesării acestei interacțiuni"
       },
       "options": {
         "format": {
@@ -193,7 +193,7 @@
             "f": "data și simpu",
             "F": "ziua săptămânii, data și ora",
             "R": "relativ",
-            "all": "all (default)"
+            "all": "toate (implicit)"
           }
         },
         "columns": {
@@ -219,9 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
-        "incompleteTranslations": "Translations are incomplete",
-        "contributeTranslations": "Contribute"
+        "replyWithSpecificFormat": "Selectați un format mai jos pentru a-l primi într-un răspuns (pentru copiere pe dispozitive tactile)",
+        "incompleteTranslations": "Traducerile sunt incomplete",
+        "contributeTranslations": "Contribuiți"
       }
     },
     "statistics": {
@@ -237,8 +237,8 @@
         "noShards": "(Bot-ul nu folosește în prezent sharding)",
         "serverInvite": "URL de invitație a serverului de suport:",
         "totalUserCount": "Numărul total de utilizatori în serverele alăturate:",
-        "supportedLanguages": "Supported languages:",
-        "crowdinProject": "Crowdin project URL:"
+        "supportedLanguages": "Limbi acceptate:",
+        "crowdinProject": "URL-ul proiectului Crowdin:"
       }
     },
     "snowflake": {
@@ -296,7 +296,7 @@
       },
       "options": {},
       "components": {
-        "openSettingsButton": "Bot Settings"
+        "openSettingsButton": "Setări Bot"
       }
     }
   }
