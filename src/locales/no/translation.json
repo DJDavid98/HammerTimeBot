@@ -179,7 +179,7 @@
         "noComponentsCurrentTime": "Du må angi minst én tidskomponent som skal endres. Hvis du trenger gjeldende klokkeslett, bruker du `/{{atCommand}}` uten å spesifisere noen argumenter",
         "noComponentsUnix": "Du må angi minst én tidskomponent som skal endres. Hvis du vil ha syntaksen for et UNIX-tidsstempel, bruker du `/{{unixCommand}}`",
         "timezoneNotFound": "Den angitte tidssonen ble ikke funnet",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "Det skjedde en uventet feil mens handlingen ble prosessert"
       },
       "options": {
         "format": {
@@ -193,7 +193,7 @@
             "f": "dato og klokkeslett",
             "F": "hverdag, dato og klokkeslett",
             "R": "relativ",
-            "all": "all (default)"
+            "all": "alle (standard)"
           }
         },
         "columns": {
@@ -219,9 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
-        "incompleteTranslations": "Translations are incomplete",
-        "contributeTranslations": "Contribute"
+        "replyWithSpecificFormat": "Velg et format under for å motta et svar (for kopiering på en berørings enhet)",
+        "incompleteTranslations": "Oversettelse er ikke ferdig",
+        "contributeTranslations": "Medvirke"
       }
     },
     "statistics": {
@@ -237,8 +237,8 @@
         "noShards": "(Boten bruker for øyeblikket ikke skjær)",
         "serverInvite": "URL for invitasjon til support server:",
         "totalUserCount": "Totalt antall brukere på tilkoblede servere:",
-        "supportedLanguages": "Supported languages:",
-        "crowdinProject": "Crowdin project URL:"
+        "supportedLanguages": "Støttede språk:",
+        "crowdinProject": "Crowdin's prosjekt:"
       }
     },
     "snowflake": {
@@ -296,7 +296,7 @@
       },
       "options": {},
       "components": {
-        "openSettingsButton": "Bot Settings"
+        "openSettingsButton": "Bot Innstillinger"
       }
     }
   }
