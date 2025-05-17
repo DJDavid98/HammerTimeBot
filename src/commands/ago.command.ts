@@ -1,14 +1,14 @@
 import { BotChatInputCommand } from '../types/bot-interaction.js';
-import { adjustMoment } from '../utils/time.js';
+import { adjustDate, TimeMap } from '../utils/time.js';
 import { AgoCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getAgoOptions } from '../options/ago.options.js';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
-import moment from 'moment-timezone';
 import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
 import { interactionReply } from '../utils/interaction-reply.js';
+import { TZDate } from '@date-fns/tz';
 
 export const agoCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -20,7 +20,7 @@ export const agoCommand: BotChatInputCommand = {
   async handle(interaction, context) {
     const settings = await getSettings(context, interaction);
     const { t } = context;
-    const options = {
+    const options: TimeMap = {
       years: interaction.options.getNumber(AgoCommandOptionName.YEARS_AGO),
       months: interaction.options.getNumber(AgoCommandOptionName.MONTHS_AGO),
       days: interaction.options.getNumber(AgoCommandOptionName.DAYS_AGO),
@@ -43,8 +43,8 @@ export const agoCommand: BotChatInputCommand = {
 
     // Fixed value for relative timestamps
     const timezone = 'UTC';
-    const localMoment = adjustMoment(options, 'subtract', moment.tz(timezone));
+    const localDate = adjustDate(options, 'subtract', TZDate.tz(timezone));
 
-    await replyWithSyntax({ localMoment, interaction, context, timezone, settings });
+    await replyWithSyntax({ localDate, interaction, context, timezone, settings });
   },
 };
