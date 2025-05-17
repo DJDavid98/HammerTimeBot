@@ -58,9 +58,13 @@ English and Hungarian translations have been included, so no translators will be
   - [SkyStorage\_](https://crowdin.com/profile/SkyStorage_)
   - [미르냥](https://crowdin.com/profile/Mirnyang)
 - 🇱🇹 Lithuanian: [Trent](https://crowdin.com/profile/nothingness)
-- 🇳🇴 Norwegian: [Phillip Rodseth](https://crowdin.com/profile/philliphatrod)
+- 🇳🇴 Norwegian
+  - [kidneb1g](https://crowdin.com/profile/klinge9797)
+  - [Phillip Rodseth](https://crowdin.com/profile/philliphatrod)
 - 🇵🇱 Polish: [Dawid Jaworski](https://crowdin.com/profile/MinerPL)
-- 🇧🇷 Portuguese, Brazilian: [leo0six](https://crowdin.com/profile/leo0six)
+- 🇧🇷 Portuguese, Brazilian
+  - [Daniel Souza](https://crowdin.com/profile/dansansou)
+  - [leo0six](https://crowdin.com/profile/leo0six)
 - 🇷🇴 Romanian
   - [Ant. Rares](https://crowdin.com/profile/Iepurooy)
   - [mihai](https://crowdin.com/profile/mihaiofficialRO)
@@ -80,7 +84,9 @@ English and Hungarian translations have been included, so no translators will be
 - 🇹🇷 Turkish
   - [Baran Moroğan](https://crowdin.com/profile/okunamayanad)
   - [tututuana](https://crowdin.com/profile/tututuana)
-- 🇺🇦 Ukrainian: [GameHacker](https://crowdin.com/profile/GameHacker)
+- 🇺🇦 Ukrainian
+  - [DmitroMeow](https://crowdin.com/profile/DmitroMeow)
+  - [GameHacker](https://crowdin.com/profile/GameHacker)
 - 🇻🇳 Vietnamese
   - [Quan](https://crowdin.com/profile/quanonthecob)
   - [ThatKev](https://crowdin.com/profile/thatkev)

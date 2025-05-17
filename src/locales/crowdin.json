@@ -167,6 +167,20 @@
       "username": "maxlengert12051",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16756819/medium/406acac09fc85931bf58867c08c12920.png",
       "fullName": "Maximilian"
+    },
+    "17096866": {
+      "username": "DmitroMeow",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17096866/medium/2761e5e49bb89d33fb4f655592ac19be.png"
+    },
+    "17099634": {
+      "username": "dansansou",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17099634/medium/8749431c352e1eada5f2e4a67eb35e1d.jpeg",
+      "fullName": "Daniel Souza"
+    },
+    "17105460": {
+      "username": "klinge9797",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17105460/medium/1343b379c5b2cad8a164c007369af4db.jpeg",
+      "fullName": "kidneb1g"
     }
   },
   "languages": {
@@ -226,8 +240,8 @@
     "es-419": {
       "translatorIds": [],
       "progress": {
-        "approval": 95,
-        "translation": 95
+        "approval": 98,
+        "translation": 98
       }
     },
     "es-ES": {
@@ -340,11 +354,12 @@
     },
     "no": {
       "translatorIds": [
-        "16406120"
+        "16406120",
+        "17105460"
       ],
       "progress": {
-        "approval": 95,
-        "translation": 95
+        "approval": 100,
+        "translation": 100
       }
     },
     "pl": {
@@ -358,11 +373,12 @@
     },
     "pt-BR": {
       "translatorIds": [
-        "14830652"
+        "14830652",
+        "17099634"
       ],
       "progress": {
-        "approval": 69,
-        "translation": 69
+        "approval": 100,
+        "translation": 100
       }
     },
     "ro": {
@@ -371,8 +387,8 @@
         "15627125"
       ],
       "progress": {
-        "approval": 95,
-        "translation": 95
+        "approval": 100,
+        "translation": 100
       }
     },
     "ru": {
@@ -415,11 +431,12 @@
     },
     "uk": {
       "translatorIds": [
-        "15276044"
+        "15276044",
+        "17096866"
       ],
       "progress": {
-        "approval": 82,
-        "translation": 82
+        "approval": 87,
+        "translation": 87
       }
     },
     "vi": {
@@ -428,8 +445,8 @@
         "16061216"
       ],
       "progress": {
-        "approval": 95,
-        "translation": 95
+        "approval": 100,
+        "translation": 100
       }
     },
     "zh-CN": {
