@@ -10,7 +10,7 @@ import { MessageContextMenuCommandInteraction } from 'discord.js';
 import type { ApplicationCommandType, RESTPostAPIChatInputApplicationCommandsJSONBody } from 'discord-api-types/v10';
 import { i18n, TFunction } from 'i18next';
 
-import { PrefixedLogger } from './prefixed-logger.js';
+import { NestableLogger } from './logger-types.js';
 
 export const enum BotChatInputCommandName {
   ADD = 'add',
@@ -36,7 +36,7 @@ export const enum BotMessageComponentCustomId {
 }
 
 export interface LoggerContext {
-  logger: PrefixedLogger;
+  logger: NestableLogger;
 }
 
 export interface InteractionHandlerContext extends LoggerContext {

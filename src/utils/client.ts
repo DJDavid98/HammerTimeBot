@@ -21,7 +21,7 @@ const ONE_HOUR_MS = 60 * 60 * 1e3;
 
 const updateCommands = async (context: InteractionHandlerContext) => {
   const { i18next, ...restContext } = context;
-  const { logger } = context;
+  const logger = context.logger.nest('updateCommands');
   const t = i18next.t.bind(i18next);
   const interactionContext: InteractionContext = { ...restContext, t };
   logger.log(`Application ${env.LOCAL ? 'is' : 'is NOT'} in local mode`);
@@ -35,7 +35,7 @@ const updateCommands = async (context: InteractionHandlerContext) => {
 };
 
 const updateShardStats = async (context: LoggerContext, client: Client, shardId: number) => {
-  const { logger } = context;
+  const logger = context.logger.nest('updateShardStats');
   const serverCount = client.guilds.cache.size;
   const memberCount = client.guilds.cache.reduce((members, guild) => {
     if (members === null) return null;
