@@ -1,10 +1,10 @@
 import { rest } from './rest.js';
 import { RESTGetAPIApplicationEmojisResult, Routes } from 'discord-api-types/v10';
 import { env } from '../env.js';
+import { NestableLogger } from '../types/logger-types.js';
 
-import { PrefixedLogger } from '../types/prefixed-logger.js';
-
-export const getApplicationEmojis = async (logger: PrefixedLogger): Promise<Record<string, string>> => {
+export const getApplicationEmojis = async (context: { logger: NestableLogger }): Promise<Record<string, string>> => {
+  const logger = context.logger.nest('getApplicationEmojis');
   logger.log('Getting application emoji…');
   const emojiResponse = await rest.get(
     Routes.applicationEmojis(env.DISCORD_CLIENT_ID),

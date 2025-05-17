@@ -1,66 +1,69 @@
-import { PrefixedLogger } from '../types/prefixed-logger.js';
+import { NestableLogger } from '../types/logger-types.js';
 
-export class Logger implements PrefixedLogger {
-  protected prefix: string = '';
+export class Logger implements NestableLogger {
+  protected prefixes: string[] = [];
 
-  constructor(prefix: string, prefixMaxLength?: number) {
-    this.setPrefix(prefix, prefixMaxLength);
+  protected prefixString = '';
+
+  constructor(prefix: string | string[]) {
+    this.setPrefix(prefix);
   }
 
   debug(...params: unknown[]): void {
-    console.debug(...this.addPrefix(params));
+    console.debug(...this.addPrefixToLog(params));
   }
 
   info(...params: unknown[]): void {
-    console.info(...this.addPrefix(params));
+    console.info(...this.addPrefixToLog(params));
   }
 
   log(...params: unknown[]): void {
-    console.log(...this.addPrefix(params));
+    console.log(...this.addPrefixToLog(params));
   }
 
   warn(...params: unknown[]): void {
-    console.warn(...this.addPrefix(params));
+    console.warn(...this.addPrefixToLog(params));
   }
 
   error(...params: unknown[]): void {
-    console.error(...this.addPrefix(params));
+    console.error(...this.addPrefixToLog(params));
   }
 
-  setPrefix(rawPrefix: string, prefixMaxLength?: number) {
-    const previousPrefix = this.prefix;
-    this.prefix = `[${rawPrefix}]`;
-    if (typeof prefixMaxLength === 'number' && isFinite(prefixMaxLength)) {
-      const lengthDifference = this.prefix.length - rawPrefix.length;
-      this.prefix = this.prefix.padEnd(prefixMaxLength + lengthDifference, ' ');
+  private setPrefix(rawPrefix: string | string[]) {
+    const rawPrefixArray = Array.isArray(rawPrefix) ? rawPrefix : [rawPrefix];
+    if (this.prefixes.length > 0) {
+      const previousPrefix = this.prefixes;
+      this.prefixes.splice(-1, 1, ...rawPrefixArray);
+      this.info(`Prefix changed (previous: ${previousPrefix.join(',')})`);
+    } else {
+      this.prefixes = rawPrefixArray;
     }
-    if (previousPrefix.length !== 0) {
-      this.info(`Prefix changed (previous: ${previousPrefix})`);
-    }
+    this.prefixString = `[${this.prefixes.join('][')}]`;
   }
 
   protected static getPrefixForShardsValue(shards: string) {
     return `Shard#${shards}`;
   }
 
-  static fromShardInfo(shards: string | string[] = '', shardCount?: string) {
+  static fromShardInfo(shards: string | string[] = '') {
     const shardsSuffix = Array.isArray(shards) ? shards.join(',') : shards;
-    let prefixMaxLength = Infinity;
-    if (typeof shardCount === 'string') {
-      prefixMaxLength = this.getPrefixForShardsValue(shardCount).length;
-    }
     const prefix = this.getPrefixForShardsValue(shardsSuffix);
-    return new Logger(prefix, prefixMaxLength);
+    return new Logger(prefix);
   }
 
-  protected addPrefix<T>(params: T[]): (T | string)[] {
-    if (this.prefix.length === 0) {
+  protected addPrefixToLog<T>(params: T[]): (T | string)[] {
+    if (this.prefixes.length === 0) {
       return params;
     }
     if (typeof params[0] === 'string') {
       const [firstParam, ...restParams] = params;
-      return [this.prefix + ' ' + firstParam, ...restParams];
+      return [this.prefixString + ' ' + firstParam, ...restParams];
     }
-    return [this.prefix, ...params];
+    return [this.prefixString, ...params];
+  }
+
+  nest(nestedPrefix: string | string[]) {
+    const nestedPrefixArray = Array.isArray(nestedPrefix) ? nestedPrefix : [nestedPrefix];
+    return new Logger([...this.prefixes, ...nestedPrefixArray]);
   }
 }

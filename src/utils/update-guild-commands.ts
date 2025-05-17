@@ -11,7 +11,7 @@ import { BotCommandItem, BotCommands, getApplicationCommands } from './get-appli
 import { rest } from './rest.js';
 import { apiRequest } from './backend.js';
 import typia from 'typia';
-import { InteractionContext } from '../types/bot-interaction.js';
+import { InteractionContext, LoggerContext } from '../types/bot-interaction.js';
 
 
 type MinimalAPIApplicationCommand =
@@ -66,12 +66,12 @@ export const getAuthorizedServers = async ({ logger }: InteractionContext): Prom
 };
 
 export const updateGuildCommands = async (context: InteractionContext, guildId: Snowflake): Promise<void> => {
-  const { logger, t } = context;
-  const guildIdString = `guildId:${guildId}`;
+  const { t } = context;
+  const logger = context.logger.nest(['updateGuildCommands', `Guild#${guildId}`]);
   let result: RESTPutAPIApplicationGuildCommandsResult | undefined;
   let body: BotCommands | undefined;
   try {
-    logger.log(`Started reloading guild (/) commands (${guildIdString})`);
+    logger.log('Started reloading guild commands');
 
     body = getApplicationCommands(t);
     result = await rest.put(
@@ -79,21 +79,39 @@ export const updateGuildCommands = async (context: InteractionContext, guildId: 
       { body },
     ) as RESTPutAPIApplicationGuildCommandsResult;
 
-    logger.log(`Successfully reloaded guild (/) commands (${guildIdString})`);
+    logger.log('Successfully reloaded guild commands');
   } catch (error) {
-    logger.error(`Failed to reload guild (/) commands (${guildIdString})`, error);
+    logger.error('Failed to reload guild commands', error);
     process.exit(1);
   }
 
   await updateBotCommandsInApi(context, body, result);
 };
 
+export const cleanGuildCommands = async (context: LoggerContext, guildId: Snowflake): Promise<void> => {
+  const logger = context.logger.nest(['cleanGuildCommands', `Guild#${guildId}`]);
+  try {
+    logger.log('Started cleaning guild commands');
+
+    await rest.put(
+      Routes.applicationGuildCommands(env.DISCORD_CLIENT_ID, guildId),
+      { body: [] },
+    );
+
+    logger.log('Successfully cleaned guild commands');
+  } catch (error) {
+    logger.error('Failed to clean guild commands', error);
+    process.exit(1);
+  }
+};
+
 export const updateGlobalCommands = async (context: InteractionContext): Promise<void> => {
-  const { logger, t } = context;
+  const { t } = context;
+  const logger = context.logger.nest('updateGlobalCommands');
   let result: RESTPutAPIApplicationCommandsResult | undefined;
   let body: BotCommands | undefined;
   try {
-    logger.log('Started refreshing application (/) commands');
+    logger.log('Started refreshing application commands');
 
     body = getApplicationCommands(t);
     result = await rest.put(
@@ -101,27 +119,28 @@ export const updateGlobalCommands = async (context: InteractionContext): Promise
       { body },
     ) as RESTPutAPIApplicationCommandsResult;
 
-    logger.log('Successfully reloaded application (/) commands');
+    logger.log('Successfully reloaded application commands');
   } catch (error) {
-    logger.error('Failed to reload application (/) commands', error);
+    logger.error('Failed to reload application commands', error);
     process.exit(1);
   }
 
   await updateBotCommandsInApi(context, body, result);
 };
 
-export const cleanGlobalCommands = async ({ logger }: InteractionContext): Promise<void> => {
+export const cleanGlobalCommands = async (context: InteractionContext): Promise<void> => {
+  const logger = context.logger.nest('cleanGlobalCommands');
   try {
-    logger.log('Started cleaning application (/) commands');
+    logger.log('Started cleaning application commands');
 
     await rest.put(
       Routes.applicationCommands(env.DISCORD_CLIENT_ID),
       { body: [] },
     );
 
-    logger.log('Successfully cleaned application (/) commands');
+    logger.log('Successfully cleaned application commands');
   } catch (error) {
-    logger.error('Failed to clean application (/) commands', error);
+    logger.error('Failed to clean application commands', error);
     process.exit(1);
   }
 };

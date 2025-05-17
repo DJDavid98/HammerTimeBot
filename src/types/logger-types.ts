@@ -10,6 +10,6 @@ interface ILogger {
   error(...params: unknown[]): void;
 }
 
-export interface PrefixedLogger extends ILogger {
-  setPrefix(prefix: string): void;
+export interface NestableLogger extends ILogger {
+  nest(nestedPrefix: string | string[]): NestableLogger;
 }

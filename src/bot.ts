@@ -7,7 +7,7 @@ import { getApplicationEmojis } from './utils/get-application-emojis.js';
 import { Logger } from './classes/logger.js';
 
 (async () => {
-  const logger = Logger.fromShardInfo(process.env.SHARDS, process.env.SHARD_COUNT);
+  const logger = Logger.fromShardInfo(process.env.SHARDS);
   const [, i18next, emojiIdMap] = await Promise.all([
     (async () => {
       const tzDataPath = join('.', 'node_modules', 'moment-timezone', 'data', 'packed', 'latest.json');
@@ -21,7 +21,7 @@ import { Logger } from './classes/logger.js';
     })(),
     (async () => {
       logger.log('Getting application emoji data');
-      return getApplicationEmojis(logger);
+      return getApplicationEmojis({ logger });
     })(),
   ]);
 

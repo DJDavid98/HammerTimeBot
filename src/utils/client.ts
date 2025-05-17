@@ -8,6 +8,7 @@ import {
 } from './interaction-handlers.js';
 import {
   cleanGlobalCommands,
+  cleanGuildCommands,
   getAuthorizedServers,
   updateGlobalCommands,
   updateGuildCommands,
@@ -21,21 +22,27 @@ const ONE_HOUR_MS = 60 * 60 * 1e3;
 
 const updateCommands = async (context: InteractionHandlerContext) => {
   const { i18next, ...restContext } = context;
-  const { logger } = context;
+  const logger = context.logger.nest('updateCommands');
   const t = i18next.t.bind(i18next);
   const interactionContext: InteractionContext = { ...restContext, t };
   logger.log(`Application ${env.LOCAL ? 'is' : 'is NOT'} in local mode`);
   if (env.LOCAL) {
-    const serverIds = await getAuthorizedServers(interactionContext);
-    await cleanGlobalCommands(interactionContext);
-    await Promise.all(serverIds.map((serverId) => updateGuildCommands(interactionContext, serverId)));
+    const serverIds = await getAuthorizedServers({ ...interactionContext, logger });
+    // TODO Move inside local section after servers have been cleaned up
+    await Promise.all(serverIds.map((serverId) => cleanGuildCommands(interactionContext, serverId)));
+    if (env.LOCAL) {
+      await cleanGlobalCommands(interactionContext);
+      await Promise.all(serverIds.map((serverId) => updateGuildCommands(interactionContext, serverId)));
+    } else {
+      await updateGlobalCommands(interactionContext);
+    }
   } else {
     await updateGlobalCommands(interactionContext);
   }
 };
 
 const updateShardStats = async (context: LoggerContext, client: Client, shardId: number) => {
-  const { logger } = context;
+  const logger = context.logger.nest('updateShardStats');
   const serverCount = client.guilds.cache.size;
   const memberCount = client.guilds.cache.reduce((members, guild) => {
     if (members === null) return null;
