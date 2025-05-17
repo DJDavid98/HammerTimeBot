@@ -1,10 +1,10 @@
-import moment from 'moment-timezone';
 import { BotMessageContextMenuCommand } from '../types/bot-interaction.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { getSyntaxReplyOptions } from '../utils/reply-with-syntax.js';
 import { ApplicationCommandType, ComponentType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
 import { interactionReply } from '../utils/interaction-reply.js';
+import { TZDate } from '@date-fns/tz';
 
 export const messageLastEditedCommand: BotMessageContextMenuCommand = {
   getDefinition: (t) => ({
@@ -25,8 +25,8 @@ export const messageLastEditedCommand: BotMessageContextMenuCommand = {
       });
       return;
     }
-    const localMoment = moment(interaction.targetMessage.editedAt).utc();
-    const replyOptions = getSyntaxReplyOptions({ localMoment, interaction, context, settings });
+    const localDate = TZDate.tz('UTC', editTime);
+    const replyOptions = getSyntaxReplyOptions({ localDate, interaction, context, settings });
     await interactionReply(t, interaction, replyOptions.components ? {
       ...replyOptions,
       components: [

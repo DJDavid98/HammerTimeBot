@@ -1,6 +1,5 @@
-import moment from 'moment-timezone';
 import {
-  adjustMoment,
+  adjustDate,
   constrain,
   findTimezone,
   formattedResponse,
@@ -13,6 +12,8 @@ import { TimezoneError } from '../classes/timezone-error.js';
 import { ResponseColumnChoices } from '../types/localization.js';
 import { pad } from './numbers';
 import { describe, expect, it } from 'vitest';
+import { TZDate } from '@date-fns/tz';
+import { addHours, getDayOfYear, getHours, subDays } from 'date-fns';
 
 describe('time utils', () => {
   const nowInSeconds = 1650802953;
@@ -109,17 +110,17 @@ describe('time utils', () => {
     });
   });
 
-  describe('adjustMoment', () => {
+  describe('adjustDate', () => {
     it('should add the specified time', () => {
-      const actual = adjustMoment({ hour: 10 }, 'add', now);
-      const expected = moment(now).add(10, 'hour');
-      expect(actual.hours()).toEqual(expected.hours());
+      const actual = adjustDate({ hours: 10 }, 'add', now);
+      const expected = addHours(new TZDate(now), 10);
+      expect(getHours(actual)).toEqual(getHours(expected));
     });
 
     it('should subtract the specified time', () => {
-      const actual = adjustMoment({ day: 3 }, 'subtract', now);
-      const expected = moment(now).subtract(3, 'day');
-      expect(actual.days()).toEqual(expected.days());
+      const actual = adjustDate({ days: 3 }, 'subtract', now);
+      const expected = subDays(now, 3);
+      expect(getDayOfYear(actual)).toEqual(getDayOfYear(expected));
     });
   });
 
