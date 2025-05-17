@@ -16,12 +16,14 @@ import { InteractionContext, InteractionHandlerContext, LoggerContext } from '..
 import { getProcessStartTs } from './get-process-start-ts.js';
 import { apiRequest } from './backend.js';
 import typia from 'typia';
+import { updateBotTimezonesInApi } from './backend-api-data-updaters.js';
 
 const ONE_HOUR_MS = 60 * 60 * 1e3;
 
 const updateCommands = async (context: InteractionHandlerContext) => {
   const { i18next, ...restContext } = context;
   const logger = context.logger.nest('updateCommands');
+  logger.log('Updating commands…');
   const t = i18next.t.bind(i18next);
   const interactionContext: InteractionContext = { ...restContext, t };
   logger.log(`Application ${env.LOCAL ? 'is' : 'is NOT'} in local mode`);
@@ -74,9 +76,10 @@ const handleReady = (context: InteractionHandlerContext) => async (client: Clien
 
   const shardUtils = client.shard;
   const shardIds = shardUtils?.ids;
+  const startupPromises: Promise<void>[] = [];
   if (shardIds && shardIds.includes(0)) {
-    logger.log('Updating commands');
-    await updateCommands(context);
+    startupPromises.push(updateCommands(context));
+    startupPromises.push(updateBotTimezonesInApi(context));
   }
 
   const statsUpdate = async () => {
@@ -91,7 +94,12 @@ const handleReady = (context: InteractionHandlerContext) => async (client: Clien
       logger.error('Failed to update shard statistics:', e);
     }
   };
-  await statsUpdate();
+  startupPromises.push(statsUpdate());
+
+  // Wait for startup actions
+  await Promise.all(startupPromises);
+
+  // Set up scheduled calls
   setInterval(() => {
     void statsUpdate();
   }, ONE_HOUR_MS);

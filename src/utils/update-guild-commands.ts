@@ -1,4 +1,3 @@
-import type { APIApplicationCommand, APIApplicationCommandOption } from 'discord-api-types/v10';
 import {
   RESTGetAPICurrentUserGuildsResult,
   RESTPutAPIApplicationCommandsResult,
@@ -7,56 +6,13 @@ import {
 } from 'discord-api-types/v10';
 import { Snowflake } from 'discord-api-types/globals';
 import { env } from '../env.js';
-import { BotCommandItem, BotCommands, getApplicationCommands } from './get-application-commands.js';
+import { BotCommands, getApplicationCommands } from './get-application-commands.js';
 import { rest } from './rest.js';
-import { apiRequest } from './backend.js';
-import typia from 'typia';
 import { InteractionContext, LoggerContext } from '../types/bot-interaction.js';
+import { updateBotCommandsInApi } from './backend-api-data-updaters.js';
 
-
-type MinimalAPIApplicationCommand =
-  Pick<APIApplicationCommand, 'id' | 'name' | 'name_localizations' | 'description' | 'description_localizations' | 'type'>
-  & {
-    options?: Array<Pick<APIApplicationCommandOption, 'name' | 'name_localizations' | 'description' | 'description_localizations' | 'type' | 'required'>>
-  };
-
-const augmentResultWithOptions = <T extends MinimalAPIApplicationCommand[] | undefined>(input: BotCommands | undefined, result: T): T => {
-  const indexedOptions = input?.reduce((acc, command) => ({
-    ...acc,
-    [command.name]: command.options,
-  }), {} as Record<string, BotCommandItem['options']>);
-  return result?.map(command => {
-    if (indexedOptions?.[command.name]) {
-      return {
-        ...command,
-        options: indexedOptions[command.name],
-      };
-    }
-    return command;
-  }) as T;
-};
-
-export const updateBotCommandsInApi = async (context: InteractionContext, input: BotCommands | undefined, result: MinimalAPIApplicationCommand[] | undefined): Promise<void> => {
-  if (!result) return;
-
-  const { logger } = context;
-  logger.log('Sending bot commands to the API…');
-  const resultWithOptions = augmentResultWithOptions(input, result);
-  try {
-    await apiRequest(context, {
-      path: '/bot-commands',
-      method: 'PUT',
-      validator: typia.createValidate<unknown[]>(),
-      body: resultWithOptions,
-    });
-
-    logger.log('Successfully sent bot commands to the API');
-  } catch (error) {
-    logger.warn('Failed to send bot commands to the API', error);
-  }
-};
-
-export const getAuthorizedServers = async ({ logger }: InteractionContext): Promise<string[]> => {
+export const getAuthorizedServers = async (context: LoggerContext): Promise<string[]> => {
+  const logger = context.logger.nest('getAuthorizedServers');
   logger.log('Getting authorized servers…');
   const guilds = await rest.get(
     Routes.userGuilds(),
