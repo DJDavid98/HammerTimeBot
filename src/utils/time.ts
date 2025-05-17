@@ -195,7 +195,7 @@ export type TimeMap = Partial<Record<TimeUnit, number | null>>;
 
 export const adjustDate = (timeMap: TimeMap, method: AdjustMethod, now?: Date | TZDate): TZDate => {
   const timestamp = isDate(now) ? new TZDate(now) : (now ?? new TZDate());
-  (Object.keys(adjustFunctions)).reduce((finalTs, key) => {
+  return (Object.keys(adjustFunctions)).reduce((finalTs, key) => {
     const unit = key as TimeUnit;
     const value = timeMap[unit];
     if (typeof value === 'number' && value > 0) {
@@ -203,7 +203,6 @@ export const adjustDate = (timeMap: TimeMap, method: AdjustMethod, now?: Date | 
     }
     return finalTs;
   }, timestamp);
-  return timestamp;
 };
 
 export const constrain = (n: number, min: number, max?: number): number => (max ? Math.min(Math.max(n, min), max) : Math.max(n, min));

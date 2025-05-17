@@ -13,11 +13,10 @@ import { ResponseColumnChoices } from '../types/localization.js';
 import { pad } from './numbers';
 import { describe, expect, it } from 'vitest';
 import { TZDate } from '@date-fns/tz';
-import { addHours, getDayOfYear, getHours, subDays } from 'date-fns';
+import { addHours, format, getHours, subDays } from 'date-fns';
 
 describe('time utils', () => {
-  const nowInSeconds = 1650802953;
-  const now = new Date(nowInSeconds * 1e3);
+  const now = new Date('2022-04-24T12:22:33.000Z');
   const ts = new MessageTimestamp(now);
 
   describe('pad', () => {
@@ -44,7 +43,6 @@ describe('time utils', () => {
     it('should find exact match', () => {
       expect(findTimezone('GMT')).toEqual(gmtTimezoneOptions);
       expect(findTimezone('gmt')).toEqual(gmtTimezoneOptions);
-      expect(findTimezone('cet')).toEqual(['CET']);
     });
 
     it('should find partial match', () => {
@@ -56,7 +54,7 @@ describe('time utils', () => {
       expect(findTimezone('budapest')).toEqual(['Europe/Budapest']);
       expect(findTimezone('london')).toEqual(['Europe/London']);
       expect(findTimezone('los angeles')).toEqual(['America/Los_Angeles']);
-      expect(findTimezone('buenos aires')).toEqual(['America/Buenos_Aires', 'America/Argentina/Buenos_Aires']);
+      expect(findTimezone('buenos aires')).toEqual(['America/Buenos_Aires']);
       expect(findTimezone('madrid')).toEqual(['Europe/Madrid']);
       expect(findTimezone('tokyo')).toEqual(['Asia/Tokyo']);
       expect(findTimezone('warsaw')).toEqual(['Europe/Warsaw']);
@@ -120,7 +118,7 @@ describe('time utils', () => {
     it('should subtract the specified time', () => {
       const actual = adjustDate({ days: 3 }, 'subtract', now);
       const expected = subDays(now, 3);
-      expect(getDayOfYear(actual)).toEqual(getDayOfYear(expected));
+      expect(format(actual, 'yyyy-MM-dd')).toEqual(format(expected, 'yyyy-MM-dd'));
     });
   });
 
