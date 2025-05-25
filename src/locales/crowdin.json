@@ -181,6 +181,11 @@
       "username": "klinge9797",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17105460/medium/1343b379c5b2cad8a164c007369af4db.jpeg",
       "fullName": "kidneb1g"
+    },
+    "17111570": {
+      "username": "Gamer_Yaroslaw",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17111570/medium/90104c0bf590e20982b84141dfbca253.jpeg",
+      "fullName": "Кухарчук Ярослав"
     }
   },
   "languages": {
@@ -250,8 +255,8 @@
         "13524864"
       ],
       "progress": {
-        "approval": 98,
-        "translation": 98
+        "approval": 100,
+        "translation": 100
       }
     },
     "fi": {
@@ -432,11 +437,12 @@
     "uk": {
       "translatorIds": [
         "15276044",
+        "17111570",
         "17096866"
       ],
       "progress": {
-        "approval": 87,
-        "translation": 87
+        "approval": 100,
+        "translation": 100
       }
     },
     "vi": {

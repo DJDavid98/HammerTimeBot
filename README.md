@@ -87,6 +87,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇺🇦 Ukrainian
   - [DmitroMeow](https://crowdin.com/profile/DmitroMeow)
   - [GameHacker](https://crowdin.com/profile/GameHacker)
+  - [Кухарчук Ярослав](https://crowdin.com/profile/Gamer_Yaroslaw)
 - 🇻🇳 Vietnamese
   - [Quan](https://crowdin.com/profile/quanonthecob)
   - [ThatKev](https://crowdin.com/profile/thatkev)
