@@ -193,7 +193,7 @@
             "f": "дата та час",
             "F": "день тижня, дата та час",
             "R": "відносний",
-            "all": "all (default)"
+            "all": "усі (за замовчуванням)"
           }
         },
         "columns": {
@@ -207,7 +207,7 @@
         },
         "ephemeral": {
           "name": "ephemeral",
-          "description": "When true the response will only be visible to you"
+          "description": "Коли увімкнено, відповідь буде видна тільки вам"
         },
         "header": {
           "name": "header",
@@ -219,9 +219,9 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
-        "incompleteTranslations": "Translations are incomplete",
-        "contributeTranslations": "Contribute"
+        "replyWithSpecificFormat": "Оберіть формат нижче, щоб отримати його у відповіді (для копіювання на сенсорних пристроях)",
+        "incompleteTranslations": "Переклади неповні",
+        "contributeTranslations": "Зробити внесок"
       }
     },
     "statistics": {
@@ -237,8 +237,8 @@
         "noShards": "(The bot is not currently using sharding)",
         "serverInvite": "Support server invite URL:",
         "totalUserCount": "Усього користувачів на серверах:",
-        "supportedLanguages": "Supported languages:",
-        "crowdinProject": "Crowdin project URL:"
+        "supportedLanguages": "Підтримувальні мови:",
+        "crowdinProject": "Crowdin проєкт URL:"
       }
     },
     "snowflake": {
@@ -289,9 +289,9 @@
     },
     "settings": {
       "name": "settings",
-      "description": "Create a link to manage your settings via the website",
+      "description": "Створіть посилання для управління вашими налаштуваннями через вебсайт",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
+        "linkCreated": "Будь ласка, перейдіть за посиланням нижче, щоб автоматично увійти на сайт бота для зміни ваших налаштувань:\n<{{magicLink}}>\n\nЦе посилання буде дійсним до {{expiresAt}}, але ви завжди можете знову виконати цю команду, щоб згенерувати нове посилання, або увійти вручну за адресою <{{loginUrl}}>, після чого перейти до <{{settingsUrl}}> для зміни налаштувань.",
         "failedToCreateLink": "Не вдалося згенерувати посилання для автоматичного входу. Будь ласка, відвідайте <{{loginUrl}}> і увійдіть вручну, потім перейдіть до <{{settingsUrl}}> для зміни налаштувань."
       },
       "options": {},
