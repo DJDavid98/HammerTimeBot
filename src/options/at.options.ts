@@ -14,7 +14,7 @@ export const getAtOptions = (t: TFunction): APIApplicationCommandOption[] => [
     name: AtCommandOptionName.YEAR,
     ...getLocalizedObject('name', (lng) => t('commands.at.options.year.name', { lng }), false),
     ...getLocalizedObject('description', (lng) => t('commands.at.options.year.description', { lng })),
-    type: ApplicationCommandOptionType.Number,
+    type: ApplicationCommandOptionType.Integer,
   },
   {
     name: AtCommandOptionName.MONTH,
