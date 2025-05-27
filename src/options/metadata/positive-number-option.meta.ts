@@ -3,5 +3,5 @@ import { ApplicationCommandOptionType } from 'discord-api-types/v10';
 
 export const positiveNumberOptionMeta: NumberOptionMetadata = {
   type: ApplicationCommandOptionType.Number,
-  min_value: 1,
+  min_value: 0.001,
 };
