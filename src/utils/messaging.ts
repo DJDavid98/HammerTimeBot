@@ -16,7 +16,7 @@ import { findTimezone, gmtTimezoneOptions } from './time.js';
 import { TimezoneError } from '../classes/timezone-error.js';
 import { MessageFlags } from 'discord-api-types/v10';
 import { interactionReply } from './interaction-reply.js';
-import { LoggerContext } from '../types/bot-interaction.js';
+import { InteractionHandlerContext, LoggerContext } from '../types/bot-interaction.js';
 
 type UserFriendCode = `@${string}` | `${string}#${string}`;
 export const getUserFriendCode = (user: User): UserFriendCode => {
@@ -181,3 +181,7 @@ export const findTextComponentContentsRecursively = (components: TopLevelCompone
     }
     return contents;
   }, [] as string[]);
+
+export const emoji = (context: Pick<InteractionHandlerContext, 'emojiIdMap'>, name: string, animated = false): string => {
+  return `<${animated ? 'a' : ''}:${name}:${context.emojiIdMap[name]}>`;
+};

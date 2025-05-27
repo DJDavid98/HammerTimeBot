@@ -7,7 +7,11 @@ import type {
   RESTPostAPIContextMenuApplicationCommandsJSONBody,
 } from 'discord.js';
 import { MessageContextMenuCommandInteraction } from 'discord.js';
-import type { ApplicationCommandType, RESTPostAPIChatInputApplicationCommandsJSONBody } from 'discord-api-types/v10';
+import {
+  ApplicationCommandOptionType,
+  ApplicationCommandType,
+  RESTPostAPIChatInputApplicationCommandsJSONBody,
+} from 'discord-api-types/v10';
 import { i18n, TFunction } from 'i18next';
 
 import { NestableLogger } from './logger-types.js';
@@ -23,6 +27,7 @@ export const enum BotChatInputCommandName {
   SUBTRACT = 'subtract',
   UNIX = 'unix',
   SETTINGS = 'settings',
+  API = 'api',
 }
 
 export const enum BotMessageContextMenuCommandName {
@@ -51,6 +56,7 @@ export interface InteractionContext extends Omit<InteractionHandlerContext, 'i18
 export type InteractionHandler<T extends BaseInteraction> = (interaction: T, context: InteractionContext) => void | Promise<void>;
 
 export interface BotChatInputCommand {
+  registerCondition?: () => boolean;
   getDefinition: (t: TFunction) => RESTPostAPIChatInputApplicationCommandsJSONBody;
   handle: InteractionHandler<ChatInputCommandInteraction & { commandName: BotChatInputCommandName }>;
   autocomplete?: InteractionHandler<AutocompleteInteraction & { commandName: BotChatInputCommandName }>;
@@ -66,4 +72,24 @@ export interface BotMessageContextMenuCommand {
 export interface BotMessageComponent {
   getDefinition: (t: TFunction, emojiIdMap: Record<string, string>) => APIMessageComponent;
   handle: InteractionHandler<MessageComponentInteraction & { customId: BotMessageComponentCustomId }>;
+}
+
+export interface IntegerOptionMetadata {
+  type: ApplicationCommandOptionType.Integer;
+  min_value?: number;
+  max_value?: number;
+}
+
+
+export interface NumberOptionMetadata {
+  type: ApplicationCommandOptionType.Number;
+  min_value?: number;
+  max_value?: number;
+}
+
+
+export interface StringOptionMetadata {
+  type: ApplicationCommandOptionType.String;
+  min_length?: number;
+  max_length?: number;
 }

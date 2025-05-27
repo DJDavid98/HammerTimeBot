@@ -65,6 +65,11 @@ export const enum UnixCommandOptionName {
   VALUE = 'value',
 }
 
+export const enum ApiCommandOptionName {
+  UPDATE_BOT_COMMANDS = 'update-bot-commands',
+  UPDATE_BOT_TIMEZONES = 'update-bot-timezones',
+}
+
 export const enum IsoCommandOptionName {
   VALUE = 'value',
 }

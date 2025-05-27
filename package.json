@@ -21,7 +21,7 @@
     "axios": "^1.6.8",
     "bufferutil": "^4.0.3",
     "concurrently": "^8.2.0",
-    "discord-api-types": "^0.38.2",
+    "discord-api-types": "^0.38.8",
     "discord.js": "^14.19.3",
     "dotenv": "^16.3.1",
     "i18next": "^23.4.4",

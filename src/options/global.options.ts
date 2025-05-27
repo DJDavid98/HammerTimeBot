@@ -3,6 +3,7 @@ import { TFunction } from 'i18next';
 import { GlobalCommandOptionName, ResponseColumnChoices } from '../types/localization.js';
 import { validFormatsSet } from '../classes/message-timestamp.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
+import { timezoneOptionMeta } from './metadata/timezone.option-meta.js';
 
 const getFormatOption = (t: TFunction): APIApplicationCommandOption => ({
   name: GlobalCommandOptionName.FORMAT,
@@ -54,7 +55,7 @@ export const getTimezoneOption = (t: TFunction): APIApplicationCommandOption => 
   name: GlobalCommandOptionName.TIMEZONE,
   ...getLocalizedObject('name', (lng) => t('commands.global.options.timezone.name', { lng }), false),
   ...getLocalizedObject('description', (lng) => t('commands.global.options.timezone.description', { lng })),
-  type: ApplicationCommandOptionType.String,
+  ...timezoneOptionMeta,
   autocomplete: true,
 });
 

@@ -1,9 +1,19 @@
-import { InteractionContext, LoggerContext } from '../types/bot-interaction.js';
+import { InteractionContext, InteractionHandlerContext, LoggerContext } from '../types/bot-interaction.js';
 import { BotCommandItem, BotCommands } from './get-application-commands.js';
 import { apiRequest } from './backend.js';
 import typia from 'typia';
 import type { APIApplicationCommand, APIApplicationCommandOption } from 'discord-api-types/v10';
-
+import { Client } from 'discord.js';
+import { getProcessStartTs } from './get-process-start-ts.js';
+import { env } from '../env.js';
+import {
+  cleanGlobalCommands,
+  getAuthorizedServers,
+  updateGlobalCommands,
+  updateGuildCommands,
+} from './update-guild-commands.js';
+import { filledBar } from 'string-progressbar';
+import { EmojiCharacters } from '../constants/emoji-characters.js';
 
 type MinimalAPIApplicationCommand =
   Pick<APIApplicationCommand, 'id' | 'name' | 'name_localizations' | 'description' | 'description_localizations' | 'type'>
@@ -27,15 +37,14 @@ const augmentResultWithOptions = <T extends MinimalAPIApplicationCommand[] | und
   }) as T;
 };
 
-export const updateBotCommandsInApi = async (parentContext: InteractionContext, input: BotCommands | undefined, result: MinimalAPIApplicationCommand[] | undefined): Promise<void> => {
+export const updateBotCommandsInApi = async (parentContext: LoggerContext, input: BotCommands | undefined, result: MinimalAPIApplicationCommand[] | undefined): Promise<void> => {
   if (!result) return;
 
   const logger = parentContext.logger.nest('updateBotCommandsInApi');
-  const context = { ...parentContext, logger };
   logger.log('Updating…');
   const resultWithOptions = augmentResultWithOptions(input, result);
   try {
-    await apiRequest(context, {
+    await apiRequest({ logger }, {
       path: '/bot-commands',
       method: 'PUT',
       validator: typia.createValidate<unknown[]>(),
@@ -64,4 +73,64 @@ export const updateBotTimezonesInApi = async (parentContext: LoggerContext): Pro
   } catch (error) {
     logger.warn('Failed', error);
   }
+};
+
+export const updateCommandsFromInteraction = async (interactionContext: InteractionContext, progressReporter?: (progress: string) => Promise<unknown>): Promise<void> => {
+  interactionContext.logger.log(`Application ${env.LOCAL ? 'is' : 'is NOT'} in local mode`);
+  if (env.LOCAL) {
+    await progressReporter?.('Getting authorized servers list…');
+    const serverIds = await getAuthorizedServers(interactionContext);
+    await progressReporter?.('Cleaning global commands…');
+    await cleanGlobalCommands(interactionContext);
+    const serverCount = serverIds.length;
+    let completed = 0;
+    const updateProgress = progressReporter ? async () => {
+      const progressbar = filledBar(serverCount, completed, 18, EmojiCharacters.WHITE_SQUARE, EmojiCharacters.GREEN_SQUARE)[0];
+      await progressReporter?.(`Updating server commands…\n-# ${progressbar}`);
+    } : undefined;
+    await Promise.all(serverIds.map(async (serverId) => {
+      await updateProgress?.();
+      await updateGuildCommands(interactionContext, serverId);
+      completed++;
+      await updateProgress?.();
+    }));
+  } else {
+    await progressReporter?.('Updating global commands…');
+    await updateGlobalCommands(interactionContext);
+  }
+};
+
+export const updateCommands = async (context: InteractionHandlerContext) => {
+  const { i18next, ...restContext } = context;
+  const logger = context.logger.nest('updateCommands');
+  logger.log('Updating commands…');
+  const t = i18next.t.bind(i18next);
+  return updateCommandsFromInteraction({ ...restContext, t, logger });
+};
+
+export const updateShardStats = async (context: LoggerContext, client: Client, shardId: number) => {
+  const logger = context.logger.nest('updateShardStats');
+  const serverCount = client.guilds.cache.size;
+  const memberCount = client.guilds.cache.reduce((members, guild) => {
+    if (members === null) return null;
+    const count = guild.approximateMemberCount ?? guild.memberCount;
+    return typeof count === 'number' && !isNaN(count) ? members + count : null;
+  }, 0 as number | null);
+  const startedAt = getProcessStartTs().toISOString();
+
+  const body = {
+    id: shardId,
+    server_count: serverCount,
+    member_count: memberCount,
+    started_at: startedAt,
+  };
+  logger.debug('Shard statistics collected:', body);
+  await apiRequest(context, {
+    path: '/shard-statistics',
+    method: 'POST',
+    body,
+    validator: typia.createValidate<Record<string, unknown>>(),
+    failOnInvalidResponse: false,
+  });
+  logger.log('Successfully updated shard statistics');
 };

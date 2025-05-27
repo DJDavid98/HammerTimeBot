@@ -9,7 +9,7 @@ export const getUnixCommandOptions = (t: TFunction): APIApplicationCommandOption
     name: UnixCommandOptionName.VALUE,
     ...getLocalizedObject('name', (lng) => t('commands.unix.options.value.name', { lng }), false),
     ...getLocalizedObject('description', (lng) => t('commands.unix.options.value.description', { lng })),
-    type: ApplicationCommandOptionType.Number,
+    type: ApplicationCommandOptionType.Integer,
     required: true,
   },
   ...getGlobalOptions(t),

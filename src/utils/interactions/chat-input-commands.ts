@@ -10,6 +10,7 @@ import { unixCommand } from '../../commands/unix.command.js';
 import { snowflakeCommand } from '../../commands/snowflake.command.js';
 import { isoCommand } from '../../commands/iso.command.js';
 import { settingsCommand } from '../../commands/settings.command.js';
+import { apiCommand } from '../../commands/api.command.js';
 
 export const chatInputCommandMap: Record<BotChatInputCommandName, BotChatInputCommand> = {
   [BotChatInputCommandName.ADD]: addCommand,
@@ -22,6 +23,7 @@ export const chatInputCommandMap: Record<BotChatInputCommandName, BotChatInputCo
   [BotChatInputCommandName.SNOWFLAKE]: snowflakeCommand,
   [BotChatInputCommandName.ISO]: isoCommand,
   [BotChatInputCommandName.SETTINGS]: settingsCommand,
+  [BotChatInputCommandName.API]: apiCommand,
 };
 
 export const chatInputCommandNames = (Object.keys(chatInputCommandMap) as BotChatInputCommandName[]);
