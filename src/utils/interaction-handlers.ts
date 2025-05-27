@@ -3,7 +3,10 @@ import {
   ButtonInteraction,
   ChatInputCommandInteraction,
   CommandInteraction,
+  ComponentType,
   ContextMenuCommandInteraction,
+  DiscordjsError,
+  DiscordjsErrorCodes,
   InteractionType,
   MessageComponentInteraction,
   MessageContextMenuCommandInteraction,
@@ -44,22 +47,48 @@ const handleInteractionError = async (interaction: ChatInputCommandInteraction |
     return;
   }
 
-  if (!interaction.replied) {
-    await interactionReply(t, interaction, {
-      content: processingErrorMessageFactory(t),
-      flags: MessageFlags.Ephemeral,
-    });
+  let alreadyReplied = interaction.replied;
+  if (!alreadyReplied) {
+    try {
+      await interactionReply(t, interaction, {
+        content: processingErrorMessageFactory(t),
+        flags: MessageFlags.Ephemeral,
+      });
+    } catch (e) {
+      if (e instanceof DiscordjsError && e.code === DiscordjsErrorCodes.InteractionAlreadyReplied) {
+        alreadyReplied = true;
+      } else {
+        throw e;
+      }
+    }
+  }
+  if (!alreadyReplied) {
     return;
   }
   // If we already replied, we need to do some editing on the existing message to include the error
-  const oldReplyContent = (await interaction.fetchReply()).content;
-  const messageSuffix = `\n\n${processingErrorMessageFactory(t)}`;
+  const oldReply = await interaction.fetchReply();
+  const flags = oldReply.flags.bitfield;
+  const processingErrorMessage = processingErrorMessageFactory(t);
+  const oldReplyComponents = oldReply.components;
+  if (oldReply.flags.has(MessageFlags.IsComponentsV2)) {
+    await interaction.editReply({
+      flags,
+      components: [...oldReplyComponents, {
+        type: ComponentType.TextDisplay,
+        content: processingErrorMessage,
+      }],
+    });
+    return;
+  }
+  const oldReplyContent = oldReply.content;
+  const messageSuffix = `\n\n${processingErrorMessage}`;
   let newContent = oldReplyContent + messageSuffix;
   const maximumMessageLength = 2000;
   if (newContent.length > maximumMessageLength) {
     newContent = oldReplyContent.substring(0, maximumMessageLength - messageSuffix.length - ellipsis.length) + ellipsis + messageSuffix;
   }
   await interaction.editReply({
+    flags,
     content: newContent,
   });
 };
