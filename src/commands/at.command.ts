@@ -31,11 +31,11 @@ export const atCommand: BotChatInputCommand = {
   async handle(interaction, context) {
     const settings = await getSettings(context, interaction);
     const { t } = context;
-    const year = interaction.options.getNumber(AtCommandOptionName.YEAR);
-    const month = interaction.options.getNumber(AtCommandOptionName.MONTH);
-    const date = interaction.options.getNumber(AtCommandOptionName.DATE);
-    const hour = interaction.options.getNumber(AtCommandOptionName.HOUR) ?? settings.defaultAtHour;
-    const minute = interaction.options.getNumber(AtCommandOptionName.MINUTE) ?? settings.defaultAtMinute;
+    const year = interaction.options.getInteger(AtCommandOptionName.YEAR);
+    const month = interaction.options.getInteger(AtCommandOptionName.MONTH);
+    const date = interaction.options.getInteger(AtCommandOptionName.DATE);
+    const hour = interaction.options.getInteger(AtCommandOptionName.HOUR) ?? settings.defaultAtHour;
+    const minute = interaction.options.getInteger(AtCommandOptionName.MINUTE) ?? settings.defaultAtMinute;
     const second = interaction.options.getNumber(AtCommandOptionName.SECOND) ?? settings.defaultAtSecond;
 
     const timezone = await findTimezoneOptionValue(t, interaction, settings);

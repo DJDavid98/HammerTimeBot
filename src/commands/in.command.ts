@@ -20,11 +20,11 @@ export const inCommand: BotChatInputCommand = {
     const settings = await getSettings(context, interaction);
     const { t } = context;
     const options = {
-      years: interaction.options.getNumber(InCommandOptionName.IN_YEARS),
-      months: interaction.options.getNumber(InCommandOptionName.IN_MONTHS),
-      days: interaction.options.getNumber(InCommandOptionName.IN_DAYS),
-      hours: interaction.options.getNumber(InCommandOptionName.IN_HOURS),
-      minutes: interaction.options.getNumber(InCommandOptionName.IN_MINUTES),
+      years: interaction.options.getInteger(InCommandOptionName.IN_YEARS),
+      months: interaction.options.getInteger(InCommandOptionName.IN_MONTHS),
+      days: interaction.options.getInteger(InCommandOptionName.IN_DAYS),
+      hours: interaction.options.getInteger(InCommandOptionName.IN_HOURS),
+      minutes: interaction.options.getInteger(InCommandOptionName.IN_MINUTES),
       seconds: interaction.options.getNumber(InCommandOptionName.IN_SECONDS),
     };
 

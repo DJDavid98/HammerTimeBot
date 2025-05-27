@@ -23,11 +23,11 @@ export const subtractCommand: BotChatInputCommand = {
     const from = interaction.options.getNumber(SubtractCommandOptionName.FROM, true);
     const now = moment.unix(from).utc();
     const options = {
-      years: interaction.options.getNumber(SubtractCommandOptionName.SUBTRACT_YEARS),
-      months: interaction.options.getNumber(SubtractCommandOptionName.SUBTRACT_MONTHS),
-      days: interaction.options.getNumber(SubtractCommandOptionName.SUBTRACT_DAYS),
-      hours: interaction.options.getNumber(SubtractCommandOptionName.SUBTRACT_HOURS),
-      minutes: interaction.options.getNumber(SubtractCommandOptionName.SUBTRACT_MINUTES),
+      years: interaction.options.getInteger(SubtractCommandOptionName.SUBTRACT_YEARS),
+      months: interaction.options.getInteger(SubtractCommandOptionName.SUBTRACT_MONTHS),
+      days: interaction.options.getInteger(SubtractCommandOptionName.SUBTRACT_DAYS),
+      hours: interaction.options.getInteger(SubtractCommandOptionName.SUBTRACT_HOURS),
+      minutes: interaction.options.getInteger(SubtractCommandOptionName.SUBTRACT_MINUTES),
       seconds: interaction.options.getNumber(SubtractCommandOptionName.SUBTRACT_SECONDS),
     };
 

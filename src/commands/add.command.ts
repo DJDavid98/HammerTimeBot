@@ -22,11 +22,11 @@ export const addCommand: BotChatInputCommand = {
     const to = interaction.options.getNumber(AddCommandOptionName.TO, true);
     const now = moment.unix(to).utc();
     const options = {
-      years: interaction.options.getNumber(AddCommandOptionName.ADD_YEARS),
-      months: interaction.options.getNumber(AddCommandOptionName.ADD_MONTHS),
-      days: interaction.options.getNumber(AddCommandOptionName.ADD_DAYS),
-      hours: interaction.options.getNumber(AddCommandOptionName.ADD_HOURS),
-      minutes: interaction.options.getNumber(AddCommandOptionName.ADD_MINUTES),
+      years: interaction.options.getInteger(AddCommandOptionName.ADD_YEARS),
+      months: interaction.options.getInteger(AddCommandOptionName.ADD_MONTHS),
+      days: interaction.options.getInteger(AddCommandOptionName.ADD_DAYS),
+      hours: interaction.options.getInteger(AddCommandOptionName.ADD_HOURS),
+      minutes: interaction.options.getInteger(AddCommandOptionName.ADD_MINUTES),
       seconds: interaction.options.getNumber(AddCommandOptionName.ADD_SECONDS),
     };
 

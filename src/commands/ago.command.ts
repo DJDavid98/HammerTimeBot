@@ -21,11 +21,11 @@ export const agoCommand: BotChatInputCommand = {
     const settings = await getSettings(context, interaction);
     const { t } = context;
     const options = {
-      years: interaction.options.getNumber(AgoCommandOptionName.YEARS_AGO),
-      months: interaction.options.getNumber(AgoCommandOptionName.MONTHS_AGO),
-      days: interaction.options.getNumber(AgoCommandOptionName.DAYS_AGO),
-      hours: interaction.options.getNumber(AgoCommandOptionName.HOURS_AGO),
-      minutes: interaction.options.getNumber(AgoCommandOptionName.MINUTES_AGO),
+      years: interaction.options.getInteger(AgoCommandOptionName.YEARS_AGO),
+      months: interaction.options.getInteger(AgoCommandOptionName.MONTHS_AGO),
+      days: interaction.options.getInteger(AgoCommandOptionName.DAYS_AGO),
+      hours: interaction.options.getInteger(AgoCommandOptionName.HOURS_AGO),
+      minutes: interaction.options.getInteger(AgoCommandOptionName.MINUTES_AGO),
       seconds: interaction.options.getNumber(AgoCommandOptionName.SECONDS_AGO),
     };
 
