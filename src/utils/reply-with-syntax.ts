@@ -73,16 +73,24 @@ export const getSyntaxReplyOptions = ({
   const ts = new MessageTimestamp(localDate);
   const formatInput = MessageTimestamp.isValidFormat(syntaxInteraction.format) ? syntaxInteraction.format : null;
   const formats = formatInput ? [formatInput] : supportedFormats;
+  const singleFormatReply = formatInput && settings.formatMinimalReply;
 
-  const columns = formatInput && settings.formatMinimalReply ? ResponseColumnChoices.PREVIEW_ONLY : (syntaxInteraction.columns ?? ResponseColumnChoices.BOTH);
-  const addHeader = !(formatInput && settings.formatMinimalReply) && (syntaxInteraction.header ?? true);
+  const columns = singleFormatReply ? ResponseColumnChoices.PREVIEW_ONLY : (syntaxInteraction.columns ?? ResponseColumnChoices.BOTH);
+  const addHeader = !(singleFormatReply) && (syntaxInteraction.header ?? true);
   const header = addHeader && getExactTimePrefix(localMoment, timezone);
   const table = formattedResponse(ts, formats, columns as ResponseColumnChoices, !formatInput && settings.boldPreview);
   const content: string | undefined = `${header ? `${header}\n` : ''}${table}`;
-  const ephemeralFlag = syntaxInteraction.ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE ? MessageFlags.Ephemeral : 0;
+  const shouldReplyBeEphemeral = syntaxInteraction.ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE;
+
+  if (singleFormatReply) {
+    return {
+      flags: shouldReplyBeEphemeral ? MessageFlags.Ephemeral : undefined,
+      content,
+    };
+  }
 
   let replyOptions: InteractionReplyOptions = {
-    flags: MessageFlags.IsComponentsV2 | ephemeralFlag,
+    flags: MessageFlags.IsComponentsV2 | (shouldReplyBeEphemeral ? MessageFlags.Ephemeral : 0),
     components: [
       {
         type: ComponentType.TextDisplay,
