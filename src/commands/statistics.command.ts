@@ -8,7 +8,7 @@ import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
 import { CROWDIN_PROJECT_URL, SUPPORTED_LANGUAGES } from '../constants/locales.js';
 import { getProcessStartTs } from '../utils/get-process-start-ts.js';
-import { DiscordjsError, DiscordjsErrorCodes } from 'discord.js';
+import { DiscordjsErrorCodes } from 'discord.js';
 
 export const statisticsCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -30,9 +30,15 @@ export const statisticsCommand: BotChatInputCommand = {
     const shardServersJoined = interaction.client.guilds.cache.size;
     let totalServersJoined: number | null = null;
     try {
-      totalServersJoined = shard ? (await shard.fetchClientValues('guilds.cache.size')).reduce((acc: number, guildCount) => typeof guildCount === 'number' ? acc + guildCount : acc, 0) : shardServersJoined;
+      const guildsCacheSizes = await shard?.fetchClientValues('guilds.cache.size');
+      totalServersJoined = typeof guildsCacheSizes !== 'undefined'
+        ? guildsCacheSizes.reduce(
+          (acc: number, guildCount) => typeof guildCount === 'number' ? acc + guildCount : acc,
+          0,
+        )
+        : shardServersJoined;
     } catch (e) {
-      if (e instanceof DiscordjsError && e.code === DiscordjsErrorCodes.ShardingInProcess) {
+      if (typeof e === 'object' && e !== null && 'code' in e && e.code === DiscordjsErrorCodes.ShardingInProcess) {
         // Ignore error, this stat will be skipped
       } else {
         throw e;
