@@ -1,14 +1,10 @@
 import { BotMessageComponent, BotMessageComponentCustomId } from '../types/bot-interaction.js';
-import {
-  ComponentType,
-  MessageComponentInteraction,
-  StringSelectMenuInteraction,
-  TextDisplayComponent,
-} from 'discord.js';
+import { ComponentType, MessageComponentInteraction, StringSelectMenuInteraction } from 'discord.js';
 import { TFunction } from 'i18next';
 import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
 import { APISelectMenuOption } from 'discord-api-types/v9';
 import { MessageFlags } from 'discord-api-types/v10';
+import { findTextComponentContentsRecursively } from '../utils/messaging.js';
 
 const getFormatSelectOptions = (t: TFunction, emojiIdMap: Record<string, string>): APISelectMenuOption[] =>
   [
@@ -32,7 +28,7 @@ const getFormatSelectOptions = (t: TFunction, emojiIdMap: Record<string, string>
 const isStringSelectInteraction = (interaction: Pick<MessageComponentInteraction, 'componentType'>): interaction is StringSelectMenuInteraction => interaction.componentType === ComponentType.StringSelect;
 
 const getSyntaxReplyContent = (interaction: MessageComponentInteraction): string => {
-  return interaction.message.components.find((c): c is TextDisplayComponent => c.type === ComponentType.TextDisplay)?.content || interaction.message.content;
+  return findTextComponentContentsRecursively(interaction.message.components).join('\n') || interaction.message.content;
 };
 
 export const formatSelectComponent: BotMessageComponent = {
@@ -51,9 +47,10 @@ export const formatSelectComponent: BotMessageComponent = {
       throw new Error('No format specified');
     }
 
-    const tsMatch = getSyntaxReplyContent(interaction).match(/<t:(\d+):[dftDFRT]>/);
+    const syntaxReplyContent = getSyntaxReplyContent(interaction);
+    const tsMatch = syntaxReplyContent.match(/<t:(\d+):[dftDFRT]>/);
     if (!tsMatch) {
-      throw new Error('No timestamp could be found in the original message');
+      throw new Error(`No timestamp could be found in the original message (${JSON.stringify(syntaxReplyContent)})`);
     }
     const content = MessageTimestamp.fromTimestamp(tsMatch[1], format);
 
