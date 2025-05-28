@@ -8,6 +8,7 @@ import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getSettings } from '../utils/settings.js';
 import { CROWDIN_PROJECT_URL, SUPPORTED_LANGUAGES } from '../constants/locales.js';
 import { getProcessStartTs } from '../utils/get-process-start-ts.js';
+import { DiscordjsError, DiscordjsErrorCodes } from 'discord.js';
 
 export const statisticsCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -26,10 +27,20 @@ export const statisticsCommand: BotChatInputCommand = {
     const shardStartTs = new MessageTimestamp(getProcessStartTs());
     const numberFormatter = getBareNumberFormatter(interaction, context);
 
-    const totalServersJoined = shard ? (await shard.fetchClientValues('guilds.cache.size')).reduce((acc: number, guildCount) => typeof guildCount === 'number' ? acc + guildCount : acc, 0) : 0;
+    const shardServersJoined = interaction.client.guilds.cache.size;
+    let totalServersJoined: number | null = null;
+    try {
+      totalServersJoined = shard ? (await shard.fetchClientValues('guilds.cache.size')).reduce((acc: number, guildCount) => typeof guildCount === 'number' ? acc + guildCount : acc, 0) : shardServersJoined;
+    } catch (e) {
+      if (e instanceof DiscordjsError && e.code === DiscordjsErrorCodes.ShardingInProcess) {
+        // Ignore error, this stat will be skipped
+      } else {
+        throw e;
+      }
+    }
 
-    const totalServerCount = shard ? `**${t('commands.statistics.responses.totalServerCount')}** ${numberFormatter.format(totalServersJoined)}` : null;
-    const shardServerCount = shard ? `**${t('commands.statistics.responses.shardServerCount')}** ${numberFormatter.format(interaction.client.guilds.cache.size)}` : null;
+    const totalServerCount = totalServersJoined !== null ? `**${t('commands.statistics.responses.totalServerCount')}** ${numberFormatter.format(totalServersJoined)}` : null;
+    const shardServerCount = shard ? `**${t('commands.statistics.responses.shardServerCount')}** ${numberFormatter.format(shardServersJoined)}` : null;
     const uptime = `**${t('commands.statistics.responses.uptime')}** ${shardStartTs.toString(MessageTimestampFormat.RELATIVE)}`;
     const shardCount = shard ? `**${t('commands.statistics.responses.shardCount')}** ${numberFormatter.format(shard.count)}` : null;
     const footer = `*${shard ? t('commands.statistics.responses.shardNumber', { replace: { shardId: shard?.ids.join(', ') } }) : t('commands.statistics.responses.noShards')}*`;
