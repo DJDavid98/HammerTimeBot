@@ -222,11 +222,11 @@
         "replyWithSpecificFormat": "Wähle unten ein Format aus, um es in einer Antwort zu erhalten (zum Kopieren auf Touch-Geräten)",
         "incompleteTranslations": "Übersetzungen sind unvollständig",
         "contributeTranslations": "Mitwirken",
-        "telemetryThankYou": "Thank you for contributing telemetry data, which helps the bot's future development. See the {{privacyPolicy}} for details.",
-        "telemetryInfoCount": "This is execution #{{executionNumber}} for the {{command}} command (since we started counting).",
-        "privacyPolicyLink": "Privacy Policy",
-        "recordingTelemetry": "Telemetry is being collected for this command, results are pending…",
-        "telemetryPlaceholder": "The rest of this text is only here to prevent the message size from changing too much when the results of the telemetry recording are available."
+        "telemetryThankYou": "Vielen Dank, dass du uns Telemetriedaten zur Verfügung stellst, die für die zukünftige Entwicklung des Bots hilfreich sind. Einzelheiten findest du unter {{privacyPolicy}}.",
+        "telemetryInfoCount": "Dies ist Ausführung Nr. {{executionNumber}} für den Befehl {{command}} (seit Beginn der Zählung).",
+        "privacyPolicyLink": "Datenschutzerklärung",
+        "recordingTelemetry": "Für diesen Befehl werden Telemetriedaten gesammelt, Ergebnisse stehen noch aus…",
+        "telemetryPlaceholder": "Der Rest dieses Textes ist nur dazu da, um zu verhindern, dass sich die Größe der Nachricht zu sehr ändert, wenn die Ergebnisse der Telemetrieaufzeichnung verfügbar sind."
       }
     },
     "statistics": {
