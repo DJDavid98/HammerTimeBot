@@ -222,11 +222,11 @@
         "replyWithSpecificFormat": "เลือกฟอร์แมตด้านล่างเพื่อรับข้อความตอบกลับ (สำหรับคัดลอกบนอุปกรณ์สัมผัส)",
         "incompleteTranslations": "การแปลยังไม่สมบูรณ์",
         "contributeTranslations": "การสนับสนุน",
-        "telemetryThankYou": "Thank you for contributing telemetry data, which helps the bot's future development. See the {{privacyPolicy}} for details.",
-        "telemetryInfoCount": "This is execution #{{executionNumber}} for the {{command}} command (since we started counting).",
-        "privacyPolicyLink": "Privacy Policy",
-        "recordingTelemetry": "Telemetry is being collected for this command, results are pending…",
-        "telemetryPlaceholder": "The rest of this text is only here to prevent the message size from changing too much when the results of the telemetry recording are available."
+        "telemetryThankYou": "ขอขอบคุณที่ให้ข้อมูลการวัดผลการใช้งานที่จะช่วยในการพัฒนาบอทในอนาคต ดูรายละเอียดเพิ่มเติมได้ที่ {{privacyPolicy}}",
+        "telemetryInfoCount": "นี่คือคำสั่งครั้งที่ #{{executionNumber}} สำหรับคำสั่ง {{command}} (เนื่องจากเราพึ่งได้นับ)",
+        "privacyPolicyLink": "นโยบายความเป็นส่วนตัว",
+        "recordingTelemetry": "กำลังรวบรวมข้อมูลการวัดผลการใช้งาน สำหรับคำสั่งนี้ ผลลัพธ์กำลังรอการดำเนินการ…",
+        "telemetryPlaceholder": "ส่วนที่เหลือของข้อความนี้มีไว้เพื่อป้องกันไม่ให้ขนาดข้อความเปลี่ยนแปลงมากเกินไปเมื่อมีผลการบันทึกข้อมูลการวัดผลการใช้งาน"
       }
     },
     "statistics": {
