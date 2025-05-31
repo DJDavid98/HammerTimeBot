@@ -221,7 +221,12 @@
       "components": {
         "replyWithSpecificFormat": "Válassz egy formátumot, és megkapod válaszként (mobil eszközök számára)",
         "incompleteTranslations": "A fordítások hiányosak",
-        "contributeTranslations": "Közreműködés"
+        "contributeTranslations": "Közreműködés",
+        "telemetryThankYou": "Köszönjük, hogy hozzájárulsz a telemetria gyűtéséhez és ezzel segíted a bot fejlesztését. Részletek a {{privacyPolicy}}ben.",
+        "telemetryInfoCount": "Ez a {{command}} parancs {{executionNumber}}. futtatása (amióta elkezdtük ezt számon tartani).",
+        "privacyPolicyLink": "Adatvédelmi irányelvek",
+        "recordingTelemetry": "A telemetria gyűjtése folyamatban van, várakozás az eredményre…",
+        "telemetryPlaceholder": "A szöveg többi része csak azért van itt, hogy az üzenet mérete ne változzon túlságosan, amikor a telemetria gyűjtés eredményei itt megejelennek."
       }
     },
     "statistics": {

@@ -221,7 +221,12 @@
       "components": {
         "replyWithSpecificFormat": "답장으로 받을 형식을 선택하세요(터치 기기의 복사를 위함)",
         "incompleteTranslations": "Translations are incomplete",
-        "contributeTranslations": "Contribute"
+        "contributeTranslations": "Contribute",
+        "telemetryThankYou": "Thank you for contributing telemetry data, which helps the bot's future development. See the {{privacyPolicy}} for details.",
+        "telemetryInfoCount": "This is execution #{{executionNumber}} for the {{command}} command (since we started counting).",
+        "privacyPolicyLink": "Privacy Policy",
+        "recordingTelemetry": "Telemetry is being collected for this command, results are pending…",
+        "telemetryPlaceholder": "The rest of this text is only here to prevent the message size from changing too much when the results of the telemetry recording are available."
       }
     },
     "statistics": {
