@@ -221,7 +221,12 @@
       "components": {
         "replyWithSpecificFormat": "Yanıt olarak almak için aşağıdaki biçimlerden birini seçin (mobil cihazlarda kopyalamak için)",
         "incompleteTranslations": "Çeviriler tamamlanmadı",
-        "contributeTranslations": "Katkıda Bulun"
+        "contributeTranslations": "Katkıda Bulun",
+        "telemetryThankYou": "Thank you for contributing telemetry data, which helps the bot's future development. See the {{privacyPolicy}} for details.",
+        "telemetryInfoCount": "This is execution #{{executionNumber}} for the {{command}} command (since we started counting).",
+        "privacyPolicyLink": "Privacy Policy",
+        "recordingTelemetry": "Telemetry is being collected for this command, results are pending…",
+        "telemetryPlaceholder": "The rest of this text is only here to prevent the message size from changing too much when the results of the telemetry recording are available."
       }
     },
     "statistics": {
