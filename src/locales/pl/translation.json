@@ -221,7 +221,12 @@
       "components": {
         "replyWithSpecificFormat": "Wybierz format poniżej, aby otrzymać go w odpowiedzi (do kopiowania na urządzeniach dotykowych)",
         "incompleteTranslations": "Translations are incomplete",
-        "contributeTranslations": "Contribute"
+        "contributeTranslations": "Contribute",
+        "telemetryThankYou": "Thank you for contributing telemetry data, which helps the bot's future development. See the {{privacyPolicy}} for details.",
+        "telemetryInfoCount": "This is execution #{{executionNumber}} for the {{command}} command (since we started counting).",
+        "privacyPolicyLink": "Privacy Policy",
+        "recordingTelemetry": "Telemetry is being collected for this command, results are pending…",
+        "telemetryPlaceholder": "The rest of this text is only here to prevent the message size from changing too much when the results of the telemetry recording are available."
       }
     },
     "statistics": {
