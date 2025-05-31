@@ -26,11 +26,13 @@ import {
   isKnownMessageContextmenuInteraction,
   messageContextMenuCommandMap,
 } from './interactions/message-context-menu-commands.js';
-import { getSettings } from './settings.js';
-import { InteractionContext, InteractionHandlerContext } from '../types/bot-interaction.js';
+import { getSettings, SettingsValue } from './settings.js';
+import { InteractionHandlerContext, LoggerContext, UserInteractionContext } from '../types/bot-interaction.js';
 import { TFunction } from 'i18next';
 import { isKnownMessageComponentInteraction, messageComponentMap } from './interactions/message-components.js';
 import { interactionReply } from './interaction-reply.js';
+import { sendCommandTelemetry } from './backend-api-data-updaters.js';
+import { addTelemetryNoteToReply } from './add-telemetry-note-to-reply.js';
 
 const ellipsis = '…';
 
@@ -117,11 +119,31 @@ const createTFunction = ({ i18next, ephemeral, locale, guild }: CreateTFunctionO
   );
 };
 
+export type InteractionForGetSettings = {
+  user: { id: string }
+};
+
+const createCachedGetSettingsFunction = (
+  context: LoggerContext,
+  interaction: InteractionForGetSettings,
+): UserInteractionContext['getSettings'] => {
+  let promiseCache: Promise<SettingsValue> | undefined;
+  return () => {
+    if (!promiseCache) {
+      context.logger.debug(`Caching settings for user ${interaction.user.id} for this interaction`);
+      promiseCache = getSettings(context, interaction.user.id);
+    } else {
+      context.logger.debug(`Re-using cached settings for user ${interaction.user.id} for this interaction`);
+    }
+    return promiseCache;
+  };
+};
+
 export const handleContextMenuInteraction = async (interaction: MessageContextMenuCommandInteraction, {
   i18next,
   ...context
 }: InteractionHandlerContext): Promise<void> => {
-  const { logger } = context;
+  const logger =  context.logger.nest(`Interaction#${interaction.id}`);
   const t = createTFunction({
     i18next,
     ephemeral: true,
@@ -141,12 +163,21 @@ export const handleContextMenuInteraction = async (interaction: MessageContextMe
 
   logger.log(`${getUserIdentifier(user)} ran "${commandName}" in ${stringifyChannelName(channelId, channel)} of ${stringifyGuildName(guildId, guild)}`);
 
+  const userInteractionContext: UserInteractionContext = {
+    ...context,
+    logger,
+    t,
+    getSettings: createCachedGetSettingsFunction({ logger }, interaction),
+  };
   try {
-    await command.handle(interaction, { ...context, t });
+    await command.handle(interaction, userInteractionContext);
   } catch (e) {
     logger.error(`Error while responding to context menu command (commandName=${commandName})`, e);
     await handleInteractionError(interaction, t);
   }
+
+  void sendCommandTelemetry(userInteractionContext, interaction)
+    .then((telemetryResponse) => addTelemetryNoteToReply(userInteractionContext, interaction, telemetryResponse));
 };
 
 export const handleCommandInteraction = async (interaction: CommandInteraction, context: InteractionHandlerContext): Promise<void> => {
@@ -167,10 +198,15 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
     return;
   }
   const { i18next, ...restContext } = context;
-  const interactionContext: InteractionContext = { ...restContext, t };
-  const ephemeral = isEphemeralResponse(interaction, await getSettings(interactionContext, interaction));
-  const { logger } = context;
-  interactionContext.t = createTFunction({
+  const logger =  context.logger.nest(`Interaction#${interaction.id}`);
+  const userInteractionContext: UserInteractionContext = {
+    ...restContext,
+    logger,
+    t,
+    getSettings: createCachedGetSettingsFunction({ logger }, interaction),
+  };
+  const ephemeral = isEphemeralResponse(interaction, await userInteractionContext.getSettings());
+  userInteractionContext.t = createTFunction({
     i18next,
     ephemeral,
     locale: interaction.locale,
@@ -191,18 +227,21 @@ export const handleCommandInteraction = async (interaction: CommandInteraction, 
   logger.log(`${getUserIdentifier(user)} ran /${commandName}${optionsString} in ${stringifyChannelName(channelId, channel)} of ${stringifyGuildName(guildId, guild)}`);
 
   try {
-    await command.handle(interaction, interactionContext);
+    await command.handle(interaction, userInteractionContext);
   } catch (e) {
     logger.error(`Error while responding to command interaction (commandName=${commandName})`, e);
     await handleInteractionError(interaction, t);
   }
+
+  void sendCommandTelemetry(userInteractionContext, interaction)
+    .then((telemetryResponse) => addTelemetryNoteToReply(userInteractionContext, interaction, telemetryResponse));
 };
 
 export const handleCommandAutocomplete = async (interaction: AutocompleteInteraction, {
   i18next,
   ...context
 }: InteractionHandlerContext): Promise<void> => {
-  const { logger } = context;
+  const logger =  context.logger.nest(`Interaction#${interaction.id}`);
   if (!isKnownChatInputCommandInteraction(interaction)) {
     return;
   }
@@ -217,7 +256,12 @@ export const handleCommandAutocomplete = async (interaction: AutocompleteInterac
   });
 
   try {
-    await command.autocomplete?.(interaction, { ...context, t });
+    await command.autocomplete?.(interaction, {
+      ...context,
+      logger,
+      t,
+      getSettings: createCachedGetSettingsFunction({ logger }, interaction),
+    });
   } catch (e) {
     logger.error(`Error while responding to command autocomplete (commandName=${commandName})`, e);
     await handleInteractionError(interaction, t);
@@ -228,7 +272,7 @@ export const handleComponentInteraction = async (interaction: MessageComponentIn
   i18next,
   ...context
 }: InteractionHandlerContext): Promise<void> => {
-  const { logger } = context;
+  const logger =  context.logger.nest(`Interaction#${interaction.id}`);
   const t = createTFunction({
     i18next,
     ephemeral: true,
@@ -250,7 +294,12 @@ export const handleComponentInteraction = async (interaction: MessageComponentIn
   logger.log(`${getUserIdentifier(user)} interacted with component "${customId}" in ${stringifyChannelName(channelId, channel)} of ${stringifyGuildName(guildId, guild)}`);
 
   try {
-    await command.handle(interaction, { ...context, t });
+    await command.handle(interaction, {
+      ...context,
+      logger,
+      t,
+      getSettings: createCachedGetSettingsFunction({ logger }, interaction),
+    });
   } catch (e) {
     logger.error(`Error while responding to component interaction (customId=${customId})`, e);
     await handleInteractionError(interaction, t);

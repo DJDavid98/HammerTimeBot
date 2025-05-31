@@ -97,6 +97,9 @@ export const enum GlobalCommandResponse {
   NO_COMPONENTS_UNIX = 'noComponentsUnix',
   TIMEZONE_NOT_FOUND = 'timezoneNotFound',
   UNEXPECTED_ERROR = 'unexpectedError',
+  TELEMETRY_THANK_YOU = 'telemetryThankYou',
+  TELEMETRY_INFO_COUNT = 'telemetryInfoCount',
+  PRIVACY_POLICY_LINK = 'privacyPolicyLink',
 }
 
 export const enum SnowflakeCommandResponse {

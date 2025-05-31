@@ -5,7 +5,6 @@ import { getStatisticsCommandOptions } from '../options/statistics.options.js';
 import { EPHEMERAL_OPTION_DEFAULT_VALUE, getBareNumberFormatter, isEphemeralResponse } from '../utils/messaging.js';
 import { env } from '../env.js';
 import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
-import { getSettings } from '../utils/settings.js';
 import { CROWDIN_PROJECT_URL, SUPPORTED_LANGUAGES } from '../constants/locales.js';
 import { getProcessStartTs } from '../utils/get-process-start-ts.js';
 import { DiscordjsErrorCodes } from 'discord.js';
@@ -18,7 +17,7 @@ export const statisticsCommand: BotChatInputCommand = {
     options: getStatisticsCommandOptions(t),
   }),
   async handle(interaction, context) {
-    const settings = await getSettings(context, interaction);
+    const settings = await context.getSettings();
     const ephemeral = isEphemeralResponse(interaction, settings);
     await interaction.deferReply({ flags: ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE ? MessageFlags.Ephemeral : undefined });
 

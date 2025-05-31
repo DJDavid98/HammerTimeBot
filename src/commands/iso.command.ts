@@ -5,7 +5,6 @@ import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
 import { getIsoCommandOptions } from '../options/iso.options.js';
-import { getSettings } from '../utils/settings.js';
 import { findTimezoneOptionValue, handleTimezoneAutocomplete } from '../utils/messaging.js';
 import { interactionReply } from '../utils/interaction-reply.js';
 
@@ -28,7 +27,7 @@ export const isoCommand: BotChatInputCommand = {
     }
   },
   async handle(interaction, context) {
-    const settings = await getSettings(context, interaction);
+    const settings = await context.getSettings();
     const { t } = context;
     const value = interaction.options.getString(IsoCommandOptionName.VALUE, true);
     const timezone = await findTimezoneOptionValue(t, interaction, settings);

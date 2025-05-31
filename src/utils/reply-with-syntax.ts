@@ -17,10 +17,14 @@ import { formatSelectComponent } from '../components/format-select.component.js'
 import { EmojiCharacters } from '../constants/emoji-characters.js';
 import { InteractionContext } from '../types/bot-interaction.js';
 import { addIncompleteTranslationsFooter } from './interaction-reply.js';
+import { getTelemetryPlaceholder } from './add-telemetry-note-to-reply.js';
 
 type HandledInteractions = ChatInputCommandInteraction | ContextMenuCommandInteraction;
 
-export const mapCommandInteractionToSyntaxInteraction = (interaction: HandledInteractions, settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header'>): SyntaxInteraction => {
+export const mapCommandInteractionToSyntaxInteraction = (
+  interaction: HandledInteractions,
+  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header'> | undefined,
+): SyntaxInteraction => {
   if (interaction.isContextMenuCommand()) {
     return {
       columns: null,
@@ -31,9 +35,9 @@ export const mapCommandInteractionToSyntaxInteraction = (interaction: HandledInt
   }
 
   return ({
-    columns: interaction.options.getString(GlobalCommandOptionName.COLUMNS) ?? settings.columns ?? ResponseColumnChoices.BOTH,
-    format: interaction.options.getString(GlobalCommandOptionName.FORMAT) ?? settings.format,
-    header: interaction.options.getBoolean(GlobalCommandOptionName.HEADER) ?? settings.header ?? true,
+    columns: interaction.options.getString(GlobalCommandOptionName.COLUMNS) ?? settings?.columns ?? ResponseColumnChoices.BOTH,
+    format: interaction.options.getString(GlobalCommandOptionName.FORMAT) ?? settings?.format ?? null,
+    header: interaction.options.getBoolean(GlobalCommandOptionName.HEADER) ?? settings?.header ?? true,
     ephemeral: isEphemeralResponse(interaction, settings),
   });
 };
@@ -50,16 +54,20 @@ interface SyntaxReplyOptions {
   interaction: HandledInteractions;
   context: InteractionContext;
   timezone?: string;
-  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview' | 'formatMinimalReply'>;
+  settings: Pick<
+  SettingsValue,
+  'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview' | 'formatMinimalReply' | 'telemetry'
+  > | undefined;
 }
 
 export const getSyntaxReplyOptions = ({
   localMoment,
   interaction,
-  context: { t, emojiIdMap },
+  context,
   timezone = 'UTC',
   settings,
 }: SyntaxReplyOptions): InteractionReplyOptions => {
+  const { t, emojiIdMap } = context;
   const localDate = localMoment.toDate();
   if (!localMoment.isValid()) {
     return {
@@ -73,12 +81,12 @@ export const getSyntaxReplyOptions = ({
   const ts = new MessageTimestamp(localDate);
   const formatInput = MessageTimestamp.isValidFormat(syntaxInteraction.format) ? syntaxInteraction.format : null;
   const formats = formatInput ? [formatInput] : supportedFormats;
-  const singleFormatReply = formatInput && settings.formatMinimalReply;
+  const singleFormatReply = formatInput && settings?.formatMinimalReply;
 
   const columns = singleFormatReply ? ResponseColumnChoices.PREVIEW_ONLY : (syntaxInteraction.columns ?? ResponseColumnChoices.BOTH);
   const addHeader = !(singleFormatReply) && (syntaxInteraction.header ?? true);
   const header = addHeader && getExactTimePrefix(localMoment, timezone);
-  const table = formattedResponse(ts, formats, columns as ResponseColumnChoices, !formatInput && settings.boldPreview);
+  const table = formattedResponse(ts, formats, columns as ResponseColumnChoices, !formatInput && (settings?.boldPreview ?? null));
   const content: string | undefined = `${header ? `${header}\n` : ''}${table}`;
   const shouldReplyBeEphemeral = syntaxInteraction.ephemeral ?? EPHEMERAL_OPTION_DEFAULT_VALUE;
 
@@ -89,6 +97,8 @@ export const getSyntaxReplyOptions = ({
     };
   }
 
+  const telemetryPlaceholder: InteractionReplyOptions['components'] =
+    settings?.telemetry ? getTelemetryPlaceholder(context) ?? [] : [];
   let replyOptions: InteractionReplyOptions = {
     flags: MessageFlags.IsComponentsV2 | (shouldReplyBeEphemeral ? MessageFlags.Ephemeral : 0),
     components: [
@@ -121,6 +131,7 @@ export const getSyntaxReplyOptions = ({
             formatSelectComponent.getDefinition(t, emojiIdMap),
           ],
         },
+        ...telemetryPlaceholder,
       ],
     });
   }
@@ -132,7 +143,7 @@ interface ReplyWithSyntaxParams {
   interaction: ChatInputCommandInteraction | ContextMenuCommandInteraction;
   context: InteractionContext;
   timezone: string | undefined;
-  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview' | 'formatMinimalReply'>;
+  settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview' | 'formatMinimalReply' | 'telemetry'> | undefined;
 }
 
 export const replyWithSyntax = async ({

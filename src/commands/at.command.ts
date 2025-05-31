@@ -6,7 +6,6 @@ import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getAtOptions } from '../options/at.options.js';
 import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
-import { getSettings } from '../utils/settings.js';
 import { findTimezoneOptionValue, handleTimezoneAutocomplete } from '../utils/messaging.js';
 import { interactionReply } from '../utils/interaction-reply.js';
 
@@ -29,7 +28,7 @@ export const atCommand: BotChatInputCommand = {
     }
   },
   async handle(interaction, context) {
-    const settings = await getSettings(context, interaction);
+    const settings = await context.getSettings();
     const { t } = context;
     const year = interaction.options.getInteger(AtCommandOptionName.YEAR);
     const month = interaction.options.getInteger(AtCommandOptionName.MONTH);

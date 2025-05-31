@@ -1,9 +1,14 @@
-import { InteractionContext, InteractionHandlerContext, LoggerContext } from '../types/bot-interaction.js';
+import {
+  InteractionContext,
+  InteractionHandlerContext,
+  LoggerContext,
+  UserSettingsContext,
+} from '../types/bot-interaction.js';
 import { BotCommandItem, BotCommands } from './get-application-commands.js';
-import { apiRequest } from './backend.js';
+import { backendApiRequest } from './backend-api-request.js';
 import typia from 'typia';
 import type { APIApplicationCommand, APIApplicationCommandOption } from 'discord-api-types/v10';
-import { Client } from 'discord.js';
+import { ChatInputCommandInteraction, Client, ContextMenuCommandInteraction } from 'discord.js';
 import { getProcessStartTs } from './get-process-start-ts.js';
 import { env } from '../env.js';
 import {
@@ -14,6 +19,7 @@ import {
 } from './update-guild-commands.js';
 import { filledBar } from 'string-progressbar';
 import { EmojiCharacters } from '../constants/emoji-characters.js';
+import { TelemetryResponse } from './add-telemetry-note-to-reply.js';
 
 type MinimalAPIApplicationCommand =
   Pick<APIApplicationCommand, 'id' | 'name' | 'name_localizations' | 'description' | 'description_localizations' | 'type'>
@@ -44,7 +50,7 @@ export const updateBotCommandsInApi = async (parentContext: LoggerContext, input
   logger.log('Updating…');
   const resultWithOptions = augmentResultWithOptions(input, result);
   try {
-    await apiRequest({ logger }, {
+    await backendApiRequest({ logger }, {
       path: '/bot-commands',
       method: 'PUT',
       validator: typia.createValidate<unknown[]>(),
@@ -62,7 +68,7 @@ export const updateBotTimezonesInApi = async (parentContext: LoggerContext): Pro
   const context = { ...parentContext, logger };
   logger.log('Updating…');
   try {
-    await apiRequest(context, {
+    await backendApiRequest(context, {
       path: '/bot-timezones',
       method: 'PUT',
       validator: typia.createValidate<unknown>(),
@@ -125,7 +131,7 @@ export const updateShardStats = async (context: LoggerContext, client: Client, s
     started_at: startedAt,
   };
   logger.debug('Shard statistics collected:', body);
-  await apiRequest(context, {
+  await backendApiRequest(context, {
     path: '/shard-statistics',
     method: 'POST',
     body,
@@ -133,4 +139,35 @@ export const updateShardStats = async (context: LoggerContext, client: Client, s
     failOnInvalidResponse: false,
   });
   logger.log('Successfully updated shard statistics');
+};
+
+export const sendCommandTelemetry = async (context: LoggerContext & UserSettingsContext, interaction: ChatInputCommandInteraction | ContextMenuCommandInteraction): Promise<TelemetryResponse | undefined> => {
+  const logger = context.logger.nest('sendCommandTelemetry');
+  logger.debug('Obtaining user consent…');
+  const settings = await context.getSettings();
+  if (!settings.telemetry) {
+    logger.debug('User consent revoked, skip sending telemetry');
+    return;
+  }
+  logger.log('Sending command telemetry…');
+  const body = {
+    locale: interaction.locale,
+    commandId: interaction.commandId,
+    options: interaction.options.data.map(option => ({
+      name: option.name,
+      type: option.type,
+    })),
+  };
+  const result = await backendApiRequest(context, {
+    path: '/command-telemetry',
+    method: 'POST',
+    body,
+    validator: typia.createValidate<TelemetryResponse>(),
+    failOnInvalidResponse: false,
+  });
+  if (result.ok) {
+    logger.log('Successfully sent command telemetry');
+  }
+
+  return result?.response;
 };

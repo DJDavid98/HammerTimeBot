@@ -7,7 +7,6 @@ import { getAgoOptions } from '../options/ago.options.js';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
 import moment from 'moment-timezone';
 import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
-import { getSettings } from '../utils/settings.js';
 import { interactionReply } from '../utils/interaction-reply.js';
 
 export const agoCommand: BotChatInputCommand = {
@@ -18,7 +17,7 @@ export const agoCommand: BotChatInputCommand = {
     options: getAgoOptions(t),
   }),
   async handle(interaction, context) {
-    const settings = await getSettings(context, interaction);
+    const settings = await context.getSettings();
     const { t } = context;
     const options = {
       years: interaction.options.getInteger(AgoCommandOptionName.YEARS_AGO),

@@ -79,7 +79,10 @@ export const stringifyOptionsData = (data: readonly CommandInteractionOption[]):
 // TODO Remove and make fallback value of `isEphemeralResponse` after notice is removed
 export const EPHEMERAL_OPTION_DEFAULT_VALUE = true;
 
-export const isEphemeralResponse = (interaction: ChatInputCommandInteraction, settings: Pick<SettingsValue, 'ephemeral'>): boolean | null => interaction.options.getBoolean(GlobalCommandOptionName.EPHEMERAL) ?? settings.ephemeral ?? null;
+export const isEphemeralResponse = (
+  interaction: ChatInputCommandInteraction,
+  settings: Pick<SettingsValue, 'ephemeral'> | undefined,
+): boolean | null => interaction.options.getBoolean(GlobalCommandOptionName.EPHEMERAL) ?? settings?.ephemeral ?? null;
 
 type BareNumberFormatter = Pick<Intl.NumberFormat, 'format'>;
 const numberFormatterCache: Partial<Record<string, BareNumberFormatter>> = {};

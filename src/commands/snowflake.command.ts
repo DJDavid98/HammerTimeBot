@@ -7,7 +7,6 @@ import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import snowflakeToUnix from '../utils/snowflake.js';
 import { SnowflakeError } from '../classes/snowflake-error.js';
 import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
-import { getSettings } from '../utils/settings.js';
 import { interactionReply } from '../utils/interaction-reply.js';
 
 export const snowflakeCommand: BotChatInputCommand = {
@@ -18,7 +17,7 @@ export const snowflakeCommand: BotChatInputCommand = {
     options: getSnowflakeCommandOptions(t),
   }),
   async handle(interaction, context) {
-    const settings = await getSettings(context, interaction);
+    const settings = await context.getSettings();
     const { t } = context;
     const snowflake = interaction.options.getString(SnowflakeCommandOptionName.VALUE, true);
     let unixValue;

@@ -7,7 +7,6 @@ import { getInOptions } from '../options/in.options.js';
 import moment from 'moment-timezone';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
 import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
-import { getSettings } from '../utils/settings.js';
 
 export const inCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -17,7 +16,7 @@ export const inCommand: BotChatInputCommand = {
     options: getInOptions(t),
   }),
   async handle(interaction, context) {
-    const settings = await getSettings(context, interaction);
+    const settings = await context.getSettings();
     const { t } = context;
     const options = {
       years: interaction.options.getInteger(InCommandOptionName.IN_YEARS),

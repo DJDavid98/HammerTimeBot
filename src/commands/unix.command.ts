@@ -5,7 +5,6 @@ import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getUnixCommandOptions } from '../options/unix.options.js';
 import { ApplicationCommandType } from 'discord-api-types/v10';
-import { getSettings } from '../utils/settings.js';
 
 export const unixCommand: BotChatInputCommand = {
   getDefinition: (t) => ({
@@ -15,7 +14,7 @@ export const unixCommand: BotChatInputCommand = {
     options: getUnixCommandOptions(t),
   }),
   async handle(interaction, context) {
-    const settings = await getSettings(context, interaction);
+    const settings = await context.getSettings();
     const value = interaction.options.getInteger(UnixCommandOptionName.VALUE, true);
     const localMoment = moment.unix(value).utc();
 

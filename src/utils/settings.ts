@@ -3,7 +3,7 @@ import { env } from '../env.js';
 import { MessageTimestampFormat } from '../classes/message-timestamp.js';
 import { ResponseColumnChoices } from '../types/localization.js';
 import typia from 'typia';
-import { apiRequest } from './backend.js';
+import { backendApiRequest } from './backend-api-request.js';
 import { LoggerContext } from '../types/bot-interaction.js';
 
 export interface SettingsValue {
@@ -14,6 +14,7 @@ export interface SettingsValue {
   [SettingName.columns]: ResponseColumnChoices | null,
   [SettingName.format]: MessageTimestampFormat | null,
   [SettingName.formatMinimalReply]: boolean | null,
+  [SettingName.telemetry]: boolean | null,
   [SettingName.defaultAtHour]: number | null,
   [SettingName.defaultAtMinute]: number | null,
   [SettingName.defaultAtSecond]: number | null,
@@ -30,20 +31,21 @@ const defaultSettings: { [k in SettingName]: SettingsValue[k] } = {
   [SettingName.defaultAtHour]: null,
   [SettingName.defaultAtMinute]: null,
   [SettingName.defaultAtSecond]: 0,
+  [SettingName.telemetry]: true,
 };
 
-export const getSettings = async (context: LoggerContext, interaction: {
-  user: { id: string }
-}): Promise<SettingsValue> => {
+export const getSettings = async (
+  context: LoggerContext,
+  userId: string,
+): Promise<SettingsValue> => {
   const { logger } = context;
-  const userId = interaction.user.id;
   if (env.DISABLE_SETTINGS) {
     logger.debug(`Settings are disabled, falling back to default settings for user ${userId}`);
     return defaultSettings;
   }
 
   try {
-    const { response, responseText } = await apiRequest(context, {
+    const { response, responseText } = await backendApiRequest(context, {
       path: `/settings/${userId}`,
       validator: typia.createValidate<SettingsValue>(),
     });

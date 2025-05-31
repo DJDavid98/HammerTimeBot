@@ -6,6 +6,7 @@ export const SettingName = {
   columns: 'columns',
   format: 'format',
   formatMinimalReply: 'formatMinimalReply',
+  telemetry: 'telemetry',
   defaultAtHour: 'defaultAtHour',
   defaultAtMinute: 'defaultAtMinute',
   defaultAtSecond: 'defaultAtSecond',

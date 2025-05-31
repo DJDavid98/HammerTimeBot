@@ -17,10 +17,14 @@ export interface BackendApiRequest<T> {
 export interface BackendApiResponse<T> {
   responseText: string | undefined;
   response: T;
-  validation: IValidation<T>
+  validation: IValidation<T>;
+  ok: boolean
 }
 
-export const apiRequest = async <T>({ logger }: LoggerContext, params: BackendApiRequest<T>): Promise<BackendApiResponse<T>> => {
+export const backendApiRequest = async <T>(
+  { logger }: LoggerContext,
+  params: BackendApiRequest<T>,
+): Promise<BackendApiResponse<T>> => {
   let responseText: string | undefined;
   let r: Response | undefined;
   const requestUrl = `${env.API_URL}/api${params.path}`;
@@ -56,5 +60,5 @@ export const apiRequest = async <T>({ logger }: LoggerContext, params: BackendAp
     logger.warn(errorMessage);
   }
 
-  return { responseText, response, validation };
+  return { responseText, response, validation, ok: r?.ok ?? false };
 };

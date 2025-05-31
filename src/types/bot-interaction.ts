@@ -15,6 +15,7 @@ import {
 import { i18n, TFunction } from 'i18next';
 
 import { NestableLogger } from './logger-types.js';
+import { SettingsValue } from '../utils/settings.js';
 
 export const enum BotChatInputCommandName {
   ADD = 'add',
@@ -43,6 +44,9 @@ export const enum BotMessageComponentCustomId {
 export interface LoggerContext {
   logger: NestableLogger;
 }
+export interface UserSettingsContext {
+  getSettings: () => Promise<SettingsValue>;
+}
 
 export interface InteractionHandlerContext extends LoggerContext {
   i18next: i18n;
@@ -53,7 +57,12 @@ export interface InteractionContext extends Omit<InteractionHandlerContext, 'i18
   t: TFunction;
 }
 
-export type InteractionHandler<T extends BaseInteraction> = (interaction: T, context: InteractionContext) => void | Promise<void>;
+export type UserInteractionContext = InteractionContext & UserSettingsContext;
+
+export type InteractionHandler<T extends BaseInteraction> = (
+  interaction: T,
+  context: UserInteractionContext
+) => void | Promise<void>;
 
 export interface BotChatInputCommand {
   registerCondition?: () => boolean;

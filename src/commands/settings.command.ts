@@ -4,7 +4,7 @@ import { ApplicationCommandType, ButtonStyle, ComponentType, MessageFlags } from
 import { env } from '../env.js';
 import { EmojiCharacters } from '../constants/emoji-characters.js';
 import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-timestamp.js';
-import { apiRequest } from '../utils/backend.js';
+import { backendApiRequest } from '../utils/backend-api-request.js';
 import typia from 'typia';
 import { APIMessageTopLevelComponent } from 'discord-api-types/payloads/v10/channel.js';
 
@@ -27,7 +27,7 @@ export const settingsCommand: BotChatInputCommand = {
 
     const loginUrl = `${env.API_URL}/${locale}/login`;
     const settingsUrl = `${env.API_URL}/${locale}/settings`;
-    const  { response, validation } = await apiRequest(context, {
+    const  { response, validation } = await backendApiRequest(context, {
       path: `/login-link/${user.id}/${locale}`,
       method: 'POST',
       body: {

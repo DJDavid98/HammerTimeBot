@@ -6,7 +6,6 @@ import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
 import { getAddOptions } from '../options/add.options.js';
 import { atLeastOneNonZeroKey } from '../utils/at-least-one-non-zero-key.js';
-import { getSettings } from '../utils/settings.js';
 import { MessageFlags } from 'discord-api-types/v10';
 import { interactionReply } from '../utils/interaction-reply.js';
 
@@ -17,7 +16,7 @@ export const addCommand: BotChatInputCommand = {
     options: getAddOptions(t),
   }),
   async handle(interaction, context) {
-    const settings = await getSettings(context, interaction);
+    const settings = await context.getSettings();
     const { t } = context;
     const to = interaction.options.getNumber(AddCommandOptionName.TO, true);
     const now = moment.unix(to).utc();
