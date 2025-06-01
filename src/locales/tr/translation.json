@@ -222,11 +222,11 @@
         "replyWithSpecificFormat": "Yanıt olarak almak için aşağıdaki biçimlerden birini seçin (mobil cihazlarda kopyalamak için)",
         "incompleteTranslations": "Çeviriler tamamlanmadı",
         "contributeTranslations": "Katkıda Bulun",
-        "telemetryThankYou": "Thank you for contributing telemetry data, which helps the bot's future development. See the {{privacyPolicy}} for details.",
-        "telemetryInfoCount": "This is execution #{{executionNumber}} for the {{command}} command (since we started counting).",
-        "privacyPolicyLink": "Privacy Policy",
-        "recordingTelemetry": "Telemetry is being collected for this command, results are pending…",
-        "telemetryPlaceholder": "The rest of this text is only here to prevent the message size from changing too much when the results of the telemetry recording are available."
+        "telemetryThankYou": "Telemetri verilerine katkıda bulunduğunuz için teşekkür ederiz, bu veriler botun gelecekteki gelişimine yardımcı olur. Ayrıntılar için {{privacyPolicy}} bölümüne bakın.",
+        "telemetryInfoCount": "Bu, {{command}} komutu için #{{executionNumber}} numaralı çalıştırmadır (saymaya başladığımızdan beri).",
+        "privacyPolicyLink": "Gizlilik Politikası",
+        "recordingTelemetry": "Bu komut için telemetri toplanıyor, sonuçlar bekleniyor…",
+        "telemetryPlaceholder": "Bu metnin geri kalanı, yalnızca telemetri kaydı sonuçları mevcut olduğunda mesaj boyutunun çok fazla değişmesini önlemek amacıyla buradadır."
       }
     },
     "statistics": {
