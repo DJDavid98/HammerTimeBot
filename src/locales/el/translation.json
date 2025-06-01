@@ -1,7 +1,7 @@
 {
   "commands": {
     "ago": {
-      "name": "πρίν",
+      "name": "πριν",
       "description": "Καθορίστε μια χρονοσήμανση στο παρελθόν σε σχέση με την τρέχουσα ώρα",
       "responses": {},
       "options": {
@@ -222,11 +222,11 @@
         "replyWithSpecificFormat": "Επιλέξτε μια μορφή κειμένου παρακάτω για να την λάβετε ως απάντηση (για αντιγραφή σε συσκευές αφής)",
         "incompleteTranslations": "Οι μεταφράσεις είναι ελλιπείς",
         "contributeTranslations": "Συνεισφέρετε",
-        "telemetryThankYou": "Thank you for contributing telemetry data, which helps the bot's future development. See the {{privacyPolicy}} for details.",
-        "telemetryInfoCount": "This is execution #{{executionNumber}} for the {{command}} command (since we started counting).",
-        "privacyPolicyLink": "Privacy Policy",
-        "recordingTelemetry": "Telemetry is being collected for this command, results are pending…",
-        "telemetryPlaceholder": "The rest of this text is only here to prevent the message size from changing too much when the results of the telemetry recording are available."
+        "telemetryThankYou": "Σας ευχαριστούμε για τη συμβολή σας στα δεδομένα τηλεμετρίας, που βοηθά τη μελλοντική ανάπτυξη του bot. Δείτε το {{privacyPolicy}} για λεπτομέρειες.",
+        "telemetryInfoCount": "Αυτή είναι η εκτέλεση #{{executionNumber}} για την εντολή {{command}} (από τότε που αρχίσαμε να μετράμε).",
+        "privacyPolicyLink": "Πολιτική Απορρήτου",
+        "recordingTelemetry": "Συλλέγεται τηλεμετρία για αυτή την εντολή, τα αποτελέσματα εκκρεμούν…",
+        "telemetryPlaceholder": "Το υπόλοιπο κείμενο είναι μόνο εδώ για να αποτρέψει το μέγεθος του μηνύματος από το να αλλάξει πάρα πολύ όταν τα αποτελέσματα της τηλεμετρίας είναι διαθέσιμα."
       }
     },
     "statistics": {
