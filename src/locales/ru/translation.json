@@ -179,7 +179,7 @@
         "noComponentsCurrentTime": "Необходимо указать изменение как минимум одной величины. Если вас интересует нынешнее время, используйте `/{{atCommand}}` без каких либо аргументов",
         "noComponentsUnix": "Необходимо указать изменение как минимум одной величины. Если вас интересует синтаксис временной метки UNIX, используйте `/{{unixCommand}}`",
         "timezoneNotFound": "Указанный часовой пояс не может быть найден",
-        "unexpectedError": "There was an unexpected error while processing this interaction"
+        "unexpectedError": "При обработке этого действия произошла непредвиденная ошибка"
       },
       "options": {
         "format": {
@@ -193,7 +193,7 @@
             "f": "date and time",
             "F": "weekday, date and time",
             "R": "relative",
-            "all": "all (default)"
+            "all": "все (по умолчанию)"
           }
         },
         "columns": {
@@ -219,14 +219,14 @@
         }
       },
       "components": {
-        "replyWithSpecificFormat": "Select a format below to receive it in a reply (for copying on touch devices)",
-        "incompleteTranslations": "Translations are incomplete",
-        "contributeTranslations": "Contribute",
-        "telemetryThankYou": "Thank you for contributing telemetry data, which helps the bot's future development. See the {{privacyPolicy}} for details.",
-        "telemetryInfoCount": "This is execution #{{executionNumber}} for the {{command}} command (since we started counting).",
-        "privacyPolicyLink": "Privacy Policy",
-        "recordingTelemetry": "Telemetry is being collected for this command, results are pending…",
-        "telemetryPlaceholder": "The rest of this text is only here to prevent the message size from changing too much when the results of the telemetry recording are available."
+        "replyWithSpecificFormat": "Выберите формат ниже, чтобы получить его в ответе (для копирования на сенсорных устройствах)",
+        "incompleteTranslations": "Перевод не завершен",
+        "contributeTranslations": "Внести свой вклад",
+        "telemetryThankYou": "Благодарим за предоставление телеметрических данных, которые помогают в дальнейшей разработке бота. Подробнее см. в {{privacyPolicy}}.",
+        "telemetryInfoCount": "Это выполнение #{{executionNumber}} команды {{command}} (с момента начала счета).",
+        "privacyPolicyLink": "Политика конфиденциальности",
+        "recordingTelemetry": "Сбор телеметрии для этой команды в процессе, результаты будут доступны позже…",
+        "telemetryPlaceholder": "Остальной текст нужен лишь для того, чтобы сообщение не поменяло размер, после завершения сбора данных."
       }
     },
     "statistics": {
@@ -242,8 +242,8 @@
         "noShards": "(The bot is not currently using sharding)",
         "serverInvite": "Support server invite URL:",
         "totalUserCount": "Всего пользователей на серверах:",
-        "supportedLanguages": "Supported languages:",
-        "crowdinProject": "Crowdin project URL:"
+        "supportedLanguages": "Поддерживаемые языки:",
+        "crowdinProject": "URL-адрес проекта Crowdin:"
       }
     },
     "snowflake": {
@@ -294,14 +294,14 @@
     },
     "settings": {
       "name": "settings",
-      "description": "Create a link to manage your settings via the website",
+      "description": "Создать ссылку для управления настройками через веб-сайт",
       "responses": {
-        "linkCreated": "Please visit the link below to be logged into the bot's website automatically in order to change your settings.\n<{{magicLink}}>\nThis link will expire {{expiresAt}} but you can always run this command to generate a new link, or visit <{{loginUrl}}> to log in manually, then go to <{{settingsUrl}}> to change your settings.",
-        "failedToCreateLink": "Could not generate a link to log you in automatically, please visit <{{loginUrl}}> and log in manually, then go to <{{settingsUrl}}> to change your settings."
+        "linkCreated": "Пожалуйста, перейдите по ссылке ниже, чтобы автоматически войти на сайт бота и изменить свои настройки.\n<{{magicLink}}>\nСрок действия этой ссылки истекает {{expiresAt}}. Эту команду можно выполнить повторно для создания новой ссылки, или посетить <{{loginUrl}}>, чтобы войти вручную, а затем перейти по ссылке <{{settingsUrl}}>, чтобы изменить настройки.",
+        "failedToCreateLink": "Не удалось сгенерировать ссылку для автоматического входа в аккаунт, пожалуйста, посетите <{{loginUrl}}> и войдите вручную, затем перейдите на <{{settingsUrl}}>, чтобы изменить свои настройки."
       },
       "options": {},
       "components": {
-        "openSettingsButton": "Bot Settings"
+        "openSettingsButton": "Настройки бота"
       }
     }
   }
