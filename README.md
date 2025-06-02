@@ -70,6 +70,7 @@ English and Hungarian translations have been included, so no translators will be
   - [mihai](https://crowdin.com/profile/mihaiofficialRO)
 - 🇷🇺 Russian
   - [Artiom Boyko](https://crowdin.com/profile/Ajno)
+  - [cfif126](https://crowdin.com/profile/cfif126)
   - [Nikita Sharikov](https://crowdin.com/profile/Aligatoor)
   - [Vladimir](https://crowdin.com/profile/bill876)
 - 🇪🇸 Spanish
