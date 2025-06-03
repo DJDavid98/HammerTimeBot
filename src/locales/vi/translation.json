@@ -222,11 +222,11 @@
         "replyWithSpecificFormat": "Chọn một định dạng để được trả về trong một tin nhắn trả lời (để sao chép dễ dàng trên các thiết bị cảm ứng)",
         "incompleteTranslations": "Các bản dịch chưa được hoàn thiện",
         "contributeTranslations": "Đóng góp",
-        "telemetryThankYou": "Thank you for contributing telemetry data, which helps the bot's future development. See the {{privacyPolicy}} for details.",
-        "telemetryInfoCount": "This is execution #{{executionNumber}} for the {{command}} command (since we started counting).",
-        "privacyPolicyLink": "Privacy Policy",
-        "recordingTelemetry": "Telemetry is being collected for this command, results are pending…",
-        "telemetryPlaceholder": "The rest of this text is only here to prevent the message size from changing too much when the results of the telemetry recording are available."
+        "telemetryThankYou": "Cảm ơn bạn đã cung cấp dữ liệu sử dụng. Dữ liệu được cung cấp sẽ hỗ trợ việc duy trì và phát triển ứng dụng trong tương lai. Vui lòng xem {{privacyPolicy}} để biết thêm thông tin chi tiết.",
+        "telemetryInfoCount": "Lệnh {{command}} đã được chạy {{executionNumber}} lần (kể từ khi số liệu bắt đầu được lưu trữ).",
+        "privacyPolicyLink": "Chính sách Quyền Riêng tư",
+        "recordingTelemetry": "Dữ liệu sử dụng đang được thu thập, đang chờ kết quả…",
+        "telemetryPlaceholder": "Phần còn lại của tin nhắn này chỉ có mục đích tránh thay đổi độ dài của tin nhắn quá nhiều khi dữ liệu sử dụng đã được thu thập và hiển thị."
       }
     },
     "statistics": {
