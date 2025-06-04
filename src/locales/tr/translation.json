@@ -226,7 +226,13 @@
         "telemetryInfoCount": "Bu, {{command}} komutu için #{{executionNumber}} numaralı çalıştırmadır (saymaya başladığımızdan beri).",
         "privacyPolicyLink": "Gizlilik Politikası",
         "recordingTelemetry": "Bu komut için telemetri toplanıyor, sonuçlar bekleniyor…",
-        "telemetryPlaceholder": "Bu metnin geri kalanı, yalnızca telemetri kaydı sonuçları mevcut olduğunda mesaj boyutunun çok fazla değişmesini önlemek amacıyla buradadır."
+        "telemetryPlaceholder": "Bu metnin geri kalanı, yalnızca telemetri kaydı sonuçları mevcut olduğunda mesaj boyutunun çok fazla değişmesini önlemek amacıyla buradadır.",
+        "feedbackWanted": "Feedback wanted!",
+        "atHourMeridiemFeedbackWanted": {
+          "lead": "We have a {{pollLink}} on 12-hour input support for this command in our server. If you are not in the server yet, join using {{serverLink}} to vote.",
+          "pollLink": "poll",
+          "serverLink": "this link"
+        }
       }
     },
     "statistics": {

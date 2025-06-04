@@ -226,7 +226,13 @@
         "telemetryInfoCount": "Dies ist Ausführung Nr. {{executionNumber}} für den Befehl {{command}} (seit Beginn der Zählung).",
         "privacyPolicyLink": "Datenschutzerklärung",
         "recordingTelemetry": "Für diesen Befehl werden Telemetriedaten gesammelt, Ergebnisse stehen noch aus…",
-        "telemetryPlaceholder": "Der Rest dieses Textes ist nur dazu da, um zu verhindern, dass sich die Größe der Nachricht zu sehr ändert, wenn die Ergebnisse der Telemetrieaufzeichnung verfügbar sind."
+        "telemetryPlaceholder": "Der Rest dieses Textes ist nur dazu da, um zu verhindern, dass sich die Größe der Nachricht zu sehr ändert, wenn die Ergebnisse der Telemetrieaufzeichnung verfügbar sind.",
+        "feedbackWanted": "Feedback wanted!",
+        "atHourMeridiemFeedbackWanted": {
+          "lead": "We have a {{pollLink}} on 12-hour input support for this command in our server. If you are not in the server yet, join using {{serverLink}} to vote.",
+          "pollLink": "poll",
+          "serverLink": "this link"
+        }
       }
     },
     "statistics": {

@@ -226,7 +226,13 @@
         "telemetryInfoCount": "Lệnh {{command}} đã được chạy {{executionNumber}} lần (kể từ khi số liệu bắt đầu được lưu trữ).",
         "privacyPolicyLink": "Chính sách Quyền Riêng tư",
         "recordingTelemetry": "Dữ liệu sử dụng đang được thu thập, đang chờ kết quả…",
-        "telemetryPlaceholder": "Phần còn lại của tin nhắn này chỉ có mục đích tránh thay đổi độ dài của tin nhắn quá nhiều khi dữ liệu sử dụng đã được thu thập và hiển thị."
+        "telemetryPlaceholder": "Phần còn lại của tin nhắn này chỉ có mục đích tránh thay đổi độ dài của tin nhắn quá nhiều khi dữ liệu sử dụng đã được thu thập và hiển thị.",
+        "feedbackWanted": "Feedback wanted!",
+        "atHourMeridiemFeedbackWanted": {
+          "lead": "We have a {{pollLink}} on 12-hour input support for this command in our server. If you are not in the server yet, join using {{serverLink}} to vote.",
+          "pollLink": "poll",
+          "serverLink": "this link"
+        }
       }
     },
     "statistics": {
