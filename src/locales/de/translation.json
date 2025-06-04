@@ -227,11 +227,11 @@
         "privacyPolicyLink": "Datenschutzerklärung",
         "recordingTelemetry": "Für diesen Befehl werden Telemetriedaten gesammelt, Ergebnisse stehen noch aus…",
         "telemetryPlaceholder": "Der Rest dieses Textes ist nur dazu da, um zu verhindern, dass sich die Größe der Nachricht zu sehr ändert, wenn die Ergebnisse der Telemetrieaufzeichnung verfügbar sind.",
-        "feedbackWanted": "Feedback wanted!",
+        "feedbackWanted": "Feedback erwünscht!",
         "atHourMeridiemFeedbackWanted": {
-          "lead": "We have a {{pollLink}} on 12-hour input support for this command in our server. If you are not in the server yet, join using {{serverLink}} to vote.",
-          "pollLink": "poll",
-          "serverLink": "this link"
+          "lead": "Wir haben eine {{pollLink}} auf 12-Stunden-Eingabeunterstützung für diesen Befehl in unserem Server. Wenn du noch nicht auf dem Server bist, trete ihn mit {{serverLink}} bei, um abzustimmen.",
+          "pollLink": "Umfrage",
+          "serverLink": "diesem link"
         }
       }
     },
