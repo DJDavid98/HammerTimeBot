@@ -10,7 +10,7 @@ import { InteractionHandlerContext } from '../types/bot-interaction.js';
 
 import { updateBotTimezonesInApi, updateCommands, updateShardStats } from './backend-api-data-updaters.js';
 
-const ONE_HOUR_MS = 60 * 60 * 1e3;
+const FIVE_MINUTES_MS = 5 * 60 * 1e3;
 
 const handleReady = (context: InteractionHandlerContext) => async (client: Client<true>) => {
   const { logger } = context;
@@ -51,7 +51,7 @@ const handleReady = (context: InteractionHandlerContext) => async (client: Clien
   // Set up scheduled calls
   setInterval(() => {
     void statsUpdate();
-  }, ONE_HOUR_MS);
+  }, FIVE_MINUTES_MS);
 };
 
 export const createClient = async (context: InteractionHandlerContext): Promise<void> => {
