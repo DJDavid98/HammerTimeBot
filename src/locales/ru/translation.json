@@ -227,11 +227,11 @@
         "privacyPolicyLink": "Политика конфиденциальности",
         "recordingTelemetry": "Сбор телеметрии для этой команды в процессе, результаты будут доступны позже…",
         "telemetryPlaceholder": "Остальной текст нужен лишь для того, чтобы сообщение не поменяло размер, после завершения сбора данных.",
-        "feedbackWanted": "Feedback wanted!",
+        "feedbackWanted": "Требуется ваше мнение!",
         "atHourMeridiemFeedbackWanted": {
-          "lead": "We have a {{pollLink}} on 12-hour input support for this command in our server. If you are not in the server yet, join using {{serverLink}} to vote.",
-          "pollLink": "poll",
-          "serverLink": "this link"
+          "lead": "На нашем сервере есть {{pollLink}} о поддержке 12-часового формата для этой команды. Если вас там ещё нет, присоединитесь по этой {{serverLink}} для голосования.",
+          "pollLink": "опрос",
+          "serverLink": "ссылке"
         }
       }
     },
