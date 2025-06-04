@@ -226,7 +226,13 @@
         "telemetryInfoCount": "Ez a {{command}} parancs {{executionNumber}}. futtatása (amióta elkezdtük ezt számon tartani).",
         "privacyPolicyLink": "Adatvédelmi irányelvek",
         "recordingTelemetry": "A telemetria gyűjtése folyamatban van, várakozás az eredményre…",
-        "telemetryPlaceholder": "A szöveg többi része csak azért van itt, hogy az üzenet mérete ne változzon túlságosan, amikor a telemetria gyűjtés eredményei itt megejelennek."
+        "telemetryPlaceholder": "A szöveg többi része csak azért van itt, hogy az üzenet mérete ne változzon túlságosan, amikor a telemetria gyűjtés eredményei itt megejelennek.",
+        "feedbackWanted": "Feedback wanted!",
+        "atHourMeridiemFeedbackWanted": {
+          "lead": "We have a {{pollLink}} on 12-hour input support for this command in our server. If you are not in the server yet, join using {{serverLink}} to vote.",
+          "pollLink": "poll",
+          "serverLink": "this link"
+        }
       }
     },
     "statistics": {
