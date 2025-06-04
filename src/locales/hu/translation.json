@@ -227,11 +227,11 @@
         "privacyPolicyLink": "Adatvédelmi irányelvek",
         "recordingTelemetry": "A telemetria gyűjtése folyamatban van, várakozás az eredményre…",
         "telemetryPlaceholder": "A szöveg többi része csak azért van itt, hogy az üzenet mérete ne változzon túlságosan, amikor a telemetria gyűjtés eredményei itt megejelennek.",
-        "feedbackWanted": "Feedback wanted!",
+        "feedbackWanted": "Számít a véleményed!",
         "atHourMeridiemFeedbackWanted": {
-          "lead": "We have a {{pollLink}} on 12-hour input support for this command in our server. If you are not in the server yet, join using {{serverLink}} to vote.",
-          "pollLink": "poll",
-          "serverLink": "this link"
+          "lead": "Van egy {{pollLink}} a 12 órás formátum támogatásáról ennél a parancsnál a szerverünkön. Ha még nem vagy a szerveren, csatlakozz {{serverLink}} a szavazáshoz.",
+          "pollLink": "szavazás",
+          "serverLink": "ezzel a linkkel"
         }
       }
     },
