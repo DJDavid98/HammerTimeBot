@@ -226,7 +226,13 @@
         "telemetryInfoCount": "Αυτή είναι η εκτέλεση #{{executionNumber}} για την εντολή {{command}} (από τότε που αρχίσαμε να μετράμε).",
         "privacyPolicyLink": "Πολιτική Απορρήτου",
         "recordingTelemetry": "Συλλέγεται τηλεμετρία για αυτή την εντολή, τα αποτελέσματα εκκρεμούν…",
-        "telemetryPlaceholder": "Το υπόλοιπο κείμενο είναι μόνο εδώ για να αποτρέψει το μέγεθος του μηνύματος από το να αλλάξει πάρα πολύ όταν τα αποτελέσματα της τηλεμετρίας είναι διαθέσιμα."
+        "telemetryPlaceholder": "Το υπόλοιπο κείμενο είναι μόνο εδώ για να αποτρέψει το μέγεθος του μηνύματος από το να αλλάξει πάρα πολύ όταν τα αποτελέσματα της τηλεμετρίας είναι διαθέσιμα.",
+        "feedbackWanted": "Feedback wanted!",
+        "atHourMeridiemFeedbackWanted": {
+          "lead": "We have a {{pollLink}} on 12-hour input support for this command in our server. If you are not in the server yet, join using {{serverLink}} to vote.",
+          "pollLink": "poll",
+          "serverLink": "this link"
+        }
       }
     },
     "statistics": {
