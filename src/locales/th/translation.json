@@ -226,7 +226,13 @@
         "telemetryInfoCount": "นี่คือคำสั่งครั้งที่ #{{executionNumber}} สำหรับคำสั่ง {{command}} (เนื่องจากเราพึ่งได้นับ)",
         "privacyPolicyLink": "นโยบายความเป็นส่วนตัว",
         "recordingTelemetry": "กำลังรวบรวมข้อมูลการวัดผลการใช้งาน สำหรับคำสั่งนี้ ผลลัพธ์กำลังรอการดำเนินการ…",
-        "telemetryPlaceholder": "ส่วนที่เหลือของข้อความนี้มีไว้เพื่อป้องกันไม่ให้ขนาดข้อความเปลี่ยนแปลงมากเกินไปเมื่อมีผลการบันทึกข้อมูลการวัดผลการใช้งาน"
+        "telemetryPlaceholder": "ส่วนที่เหลือของข้อความนี้มีไว้เพื่อป้องกันไม่ให้ขนาดข้อความเปลี่ยนแปลงมากเกินไปเมื่อมีผลการบันทึกข้อมูลการวัดผลการใช้งาน",
+        "feedbackWanted": "Feedback wanted!",
+        "atHourMeridiemFeedbackWanted": {
+          "lead": "We have a {{pollLink}} on 12-hour input support for this command in our server. If you are not in the server yet, join using {{serverLink}} to vote.",
+          "pollLink": "poll",
+          "serverLink": "this link"
+        }
       }
     },
     "statistics": {
