@@ -18,8 +18,11 @@ import { EmojiCharacters } from '../constants/emoji-characters.js';
 import { InteractionContext } from '../types/bot-interaction.js';
 import { addIncompleteTranslationsFooter } from './interaction-reply.js';
 import { getTelemetryPlaceholder } from './add-telemetry-note-to-reply.js';
+import { env } from '../env.js';
 
 type HandledInteractions = ChatInputCommandInteraction | ContextMenuCommandInteraction;
+
+const atHoursMeridiemPollEndTimestamp = 1750202355e3;
 
 export const mapCommandInteractionToSyntaxInteraction = (
   interaction: HandledInteractions,
@@ -58,6 +61,7 @@ interface SyntaxReplyOptions {
   SettingsValue,
   'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview' | 'formatMinimalReply' | 'telemetry'
   > | undefined;
+  usingAtHours?: boolean;
 }
 
 export const getSyntaxReplyOptions = ({
@@ -66,6 +70,7 @@ export const getSyntaxReplyOptions = ({
   context,
   timezone = 'UTC',
   settings,
+  usingAtHours = false,
 }: SyntaxReplyOptions): InteractionReplyOptions => {
   const { t, emojiIdMap } = context;
   const localDate = localMoment.toDate();
@@ -116,6 +121,20 @@ export const getSyntaxReplyOptions = ({
           type: ComponentType.TextDisplay,
           content,
         },
+        ...(usingAtHours && Date.now() < atHoursMeridiemPollEndTimestamp ? [
+          {
+            type: ComponentType.Separator,
+            divider: true,
+            spacing: SeparatorSpacingSize.Small,
+          },
+          {
+            type: ComponentType.TextDisplay,
+            content: `${EmojiCharacters.BALLOT_BOX} **${t('commands.global.components.feedbackWanted')}** ${t('commands.global.components.atHourMeridiemFeedbackWanted.lead', {
+              pollLink: `[${t('commands.global.components.atHourMeridiemFeedbackWanted.pollLink')}](https://discord.com/channels/952258283882819595/952273302112600104/1379600344740401223)`,
+              serverLink: `[${t('commands.global.components.atHourMeridiemFeedbackWanted.serverLink')}](<${env.DISCORD_INVITE_URL}>)`,
+            })}`,
+          },
+        ] : []),
         {
           type: ComponentType.Separator,
           divider: true,
@@ -123,7 +142,7 @@ export const getSyntaxReplyOptions = ({
         },
         {
           type: ComponentType.TextDisplay,
-          content: `${EmojiCharacters.NEW} ${t('commands.global.components.replyWithSpecificFormat')}`,
+          content: t('commands.global.components.replyWithSpecificFormat'),
         },
         {
           type: ComponentType.ActionRow,
@@ -143,6 +162,7 @@ interface ReplyWithSyntaxParams {
   interaction: ChatInputCommandInteraction | ContextMenuCommandInteraction;
   context: InteractionContext;
   timezone: string | undefined;
+  usingAtHours?: boolean;
   settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview' | 'formatMinimalReply' | 'telemetry'> | undefined;
 }
 
@@ -152,6 +172,7 @@ export const replyWithSyntax = async ({
   context,
   timezone = 'UTC',
   settings,
+  usingAtHours,
 }: ReplyWithSyntaxParams): Promise<unknown> => {
   return interaction.reply(getSyntaxReplyOptions({
     localMoment,
@@ -159,5 +180,6 @@ export const replyWithSyntax = async ({
     context,
     timezone,
     settings,
+    usingAtHours,
   }));
 };
