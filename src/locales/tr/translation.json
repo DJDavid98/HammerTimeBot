@@ -229,9 +229,9 @@
         "telemetryPlaceholder": "Bu metnin geri kalanı, yalnızca telemetri kaydı sonuçları mevcut olduğunda mesaj boyutunun çok fazla değişmesini önlemek amacıyla buradadır.",
         "feedbackWanted": "Geri bildiriminiz bekleniyor!",
         "atHourMeridiemFeedbackWanted": {
-          "lead": "Sunucumuzda bu komut için 12 saatlik giriş desteği hakkında bir {{pollLink}} bulunuyor. Henüz sunucuda değilseniz, oy kullanmak için {{serverLink}} kullanarak katılın.",
+          "lead": "Sunucumuzda bu komut için 12 saatlik giriş desteği hakkında bir {{pollLink}} bulunuyor. Henüz sunucuda değilseniz, oy kullanmak için {{serverLink}}yı kullanarak katılın.",
           "pollLink": "anket",
-          "serverLink": "bu bağlantıyı"
+          "serverLink": "bu bağlantı"
         }
       }
     },
