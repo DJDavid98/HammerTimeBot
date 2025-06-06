@@ -222,16 +222,16 @@
         "replyWithSpecificFormat": "在下方选择一个格式，机器人会单独回复该格式的文本，以便于移动设备上复制。",
         "incompleteTranslations": "翻译不完整",
         "contributeTranslations": "贡献",
-        "telemetryThankYou": "Thank you for contributing telemetry data, which helps the bot's future development. See the {{privacyPolicy}} for details.",
-        "telemetryInfoCount": "This is execution #{{executionNumber}} for the {{command}} command (since we started counting).",
-        "privacyPolicyLink": "Privacy Policy",
-        "recordingTelemetry": "Telemetry is being collected for this command, results are pending…",
-        "telemetryPlaceholder": "The rest of this text is only here to prevent the message size from changing too much when the results of the telemetry recording are available.",
-        "feedbackWanted": "Feedback wanted!",
+        "telemetryThankYou": "感谢您贡献使用数据。您的数据将被用于机器人今后的开发。您可以在我们的 {{privacyPolicy}} 中查看详情。",
+        "telemetryInfoCount": "自我们开始计数以来，这是 {{command}} 命令的第 {{executionNumber}} 次执行。",
+        "privacyPolicyLink": "隐私权政策",
+        "recordingTelemetry": "我们仍在收集此命令的使用数据，正在等待结果…",
+        "telemetryPlaceholder": "剩下的这段文字只是为了填补空间，以避免使用数据收集完成后消息的显示大小变化过大。",
+        "feedbackWanted": "我们需要您的反馈！",
         "atHourMeridiemFeedbackWanted": {
-          "lead": "We have a {{pollLink}} on 12-hour input support for this command in our server. If you are not in the server yet, join using {{serverLink}} to vote.",
-          "pollLink": "poll",
-          "serverLink": "this link"
+          "lead": "我们的服务器里有一个关于本命令中12小时制输入支持的 {{pollLink}}。如果您还未加入我们的服务器，您可以点击 {{serverLink}} 加入服务器以参与投票。",
+          "pollLink": "投票",
+          "serverLink": "此链接"
         }
       }
     },
