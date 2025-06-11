@@ -61,7 +61,9 @@ English and Hungarian translations have been included, so no translators will be
 - 🇳🇴 Norwegian
   - [kidneb1g](https://crowdin.com/profile/klinge9797)
   - [Phillip Rodseth](https://crowdin.com/profile/philliphatrod)
-- 🇵🇱 Polish: [Dawid Jaworski](https://crowdin.com/profile/MinerPL)
+- 🇵🇱 Polish
+  - [Dawid Jaworski](https://crowdin.com/profile/MinerPL)
+  - [Piotr G.](https://crowdin.com/profile/ekidoxx)
 - 🇧🇷 Portuguese, Brazilian
   - [Daniel Souza](https://crowdin.com/profile/dansansou)
   - [leo0six](https://crowdin.com/profile/leo0six)

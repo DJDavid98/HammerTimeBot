@@ -190,6 +190,11 @@
     "17136840": {
       "username": "cfif126",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17136840/medium/78edae24163b25d912524a77cb3468c5.jpg"
+    },
+    "17146676": {
+      "username": "ekidoxx",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17146676/medium/b8b933d286c6d1639dc3e85762a7ed5e.png",
+      "fullName": "Piotr G."
     }
   },
   "languages": {
@@ -373,11 +378,12 @@
     },
     "pl": {
       "translatorIds": [
-        "14844020"
+        "14844020",
+        "17146676"
       ],
       "progress": {
-        "approval": 87,
-        "translation": 87
+        "approval": 100,
+        "translation": 100
       }
     },
     "pt-BR": {
