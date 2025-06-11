@@ -94,7 +94,7 @@
     },
     "add": {
       "name": "dodaj",
-      "description": "Dodaj trochę czasu do podanego timestampu UNIX",
+      "description": "Dodaj trochę czasu do podanego UNIX-owego znacznika czasu",
       "responses": {},
       "options": {
         "to": {
@@ -129,7 +129,7 @@
     },
     "subtract": {
       "name": "odejmij",
-      "description": "Odejmij pewien czas od podanego znacznika czasu UNIX",
+      "description": "Odejmij pewien czas od podanego UNIX-owego znacznika czasu",
       "responses": {},
       "options": {
         "from": {
@@ -164,12 +164,12 @@
     },
     "unix": {
       "name": "unix",
-      "description": "Wyświetl składnie dla określonego znacznika czasu UNIX",
+      "description": "Wyświetl składnie dla określonego UNIX-owego znacznika czasu",
       "responses": {},
       "options": {
         "value": {
           "name": "wartość",
-          "description": "Znacznik czasowy UNIX w sekundach"
+          "description": "UNIX-owy znacznik czasu w sekundach"
         }
       }
     },
@@ -193,7 +193,7 @@
             "f": "data i czas",
             "F": "dzień tygodnia, data i godzina",
             "R": "względna",
-            "all": "all (default)"
+            "all": "wszystkie (domyślnie)"
           }
         },
         "columns": {
@@ -211,7 +211,7 @@
         },
         "header": {
           "name": "nagłówek",
-          "description": "Wyświetla czas początku (zgodnie z interpretacją bota) na górze odpowiedzi"
+          "description": "Wyświetla czas początkowy (zgodnie z interpretacją bota) na górze odpowiedzi"
         },
         "timezone": {
           "name": "strefa czasowa",
@@ -220,7 +220,7 @@
       },
       "components": {
         "replyWithSpecificFormat": "Wybierz format poniżej, aby otrzymać go w odpowiedzi (do kopiowania na urządzeniach dotykowych)",
-        "incompleteTranslations": "Translations are incomplete",
+        "incompleteTranslations": "Tłumaczenia są niekompletne",
         "contributeTranslations": "Contribute",
         "telemetryThankYou": "Thank you for contributing telemetry data, which helps the bot's future development. See the {{privacyPolicy}} for details.",
         "telemetryInfoCount": "This is execution #{{executionNumber}} for the {{command}} command (since we started counting).",
@@ -237,7 +237,7 @@
     },
     "statistics": {
       "name": "statystyki",
-      "description": "Wyświetla rózne informacje o bocie",
+      "description": "Wyświetla różne informacje o bocie",
       "options": {},
       "responses": {
         "totalServerCount": "Łączna liczba serwerów:",
@@ -245,22 +245,22 @@
         "uptime": "Czas startu shardu:",
         "shardCount": "Liczba shardów:",
         "shardNumber": "(Te statystyki zostały wygenerowane przez shard #{{shardId}})",
-        "noShards": "(Bot nie używa obecnie shardingu)",
+        "noShards": "(Bot obecnie nie używa shardingu)",
         "serverInvite": "Zaproszenie na serwer wsparcia:",
         "totalUserCount": "Łączna ilość użytkownikach na serwerach:",
-        "supportedLanguages": "Supported languages:",
-        "crowdinProject": "Crowdin project URL:"
+        "supportedLanguages": "Wspierane języki:",
+        "crowdinProject": "Strona projektu Crowdin:"
       }
     },
     "snowflake": {
       "name": "snowflake",
-      "description": "Wyświetl składnię znacznika czasu snowflake (większość identyfikatorów w Discordzie)",
+      "description": "Wyświetl składnię znacznika czasu snowflake (większość ID w Discordzie)",
       "responses": {
         "invalidSnowflake": "Podany snowflake jest nieprawidłowy"
       },
       "options": {
         "value": {
-          "name": "watość",
+          "name": "wartość",
           "description": "Numer snowflake"
         }
       }
@@ -295,19 +295,19 @@
       "name": "Wyodrębnij znaczniki czasu",
       "responses": {
         "targetMessage": "Wszystkie znaczniki czasu znalezione w wybranej wiadomości: {{url}}",
-        "noTimestamps": "Ta wiadomość nie zawiera żądnych znaczników czasu w formacie Discorda"
+        "noTimestamps": "Ta wiadomość nie zawiera żadnych znaczników czasu w formacie Discorda"
       }
     },
     "settings": {
       "name": "ustawienia",
       "description": "Utwórz link do zarządzania swoimi ustawieniami przez stronę internetową",
       "responses": {
-        "linkCreated": "Proszę odwiedzić poniższy link, aby zalogować się automatycznie na stronie bota w celu zmiany ustawień.\n<{{magicLink}}>\nTen link wygaśnie {{expiresAt}}, ale zawsze można uruchomić polecenie ponownie, aby wygenerować nowy link, lub odwiedzić <{{loginUrl}}>, aby zalogować się ręcznie, a następnie przejść do <{{settingsUrl}}>, aby zmienić ustawienia.",
+        "linkCreated": "Proszę odwiedzić poniższy link, aby automatycznie zalogować się na stronie bota i zmienić swoje ustawienia.\n<{{magicLink}}>\nTen link wygaśnie {{expiresAt}}, ale zawsze możesz uruchomić polecenie ponownie, żeby wygenerować nowy link, lub odwiedzić <{{loginUrl}}> aby zalogować się ręcznie, a następnie przejść do <{{settingsUrl}}> by zmienić ustawienia.",
         "failedToCreateLink": "Nie można wygenerować linku do automatycznego logowania, proszę odwiedzić <{{loginUrl}}> i zalogować się ręcznie, a następnie przejść do <{{settingsUrl}}>, aby zmienić ustawienia."
       },
       "options": {},
       "components": {
-        "openSettingsButton": "Bot Settings"
+        "openSettingsButton": "Ustawienia bota"
       }
     }
   }
