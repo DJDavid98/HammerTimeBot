@@ -99,7 +99,7 @@
       "options": {
         "to": {
           "name": "do",
-          "description": "Znacznik czasowy UNIX w sekundach"
+          "description": "UNIX-owy znacznik czasu w sekundach"
         },
         "years": {
           "name": "lata",
@@ -134,7 +134,7 @@
       "options": {
         "from": {
           "name": "z",
-          "description": "Znacznik czasowy UNIX w sekundach"
+          "description": "UNIX-owy znacznik czasu w sekundach"
         },
         "years": {
           "name": "lata",
@@ -206,7 +206,7 @@
           }
         },
         "ephemeral": {
-          "name": "ephemeral",
+          "name": "efemeryczna",
           "description": "Kiedy true odpowiedź widoczna będzie tylko dla Ciebie"
         },
         "header": {
@@ -221,17 +221,17 @@
       "components": {
         "replyWithSpecificFormat": "Wybierz format poniżej, aby otrzymać go w odpowiedzi (do kopiowania na urządzeniach dotykowych)",
         "incompleteTranslations": "Tłumaczenia są niekompletne",
-        "contributeTranslations": "Contribute",
-        "telemetryThankYou": "Thank you for contributing telemetry data, which helps the bot's future development. See the {{privacyPolicy}} for details.",
-        "telemetryInfoCount": "This is execution #{{executionNumber}} for the {{command}} command (since we started counting).",
-        "privacyPolicyLink": "Privacy Policy",
-        "recordingTelemetry": "Telemetry is being collected for this command, results are pending…",
-        "telemetryPlaceholder": "The rest of this text is only here to prevent the message size from changing too much when the results of the telemetry recording are available.",
-        "feedbackWanted": "Feedback wanted!",
+        "contributeTranslations": "Wspomóż",
+        "telemetryThankYou": "Dziękujemy za udostępnianie danych telemetrycznych, które pomogą w przyszłym rozwoju bota. Szczegóły znajdziesz w {{privacyPolicy}}.",
+        "telemetryInfoCount": "To jest #{{executionNumber}} wykonanie komendy {{command}} (odkąd zaczęliśmy liczyć).",
+        "privacyPolicyLink": "Polityka prywatności",
+        "recordingTelemetry": "Dane telemetryczne są zbierane dla tej komendy, wyniki są w trakcie opracowywania…",
+        "telemetryPlaceholder": "Reszta tego tekstu jest tutaj tylko po to, żeby zapobiec zbyt dużej zmianie rozmiaru wiadomości, gdy wyniki zbieranych danych telemetrycznych będą dostępne.",
+        "feedbackWanted": "Proszę o opinie!",
         "atHourMeridiemFeedbackWanted": {
-          "lead": "We have a {{pollLink}} on 12-hour input support for this command in our server. If you are not in the server yet, join using {{serverLink}} to vote.",
-          "pollLink": "poll",
-          "serverLink": "this link"
+          "lead": "Mamy {{pollLink}} dotyczącą wsparcia 12-godzinnego formatu czasu jako metody wprowadzania dla tej komendy. Jeśli jeszcze nie jesteś na serwerze, dołącz do niego używając {{serverLink}}, aby zagłosować.",
+          "pollLink": "ankietę",
+          "serverLink": "tego linku"
         }
       }
     },
@@ -242,7 +242,7 @@
       "responses": {
         "totalServerCount": "Łączna liczba serwerów:",
         "shardServerCount": "Serwerów na tym shardzie:",
-        "uptime": "Czas startu shardu:",
+        "uptime": "Czas uruchomienia shardu:",
         "shardCount": "Liczba shardów:",
         "shardNumber": "(Te statystyki zostały wygenerowane przez shard #{{shardId}})",
         "noShards": "(Bot obecnie nie używa shardingu)",
