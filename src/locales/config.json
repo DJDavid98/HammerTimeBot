@@ -96,7 +96,13 @@
     },
     "ja": {
       "name": "Japanese",
-      "emoji": "🇯🇵"
+      "emoji": "🇯🇵",
+      "creditOverrides": {
+        "14469636": {
+          "displayName": "Phrygia",
+          "url": "https://github.com/sjkim04"
+        }
+      }
     },
     "ko": {
       "name": "Korean",
@@ -106,7 +112,7 @@
           "displayName": "미르냥"
         },
         "14469636": {
-          "displayName": "Phrygia / sjk",
+          "displayName": "Phrygia",
           "url": "https://github.com/sjkim04"
         },
         "15404404": {

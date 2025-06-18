@@ -51,10 +51,10 @@ English and Hungarian translations have been included, so no translators will be
 - 🇮🇳 Hindi: [Balajiasli](https://crowdin.com/profile/Balajiasli)
 - 🇮🇩 Indonesian: [Jackie](https://github.com/Jckcr)
 - 🇮🇹 Italian: [RVG|𝓵𝓸𝓻𝔂](https://top.gg/bot/1076200668810985634)
-- 🇯🇵 Japanese: [sjkim04](https://crowdin.com/profile/sjkim04)
+- 🇯🇵 Japanese: [Phrygia](https://github.com/sjkim04)
 - 🇰🇷 Korean
   - [Bin](https://crowdin.com/profile/cheesepickle12345678)
-  - [Phrygia / sjk](https://github.com/sjkim04)
+  - [Phrygia](https://github.com/sjkim04)
   - [SkyStorage\_](https://crowdin.com/profile/SkyStorage_)
   - [미르냥](https://crowdin.com/profile/Mirnyang)
 - 🇱🇹 Lithuanian: [Trent](https://crowdin.com/profile/nothingness)
