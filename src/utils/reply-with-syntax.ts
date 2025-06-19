@@ -111,10 +111,11 @@ export const getSyntaxReplyOptions = async ({
     ],
   };
   if (!formatInput) {
+    // TODO Looks like this hangs all shards other than 0, get this from Bot API instead
     const commandIdMap = context.commandIdMap.resolved ? await context.commandIdMap : {};
     const at12CommandMention = typeof commandIdMap.at12 !== 'undefined'
       ? `</at12:${commandIdMap.at12}>`
-      : `\`${t('commands.at12.name')}\``;
+      : `\`/${t('commands.at12.name')}\``;
     replyOptions = addIncompleteTranslationsFooter(t, interaction, {
       ...replyOptions,
       components: [
