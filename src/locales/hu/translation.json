@@ -83,8 +83,8 @@
           "description": "Add meg az órát (alapértelmezett: aktuális óra)"
         },
         "hour12": {
-          "name": "hour12",
-          "description": "Specify the hour using 12-hour clock (defaults to current hour)"
+          "name": "óra12",
+          "description": "Add meg az órát 12-órás formátumban (alapértelmezett: aktuális óra)"
         },
         "minute": {
           "name": "perc",
@@ -95,21 +95,21 @@
           "description": "Add meg az másodpercet (alapértelmezett: 0)"
         },
         "am": {
-          "name": "am",
-          "description": "When True, hour must be between 1 to 12 and will be interpreted as AM (ante meridiem)"
+          "name": "de",
+          "description": "Ha True, az óra 1 és 12 között kell legyen, és délelőttként lesz értelmezve"
         },
         "pm": {
-          "name": "pm",
-          "description": "When True, hour must be between 1 to 12 and will be interpreted as PM (post meridiem)"
+          "name": "du",
+          "description": "Ha True, az óra 1 és 12 között kell legyen, és délutánként lesz értelmezve"
         }
       },
       "responses": {
-        "amOrPmOnly": "You can't specify both am and pm options",
-        "meridiemRequired": "You must provide either the am or pm option when using the hour12 option",
-        "noAmOrPmWithMeridiem": "You can't specify the am or pm options when the meridiem in provided in the hour parameter",
-        "hourOrHour12Only": "You can't specify both hour and hour12 options",
-        "hourRange": "When a meridiem is not specified, hour must be a number between 0 and 23",
-        "hour12Range": "When a meridiem is specified, hour must be a number between 1 and 12"
+        "amOrPmOnly": "You can't specify both am and pm options at the same time",
+        "meridiemRequired": "A de vagy du opció kötelező az óra12 opció használata esetén",
+        "noAmOrPmWithMeridiem": "You can't specify the am or pm options when the meridiem in provided in the hour option",
+        "hourOrHour12Only": "Az óra és óra12 opciók nem adhatóak meg egyszerre",
+        "hourRange": "24-órás módban az óra egy 0 és 23 közötti szám kell, hogy legyen",
+        "hour12Range": "12-órás módban az óra egy 1 és 12 közötti szám kell, hogy legyen"
       }
     },
     "add": {
@@ -248,7 +248,7 @@
         "recordingTelemetry": "A telemetria gyűjtése folyamatban van, várakozás az eredményre…",
         "telemetryPlaceholder": "A szöveg többi része csak azért van itt, hogy az üzenet mérete ne változzon túlságosan, amikor a telemetria gyűjtés eredményei itt megejelennek.",
         "feedbackWanted": "Számít a véleményed!",
-        "at12Hint": "There are now several different options to specify the number of hours both within the {{slashAt}} command (via the existing {{hourOptionName}} option which now has autocompletion, or the new {{hour12OptionName}}, {{amOptionName}} and {{pmOptionName}} options) and the new {{slashAt12}} command. Use whichever you are more comfortable with. How popular each method is (based on the telemetry data) will determine which of these options will become permanent."
+        "at12Hint": "Mostantól több különböző lehetőségeid vannak az óra megadására mind az {{slashAt}} parancson belül (a meglévő {{hourOptionName}} opcióval, amely most már automatikus kitöltéssel is rendelkezik, vagy az új {{hour12OptionName}}, {{amOptionName}} és {{pmOptionName}} opciókkal), mind pedig az új {{slashAt12}} parancson keresztül. Használd, amelyik jobban kézre esik. Az egyes módszerek népszerűsége (a telemetriai adatok alapján) fogja meghatározni, hogy melyik opció lesz maradandó."
       }
     },
     "statistics": {
@@ -327,44 +327,44 @@
       }
     },
     "at12": {
-      "name": "at12",
-      "description": "Specify the exact components of the timestamp (using a 12-hour clock)",
+      "name": "ekkor12",
+      "description": "Add meg az időbélyeg pontos részeit (12-órás formátumban)",
       "responses": {
-        "amOrPmOnly": "You can't specify both am and pm options",
-        "meridiemRequired": "You must provide either the am or pm option"
+        "amOrPmOnly": "You can't specify both am and pm options at the same time",
+        "meridiemRequired": "A de vagy du opciót kötelező megadni"
       },
       "options": {
         "year": {
-          "name": "year",
-          "description": "Specify the year (defaults to current year)"
+          "name": "év",
+          "description": "Add meg az évet (alapértelmezett: aktuális év)"
         },
         "month": {
-          "name": "month",
-          "description": "Specify the month (defaults to current month)"
+          "name": "hónap",
+          "description": "Add meg a hónapot (alapértelmezett: aktuális hónap)"
         },
         "day": {
-          "name": "day",
-          "description": "Specify the day (defaults to current day)"
+          "name": "nap",
+          "description": "Add meg az napot (alapértelmezett: aktuális nap)"
         },
         "hour": {
-          "name": "hour",
-          "description": "Specify the hour (defaults to current hour)"
+          "name": "óra",
+          "description": "Add meg az órát (alapértelmezett: aktuális óra)"
         },
         "minute": {
-          "name": "minute",
-          "description": "Specify the minute (defaults to current minute)"
+          "name": "perc",
+          "description": "Add meg az percet (alapértelmezett: aktuális perc)"
         },
         "second": {
-          "name": "second",
-          "description": "Specify the second (defaults to 0)"
+          "name": "másodperc",
+          "description": "Add meg az másodpercet (alapértelmezett: 0)"
         },
         "am": {
-          "name": "am",
-          "description": "When True, hour will be interpreted as am (ante meridiem, before noon)"
+          "name": "de",
+          "description": "Ha True, az óra délelőttként lesz értelmezve"
         },
         "pm": {
-          "name": "pm",
-          "description": "When True, hour will be interpreted as pm (post meridiem, after noon)"
+          "name": "du",
+          "description": "Ha True, az óra délutánként lesz értelmezve"
         }
       }
     }
