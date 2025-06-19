@@ -111,7 +111,7 @@ export const getSyntaxReplyOptions = async ({
     ],
   };
   if (!formatInput) {
-    const commandIdMap = await context.commandIdMap;
+    const commandIdMap = context.commandIdMap.resolved ? await context.commandIdMap : {};
     const at12CommandMention = typeof commandIdMap.at12 !== 'undefined'
       ? `</at12:${commandIdMap.at12}>`
       : `\`${t('commands.at12.name')}\``;
