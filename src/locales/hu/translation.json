@@ -104,7 +104,7 @@
         }
       },
       "responses": {
-        "amOrPmOnly": "You can't specify both am and pm options at the same time",
+        "amOrPmOnly": "You can't specify both am and pm options",
         "meridiemRequired": "A de vagy du opció kötelező az óra12 opció használata esetén",
         "noAmOrPmWithMeridiem": "You can't specify the am or pm options when the meridiem in provided in the hour option",
         "hourOrHour12Only": "Az óra és óra12 opciók nem adhatóak meg egyszerre",
@@ -330,7 +330,7 @@
       "name": "ekkor12",
       "description": "Add meg az időbélyeg pontos részeit (12-órás formátumban)",
       "responses": {
-        "amOrPmOnly": "You can't specify both am and pm options at the same time",
+        "amOrPmOnly": "You can't specify both am and pm options",
         "meridiemRequired": "A de vagy du opciót kötelező megadni"
       },
       "options": {
