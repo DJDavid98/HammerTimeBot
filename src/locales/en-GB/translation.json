@@ -104,7 +104,7 @@
         }
       },
       "responses": {
-        "amOrPmOnly": "You can't specify both am and pm options at the same time",
+        "amOrPmOnly": "You can't specify both am and pm options",
         "meridiemRequired": "You must provide either the am or pm option when using the hour12 option",
         "noAmOrPmWithMeridiem": "You can't specify the am or pm options when the meridiem in provided in the hour option",
         "hourOrHour12Only": "You can't specify the am or pm options when the meridiem in provided in the hour parameter",
@@ -330,7 +330,7 @@
       "name": "at12",
       "description": "Specify the exact components of the timestamp (using a 12-hour clock)",
       "responses": {
-        "amOrPmOnly": "You can't specify both am and pm options at the same time",
+        "amOrPmOnly": "You can't specify both am and pm options",
         "meridiemRequired": "You must provide either the am or pm option"
       },
       "options": {
