@@ -8,6 +8,7 @@ export const SettingName = {
   formatMinimalReply: 'formatMinimalReply',
   telemetry: 'telemetry',
   defaultAtHour: 'defaultAtHour',
+  defaultAt12Hour: 'defaultAt12Hour',
   defaultAtMinute: 'defaultAtMinute',
   defaultAtSecond: 'defaultAtSecond',
 } as const;

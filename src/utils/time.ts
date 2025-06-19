@@ -6,6 +6,8 @@ import { MessageTimestamp, MessageTimestampFormat } from '../classes/message-tim
 import { ResponseColumnChoices } from '../types/localization.js';
 import { UtcOffset } from '../classes/utc-offset.js';
 import { pad, PadDirection } from './numbers.js';
+import { TFunction } from 'i18next';
+import { SettingsValue } from './settings.js';
 
 export const gmtTimezoneOptions = [
   'GMT',
@@ -42,6 +44,9 @@ export const gmtTimezoneOptions = [
   'GMT-16',
   'GMT+16',
 ];
+
+export const defaultHourOptions = Array.from({ length: 24 }, (_, i) => String(i));
+export const defaultHour12Options = Array.from({ length: 12 }, (_, i) => String(i + 1));
 
 export const gmtZoneRegex = /^(?:GMT|UTC)([+-]\d+)?(?::([0-5]\d?)?)?$/i;
 
@@ -93,6 +98,18 @@ export const timezoneIndex: Record<string, string> = timezoneNames.reduce((recor
     ...lowerKeys.reduce((part, lowerKey) => ({ ...part, [lowerKey]: name }), {}),
   };
 }, {});
+export const hourOptions = defaultHourOptions.reduce((options, hourString) => {
+  const optionsWithAmPM = [hourString];
+  const hour = parseInt(hourString, 10);
+  if (hour >= 1 && hour <= 12) {
+    optionsWithAmPM.push(`${hourString}am`);
+    optionsWithAmPM.push(`${hourString}pm`);
+  }
+  return [
+    ...options,
+    ...optionsWithAmPM,
+  ];
+}, [] as string[]);
 
 export const findTimezone = (value: string): string[] => {
   const utcOffset = getGmtTimezoneValue(value);
@@ -131,6 +148,14 @@ export const findTimezone = (value: string): string[] => {
   return candidates;
 };
 
+export const findHours = (value: string, amOrPmUsed = false): string[] => {
+  const normalizedValue = value.toLowerCase().replace(amOrPmUsed ? /\D/g : /[^\dapm]/g, '');
+  if (normalizedValue.length === 0) {
+    return defaultHourOptions;
+  }
+  return (amOrPmUsed ? defaultHour12Options : hourOptions).filter((key) => key.startsWith(normalizedValue));
+};
+
 export const supportedFormats = Object.values(MessageTimestampFormat);
 
 export const RESPONSE_FORMATTERS: Record<ResponseColumnChoices, (formatted: string, boldPreview?: boolean) => string> = {
@@ -158,3 +183,79 @@ export const adjustMoment = <TimeMap extends Partial<Record<unitOfTime.DurationC
 };
 
 export const constrain = (n: number, min: number, max?: number): number => (max ? Math.min(Math.max(n, min), max) : Math.max(n, min));
+
+export const convertHour12To24 = (hour12: number | null, amOption: boolean | null, pmOption: boolean | null) => {
+  let hour: number | null = null;
+  if (hour12 !== null) {
+    const isAm = amOption !== null ? amOption : !pmOption;
+    if (isAm) {
+      hour = hour12 === 12 ? 0 : hour12;
+    } else {
+      hour = hour12 === 12 ? 12 : 12 + hour12;
+    }
+  }
+  return hour;
+};
+
+interface ProcessMixedHourParametersOptions {
+  t: TFunction;
+  settings: Pick<SettingsValue, 'defaultAtHour' | 'defaultAt12Hour'>;
+  hourStr: string | null;
+  hour12: number | null;
+  am: boolean | null;
+  pm: boolean | null;
+}
+
+export const processMixedHourParameters = ({
+  t,
+  settings,
+  hourStr,
+  hour12: hour12Input,
+  am,
+  pm,
+}: ProcessMixedHourParametersOptions): string | number | null => {
+  let meridiemParamUsed = am !== null || pm !== null;
+  let hour: number | null = settings.defaultAtHour;
+  let hour12: number | null = hour12Input;
+  if (hourStr !== null && hour12 !== null) {
+    return t('commands.at.responses.hourOrHour12Only');
+  }
+  const hourStrRegex = /^(-?\d{1,2})([ap]m)?$/;
+  if (hourStr !== null) {
+    const hourStrMatch = hourStr.toLowerCase().match(hourStrRegex);
+    if (hourStrMatch) {
+      hour = parseInt(hourStrMatch[1], 10);
+      if (hourStrMatch[2]) {
+        if (meridiemParamUsed) {
+          return t('commands.at.responses.noAmOrPmWithMeridiem');
+        }
+        am = hourStrMatch[2] === 'am';
+        meridiemParamUsed = true;
+        hour12 = null;
+      }
+    }
+    if (hour === null || hour < 0 || hour > 23) {
+      return t(meridiemParamUsed ? 'commands.at.responses.hour12Range' : 'commands.at.responses.hourRange');
+    }
+  }
+  if (hour === null) {
+    hour12 ??= settings.defaultAt12Hour;
+  }
+  if (meridiemParamUsed || hour12 !== null) {
+    if (am !== null && pm !== null) {
+      return t('commands.at.responses.amOrPmOnly');
+    }
+    if (hour12 !== null) {
+      if (am === null && pm === null) {
+        return t('commands.at.responses.meridiemRequired');
+      }
+      hour = convertHour12To24(hour12, am, pm);
+    } else if (hour !== null) {
+      if (hour < 1 || hour > 12) {
+        return t('commands.at.responses.hour12Range');
+      }
+      hour = convertHour12To24(hour, am, pm);
+    }
+  }
+  return hour;
+};

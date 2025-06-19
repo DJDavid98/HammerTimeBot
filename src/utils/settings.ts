@@ -16,6 +16,7 @@ export interface SettingsValue {
   [SettingName.formatMinimalReply]: boolean | null,
   [SettingName.telemetry]: boolean | null,
   [SettingName.defaultAtHour]: number | null,
+  [SettingName.defaultAt12Hour]: number | null,
   [SettingName.defaultAtMinute]: number | null,
   [SettingName.defaultAtSecond]: number | null,
 }
@@ -29,6 +30,7 @@ const defaultSettings: { [k in SettingName]: SettingsValue[k] } = {
   [SettingName.format]: null,
   [SettingName.formatMinimalReply]: null,
   [SettingName.defaultAtHour]: null,
+  [SettingName.defaultAt12Hour]: null,
   [SettingName.defaultAtMinute]: null,
   [SettingName.defaultAtSecond]: 0,
   [SettingName.telemetry]: true,

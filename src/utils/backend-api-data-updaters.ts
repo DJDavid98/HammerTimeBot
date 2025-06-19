@@ -81,8 +81,11 @@ export const updateBotTimezonesInApi = async (parentContext: LoggerContext): Pro
   }
 };
 
-export const updateCommandsFromInteraction = async (interactionContext: InteractionContext, progressReporter?: (progress: string) => Promise<unknown>): Promise<void> => {
+export type BasicCommandData = Array<{ id: string, name: string }>;
+
+export const updateCommandsFromInteraction = async (interactionContext: InteractionContext, progressReporter?: (progress: string) => Promise<unknown>): Promise<BasicCommandData | undefined> => {
   interactionContext.logger.log(`Application ${env.LOCAL ? 'is' : 'is NOT'} in local mode`);
+  let result: BasicCommandData | undefined;
   if (env.LOCAL) {
     await progressReporter?.('Getting authorized servers list…');
     const serverIds = await getAuthorizedServers(interactionContext);
@@ -96,22 +99,31 @@ export const updateCommandsFromInteraction = async (interactionContext: Interact
     } : undefined;
     await Promise.all(serverIds.map(async (serverId) => {
       await updateProgress?.();
-      await updateGuildCommands(interactionContext, serverId);
+      result = await updateGuildCommands(interactionContext, serverId);
       completed++;
       await updateProgress?.();
     }));
   } else {
     await progressReporter?.('Updating global commands…');
-    await updateGlobalCommands(interactionContext);
+    result = await updateGlobalCommands(interactionContext);
   }
+
+  return result;
 };
 
-export const updateCommands = async (context: InteractionHandlerContext) => {
+export const updateCommands = async (context: InteractionHandlerContext): Promise<void> => {
   const { i18next, ...restContext } = context;
   const logger = context.logger.nest('updateCommands');
   logger.log('Updating commands…');
   const t = i18next.t.bind(i18next);
-  return updateCommandsFromInteraction({ ...restContext, t, logger });
+  const result = await updateCommandsFromInteraction({ ...restContext, t, logger });
+  if (result) {
+    const commandIdMap = result.reduce((acc, item) => ({
+      ...acc,
+      [item.name]: item.id,
+    }), {} as Record<string, string>);
+    context.commandIdMap.resolve(commandIdMap);
+  }
 };
 
 export const updateShardStats = async (context: LoggerContext, client: Client, shardId: number) => {

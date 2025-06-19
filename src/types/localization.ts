@@ -19,8 +19,22 @@ export const enum AtCommandOptionName {
   MONTH = 'month',
   DATE = 'day',
   HOUR = 'hour',
+  HOUR12 = 'hour12',
   MINUTE = 'minute',
   SECOND = 'second',
+  AM = 'am',
+  PM = 'pm',
+}
+
+export const enum At12CommandOptionName {
+  YEAR = 'year',
+  MONTH = 'month',
+  DATE = 'day',
+  HOUR = 'hour',
+  MINUTE = 'minute',
+  SECOND = 'second',
+  AM = 'am',
+  PM = 'pm',
 }
 
 export const enum InCommandOptionName {
@@ -87,6 +101,7 @@ interface CommandOptionsMap {
   [BotChatInputCommandName.UNIX]: UnixCommandOptionName,
   [BotChatInputCommandName.ISO]: IsoCommandOptionName,
   [BotChatInputCommandName.STATISTICS]: never,
+  [BotChatInputCommandName.AT12]: At12CommandOptionName,
   [BotMessageContextMenuCommandName.MESSAGE_SENT]: never,
   [BotMessageContextMenuCommandName.MESSAGE_LAST_EDITED]: never,
 }
@@ -124,6 +139,10 @@ export const enum ExtractTimestampsCommandResponse {
   NO_TIMESTAMPS = 'noTimestamps',
 }
 
+export const enum At12CommandResponse {
+  AM_OR_PM_ONLY = 'amOrPmOnly',
+}
+
 interface CommandResponsesMap {
   global: GlobalCommandResponse,
   [BotChatInputCommandName.IN]: never,
@@ -135,6 +154,7 @@ interface CommandResponsesMap {
   [BotChatInputCommandName.ISO]: IsoCommandResponse,
   [BotChatInputCommandName.STATISTICS]: never,
   [BotChatInputCommandName.SNOWFLAKE]: SnowflakeCommandResponse,
+  [BotChatInputCommandName.AT12]: At12CommandResponse,
   [BotMessageContextMenuCommandName.MESSAGE_SENT]: MessageSentCommandResponse,
   [BotMessageContextMenuCommandName.MESSAGE_LAST_EDITED]: MessageLastEditedCommandResponse,
   [BotMessageContextMenuCommandName.EXTRACT_TIMESTAMPS]: ExtractTimestampsCommandResponse,

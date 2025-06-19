@@ -1,20 +1,20 @@
 import moment, { Moment } from 'moment-timezone';
 import { BotChatInputCommand } from '../types/bot-interaction.js';
-import { constrain, getGmtTimezoneValue, gmtZoneRegex, processMixedHourParameters } from '../utils/time.js';
-import { AtCommandOptionName, GlobalCommandOptionName } from '../types/localization.js';
+import { constrain, convertHour12To24, getGmtTimezoneValue, gmtZoneRegex } from '../utils/time.js';
+import { At12CommandOptionName, GlobalCommandOptionName } from '../types/localization.js';
 import { getLocalizedObject } from '../utils/get-localized-object.js';
 import { replyWithSyntax } from '../utils/reply-with-syntax.js';
-import { getAtOptions } from '../options/at.options.js';
 import { ApplicationCommandType, MessageFlags } from 'discord-api-types/v10';
-import { findTimezoneOptionValue, handleHourAutocomplete, handleTimezoneAutocomplete } from '../utils/messaging.js';
+import { findTimezoneOptionValue, handleTimezoneAutocomplete } from '../utils/messaging.js';
 import { interactionReply } from '../utils/interaction-reply.js';
+import { getAt12Options } from '../options/at12.options.js';
 
-export const atCommand: BotChatInputCommand = {
+export const at12Command: BotChatInputCommand = {
   getDefinition: (t) => ({
     type: ApplicationCommandType.ChatInput,
-    ...getLocalizedObject('description', (lng) => t('commands.at.description', { lng })),
-    ...getLocalizedObject('name', (lng) => t('commands.at.name', { lng })),
-    options: getAtOptions(t),
+    ...getLocalizedObject('description', (lng) => t('commands.at12.description', { lng })),
+    ...getLocalizedObject('name', (lng) => t('commands.at12.name', { lng })),
+    options: getAt12Options(t),
   }),
   async autocomplete(interaction) {
     const focusedOption = interaction.options.getFocused(true);
@@ -23,9 +23,6 @@ export const atCommand: BotChatInputCommand = {
       case GlobalCommandOptionName.TIMEZONE:
         await handleTimezoneAutocomplete(interaction);
         break;
-      case AtCommandOptionName.HOUR:
-        await handleHourAutocomplete(interaction);
-        break;
       default:
         throw new Error(`Unknown autocomplete option ${focusedOption.name}`);
     }
@@ -33,24 +30,30 @@ export const atCommand: BotChatInputCommand = {
   async handle(interaction, context) {
     const settings = await context.getSettings();
     const { t } = context;
-    const year = interaction.options.getInteger(AtCommandOptionName.YEAR);
-    const month = interaction.options.getInteger(AtCommandOptionName.MONTH);
-    const date = interaction.options.getInteger(AtCommandOptionName.DATE);
-    const hourStr = interaction.options.getString(AtCommandOptionName.HOUR);
-    const hour12 = interaction.options.getInteger(AtCommandOptionName.HOUR12);
-    const minute = interaction.options.getInteger(AtCommandOptionName.MINUTE) ?? settings.defaultAtMinute;
-    const second = interaction.options.getNumber(AtCommandOptionName.SECOND) ?? settings.defaultAtSecond;
-    const am = interaction.options.getBoolean(AtCommandOptionName.AM);
-    const pm = interaction.options.getBoolean(AtCommandOptionName.PM);
+    const year = interaction.options.getInteger(At12CommandOptionName.YEAR);
+    const month = interaction.options.getInteger(At12CommandOptionName.MONTH);
+    const date = interaction.options.getInteger(At12CommandOptionName.DATE);
+    const hour12 = interaction.options.getInteger(At12CommandOptionName.HOUR) ?? settings.defaultAt12Hour;
+    const minute = interaction.options.getInteger(At12CommandOptionName.MINUTE) ?? settings.defaultAtMinute;
+    const second = interaction.options.getNumber(At12CommandOptionName.SECOND) ?? settings.defaultAtSecond;
+    const am = interaction.options.getBoolean(At12CommandOptionName.AM);
+    const pm = interaction.options.getBoolean(At12CommandOptionName.PM);
 
-    const hour = processMixedHourParameters({ t, settings, hourStr, hour12, am, pm });
-    if (typeof hour === 'string') {
+    if (am !== null && pm !== null) {
       await interactionReply(t, interaction, {
-        content: hour,
+        content: t('commands.at12.responses.amOrPmOnly'),
+        flags: MessageFlags.Ephemeral,
+      });
+      return;
+    } else if (am === null && pm === null) {
+      await interactionReply(t, interaction, {
+        content: t('commands.at12.responses.meridiemRequired'),
         flags: MessageFlags.Ephemeral,
       });
       return;
     }
+
+    const hour = convertHour12To24(hour12, am, pm);
 
     const timezone = await findTimezoneOptionValue(t, interaction, settings);
     if (timezone === null) {
@@ -84,7 +87,6 @@ export const atCommand: BotChatInputCommand = {
       throw e;
     }
 
-    const usingAtHoursOnly = (hourStr !== null && !/[ap]m$/.test(hourStr)) && am == null && pm === null;
-    await replyWithSyntax({ localMoment, interaction, context, timezone, settings, usingAtHoursOnly });
+    await replyWithSyntax({ localMoment, interaction, context, timezone, settings });
   },
 };

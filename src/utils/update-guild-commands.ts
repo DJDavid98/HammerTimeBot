@@ -21,7 +21,7 @@ export const getAuthorizedServers = async (context: LoggerContext): Promise<stri
   return guilds.map((guild) => guild.id);
 };
 
-export const updateGuildCommands = async (context: InteractionContext, guildId: Snowflake): Promise<void> => {
+export const updateGuildCommands = async (context: InteractionContext, guildId: Snowflake): Promise<RESTPutAPIApplicationGuildCommandsResult | undefined> => {
   const { t } = context;
   const logger = context.logger.nest(['updateGuildCommands', `Guild#${guildId}`]);
   let result: RESTPutAPIApplicationGuildCommandsResult | undefined;
@@ -42,6 +42,8 @@ export const updateGuildCommands = async (context: InteractionContext, guildId: 
   }
 
   await updateBotCommandsInApi(context, body, result);
+
+  return result;
 };
 
 export const cleanGuildCommands = async (context: LoggerContext, guildId: Snowflake): Promise<void> => {
@@ -61,7 +63,7 @@ export const cleanGuildCommands = async (context: LoggerContext, guildId: Snowfl
   }
 };
 
-export const updateGlobalCommands = async (context: InteractionContext): Promise<void> => {
+export const updateGlobalCommands = async (context: InteractionContext): Promise<RESTPutAPIApplicationCommandsResult | undefined> => {
   const { t } = context;
   const logger = context.logger.nest('updateGlobalCommands');
   let result: RESTPutAPIApplicationCommandsResult | undefined;
@@ -82,6 +84,8 @@ export const updateGlobalCommands = async (context: InteractionContext): Promise
   }
 
   await updateBotCommandsInApi(context, body, result);
+
+  return result;
 };
 
 export const cleanGlobalCommands = async (context: InteractionContext): Promise<void> => {

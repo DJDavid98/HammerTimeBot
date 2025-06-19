@@ -8,6 +8,7 @@ import { dayOptionMeta } from './metadata/day.option-meta.js';
 import { hourOptionMeta } from './metadata/hour.option-meta.js';
 import { minuteOptionMeta } from './metadata/minute.option-meta.js';
 import { secondOptionMeta } from './metadata/second.option-meta.js';
+import { hour12OptionMeta } from './metadata/hour12.option-meta.js';
 
 export const getAtOptions = (t: TFunction): APIApplicationCommandOption[] => [
   {
@@ -33,6 +34,24 @@ export const getAtOptions = (t: TFunction): APIApplicationCommandOption[] => [
     ...getLocalizedObject('name', (lng) => t('commands.at.options.hour.name', { lng }), false),
     ...getLocalizedObject('description', (lng) => t('commands.at.options.hour.description', { lng })),
     ...hourOptionMeta,
+  },
+  {
+    name: AtCommandOptionName.HOUR12,
+    ...getLocalizedObject('name', (lng) => t('commands.at.options.hour12.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.at.options.hour12.description', { lng })),
+    ...hour12OptionMeta,
+  },
+  {
+    name: AtCommandOptionName.AM,
+    ...getLocalizedObject('name', (lng) => t('commands.at.options.am.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.at.options.am.description', { lng })),
+    type: ApplicationCommandOptionType.Boolean,
+  },
+  {
+    name: AtCommandOptionName.PM,
+    ...getLocalizedObject('name', (lng) => t('commands.at.options.pm.name', { lng }), false),
+    ...getLocalizedObject('description', (lng) => t('commands.at.options.pm.description', { lng })),
+    type: ApplicationCommandOptionType.Boolean,
   },
   {
     name: AtCommandOptionName.MINUTE,

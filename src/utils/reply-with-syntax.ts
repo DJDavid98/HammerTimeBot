@@ -18,11 +18,8 @@ import { EmojiCharacters } from '../constants/emoji-characters.js';
 import { InteractionContext } from '../types/bot-interaction.js';
 import { addIncompleteTranslationsFooter } from './interaction-reply.js';
 import { getTelemetryPlaceholder } from './add-telemetry-note-to-reply.js';
-import { env } from '../env.js';
 
 type HandledInteractions = ChatInputCommandInteraction | ContextMenuCommandInteraction;
-
-const atHoursMeridiemPollEndTimestamp = 1750202355e3;
 
 export const mapCommandInteractionToSyntaxInteraction = (
   interaction: HandledInteractions,
@@ -61,17 +58,17 @@ interface SyntaxReplyOptions {
   SettingsValue,
   'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview' | 'formatMinimalReply' | 'telemetry'
   > | undefined;
-  usingAtHours?: boolean;
+  usingAtHoursOnly?: boolean;
 }
 
-export const getSyntaxReplyOptions = ({
+export const getSyntaxReplyOptions = async ({
   localMoment,
   interaction,
   context,
   timezone = 'UTC',
   settings,
-  usingAtHours = false,
-}: SyntaxReplyOptions): InteractionReplyOptions => {
+  usingAtHoursOnly = false,
+}: SyntaxReplyOptions): Promise<InteractionReplyOptions> => {
   const { t, emojiIdMap } = context;
   const localDate = localMoment.toDate();
   if (!localMoment.isValid()) {
@@ -114,6 +111,10 @@ export const getSyntaxReplyOptions = ({
     ],
   };
   if (!formatInput) {
+    const commandIdMap = await context.commandIdMap;
+    const at12CommandMention = typeof commandIdMap.at12 !== 'undefined'
+      ? `</at12:${commandIdMap.at12}>`
+      : `\`${t('commands.at12.name')}\``;
     replyOptions = addIncompleteTranslationsFooter(t, interaction, {
       ...replyOptions,
       components: [
@@ -121,7 +122,7 @@ export const getSyntaxReplyOptions = ({
           type: ComponentType.TextDisplay,
           content,
         },
-        ...(usingAtHours && Date.now() < atHoursMeridiemPollEndTimestamp ? [
+        ...(usingAtHoursOnly ? [
           {
             type: ComponentType.Separator,
             divider: true,
@@ -129,9 +130,13 @@ export const getSyntaxReplyOptions = ({
           },
           {
             type: ComponentType.TextDisplay,
-            content: `${EmojiCharacters.BALLOT_BOX} **${t('commands.global.components.feedbackWanted')}** ${t('commands.global.components.atHourMeridiemFeedbackWanted.lead', {
-              pollLink: `[${t('commands.global.components.atHourMeridiemFeedbackWanted.pollLink')}](https://discord.com/channels/952258283882819595/952273302112600104/1379600344740401223)`,
-              serverLink: `[${t('commands.global.components.atHourMeridiemFeedbackWanted.serverLink')}](<${env.DISCORD_INVITE_URL}>)`,
+            content: `-# ${EmojiCharacters.INFO} ${t('commands.global.components.at12Hint', {
+              slashAt: `</${interaction.commandName}:${interaction.commandId}>`,
+              slashAt12: at12CommandMention,
+              hourOptionName: `\`${t('commands.at.options.hour.name')}\``,
+              hour12OptionName: `\`${t('commands.at.options.hour12.name')}\``,
+              amOptionName: `\`${t('commands.at.options.am.name')}\``,
+              pmOptionName: `\`${t('commands.at.options.pm.name')}\``,
             })}`,
           },
         ] : []),
@@ -162,7 +167,7 @@ interface ReplyWithSyntaxParams {
   interaction: ChatInputCommandInteraction | ContextMenuCommandInteraction;
   context: InteractionContext;
   timezone: string | undefined;
-  usingAtHours?: boolean;
+  usingAtHoursOnly?: boolean;
   settings: Pick<SettingsValue, 'ephemeral' | 'columns' | 'format' | 'header' | 'boldPreview' | 'formatMinimalReply' | 'telemetry'> | undefined;
 }
 
@@ -172,14 +177,14 @@ export const replyWithSyntax = async ({
   context,
   timezone = 'UTC',
   settings,
-  usingAtHours,
+  usingAtHoursOnly,
 }: ReplyWithSyntaxParams): Promise<unknown> => {
-  return interaction.reply(getSyntaxReplyOptions({
+  return interaction.reply(await getSyntaxReplyOptions({
     localMoment,
     interaction,
     context,
     timezone,
     settings,
-    usingAtHours,
+    usingAtHoursOnly,
   }));
 };

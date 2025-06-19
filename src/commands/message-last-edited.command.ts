@@ -25,7 +25,7 @@ export const messageLastEditedCommand: BotMessageContextMenuCommand = {
       return;
     }
     const localMoment = moment(interaction.targetMessage.editedAt).utc();
-    const replyOptions = getSyntaxReplyOptions({ localMoment, interaction, context, settings });
+    const replyOptions = await getSyntaxReplyOptions({ localMoment, interaction, context, settings });
     await interactionReply(t, interaction, replyOptions.components ? {
       ...replyOptions,
       components: [

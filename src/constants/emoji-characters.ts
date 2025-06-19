@@ -34,4 +34,5 @@ export enum EmojiCharacters {
   GREEN_CHECK = '✅',
   BAR_CHART = '📊',
   BALLOT_BOX = '🗳️',
+  INFO = 'ℹ️',
 }

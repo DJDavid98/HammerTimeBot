@@ -11,6 +11,7 @@ import { snowflakeCommand } from '../../commands/snowflake.command.js';
 import { isoCommand } from '../../commands/iso.command.js';
 import { settingsCommand } from '../../commands/settings.command.js';
 import { apiCommand } from '../../commands/api.command.js';
+import { at12Command } from '../../commands/at12.command.js';
 
 export const chatInputCommandMap: Record<BotChatInputCommandName, BotChatInputCommand> = {
   [BotChatInputCommandName.ADD]: addCommand,
@@ -24,6 +25,7 @@ export const chatInputCommandMap: Record<BotChatInputCommandName, BotChatInputCo
   [BotChatInputCommandName.ISO]: isoCommand,
   [BotChatInputCommandName.SETTINGS]: settingsCommand,
   [BotChatInputCommandName.API]: apiCommand,
+  [BotChatInputCommandName.AT12]: at12Command,
 };
 
 export const chatInputCommandNames = (Object.keys(chatInputCommandMap) as BotChatInputCommandName[]);

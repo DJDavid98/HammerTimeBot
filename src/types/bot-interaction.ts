@@ -16,6 +16,7 @@ import { i18n, TFunction } from 'i18next';
 
 import { NestableLogger } from './logger-types.js';
 import { SettingsValue } from '../utils/settings.js';
+import { ResolvablePromise } from '../utils/resolvable-promise.js';
 
 export const enum BotChatInputCommandName {
   ADD = 'add',
@@ -29,6 +30,7 @@ export const enum BotChatInputCommandName {
   UNIX = 'unix',
   SETTINGS = 'settings',
   API = 'api',
+  AT12 = 'at12',
 }
 
 export const enum BotMessageContextMenuCommandName {
@@ -51,6 +53,7 @@ export interface UserSettingsContext {
 export interface InteractionHandlerContext extends LoggerContext {
   i18next: i18n;
   emojiIdMap: Record<string, string>;
+  commandIdMap: ResolvablePromise<Record<string, string | undefined>>;
 }
 
 export interface InteractionContext extends Omit<InteractionHandlerContext, 'i18next'> {
@@ -89,7 +92,6 @@ export interface IntegerOptionMetadata {
   max_value?: number;
 }
 
-
 export interface NumberOptionMetadata {
   type: ApplicationCommandOptionType.Number;
   min_value?: number;
@@ -101,4 +103,5 @@ export interface StringOptionMetadata {
   type: ApplicationCommandOptionType.String;
   min_length?: number;
   max_length?: number;
+  autocomplete?: boolean;
 }

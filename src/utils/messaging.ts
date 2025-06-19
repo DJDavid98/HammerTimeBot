@@ -9,10 +9,10 @@ import {
   TopLevelComponent,
   User,
 } from 'discord.js';
-import { GlobalCommandOptionName } from '../types/localization.js';
+import { AtCommandOptionName, GlobalCommandOptionName } from '../types/localization.js';
 import { SettingsValue } from './settings.js';
 import { TFunction } from 'i18next';
-import { findTimezone, gmtTimezoneOptions } from './time.js';
+import { defaultHour12Options, defaultHourOptions, findHours, findTimezone, gmtTimezoneOptions } from './time.js';
 import { TimezoneError } from '../classes/timezone-error.js';
 import { MessageFlags } from 'discord-api-types/v10';
 import { interactionReply } from './interaction-reply.js';
@@ -143,6 +143,21 @@ export const handleTimezoneAutocomplete = async (interaction: AutocompleteIntera
   }
 
   await interaction.respond(tzNames.slice(0, 25).map(name => ({ name, value: name })));
+};
+
+export const handleHourAutocomplete = async (interaction: AutocompleteInteraction) => {
+  const value = interaction.options.getString(AtCommandOptionName.HOUR)?.trim();
+  const am = interaction.options.getBoolean(AtCommandOptionName.AM);
+  const pm = interaction.options.getBoolean(AtCommandOptionName.PM);
+  const amOrPmUsed = am !== null || pm !== null;
+  let options: string[];
+  if (typeof value !== 'string' || value.length === 0) {
+    options = amOrPmUsed ? defaultHour12Options : defaultHourOptions;
+  } else {
+    options = findHours(value, amOrPmUsed);
+  }
+
+  await interaction.respond(options.slice(0, 25).map(name => ({ name, value: name })));
 };
 
 export type EmbedTextData = Partial<Pick<Embed, 'title' | 'description' | 'footer' | 'fields'>>;
