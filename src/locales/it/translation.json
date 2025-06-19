@@ -82,6 +82,10 @@
           "name": "ora",
           "description": "Specifica l'ora (predefinita all'ora corrente)"
         },
+        "hour12": {
+          "name": "hour12",
+          "description": "Specify the hour using 12-hour clock (defaults to current hour)"
+        },
         "minute": {
           "name": "minuto",
           "description": "Specifica il minuto (predefinito al minuto corrente)"
@@ -89,7 +93,23 @@
         "second": {
           "name": "secondo",
           "description": "Specifica il secondo (predefinito a 0)"
+        },
+        "am": {
+          "name": "am",
+          "description": "When True, hour must be between 1 to 12 and will be interpreted as AM (ante meridiem)"
+        },
+        "pm": {
+          "name": "pm",
+          "description": "When True, hour must be between 1 to 12 and will be interpreted as PM (post meridiem)"
         }
+      },
+      "responses": {
+        "amOrPmOnly": "You can't specify both am and pm options",
+        "meridiemRequired": "You must provide either the am or pm option when using the hour12 option",
+        "noAmOrPmWithMeridiem": "You can't specify the am or pm options when the meridiem in provided in the hour parameter",
+        "hourOrHour12Only": "You can't specify both hour and hour12 options",
+        "hourRange": "When a meridiem is not specified, hour must be a number between 0 and 23",
+        "hour12Range": "When a meridiem is specified, hour must be a number between 1 and 12"
       }
     },
     "add": {
@@ -228,11 +248,7 @@
         "recordingTelemetry": "La telemetria è in fase di raccolta per questo comando, i risultati sono in attesa…",
         "telemetryPlaceholder": "Il resto del testo è qui solo per evitare che la dimensione del messaggio cambi troppo quando sono disponibili i risultati della registrazione della telemetria.",
         "feedbackWanted": "Cercasi feedback!",
-        "atHourMeridiemFeedbackWanted": {
-          "lead": "Abbiamo un {{pollLink}} sul supporto di un input 12 ore per questo comando nel nostro server. Se non sei ancora nel server, entra usando {{serverLink}} per votare.",
-          "pollLink": "sondaggio",
-          "serverLink": "questo link"
-        }
+        "at12Hint": "There are now several different options to specify the number of hours both within the {{slashAt}} command (via the existing {{hourOptionName}} option which now has autocompletion, or the new {{hour12OptionName}}, {{amOptionName}} and {{pmOptionName}} options) and the new {{slashAt12}} command. Use whichever you are more comfortable with. How popular each method is (based on the telemetry data) will determine which of these options will become permanent."
       }
     },
     "statistics": {
@@ -308,6 +324,48 @@
       "options": {},
       "components": {
         "openSettingsButton": "Impostazioni del Bot"
+      }
+    },
+    "at12": {
+      "name": "at12",
+      "description": "Specify the exact components of the timestamp (using a 12-hour clock)",
+      "responses": {
+        "amOrPmOnly": "You can't specify both am and pm options",
+        "meridiemRequired": "You must provide either the am or pm option"
+      },
+      "options": {
+        "year": {
+          "name": "year",
+          "description": "Specify the year (defaults to current year)"
+        },
+        "month": {
+          "name": "month",
+          "description": "Specify the month (defaults to current month)"
+        },
+        "day": {
+          "name": "day",
+          "description": "Specify the day (defaults to current day)"
+        },
+        "hour": {
+          "name": "hour",
+          "description": "Specify the hour (defaults to current hour)"
+        },
+        "minute": {
+          "name": "minute",
+          "description": "Specify the minute (defaults to current minute)"
+        },
+        "second": {
+          "name": "second",
+          "description": "Specify the second (defaults to 0)"
+        },
+        "am": {
+          "name": "am",
+          "description": "When True, hour will be interpreted as am (ante meridiem, before noon)"
+        },
+        "pm": {
+          "name": "pm",
+          "description": "When True, hour will be interpreted as pm (post meridiem, after noon)"
+        }
       }
     }
   }
