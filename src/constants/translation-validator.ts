@@ -37,7 +37,6 @@ import type vi from '../locales/vi/translation.json';
 type TypeValidator<T extends Record<Locale, Localization>> = T;
 /* eslint-disable @typescript-eslint/no-unused-vars -- This type validates the structure of the i18n files at build time */
 // noinspection JSUnusedLocalSymbols
-// @ts-expect-error TODO Remove when all locale files are updated
 type ValidatedLocalizationMap = TypeValidator<{
   [Locale.EnglishUS]: typeof enUS,
   [Locale.EnglishGB]: typeof enGB,
