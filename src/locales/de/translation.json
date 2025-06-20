@@ -83,8 +83,8 @@
           "description": "Geben Sie die Stunde an (Standardwert ist die aktuelle Stunde)"
         },
         "hour12": {
-          "name": "hour12",
-          "description": "Specify the hour using 12-hour clock (defaults to current hour)"
+          "name": "stunde12",
+          "description": "Gibt die Stunde mit einer 12-Stunden-Uhr an (Standard ist die aktuelle Stunde)"
         },
         "minute": {
           "name": "minute",
@@ -95,21 +95,21 @@
           "description": "Geben Sie die Sekunde an (Standardwert ist 0)"
         },
         "am": {
-          "name": "am",
-          "description": "When True, hour must be between 1 to 12 and will be interpreted as AM (ante meridiem)"
+          "name": "vormittag",
+          "description": "Wenn wahr, muss die Stunde zwischen 1 und 12 liegen und wird als Vormittag interpretiert"
         },
         "pm": {
-          "name": "pm",
-          "description": "When True, hour must be between 1 to 12 and will be interpreted as PM (post meridiem)"
+          "name": "nachmittag",
+          "description": "Wenn wahr, muss die Stunde zwischen 1 und 12 liegen und wird als Vormittag interpretiert"
         }
       },
       "responses": {
-        "amOrPmOnly": "You can't specify both am and pm options at the same time",
-        "meridiemRequired": "You must provide either the am or pm option when using the hour12 option",
-        "noAmOrPmWithMeridiem": "You can't specify the am or pm options when the meridiem in provided in the hour option",
-        "hourOrHour12Only": "You can't specify both hour and hour12 options at the same time",
-        "hourRange": "When a meridiem is not specified, hour must be a number between 0 and 23",
-        "hour12Range": "When a meridiem is specified, hour must be a number between 1 and 12"
+        "amOrPmOnly": "Du kannst die Optionen vormittag und nachmittag nicht gleichzeitig angeben",
+        "meridiemRequired": "Du musst entweder vormittag oder nachmittag angeben, wenn du die Option stunde12 verwendest",
+        "noAmOrPmWithMeridiem": "Du kannst die vormittags- oder nachmittags-Optionen nicht angeben, wenn das Meridiem bereits in der Stunden-Option enthalten ist",
+        "hourOrHour12Only": "Du kannst die Optionen vormittag und nachmittag nicht gleichzeitig angeben",
+        "hourRange": "Wenn kein Meridiem angegeben ist, muss die Stunde eine Zahl zwischen 0 und 23 sein",
+        "hour12Range": "Wenn ein Meridiem angegeben wird, muss die Stunde eine Zahl zwischen 1 und 12 sein"
       }
     },
     "add": {
@@ -248,7 +248,7 @@
         "recordingTelemetry": "Für diesen Befehl werden Telemetriedaten gesammelt, Ergebnisse stehen noch aus…",
         "telemetryPlaceholder": "Der Rest dieses Textes ist nur dazu da, um zu verhindern, dass sich die Größe der Nachricht zu sehr ändert, wenn die Ergebnisse der Telemetrieaufzeichnung verfügbar sind.",
         "feedbackWanted": "Feedback erwünscht!",
-        "at12Hint": "There are now several different options to specify the number of hours both within the {{slashAt}} command (via the existing {{hourOptionName}} option which now has autocompletion, or the new {{hour12OptionName}}, {{amOptionName}} and {{pmOptionName}} options) and the new {{slashAt12}} command. Use whichever you are more comfortable with. How popular each method is (based on the telemetry data) will determine which of these options will become permanent."
+        "at12Hint": "Es gibt jetzt verschiedene Optionen für die Stundenangabe: im Befehl {{slashAt}} über {{hourOptionName}} (mit Autovervollständigung) oder die neuen Optionen {{hour12OptionName}}, {{amOptionName}}, {{pmOptionName}}, sowie den neuen Befehl {{slashAt12}}. Verwende die Methode, die dir am besten passt. Die Beliebtheit (basierend auf Telemetriedaten) bestimmt, welche Option dauerhaft bleibt."
       }
     },
     "statistics": {
@@ -327,44 +327,44 @@
       }
     },
     "at12": {
-      "name": "at12",
-      "description": "Specify the exact components of the timestamp (using a 12-hour clock)",
+      "name": "um12",
+      "description": "Gib die genauen Komponenten des Zeitstempels an (unter Verwendung einer 12-Stunden-Uhr)",
       "responses": {
-        "amOrPmOnly": "You can't specify both am and pm options at the same time",
-        "meridiemRequired": "You must provide either the am or pm option"
+        "amOrPmOnly": "Du kannst die Optionen vormittag und nachmittag nicht gleichzeitig angeben",
+        "meridiemRequired": "Du musst entweder die vormittag oder nachmittag Option angeben"
       },
       "options": {
         "year": {
-          "name": "year",
-          "description": "Specify the year (defaults to current year)"
+          "name": "jahr",
+          "description": "Gib das Jahr an (Standardwert ist das aktuelle Jahr)"
         },
         "month": {
-          "name": "month",
-          "description": "Specify the month (defaults to current month)"
+          "name": "monat",
+          "description": "Gib den Monat an (Standardwert ist der aktuelle Monat)"
         },
         "day": {
-          "name": "day",
-          "description": "Specify the day (defaults to current day)"
+          "name": "tag",
+          "description": "Gib den Tag an (Standardwert ist der aktuelle Tag)"
         },
         "hour": {
-          "name": "hour",
-          "description": "Specify the hour (defaults to current hour)"
+          "name": "stunde",
+          "description": "Gib die Stunde an (Standardwert ist die aktuelle Stunde)"
         },
         "minute": {
           "name": "minute",
-          "description": "Specify the minute (defaults to current minute)"
+          "description": "Gib die Minute an (Standardwert ist die aktuelle Minute)"
         },
         "second": {
-          "name": "second",
-          "description": "Specify the second (defaults to 0)"
+          "name": "sekunde",
+          "description": "Gib die Sekunde an (Standardwert ist 0)"
         },
         "am": {
-          "name": "am",
-          "description": "When True, hour will be interpreted as am (ante meridiem, before noon)"
+          "name": "vormittag",
+          "description": "Wenn wahr, wird Stunde wie vormittag interpretiert (vor 12.00 Uhr)"
         },
         "pm": {
-          "name": "pm",
-          "description": "When True, hour will be interpreted as pm (post meridiem, after noon)"
+          "name": "nachmittag",
+          "description": "Wenn wahr, wird Stunde wie nachmittag interpretiert (nach12.00 Uhr)"
         }
       }
     }
