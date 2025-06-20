@@ -360,11 +360,11 @@
         },
         "am": {
           "name": "vormittag",
-          "description": "Wenn wahr, wird Stunde wie vormittag interpretiert (vor 12.00 Uhr)"
+          "description": "Wenn wahr, wird Stunde wie vormittag interpretiert (vor 12:00 Uhr)"
         },
         "pm": {
           "name": "nachmittag",
-          "description": "Wenn wahr, wird Stunde wie nachmittag interpretiert (nach12.00 Uhr)"
+          "description": "Wenn wahr, wird Stunde wie nachmittag interpretiert (nach 12:00 Uhr)"
         }
       }
     }
