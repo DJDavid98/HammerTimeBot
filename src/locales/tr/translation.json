@@ -83,8 +83,8 @@
           "description": "Saati belirtin (varsayılan olarak geçerli saat kullanılır)"
         },
         "hour12": {
-          "name": "hour12",
-          "description": "Specify the hour using 12-hour clock (defaults to current hour)"
+          "name": "saat12",
+          "description": "Saati 12 saatlik saat sistemini kullanarak belirtin (varsayılan olarak geçerli saat kullanılır)"
         },
         "minute": {
           "name": "dakika",
@@ -96,20 +96,20 @@
         },
         "am": {
           "name": "am",
-          "description": "When True, hour must be between 1 to 12 and will be interpreted as AM (ante meridiem)"
+          "description": "True olduğunda, saat 1 ile 12 arasında olmalı ve ÖÖ (öğleden önce) olarak yorumlanacaktır"
         },
         "pm": {
           "name": "pm",
-          "description": "When True, hour must be between 1 to 12 and will be interpreted as PM (post meridiem)"
+          "description": "True olduğunda, saat 1 ile 12 arasında olmalı ve ÖS (öğleden sonra) olarak yorumlanacaktır"
         }
       },
       "responses": {
-        "amOrPmOnly": "You can't specify both am and pm options at the same time",
-        "meridiemRequired": "You must provide either the am or pm option when using the hour12 option",
-        "noAmOrPmWithMeridiem": "You can't specify the am or pm options when the meridiem in provided in the hour option",
-        "hourOrHour12Only": "You can't specify both hour and hour12 options at the same time",
-        "hourRange": "When a meridiem is not specified, hour must be a number between 0 and 23",
-        "hour12Range": "When a meridiem is specified, hour must be a number between 1 and 12"
+        "amOrPmOnly": "Aynı anda hem am hem de pm seçeneklerini belirtemezsiniz",
+        "meridiemRequired": "saat12 seçeneğini kullanırken am ya da pm seçeneğini belirtmelisiniz",
+        "noAmOrPmWithMeridiem": "Saat seçeneğinde am/pm belirtilmişken, ayrıca am ya da pm seçeneklerini kullanamazsınız",
+        "hourOrHour12Only": "Aynı anda hem saat hem de saat12 seçeneklerini belirtemezsiniz",
+        "hourRange": "Bir meridiem (am/pm) belirtilmediğinde, saat 0 ile 23 arasında bir sayı olmalıdır",
+        "hour12Range": "Bir meridiem (am/pm) belirtildiğinde, saat 1 ile 12 arasında bir sayı olmalıdır"
       }
     },
     "add": {
@@ -248,7 +248,7 @@
         "recordingTelemetry": "Bu komut için telemetri toplanıyor, sonuçlar bekleniyor…",
         "telemetryPlaceholder": "Bu metnin geri kalanı, yalnızca telemetri kaydı sonuçları mevcut olduğunda mesaj boyutunun çok fazla değişmesini önlemek amacıyla buradadır.",
         "feedbackWanted": "Geri bildiriminiz bekleniyor!",
-        "at12Hint": "There are now several different options to specify the number of hours both within the {{slashAt}} command (via the existing {{hourOptionName}} option which now has autocompletion, or the new {{hour12OptionName}}, {{amOptionName}} and {{pmOptionName}} options) and the new {{slashAt12}} command. Use whichever you are more comfortable with. How popular each method is (based on the telemetry data) will determine which of these options will become permanent."
+        "at12Hint": "Artık saati belirtmek için hem {{slashAt}} komutu içinde (otomatik tamamlama özelliğine sahip mevcut {{hourOptionName}} seçeneği veya yeni {{hour12OptionName}}, {{amOptionName}} ve {{pmOptionName}} seçenekleri aracılığıyla) hem de yeni {{slashAt12}} komutuyla çeşitli seçenekler bulunmaktadır. Kendinizi hangisiyle daha rahat hissediyorsanız onu kullanın. Hangi yöntemin ne kadar popüler olduğu (telemetri verilerine göre) bu seçeneklerden hangilerinin kalıcı olacağını belirleyecektir."
       }
     },
     "statistics": {
@@ -327,44 +327,44 @@
       }
     },
     "at12": {
-      "name": "at12",
-      "description": "Specify the exact components of the timestamp (using a 12-hour clock)",
+      "name": "şurada12",
+      "description": "Zaman damgasının tam bileşenlerini belirtin (12 saatlik saat sistemini kullanarak)",
       "responses": {
-        "amOrPmOnly": "You can't specify both am and pm options at the same time",
-        "meridiemRequired": "You must provide either the am or pm option"
+        "amOrPmOnly": "Aynı anda hem am hem de pm seçeneklerini belirtemezsiniz",
+        "meridiemRequired": "am ya da pm seçeneğinden birini belirtmelisiniz"
       },
       "options": {
         "year": {
-          "name": "year",
-          "description": "Specify the year (defaults to current year)"
+          "name": "yıl",
+          "description": "Yılı belirtin (varsayılan olarak geçerli yıl kullanılır)"
         },
         "month": {
-          "name": "month",
-          "description": "Specify the month (defaults to current month)"
+          "name": "ay",
+          "description": "Ayı belirtin (varsayılan olarak geçerli ay kullanılır)"
         },
         "day": {
-          "name": "day",
-          "description": "Specify the day (defaults to current day)"
+          "name": "gün",
+          "description": "Günü belirtin (varsayılan olarak geçerli gün kullanılır)"
         },
         "hour": {
-          "name": "hour",
-          "description": "Specify the hour (defaults to current hour)"
+          "name": "saat",
+          "description": "Saati belirtin (varsayılan olarak geçerli saat kullanılır)"
         },
         "minute": {
-          "name": "minute",
-          "description": "Specify the minute (defaults to current minute)"
+          "name": "dakika",
+          "description": "Dakikayı belirtin (varsayılan olarak geçerli dakika kullanılır)"
         },
         "second": {
-          "name": "second",
-          "description": "Specify the second (defaults to 0)"
+          "name": "saniye",
+          "description": "Saniyeyi belirtin (varsayılan olarak 0 kullanılır)"
         },
         "am": {
           "name": "am",
-          "description": "When True, hour will be interpreted as am (ante meridiem, before noon)"
+          "description": "True olduğunda, saat ÖÖ (öğleden önce) olarak yorumlanacaktır"
         },
         "pm": {
           "name": "pm",
-          "description": "When True, hour will be interpreted as pm (post meridiem, after noon)"
+          "description": "True olduğunda, saat ÖS (öğleden sonra) olarak yorumlanacaktır"
         }
       }
     }
