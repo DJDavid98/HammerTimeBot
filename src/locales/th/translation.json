@@ -83,8 +83,8 @@
           "description": "ระบุชั่วโมง (ค่าเริ่มต้นคือชั่วโมงนี้)"
         },
         "hour12": {
-          "name": "hour12",
-          "description": "Specify the hour using 12-hour clock (defaults to current hour)"
+          "name": "รูปแบบเวลา 12 ชั่วโมง",
+          "description": "ระบุชั่วโมงเป็น 12 ชั่วโมง (ค่าดั้งเดิมคือชั่วโมง ณ ปัจจุบัน)"
         },
         "minute": {
           "name": "นาที",
@@ -95,12 +95,12 @@
           "description": "ระบุวินาที (ค่าเริ่มต้นคือ 0)"
         },
         "am": {
-          "name": "am",
-          "description": "When True, hour must be between 1 to 12 and will be interpreted as AM (ante meridiem)"
+          "name": "เวลาก่อนเที่ยง",
+          "description": "เมื่อตัวเลือกเป็นใช่ ชั่วโมงจะต้องเป็นเลขตั้งแต่ 1 ถึง 12 และจะเป็นเวลาก่อนเที่ยง (AM/ante meridiem)"
         },
         "pm": {
-          "name": "pm",
-          "description": "When True, hour must be between 1 to 12 and will be interpreted as PM (post meridiem)"
+          "name": "เวลาหลังเที่ยง",
+          "description": "เมื่อตัวเลือกนี้คือใช่ ชั่วโมงจะต้องเป็นเลขตั้งแต่ 1 ถึง 12 และจะเป็นชั่วโมงหลังจากเที่ยง"
         }
       },
       "responses": {
@@ -247,7 +247,7 @@
         "privacyPolicyLink": "นโยบายความเป็นส่วนตัว",
         "recordingTelemetry": "กำลังรวบรวมข้อมูลการวัดผลการใช้งาน สำหรับคำสั่งนี้ ผลลัพธ์กำลังรอการดำเนินการ…",
         "telemetryPlaceholder": "ส่วนที่เหลือของข้อความนี้มีไว้เพื่อป้องกันไม่ให้ขนาดข้อความเปลี่ยนแปลงมากเกินไปเมื่อมีผลการบันทึกข้อมูลการวัดผลการใช้งาน",
-        "feedbackWanted": "Feedback wanted!",
+        "feedbackWanted": "พวกเราต้องการความคิดเห็นจากคุณ!",
         "at12Hint": "There are now several different options to specify the number of hours both within the {{slashAt}} command (via the existing {{hourOptionName}} option which now has autocompletion, or the new {{hour12OptionName}}, {{amOptionName}} and {{pmOptionName}} options) and the new {{slashAt12}} command. Use whichever you are more comfortable with. How popular each method is (based on the telemetry data) will determine which of these options will become permanent."
       }
     },
